@@ -44,8 +44,12 @@ Until the menus plan is built, the game opens on a small stand-in menu, Settings
   - **Master volume:** Shift+Home raises it and Shift+End lowers it.
 - **A debug mode, for source runs only** (the dev, 2026-10-19: "a debug mode would be extremely useful for this game for skipping to any part of the story I want"). It is turned on by `--debug` or by a Debug mode row in Settings, shown only when running from source, remembered between runs, and switched on or off at once without a restart. It never exists in a built game. The window title says "Heathcote (debug)" while it is on. Its keys skip the current spiel, jump to any spiel by its label, and speak every variable's value; the exact keys are settled in the story engine plan.
 - **The window shows plain text for a sighted helper** (the dev, 2026-10-19: "Yes."): in a menu, its rows; during the story, the transcript line of the spiel playing and the actions on offer. It is secondary: the speech and the audio are the real interface, and nothing is only in the window.
+- **Four command-line options** (the dev, 2026-10-19: "I agree."):
+  - `--debug` turns on debug mode.
+  - `--spiel LABEL`, in debug mode only, starts the story at any spiel by its label, such as `--spiel "east wing (blocked 1)"`.
+  - `-v` writes a more detailed log.
+  - `--exit-after SECONDS` quits by itself after that many seconds, so the build test can start a built game silently and check it runs.
 - **Tests stay silent and off the real save** ([[feedback_dont_run_or_build]]): every test imports `_quiet.py` first, which points the save at a throwaway folder, turns speech off, and gives pygame dummy audio and video drivers.
 
 ## Open questions
-1. Which command-line options are there? Proposed: `--debug`; `--spiel LABEL`, debug mode only, starting the story at any spiel; `-v` for a more detailed log; and `--exit-after SECONDS` for the build test.
-2. What interrupts what in speech? Proposed, as before: each menu move cuts off what was being said; a key the player presses speaks at once, cutting off earlier speech but never the story audio; important messages, such as an error, are cut off only by a key; speech never pauses the story.
+1. What interrupts what in speech? Proposed, as before: each menu move cuts off what was being said; a key the player presses speaks at once, cutting off earlier speech but never the story audio; important messages, such as an error, are cut off only by a key; speech never pauses the story.
