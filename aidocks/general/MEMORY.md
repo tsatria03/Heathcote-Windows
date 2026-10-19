@@ -2,6 +2,7 @@
 
 ## Project
 - [Original findings](project_original_findings.md): the dev's layout of game/, what the iOS bundle contains, the JSON script grammar, the runtime read from the binary, and what to drop.
+- [Audio names](project_audio_names.md): every story recording's English name and folder, mapped back to the id the data names it by.
 - [No downloads](project_no_downloads.md): every recording ships with the game; no pack, download screen or release asset.
 - [Python only](project_python_only.md): pygame, Prism and the NVDA client; the dev converts .m4a to MP3, Claude never does.
 - [Windows only](project_windows_only.md): no Linux, macOS or GitHub Actions workflow.
