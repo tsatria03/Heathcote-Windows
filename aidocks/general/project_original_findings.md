@@ -9,7 +9,7 @@ metadata:
 Findings from the first read-only survey of `game/` (2026-10-19). Nothing in `game/` was changed by Claude.
 
 ## The dev's layout of game/ (reorganized 2026-10-19)
-- `game/data/Audio/story/`: the 220 story recordings, bare ids with no extension (were `game/Documents/`).
+- `game/data/Audio/story/`: the 220 story recordings (were `game/Documents/`). Each is named by its id plus an extension that matches its format: 148 `.mp3`, 61 `.wav` and 11 `.m4a`. Claude added the extensions at the dev's request on 2026-10-19 ("I don't like them not having one"), going by each file's header. The story data still names each file by the bare id, so the port adds the extension when it looks a file up.
 - `game/data/Audio/System/`: `bugfound.wav` and `thonk.m4a` (were `game/Audio/`).
 - `game/data/text/story/`: the 606 record JSON files.
 - `game/data/text/system/`: `Heathcote v1.01.bundle.json` and `ReadMe.txt`.

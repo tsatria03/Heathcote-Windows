@@ -18,7 +18,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 
 ## Layout
 
-- **`game/`**: the original app bundle, reorganized by the dev, and never written to by Claude. The layout is in [[project_original_findings]]. The story records are in `game/data/text/story/`, with the master index `game/data/text/system/Heathcote v1.01.bundle.json`. The recordings are in `game/data/Audio/story/`, named by bare id with no extension. Don't move, rename, convert or delete sound files unless the dev asks.
+- **`game/`**: the original app bundle, reorganized by the dev, and never written to by Claude. The layout is in [[project_original_findings]]. The story records are in `game/data/text/story/`, with the master index `game/data/text/system/Heathcote v1.01.bundle.json`. The recordings are in `game/data/Audio/story/`, each named by its id plus an extension for its format; the story data names them by the bare id. Don't move, rename, convert or delete sound files unless the dev asks.
 - **`heathcote/`**: the port's Python package, empty for now.
 - **`tests/interact/`**: tools played by ear, not tests, run by the dev. A tool for testing goes here, never into the game's menus ([[feedback_test_tools_in_interact]]).
 - **`tests/case/`**: silent test scripts, to come; results go in the gitignored `tests/results/`. Run only the files covering what changed, in the background, and the full suite only when the dev asks ([[feedback_dont_run_or_build]]).
