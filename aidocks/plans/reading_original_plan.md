@@ -63,7 +63,7 @@ Each section is confirmed by the dev before the next starts.
 - Standard library only. It only reads; it writes nothing under `game/`.
 
 ### Section 3: the readable script
-- `tools/script_text.py` writes the whole story as plain text into `analysis/script/`.
+- `tools/script_text.py` writes the whole story as plain text into one file, `analysis/script/Heathcote.txt`.
 - For each spiel: its label, its transcript, each timed `set` with its time, its `next` and its idle loop.
 - For each action: its spoken label, its condition, its order, whether it burns after reading, and the spiel it plays.
 - Written for reading by screen reader: plain lines, no tables.
@@ -84,6 +84,7 @@ Each section is confirmed by the dev before the next starts.
 - No save import from the original.
 - **The game reads the original JSON directly** (the dev, 2026-10-19: "I want it to read it directly if possible."). There is no exported copy. The game's own loader reads `game/data/text/` as it is, and `tools/story.py` shares its rules so that the checks and the game agree. If something in the data cannot be read as it is, a fix is made in code at load time, never by editing `game/`, and it is raised with the dev first.
 
+- **The readable script is one file**, `analysis/script/Heathcote.txt` (the dev, 2026-10-19: "I recommend one file because unlike [the other game], these are not episodes. It's just one long episode with branched choices in the middle if you think about it."). It runs in the order the story plays from the start, and each spiel begins with its label on a line of its own, so NVDA's find can jump to it.
+
 ## Open questions
-1. Is the readable script one file for the whole story, or split into several files, such as by location?
-2. Is `project_original_behaviour.md` the right home for the behaviour, or should it go in `analysis/` beside the script?
+1. Is `project_original_behaviour.md` the right home for the behaviour, or should it go in `analysis/` beside the script?
