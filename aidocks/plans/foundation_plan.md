@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned. Being written; open questions below are still being answered.
+**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
 
 Plan 2 ([[reading_original_plan]] lists the order). Everything else stands on it: the audio, the story engine, the menus and the saves all use its paths, speech, timers and screen loop.
 
@@ -49,7 +49,13 @@ Until the menus plan is built, the game opens on a small stand-in menu, Settings
   - `--spiel LABEL`, in debug mode only, starts the story at any spiel by its label, such as `--spiel "east wing (blocked 1)"`.
   - `-v` writes a more detailed log.
   - `--exit-after SECONDS` quits by itself after that many seconds, so the build test can start a built game silently and check it runs.
+- **What interrupts what** (the dev, 2026-10-19: "I agree."). These cover screen reader speech only; the recorded menu choices in `speech/` are settled in the menus plan ([[project_later_topics]]).
+  - Each move in a menu cuts off what was being said, so fast arrowing never builds a backlog.
+  - A key the player presses, such as a volume change, speaks at once, cutting off earlier speech but never the story audio, which keeps playing underneath.
+  - Important messages, such as an error, are never cut off by background events, only by the player pressing a key.
+  - Speech never pauses the story. Only the pause key does.
 - **Tests stay silent and off the real save** ([[feedback_dont_run_or_build]]): every test imports `_quiet.py` first, which points the save at a throwaway folder, turns speech off, and gives pygame dummy audio and video drivers.
 
 ## Open questions
-1. What interrupts what in speech? Proposed, as before: each menu move cuts off what was being said; a key the player presses speaks at once, cutting off earlier speech but never the story audio; important messages, such as an error, are cut off only by a key; speech never pauses the story.
+
+None.
