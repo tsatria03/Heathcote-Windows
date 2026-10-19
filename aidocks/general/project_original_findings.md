@@ -9,8 +9,9 @@ metadata:
 Findings from the first read-only survey of `game/` (2026-10-19). Nothing in `game/` was changed by Claude.
 
 ## The dev's layout of game/ (reorganized 2026-10-19)
-- `game/data/Audio/story/`: the 220 story recordings (were `game/Documents/`). Each is named by its id plus an extension that matches its format: 148 `.mp3`, 61 `.wav` and 11 `.m4a`. Claude added the extensions at the dev's request on 2026-10-19 ("I don't like them not having one"), going by each file's header. The story data still names each file by the bare id, so the port adds the extension when it looks a file up.
-- `game/data/Audio/System/`: `bugfound.wav` and `thonk.m4a` (were `game/Audio/`).
+- `game/data/Audio/story/`: the 220 story recordings (were `game/Documents/`), all MP3, in six folders by kind: `spiels/`, `voice/`, `ambience/`, `idle/`, `music/` and `interface/`. Each has its English name from its record; the old id of each is in [[project_audio_names]].
+- `game/data/Audio/System/interface/`: `bugfound.mp3` and `thonk.mp3` (were `game/Audio/`).
+- **Every recording is MP3** (the dev converted them all on 2026-10-19: "I was able to convert every sound to mp3, even in the system folder"). The original formats were 148 MP3, 61 WAV and 12 AAC `.m4a`. The data's `original.name` still gives the old extension.
 - `game/data/text/story/`: the 606 record JSON files.
 - `game/data/text/system/`: `Heathcote v1.01.bundle.json` and `ReadMe.txt`.
 - `game/data/image/story/`: the 48 story graphics (24 ids, each `.png` and `@2x.png`).

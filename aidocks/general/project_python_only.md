@@ -16,9 +16,8 @@ Don't propose moving parts to another language or engine.
 **Why:** On 2026-10-19 the dev agreed to adopt the reference repo's working rules, which use this stack. `vendor/nvda/` already holds the NVDA client.
 
 **Audio formats:**
-- pygame's mixer cannot decode AAC in `.m4a` files. The original has 11 of them in its story audio, plus `thonk.m4a` ([[project_original_findings]]).
-- In the reference rules the dev converts `.m4a` to MP3 on their own machine, and Claude never runs the conversion.
-- The MP3 and WAV recordings play as they are.
+- Every recording is MP3, converted by the dev on their own machine on 2026-10-19, the WAV and `.m4a` files included ([[project_original_findings]]). Claude never runs a conversion.
+- pygame's mixer cannot decode AAC in `.m4a` files, which is why they were converted.
 
 **How to apply:**
 - Write any new code in Python, inside the port's package.

@@ -52,7 +52,7 @@ Each section is confirmed by the dev before the next starts.
 
 ### Section 2: reading the story data
 - `tools/story.py`: loads `game/data/text/system/Heathcote v1.01.bundle.json` and every record in `game/data/text/story/`, resolving each softRef to its record, its label and its file.
-  - A file is found by its id plus whichever extension is on disk, so it keeps working after the dev converts the `.m4a` files to `.mp3`.
+  - A recording is found the way [[project_audio_names]] says: its record's `original.name`, with `.mp3` in place of its extension and any character Windows does not allow dropped, in the folder for its bundle category. Graphics are still `<id>.png`.
   - It skips the broken recap record (`iRRuxKjogQweYZQWS.json`) with a warning.
 - It checks the data and prints any problem:
   - every softRef in an action, a `next`, a `set`, an ambience, the music or an idle loop leads to a real record
