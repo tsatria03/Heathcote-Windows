@@ -82,8 +82,8 @@ Each section is confirmed by the dev before the next starts.
 - The tools are not part of the game, and are never shipped in a build.
 - No tool plays sound or speaks, so they can be run without asking ([[feedback_dont_run_or_build]]).
 - No save import from the original.
+- **The game reads the original JSON directly** (the dev, 2026-10-19: "I want it to read it directly if possible."). There is no exported copy. The game's own loader reads `game/data/text/` as it is, and `tools/story.py` shares its rules so that the checks and the game agree. If something in the data cannot be read as it is, a fix is made in code at load time, never by editing `game/`, and it is raised with the dev first.
 
 ## Open questions
-1. Does the game read the original JSON directly through a loader, or a cleaned copy exported by a tool, as the reference material does? Recommended: directly, since the data is already clean and readable, so there is no second copy to keep in step.
-2. Is the readable script one file for the whole story, or split into several files, such as by location?
-3. Is `project_original_behaviour.md` the right home for the behaviour, or should it go in `analysis/` beside the script?
+1. Is the readable script one file for the whole story, or split into several files, such as by location?
+2. Is `project_original_behaviour.md` the right home for the behaviour, or should it go in `analysis/` beside the script?
