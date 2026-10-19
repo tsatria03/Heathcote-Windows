@@ -14,7 +14,7 @@ metadata:
 
 **Hold while the dev says so.** When the dev holds pushes, do not ask about pushing even past 10 commits. When the hold ends, report the count and ask. The dev can still ask for a push during a hold.
 
-**Make multiple commits when possible** (the dev: "Make multiple commits when possible"). Split a batch into one commit per logical change.
+**Make multiple commits when possible** (the dev, 2026-10-19: "in the future, try to make multiple commits when possible"). Split a batch into one commit per logical change. The dev's reorganization of `game/` went in as five commits, one per kind of file (audio, text, images, certificates, source files), each staging the old and new paths together so git records them as renames.
 
 **Fetching is fine without asking; bringing commits in is not.** Never pull, merge, rebase, cherry-pick or reset onto incoming commits without the dev's go-ahead.
 
