@@ -8,14 +8,22 @@ metadata:
 
 On 2026-10-19, once the dev had converted every recording to MP3, each story recording was renamed from its bare id to its English name, taken from its record's `original.name`, and moved into a folder for its kind. The dev asked for it: "Is it possible to rename the jibrish audio files to there english counterparts, according to the json files?", then "Yes. Let's do it that way."
 
-**Why:** the dev does not like names with no meaning or extension. The folders keep apart names that clash across kinds, such as `rats.mp3` in `spiels/` and in `voice/`.
+**Why:** the dev does not like names with no meaning or extension. The folders keep apart names that clash across kinds, such as `rats.mp3` in `scene/` and in `speech/`.
 
 **How to apply:**
 - The story data still names every file by its id. The game finds a file by following the id to its record, taking `original.name`, swapping its extension for `.mp3`, dropping any character Windows does not allow, and looking in the folder for the record's bundle category.
+- The folder for each bundle category, as the dev named them on 2026-10-19:
+  - `actionSpiels`: `scene/`
+  - `systemVoice`: `speech/`
+  - `ambience`: `ambience/`
+  - `idleLoops`: `idle/`
+  - `bgm`: `music/`
+  - `systemSounds`: `interface/`
+- The two app sounds, `bugfound.mp3` and `thonk.mp3`, are in `game/data/Audio/System/misc/`; neither is in the story data.
 - One name lost a character: `what was the question?` is now `what was the question.mp3`.
 - Each line below reads: new name, then the original id.
 
-## spiels/: the story recordings (actionSpiels), 103 files
+## scene/: the story recordings (actionSpiels), 103 files
 
 - `basement and kitchens.mp3`: 6XKCiH4XQuiDrXwZQ
 - `call opening.mp3`: KJKwxSfbzEHPK3rBT
@@ -121,7 +129,7 @@ On 2026-10-19, once the dev had converted every recording to MP3, each story rec
 - `where you at (typewriter room).mp3`: 9dPCQrEuFHE6sAoGL
 - `where you at_ (records room - light).mp3`: Z7P9pF2LQbvwEcPgw
 
-## voice/: the spoken menu labels and prompts (systemVoice), 65 files
+## speech/: the spoken menu labels and prompts (systemVoice), 65 files
 
 - `afraid of the dark.mp3`: HYJx6yWH2SGWN8Xb9
 - `basement and kitchens.mp3`: dMix5jpAN2cmXewAo
