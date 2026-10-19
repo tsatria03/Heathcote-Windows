@@ -10,8 +10,9 @@ The developer tasks, which `docks/todo list.txt` leaves out because it ships to 
 
 ## Unfinished
 
-- Once the dev says the `.m4a` conversion is done, rename each story recording to its English name from its record's `original.name`, and sort them into the empty folders already made under `game/data/Audio/story/`: `spiels/`, `voice/`, `ambience/`, `idle/`, `music/` and `interface/`, one folder per bundle category. Drop the `?` from `what was the question?`. Commit one folder at a time, and write the old-to-new name list into a note (agreed 2026-10-19: "Yes. Let's do it that way. I'll convert the files, then you can create the folder stubs with no files in them untill I tell you I'm done.").
+None.
 
 ## Finished
 
+- The 220 story recordings, all MP3 after the dev's conversion, have their English names in six folders by kind under `game/data/Audio/story/`, committed one folder at a time, with the old ids in [[project_audio_names]] (2026-10-19).
 - The dev's reorganization of `game/` into `game/data/`, `game/certificate/` and `game/scripts/` is committed as five pure renames, with no file changed (2026-10-19).
