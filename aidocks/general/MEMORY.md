@@ -9,7 +9,8 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Reading the original](../plans/reading_original_plan.md): plan 1, planned. Binary and story tools, the readable script in analysis/, and a note of the original's behaviour with exact numbers.
+- [Reading the original](../plans/reading_original_plan.md): plan 1, planned, all questions answered. Binary and story tools, the readable script in analysis/, and a note of the original's behaviour with exact numbers.
+- [Foundation](../plans/foundation_plan.md): plan 2, being written. The package, entry script, paths, logs, speech, timers, settings, keys, the F1 screen and the spoken menu.
 
 ## Completed projects
 
