@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned. Agreed in outline by the dev on 2026-10-19 ("Yes, write them"); open questions below are still being answered.
+**Status:** planned. Agreed by the dev on 2026-10-19 ("Yes, write them"), with every question answered. Waiting for the go-ahead to build.
 
 ## Why
 
@@ -86,5 +86,8 @@ Each section is confirmed by the dev before the next starts.
 
 - **The readable script is one file**, `analysis/script/Heathcote.txt` (the dev, 2026-10-19: "I recommend one file because unlike [the other game], these are not episodes. It's just one long episode with branched choices in the middle if you think about it."). It runs in the order the story plays from the start, and each spiel begins with its label on a line of its own, so NVDA's find can jump to it.
 
+- **The behaviour goes in `aidocks/general/project_original_behaviour.md`** (the dev, 2026-10-19: "Yes."), not in `analysis/`. `analysis/` holds only what the tools write and can write again; the behaviour is written by hand, cited by every later plan, and read by each session from `aidocks/`.
+
 ## Open questions
-1. Is `project_original_behaviour.md` the right home for the behaviour, or should it go in `analysis/` beside the script?
+
+None.
