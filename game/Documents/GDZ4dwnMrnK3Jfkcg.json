@@ -1,0 +1,44 @@
+{
+  "file": "iBDTHu7EimAgjiTwf",
+  "transcript": "MARTIN: Why don't you start your shpiel? Let's get as much audio as we can of you first entering.\n\nDAVID: Ok...\n\nMARTIN: Don't worry, I can cut all you are saying together after. No need to do the presenter stuff..\n\nDAVID: No. It's gotta be right. Gotta be genuine, my man!\n\nMARTIN: Fine, have your stupid scruples. Start whenever you want.\n\n[SFX: DAVID CLEARS HIS THROAT.]\n\nDAVID: I am now in the foyer of the former Heathcote asylum... \n\n[SFX: Some static can be heard on the line.]\n\nDAVID (CONT’D): The fire didn’t reach this far. In all it seems like a normal derelict building of its time... The windows are thick with grime from decades of neglect... \n\n[SFX: He starts to walk around.]\n\nDAVID (CONT’D): Upon entering I heard some rats. But what could they be eating in a place like this? Moss grows on some of the window sills... So life is continuing, even in this desolate place... [INCREASINGLY DRAMATIC] I have a feeling though that this place doesn't want us here... [BACK TO NORMAL] Then Martin, here you'd cut in the door slam.\n\nMARTIN: Thought it had to be genuine?\n\nDAVID: Well, we do our best to be genuine. But we're not freakin' saints here, man.\n\n[SFX: The wind howls through a broken pane on the other side of the room.]\n\nDAVID (CONT’D): The owner of the property refuses to rebuild here, just letting it sit vacant. When I questioned him about it, he would not tell me why.\n\n[SFX: HE WALKS ACROSS THE ROOM SLOWLY.]\n\nDAVID (CONT’D): I presume it would be expensive to do anything with it, and this whole area is so remote, there are probably few buyers... Especially with the tragedy that happened here.\n\nDAVID [BACK IN CHARACTER]: How we doing so far? Loud and clear?\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "uTYZBw9oZC5Zdp6eZ": "foyer during spiel",
+        "FretZEsGf5N8WCAzB": "spiel 2",
+        "u9A9g7skyQT96NvBx": "the presenter stuff",
+        "S8voH47psKfyKxK98": "1",
+        "kEawLAST5aQSsEW7G": "rotation 1",
+        "NrEq5pCjLnyQoLX4p": "0",
+        "tqNxMvLyaCJQMAWqQ": "0",
+        "Fo2TRJfgqW2vqmF9C": "0"
+      }
+    },
+    {
+      "at": 36.4,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442815175923,
+  "edited": 1445064784299,
+  "ambience2": [
+    {
+      "at": 23.075,
+      "fadeTo": {
+        "softRef": "wwy7yXsZPcezLs79m",
+        "duration": 6.15
+      }
+    }
+  ],
+  "_id": "GDZ4dwnMrnK3Jfkcg"
+}

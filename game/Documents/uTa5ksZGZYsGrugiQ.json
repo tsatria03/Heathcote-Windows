@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "uTa5ksZGZYsGrugiQ",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (records room).mp3",
+      "type": "audio/mp3",
+      "size": 905088,
+      "key": "binaries-uTa5ksZGZYsGrugiQ-idle loop (records room).mp3",
+      "updatedAt": "2015-10-15T01:35:01.000Z",
+      "createdAt": "2015-10-15T01:35:01.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (records room).mp3",
+    "updatedAt": "2015-10-15T01:34:53.000Z",
+    "size": 905088,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T01:35:01.166Z",
+  "collectionName": "binaries"
+}

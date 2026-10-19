@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "tS536dPko6yYomCTz",
+  "copies": {
+    "binaries": {
+      "name": "hallway graffiti (clowns).mp3",
+      "type": "audio/mp3",
+      "size": 250368,
+      "key": "binaries-tS536dPko6yYomCTz-hallway graffiti (clowns).mp3",
+      "updatedAt": "2015-10-16T08:05:07.000Z",
+      "createdAt": "2015-10-16T08:05:07.000Z"
+    }
+  },
+  "original": {
+    "name": "hallway graffiti (clowns).mp3",
+    "updatedAt": "2015-10-16T08:04:07.000Z",
+    "size": 250368,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T08:05:07.581Z",
+  "collectionName": "binaries"
+}

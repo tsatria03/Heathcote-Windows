@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "uNXWs4JGesc3QSLzJ",
+  "copies": {
+    "binaries": {
+      "name": "start recording (P).wav",
+      "type": "audio/wav",
+      "size": 299122,
+      "key": "binaries-uNXWs4JGesc3QSLzJ-start recording (P).wav",
+      "updatedAt": "2015-10-03T07:04:39.000Z",
+      "createdAt": "2015-10-03T07:04:39.000Z"
+    }
+  },
+  "original": {
+    "name": "start recording (P).wav",
+    "updatedAt": "2015-10-03T06:24:43.000Z",
+    "size": 299122,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T07:04:39.846Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "7CXfoQgeHppfuCMgk",
+  "copies": {
+    "binaries": {
+      "name": "spiel 3 (end).mp3",
+      "type": "audio/mp3",
+      "size": 963072,
+      "key": "binaries-7CXfoQgeHppfuCMgk-spiel 3 (end).mp3",
+      "updatedAt": "2015-10-17T11:05:46.000Z",
+      "createdAt": "2015-10-17T11:05:46.000Z"
+    }
+  },
+  "original": {
+    "name": "spiel 3 (end).mp3",
+    "updatedAt": "2015-10-17T11:02:58.000Z",
+    "size": 963072,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-17T11:05:46.655Z",
+  "collectionName": "binaries"
+}

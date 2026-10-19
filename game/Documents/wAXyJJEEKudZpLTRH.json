@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "wAXyJJEEKudZpLTRH",
+  "copies": {
+    "binaries": {
+      "name": "cells, windy.mp3",
+      "type": "audio/mp3",
+      "size": 872832,
+      "key": "binaries-wAXyJJEEKudZpLTRH-cells, windy.mp3",
+      "updatedAt": "2015-10-15T23:53:40.000Z",
+      "createdAt": "2015-10-15T23:53:40.000Z"
+    }
+  },
+  "original": {
+    "name": "cells, windy.mp3",
+    "updatedAt": "2015-10-15T23:53:21.000Z",
+    "size": 872832,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T23:53:40.829Z",
+  "collectionName": "binaries"
+}

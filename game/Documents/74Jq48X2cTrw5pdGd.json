@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "74Jq48X2cTrw5pdGd",
+  "copies": {
+    "binaries": {
+      "name": "spiel 2.mp3",
+      "type": "audio/mp3",
+      "size": 999552,
+      "key": "binaries-74Jq48X2cTrw5pdGd-spiel 2.mp3",
+      "updatedAt": "2015-10-16T20:31:24.000Z",
+      "createdAt": "2015-10-16T20:31:24.000Z"
+    }
+  },
+  "original": {
+    "name": "spiel 2.mp3",
+    "updatedAt": "2015-10-16T20:31:08.000Z",
+    "size": 999552,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T20:31:24.058Z",
+  "collectionName": "binaries"
+}

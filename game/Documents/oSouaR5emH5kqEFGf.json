@@ -1,0 +1,49 @@
+{
+  "file": "m93sZNEqfMrgthkn2",
+  "transcript": "[SFX - GHOSTS GOING OOOOOOH/ CLANKS OF CHAINS / SCREAMS OF TEENAGE GIRLS / A MONSTROUS LAUGH etc - Cheap and tacky as possible]\n\nVOICEOVER: Coming in December to 108.2 Eagle FM... Your favorite spook detective, David Scott, in a brand new holiday special...\n\nGHOULISH VOICE: THE FIRES OF HEATHCOTE HELL...\n\nMAN: On Christmas Day 1956, the Heathcote Asylum for the Criminally Insane was the scene of a gruesome tragedy. Answering an anonymous 911 call, firefighters and police arrived on the scene to find one wing of the building engulfed in flames. Inside this inferno were all 89 members of staff and patients. No one survived... The cause of the fire was arson. \n\nLeft derelict for over 50 years, Heathcote Asylum is now known as a hot-spot of supernatural activity. David Scott will go in and face its wrath. Tune in at 9pm for the most terrifying Christmas gift you'll ever receive, only on 108.2 Eagle FM. \n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "commercial"
+      }
+    },
+    {
+      "at": 10.3,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442471087244,
+  "edited": 1445026266839,
+  "next": [
+    {
+      "if": {},
+      "softRef": "zyKRKiaHSWkycPHCx"
+    }
+  ],
+  "ambience1": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 0
+      }
+    }
+  ],
+  "ambience2": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 0
+      }
+    }
+  ],
+  "_id": "oSouaR5emH5kqEFGf"
+}

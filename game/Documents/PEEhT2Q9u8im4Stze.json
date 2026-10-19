@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "PEEhT2Q9u8im4Stze",
+  "copies": {
+    "binaries": {
+      "name": "rewind-try2.mp3",
+      "type": "audio/mp3",
+      "size": 24057,
+      "key": "binaries-PEEhT2Q9u8im4Stze-rewind-try2.mp3",
+      "updatedAt": "2015-10-03T11:32:47.000Z",
+      "createdAt": "2015-10-03T11:32:47.000Z"
+    }
+  },
+  "original": {
+    "name": "rewind-try2.mp3",
+    "updatedAt": "2015-10-03T11:32:36.000Z",
+    "size": 24057,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-03T11:32:47.429Z",
+  "collectionName": "binaries"
+}

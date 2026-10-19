@@ -1,0 +1,39 @@
+{
+  "file": "HrM9Xr9QEnPqfaYjg",
+  "transcript": "MARTIN: DAVID! Talk to me! What is it?\n\n[SFX: As David opens a door and runs through the doorway, it closes behind him. He hear as he runs off the door opening again. The moan following him.]\n\n[SFX: David runs for a while. Finally slowing, and out of breath speaks into the phone. ]\n\nDAVID (Panicked and whispered):  I... I saw them... They came after me, man... They came after me...\n\nMARTIN: Tell me you're out of there.\n\nDAVID (Panicked and whispered): I couldn’t.. They were in front of the exit... I think one followed me.\n\n[SFX: A door opens in the distance.]\n\nDAVID (CONT’D) (Panicked and whispered): Damnit... \n\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "escape 2",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 18,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "ybKtXbhnHJDQB2Q2q",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443153107469,
+  "edited": 1445054087951,
+  "ambience3": [
+    {
+      "at": 12,
+      "fadeTo": {
+        "softRef": "h98fRSsZpq5DJAfZp",
+        "duration": 0.5
+      }
+    }
+  ],
+  "ambience2": [],
+  "_id": "75MknWiAfsWgLtNyW"
+}

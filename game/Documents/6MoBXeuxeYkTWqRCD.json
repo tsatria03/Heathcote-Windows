@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "6MoBXeuxeYkTWqRCD",
+  "copies": {
+    "binaries": {
+      "name": "credits-2.png",
+      "type": "image/png",
+      "size": 49942,
+      "key": "binaries-6MoBXeuxeYkTWqRCD-credits-2.png",
+      "updatedAt": "2015-10-17T18:53:28.000Z",
+      "createdAt": "2015-10-17T18:53:28.000Z"
+    }
+  },
+  "original": {
+    "name": "credits-2.png",
+    "updatedAt": "2015-10-17T18:53:06.000Z",
+    "size": 49942,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-10-17T18:53:28.800Z",
+  "collectionName": "binaries"
+}

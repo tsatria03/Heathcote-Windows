@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "F2ptQqkyESMRSSGKz",
+  "copies": {
+    "binaries": {
+      "name": "title-bg.png",
+      "type": "image/png",
+      "size": 365747,
+      "key": "binaries-F2ptQqkyESMRSSGKz-title-bg.png",
+      "updatedAt": "2015-10-26T07:12:00.000Z",
+      "createdAt": "2015-10-26T07:12:00.000Z"
+    }
+  },
+  "original": {
+    "name": "title-bg.png",
+    "updatedAt": "2015-10-26T07:11:28.000Z",
+    "size": 365747,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-10-26T07:12:00.691Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,32 @@
+{
+  "file": "Cuh6F6p2Y8CdTNok2",
+  "transcript": "MARTIN: \tDavid, does your phone have a light? \nDAVID: \tOof, yes!  Of course. Good idea. Hold on.  \t(Pause as he turns on the light)\tOk. Looking around.\n[SFX: WE HEAR THE PHONE BEING PLAYED WITH A COUPLE OF BEEPS FROM BUTTONS PRESSED.]\n[SFX:  WE DAVID MUTTERING TO HIMSELF ]\nDAVID:\t(sniffs air, absently and increasingly distracted) \tFire is really. Have to find her…need to find…where is it…where is it…I need to be…\t(we hear him shuffling around)\t\nMARTIN: \tDavid? \nNO RESPONSE.\nMARTIN: \tDavid? \t(Under his breath) \tGodamnit.  \tDavid, Helloooooo….?\n[SFX: IDLE LOOP: OCCASIONAL FOOSTEPS AND OPENING FILING CABINET DRAWERS]\nTRY A VERSION WHERE DAVID IS HOLDING PHONE IN MOUTH SO HE CAN USE HIS HANDS.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "kEawLAST5aQSsEW7G": "0",
+        "FretZEsGf5N8WCAzB": "records room (lit)",
+        "oQmPM9ydj7qqfacPB": "0",
+        "uTYZBw9oZC5Zdp6eZ": "0",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 19,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "GePcGTa6GRyEwuvNb",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443143540981,
+  "edited": 1445160433928,
+  "_id": "MrD4DpW9D6ff3J7HK"
+}

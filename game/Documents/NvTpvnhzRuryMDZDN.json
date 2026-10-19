@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "NvTpvnhzRuryMDZDN",
+  "copies": {
+    "binaries": {
+      "name": "examination room.mp3",
+      "type": "audio/mp3",
+      "size": 762240,
+      "key": "binaries-NvTpvnhzRuryMDZDN-examination room.mp3",
+      "updatedAt": "2015-10-16T07:32:49.000Z",
+      "createdAt": "2015-10-16T07:32:49.000Z"
+    }
+  },
+  "original": {
+    "name": "examination room.mp3",
+    "updatedAt": "2015-10-16T07:32:43.000Z",
+    "size": 762240,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T07:32:49.251Z",
+  "collectionName": "binaries"
+}

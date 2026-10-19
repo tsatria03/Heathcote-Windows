@@ -1,0 +1,28 @@
+{
+  "file": "qcRqwLKporMeoe7qF",
+  "transcript": "DAVID:Now you must accept the darkness... embrace it...\n\n[SFX: We hear a light bulb burn out.]\n\nDAVID: The dark is your tomb.\n\nMARTIN: What?\n\nDAVID (Close and in the same room as David, no other sounds like rain are heard): Close your eyes... Let it happen...\n\n[SFX: Martin Screams]\n",
+  "set": [],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {},
+      "softRef": "MjDjB9zo6mkg6cBL2"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443153385820,
+  "edited": 1444912896152,
+  "ambience2": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 3
+      }
+    }
+  ],
+  "_id": "KRRNuepHSvKFN9e8g"
+}

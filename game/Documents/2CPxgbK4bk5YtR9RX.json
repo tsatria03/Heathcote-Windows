@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "2CPxgbK4bk5YtR9RX",
+  "copies": {
+    "binaries": {
+      "name": "cellphone (P).wav",
+      "type": "audio/wav",
+      "size": 262898,
+      "key": "binaries-2CPxgbK4bk5YtR9RX-cellphone (P).wav",
+      "updatedAt": "2015-10-06T21:03:45.000Z",
+      "createdAt": "2015-10-06T21:03:45.000Z"
+    }
+  },
+  "original": {
+    "name": "cellphone (P).wav",
+    "updatedAt": "2015-10-03T06:17:58.000Z",
+    "size": 262898,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-06T21:03:45.449Z",
+  "collectionName": "binaries"
+}

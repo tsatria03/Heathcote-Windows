@@ -1,0 +1,20 @@
+{
+  "file": "eJq9ytZtrqsLibwi9",
+  "transcript": "DAVID: \tWait! If I put my ear riiiight up to it, is that...is that circus music?",
+  "set": [],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {},
+      "softRef": "2agghMbT8wNYtZM5K"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "TRbiFWJ3oPKb4aLhA",
+  "email": "lisa@fabulaeobscurae.com",
+  "created": 1442545307233,
+  "edited": 1444975827372,
+  "_id": "i2anMghjTyDppAAQe"
+}

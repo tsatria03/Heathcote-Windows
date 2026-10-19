@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "bsosfdaiRL9xypsTG",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (start).mp3",
+      "type": "audio/mp3",
+      "size": 729216,
+      "key": "binaries-bsosfdaiRL9xypsTG-idle loop (start).mp3",
+      "updatedAt": "2015-10-16T06:17:55.000Z",
+      "createdAt": "2015-10-16T06:17:55.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (start).mp3",
+    "updatedAt": "2015-10-16T05:57:34.000Z",
+    "size": 729216,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:17:55.610Z",
+  "collectionName": "binaries"
+}

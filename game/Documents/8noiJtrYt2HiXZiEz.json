@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "8noiJtrYt2HiXZiEz",
+  "copies": {
+    "binaries": {
+      "name": "keep going (P).wav",
+      "type": "audio/wav",
+      "size": 252754,
+      "key": "binaries-8noiJtrYt2HiXZiEz-keep going (P).wav",
+      "updatedAt": "2015-10-06T21:43:22.000Z",
+      "createdAt": "2015-10-06T21:43:22.000Z"
+    }
+  },
+  "original": {
+    "name": "keep going (P).wav",
+    "updatedAt": "2015-10-03T06:49:55.000Z",
+    "size": 252754,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-06T21:43:18.531Z",
+  "collectionName": "binaries"
+}

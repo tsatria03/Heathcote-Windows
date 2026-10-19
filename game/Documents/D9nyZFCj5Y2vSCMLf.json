@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "D9nyZFCj5Y2vSCMLf",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (flashlight).mp3",
+      "type": "audio/mp3",
+      "size": 840724,
+      "key": "binaries-D9nyZFCj5Y2vSCMLf-idle loop (flashlight).mp3",
+      "updatedAt": "2015-10-03T03:08:16.000Z",
+      "createdAt": "2015-10-03T03:08:16.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (flashlight).mp3",
+    "updatedAt": "2015-10-01T22:53:23.000Z",
+    "size": 840724,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-03T03:08:16.885Z",
+  "collectionName": "binaries"
+}

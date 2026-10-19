@@ -1,0 +1,41 @@
+{
+  "file": "ZCZvDkaSSTFYwoMQB",
+  "transcript": "MARTIN: OK, you sure you don't feel like playing Tarzan?\n\nDAVID: What?\n\nMARTIN: Like, swinging from vine to vine, crossing the swamp?\n\nDAVID: Sorry, did I miss something?\n\nMARTIN: Dude, the east wing. \n\nDAVID: What about it?\n\nMARTIN: You said the entrance was too overgrown to get through?\n\nDAVID (really puzzled now): What?\n\nMARTIN: The... Am I...? [missing something]\n\nDAVID: I said that *painting* had crap growing on it where the entranceway was. Not the real thing.\n\nMARTIN: Uh...\n\nDAVID: You want me to go there?\n\nMARTIN (confused rather than creeped): Y...yes. Please.\n\n[SFX: footsteps]\n\nDAVID (mocking Martin, impersonates tarzan) Ahhh-oo-aa-oo-aa oo-aa-oo-aa\n(The tarzan call echoes all around)\n\n[DAVID chuckles under his breath at the echo]\n\n\n[SFX: footsteps with echo. But as he walks further, we hear that the missing roof is letting the elements in. Rain and wind.]\n\n[IDLE LOOP: continuing footsteps]\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "u9A9g7skyQT96NvBx": "entering east wing",
+        "FretZEsGf5N8WCAzB": "entering east wing",
+        "uTYZBw9oZC5Zdp6eZ": "passage to east wing",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 24.25,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "8TyJZ33fmFpkDRjCq",
+  "next": [],
+  "bgm": [],
+  "ambience1": [],
+  "ambience2": [
+    {
+      "at": 20,
+      "fadeTo": {
+        "duration": 5,
+        "softRef": "rLej9QdcPw5B9reWB"
+      }
+    }
+  ],
+  "ambience3": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443764711103,
+  "edited": 1445160199074,
+  "_id": "5oQAapEb2ZwN8fmtF"
+}

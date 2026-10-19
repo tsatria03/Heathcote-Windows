@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "iF7Ks4ghwh2GiZMKu",
+  "copies": {
+    "binaries": {
+      "name": "what was the question?.m4a",
+      "type": "audio/x-m4a",
+      "size": 72082,
+      "key": "binaries-iF7Ks4ghwh2GiZMKu-what was the question?.m4a",
+      "updatedAt": "2015-09-30T09:10:21.000Z",
+      "createdAt": "2015-09-30T09:10:21.000Z"
+    }
+  },
+  "original": {
+    "name": "what was the question?.m4a",
+    "updatedAt": "2015-09-30T09:09:58.000Z",
+    "size": 72082,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:10:21.502Z",
+  "collectionName": "binaries"
+}

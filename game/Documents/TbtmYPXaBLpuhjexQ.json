@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "TbtmYPXaBLpuhjexQ",
+  "copies": {
+    "binaries": {
+      "name": "indoors.mp3",
+      "type": "audio/mp3",
+      "size": 1320768,
+      "key": "binaries-TbtmYPXaBLpuhjexQ-indoors.mp3",
+      "updatedAt": "2015-10-14T10:48:56.000Z",
+      "createdAt": "2015-10-14T10:48:56.000Z"
+    }
+  },
+  "original": {
+    "name": "indoors.mp3",
+    "updatedAt": "2015-10-14T10:48:39.000Z",
+    "size": 1320768,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-14T10:48:56.789Z",
+  "collectionName": "binaries"
+}

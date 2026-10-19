@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "nZi2uxjSYMsGbCqae",
+  "copies": {
+    "binaries": {
+      "name": "fallen.mp3",
+      "type": "audio/mp3",
+      "size": 1423488,
+      "key": "binaries-nZi2uxjSYMsGbCqae-fallen.mp3",
+      "updatedAt": "2015-10-15T07:49:46.000Z",
+      "createdAt": "2015-10-15T07:49:46.000Z"
+    }
+  },
+  "original": {
+    "name": "fallen.mp3",
+    "updatedAt": "2015-10-15T07:49:39.000Z",
+    "size": 1423488,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T07:49:45.996Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "dyvaHpvRshuzNnZrK",
+  "copies": {
+    "binaries": {
+      "name": "idle (fire loop).mp3",
+      "type": "audio/mp3",
+      "size": 1452930,
+      "key": "binaries-dyvaHpvRshuzNnZrK-idle (fire loop).mp3",
+      "updatedAt": "2015-10-03T03:06:30.000Z",
+      "createdAt": "2015-10-03T03:06:30.000Z"
+    }
+  },
+  "original": {
+    "name": "idle (fire loop).mp3",
+    "updatedAt": "2015-10-02T03:54:34.000Z",
+    "size": 1452930,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-03T03:06:30.211Z",
+  "collectionName": "binaries"
+}

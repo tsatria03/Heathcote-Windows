@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "cNfE7HuRanLf44usg",
+  "copies": {
+    "binaries": {
+      "name": "cant revisit 1.mp3",
+      "type": "audio/mp3",
+      "size": 78720,
+      "key": "binaries-cNfE7HuRanLf44usg-cant revisit 1.mp3",
+      "updatedAt": "2015-10-16T12:35:47.000Z",
+      "createdAt": "2015-10-16T12:35:47.000Z"
+    }
+  },
+  "original": {
+    "name": "cant revisit 1.mp3",
+    "updatedAt": "2015-10-16T12:35:28.000Z",
+    "size": 78720,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T12:35:47.796Z",
+  "collectionName": "binaries"
+}

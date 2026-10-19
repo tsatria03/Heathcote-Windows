@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "3uz3W5vo2y4NquWrq",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (Judith 3).mp3",
+      "type": "audio/mp3",
+      "size": 76416,
+      "key": "binaries-3uz3W5vo2y4NquWrq-idle loop (Judith 3).mp3",
+      "updatedAt": "2015-10-15T06:06:07.000Z",
+      "createdAt": "2015-10-15T06:06:07.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (Judith 3).mp3",
+    "updatedAt": "2015-10-15T06:05:46.000Z",
+    "size": 76416,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T06:06:07.003Z",
+  "collectionName": "binaries"
+}

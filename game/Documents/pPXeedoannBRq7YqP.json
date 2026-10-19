@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "pPXeedoannBRq7YqP",
+  "copies": {
+    "binaries": {
+      "name": "filing cabinet.mp3",
+      "type": "audio/mp3",
+      "size": 558336,
+      "key": "binaries-pPXeedoannBRq7YqP-filing cabinet.mp3",
+      "updatedAt": "2015-10-15T13:00:23.000Z",
+      "createdAt": "2015-10-15T13:00:23.000Z"
+    }
+  },
+  "original": {
+    "name": "filing cabinet.mp3",
+    "updatedAt": "2015-10-15T12:59:52.000Z",
+    "size": 558336,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T13:00:23.099Z",
+  "collectionName": "binaries"
+}

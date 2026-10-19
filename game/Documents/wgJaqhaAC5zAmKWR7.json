@@ -1,0 +1,38 @@
+{
+  "file": "nkCP3Rs5tkE7sLXKJ",
+  "transcript": "MARTIN:  \tIt's really not that bad.\n\nDAVID: \tIt’s crap, Martin. It's like the trailer for a freaking Corman picture. Total schlock.\n\nMARTIN:\tLook, we can send them back notes and see if they have time to change it before it goes to air. \n\nDAVID: \tDo their jobs for them, you mean?\n\nMARTIN: \tAlright, you've clearly got all the answers. So, how would you do an ad for this show?\n\nDAVID:\tWhere do I even start? Okay, here's an idea: We start with the details. (putting on a phony sounding announcer voice) On Christmas Day, 1956, all 89 residents of the Heathcote Asylum for the criminally insane were burned to death--\n\nMARTIN: \t(interrupting): Still sounds pretty cheeseball to me.\n\tLook, it's not like there's a science to advertising a paranormal investigator show on the radio. The guys we were with on TV, sure, they knew how to push a show like this, but-\n\nDAVID \t(interrupting): I've gone from television to radio. At this rate, by next year I'll be standing at a freeway exit holding a sign that says \"Will hunt ghosts for food.\"\n\nMARTIN: \tAnd I'll be right there with you holding one that says \"Reality television producer for hire.\"\n\nMARTIN AND DAVID:\t(laugh)\n\nMARTIN: \tReally though, what would you do?\n\nDAVID: \tWell, it’s gotta play with what people are afraid of... Like, what are you most afraid of?\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "what do you fear?",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 79.2,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442437590022,
+  "edited": 1445137955818,
+  "idleLoop": "GoKhKejpM9kAY28kD",
+  "ambience1": [],
+  "ambience2": [
+    {
+      "at": 0.1,
+      "fadeTo": {
+        "softRef": "9WhaffEjoKDB4G7J7",
+        "duration": 1
+      }
+    }
+  ],
+  "_id": "wgJaqhaAC5zAmKWR7"
+}

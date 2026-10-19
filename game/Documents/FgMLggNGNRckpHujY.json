@@ -1,0 +1,39 @@
+{
+  "file": "5YN9k5GuMDhuHfTFv",
+  "created": 1421817352823,
+  "transcript": "[SFX: We hear a landline phone ringing.]\n\n[NOTE: Graphics laid on screen telling people how to use the menu system.]\n\nMARTIN: (Recorded answer machine message) You've reached Martin Fellows of Spectre Productions. Please leave a message after the beep.\n\n[SFX BEEP]",
+  "notes": "",
+  "edited": 1449194003186,
+  "email": "mike@mdd2.net",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "u9A9g7skyQT96NvBx": "working late"
+      }
+    }
+  ],
+  "bgm": [],
+  "ambience": [
+    {
+      "at": 1,
+      "fadeTo": {
+        "softRef": "Po2Kpg82bqttPQPjW",
+        "duration": 2
+      }
+    }
+  ],
+  "idleLoop": "PRo987xzZns8EkYq5",
+  "ambience1": [
+    {
+      "at": 0.1,
+      "fadeTo": {
+        "softRef": "Po2Kpg82bqttPQPjW",
+        "duration": 2
+      }
+    }
+  ],
+  "ambience3": [],
+  "_id": "FgMLggNGNRckpHujY"
+}

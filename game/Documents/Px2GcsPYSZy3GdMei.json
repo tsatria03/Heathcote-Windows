@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Px2GcsPYSZy3GdMei",
+  "copies": {
+    "binaries": {
+      "name": "where you at (path).mp3",
+      "type": "audio/mp3",
+      "size": 62976,
+      "key": "binaries-Px2GcsPYSZy3GdMei-where you at (path).mp3",
+      "updatedAt": "2015-10-14T07:07:44.000Z",
+      "createdAt": "2015-10-14T07:07:44.000Z"
+    }
+  },
+  "original": {
+    "name": "where you at (path).mp3",
+    "updatedAt": "2015-10-14T07:07:34.000Z",
+    "size": 62976,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-14T07:07:44.186Z",
+  "collectionName": "binaries"
+}

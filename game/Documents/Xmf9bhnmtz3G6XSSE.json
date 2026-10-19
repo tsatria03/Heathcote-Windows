@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Xmf9bhnmtz3G6XSSE",
+  "copies": {
+    "binaries": {
+      "name": "enough already.m4a",
+      "type": "audio/x-m4a",
+      "size": 69576,
+      "key": "binaries-Xmf9bhnmtz3G6XSSE-enough already.m4a",
+      "updatedAt": "2015-09-30T09:28:55.000Z",
+      "createdAt": "2015-09-30T09:28:55.000Z"
+    }
+  },
+  "original": {
+    "name": "enough already.m4a",
+    "updatedAt": "2015-09-30T09:28:42.000Z",
+    "size": 69576,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:28:55.018Z",
+  "collectionName": "binaries"
+}

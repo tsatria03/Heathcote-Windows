@@ -1,0 +1,30 @@
+{
+  "file": "qKGzF6JrSRXmM4F8E",
+  "transcript": "[SFX:He switches phones to the mobile one we heard Judith and David on.]\n\nMARTIN (CONT’D): H-Hello?\n\nWe hear a distant evil chuckle from David. A very sinister laugh. \n\nDAVID: You think you can escape?\n\nThe phone cuts off dead.\n\nMARTIN (CONT’D): Oh God.\n\nDAVID (Distant on the land line):  Martin? What the hell? Where are you?\n\nMartin picks up the land line again.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "kEawLAST5aQSsEW7G": "0"
+      }
+    }
+  ],
+  "idleLoop": "SWsNy3GLWf29nS8ZC",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443152459581,
+  "edited": 1444915467224,
+  "ambience2": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 0.25
+      }
+    }
+  ],
+  "_id": "AcfpsHNZxjmt4hdwW"
+}

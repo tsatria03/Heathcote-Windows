@@ -1,0 +1,37 @@
+{
+  "file": "",
+  "transcript": "",
+  "set": [],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {
+        "5ZTS9fWWF6BhswMEh": "1",
+        "S9Ff5amxyc7Z5mve4": "1"
+      },
+      "softRef": "i7TwHANj5dGoXMdaD"
+    },
+    {
+      "if": {
+        "E9NmDsKczHf6WHGb9": "0"
+      },
+      "softRef": "nxkZZPosjN6eFo5rD"
+    },
+    {
+      "if": {
+        "E9NmDsKczHf6WHGb9": "1"
+      },
+      "softRef": "NB2DQFfo5eKDG3E7R"
+    }
+  ],
+  "bgm": [],
+  "ambience1": [],
+  "ambience2": [],
+  "ambience3": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443764344693,
+  "edited": 1445057479541,
+  "_id": "Q5HvDdJx7BJceMmbw"
+}

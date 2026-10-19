@@ -1,0 +1,37 @@
+{
+  "file": "FaZBWYsw6AGG7GSdu",
+  "transcript": "MARTIN: This might be one of those things we wait on until you can go back with someone else. It's dangerous for you to mess around in the dark.\n\nDAVID: Scary as hell, too. Heh. Don't worry about it, Martin. I've got enough moonlight to see around. Plus, this room is freaking gold. The roof has totally collapsed in here. The whole room is open to the elements. \n\n\n[SFX: The rain starts to fall heavier.]\n\nDAVID: The rain is stopping.\n\nMARTIN: What?\n\nDAVID: I can only guess that this place-\n\nMARTIN: David!\n\nDAVID: What?\n\nMARTIN: It’s still raining, what are you talking about? I can hear it!\n\nDAVID: ... Oh... Yeah... I-... Huh.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "clearing"
+      }
+    },
+    {
+      "at": 24,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443140456514,
+  "edited": 1445052546804,
+  "ambience2": [
+    {
+      "at": 21,
+      "fadeTo": {
+        "softRef": "XXqkZuo8aW9q3dqh9",
+        "duration": 4
+      }
+    }
+  ],
+  "_id": "CmCKLm8TBdvEuda9x"
+}

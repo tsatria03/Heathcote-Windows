@@ -1,0 +1,40 @@
+{
+  "file": "MpfoFZmxwZ8jyqGQR",
+  "transcript": "MARTIN: Hey, you mind going back to the offices again?\n\nDAVID (impersonating judgmental GPS): recalculating...\n\n[SFX: footsteps]\n\nDAVID: hold on\n\n[SFX: more footsteps]\n\nDAVID: OK, I', here. This is the room with that painting and nothing else.",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "offices",
+        "u9A9g7skyQT96NvBx": "offices",
+        "uTYZBw9oZC5Zdp6eZ": "offices 1",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 15.2,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443252548413,
+  "edited": 1445149840055,
+  "ambience2": [
+    {
+      "at": 6,
+      "fadeTo": {
+        "softRef": "6zmA5n7LnRmeEvYKr",
+        "duration": 5
+      }
+    }
+  ],
+  "_id": "YHqLebGZrtZCjwwEj"
+}

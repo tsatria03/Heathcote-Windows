@@ -1,0 +1,24 @@
+{
+  "file": "TiXsh2uLrz8yK7HDm",
+  "transcript": "MARTIN: Damnit, damnit, damnit! \n\n[SFX: He dials. It goes straight to voicemail.]\n\nDAVID (answering machine): You've reached David Scott. I can't make it to the phone right now, so please leave a message.\n\n[MARTIN exclaiming stressed frustration]\n\n[SFX: beep]\n[AMBIENCE changes to phone comfort noise]",
+  "set": [],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443233103229,
+  "edited": 1445150788581,
+  "ambience2": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 0.25
+      }
+    }
+  ],
+  "ambience1": [],
+  "_id": "JHRct9PjbRL6t7EjW"
+}

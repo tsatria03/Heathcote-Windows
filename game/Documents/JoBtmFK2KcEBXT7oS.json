@@ -1,0 +1,22 @@
+{
+  "file": "8SWCmRF5r3M3vzJhC",
+  "transcript": "MARTIN: Hey, your phone signal OK?\n\nDAVID (away from mic as he looks at screen): Uh... \n\n[PAUSE]\n\nDAVID (still away from screen). Hmm....\n\nDAVID (back to mic): It's at 3 bars. Should be alright.",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "kEawLAST5aQSsEW7G": "50% battery"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443142860993,
+  "edited": 1444913546850,
+  "_id": "JoBtmFK2KcEBXT7oS"
+}

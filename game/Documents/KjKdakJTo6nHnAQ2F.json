@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "KjKdakJTo6nHnAQ2F",
+  "copies": {
+    "binaries": {
+      "name": "foyer revisited.mp3",
+      "type": "audio/mp3",
+      "size": 458496,
+      "key": "binaries-KjKdakJTo6nHnAQ2F-foyer revisited.mp3",
+      "updatedAt": "2015-10-16T06:33:43.000Z",
+      "createdAt": "2015-10-16T06:33:43.000Z"
+    }
+  },
+  "original": {
+    "name": "foyer revisited.mp3",
+    "updatedAt": "2015-10-16T06:33:31.000Z",
+    "size": 458496,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:33:43.006Z",
+  "collectionName": "binaries"
+}

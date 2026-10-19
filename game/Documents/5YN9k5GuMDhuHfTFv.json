@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "5YN9k5GuMDhuHfTFv",
+  "copies": {
+    "binaries": {
+      "name": "start.mp3",
+      "type": "audio/mp3",
+      "size": 190464,
+      "key": "binaries-5YN9k5GuMDhuHfTFv-start.mp3",
+      "updatedAt": "2015-12-04T01:53:11.000Z",
+      "createdAt": "2015-12-04T01:53:11.000Z"
+    }
+  },
+  "original": {
+    "name": "start.mp3",
+    "updatedAt": "2015-12-04T01:52:40.000Z",
+    "size": 190464,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-12-04T01:53:11.587Z",
+  "collectionName": "binaries"
+}

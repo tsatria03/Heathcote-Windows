@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "QKu65dhQtMnXPpFsY",
+  "copies": {
+    "binaries": {
+      "name": "shrine.mp3",
+      "type": "audio/mp3",
+      "size": 645888,
+      "key": "binaries-QKu65dhQtMnXPpFsY-shrine.mp3",
+      "updatedAt": "2015-10-16T07:44:26.000Z",
+      "createdAt": "2015-10-16T07:44:26.000Z"
+    }
+  },
+  "original": {
+    "name": "shrine.mp3",
+    "updatedAt": "2015-10-16T07:44:09.000Z",
+    "size": 645888,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T07:44:26.464Z",
+  "collectionName": "binaries"
+}

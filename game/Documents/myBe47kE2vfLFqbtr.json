@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "myBe47kE2vfLFqbtr",
+  "copies": {
+    "binaries": {
+      "name": "landline.wav",
+      "type": "audio/wav",
+      "size": 229226,
+      "key": "binaries-myBe47kE2vfLFqbtr-landline.wav",
+      "updatedAt": "2015-10-06T20:39:52.000Z",
+      "createdAt": "2015-10-06T20:39:52.000Z"
+    }
+  },
+  "original": {
+    "name": "landline.wav",
+    "updatedAt": "2015-10-06T20:32:23.000Z",
+    "size": 229226,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-06T20:39:52.576Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "i8e2HwodttrjrfGS3",
+  "copies": {
+    "binaries": {
+      "name": "instruction-card-3.png",
+      "type": "image/png",
+      "size": 22731,
+      "key": "binaries-i8e2HwodttrjrfGS3-instruction-card-3.png",
+      "updatedAt": "2015-09-10T06:35:06.000Z",
+      "createdAt": "2015-09-10T06:35:06.000Z"
+    }
+  },
+  "original": {
+    "name": "instruction-card-3.png",
+    "updatedAt": "2015-09-10T06:32:09.000Z",
+    "size": 22731,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-09-10T06:35:06.937Z",
+  "collectionName": "binaries"
+}

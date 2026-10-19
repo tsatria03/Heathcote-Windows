@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "9FMdcqMbySEGiDMTd",
+  "copies": {
+    "binaries": {
+      "name": "doctors notebook.mp3",
+      "type": "audio/mp3",
+      "size": 1125504,
+      "key": "binaries-9FMdcqMbySEGiDMTd-doctors notebook.mp3",
+      "updatedAt": "2016-02-10T02:41:56.000Z",
+      "createdAt": "2016-02-10T02:41:56.000Z"
+    }
+  },
+  "original": {
+    "name": "doctors notebook.mp3",
+    "updatedAt": "2016-02-10T02:38:47.000Z",
+    "size": 1125504,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2016-02-10T02:41:56.357Z",
+  "collectionName": "binaries"
+}

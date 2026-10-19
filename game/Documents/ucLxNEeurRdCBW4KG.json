@@ -1,0 +1,47 @@
+{
+  "file": "6XKCiH4XQuiDrXwZQ",
+  "transcript": "MARTIN: Check out the basement and kitchen first. Leave the best for last.\n\nDAVID: Okay... Right it is.\n\n[SFX: Crash of a door slamming to the right.]\n\nMARTIN: What was that?\n\nDAVID: Uhhh... \n\nMARTIN: Yeah?\n\nDAVID: It just slammed shut\n\nMARTIN: Maybe it heard you?\n\n[SFX: WE HEAR DAVID WALKING FOR A FEW SECONDS.]\n\nDAVID: Well... I'm at the door...That's weird.\n\nMARTIN: What?\n\n[SFX: DAVID JIGGLES THE LOCK.]\n\nDAVID: It's locked... with a padlock.\n\nMARTIN: I thought you said it just slammed shut?\n\nDAVID: Must have been another door. This place is really dark.\n\n[SFX: DAVID LEANS ON DOOR]\n\nDAVID: I can hear the wind behind it though; sounds huge. \n\n[SFX: More rattling of lock]",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 26.3,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "clowns"
+      },
+      "softRef": "pJ5bE4HqJQfLhvq9M"
+    },
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "spiders"
+      },
+      "softRef": "XREQfykNB2dRnd8cS"
+    },
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "darkness"
+      },
+      "softRef": "4ArC7hYz6aFYTKgKz"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442545083789,
+  "edited": 1445026063197,
+  "_id": "ucLxNEeurRdCBW4KG"
+}

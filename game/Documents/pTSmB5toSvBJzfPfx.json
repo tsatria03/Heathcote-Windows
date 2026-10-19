@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "pTSmB5toSvBJzfPfx",
+  "copies": {
+    "binaries": {
+      "name": "flashlight (records room).mp3",
+      "type": "audio/mp3",
+      "size": 83328,
+      "key": "binaries-pTSmB5toSvBJzfPfx-flashlight (records room).mp3",
+      "updatedAt": "2015-10-15T00:47:55.000Z",
+      "createdAt": "2015-10-15T00:47:55.000Z"
+    }
+  },
+  "original": {
+    "name": "flashlight (records room).mp3",
+    "updatedAt": "2015-10-15T00:47:32.000Z",
+    "size": 83328,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T00:47:55.443Z",
+  "collectionName": "binaries"
+}

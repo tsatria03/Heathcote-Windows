@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "WXk7bPmoeSrM8Qbcx",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (escape 2).mp3",
+      "type": "audio/mp3",
+      "size": 259200,
+      "key": "binaries-WXk7bPmoeSrM8Qbcx-idle loop (escape 2).mp3",
+      "updatedAt": "2015-10-15T07:34:28.000Z",
+      "createdAt": "2015-10-15T07:34:28.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (escape 2).mp3",
+    "updatedAt": "2015-10-15T07:34:17.000Z",
+    "size": 259200,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T07:34:28.462Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "NtiXp8xMx6XPeXiCi",
+  "copies": {
+    "binaries": {
+      "name": "spiel 3 (start).mp3",
+      "type": "audio/mp3",
+      "size": 667776,
+      "key": "binaries-NtiXp8xMx6XPeXiCi-spiel 3 (start).mp3",
+      "updatedAt": "2015-10-16T02:26:17.000Z",
+      "createdAt": "2015-10-16T02:26:17.000Z"
+    }
+  },
+  "original": {
+    "name": "spiel 3 (start).mp3",
+    "updatedAt": "2015-10-16T02:25:11.000Z",
+    "size": 667776,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T02:26:17.170Z",
+  "collectionName": "binaries"
+}

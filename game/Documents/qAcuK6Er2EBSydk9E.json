@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "qAcuK6Er2EBSydk9E",
+  "copies": {
+    "binaries": {
+      "name": "listen to me (P).wav",
+      "type": "audio/wav",
+      "size": 225458,
+      "key": "binaries-qAcuK6Er2EBSydk9E-listen to me (P).wav",
+      "updatedAt": "2015-10-17T18:00:47.000Z",
+      "createdAt": "2015-10-17T18:00:47.000Z"
+    }
+  },
+  "original": {
+    "name": "listen to me (P).wav",
+    "updatedAt": "2015-10-17T17:57:37.000Z",
+    "size": 225458,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T18:00:47.349Z",
+  "collectionName": "binaries"
+}

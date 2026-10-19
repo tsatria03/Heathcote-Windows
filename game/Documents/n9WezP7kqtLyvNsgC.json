@@ -1,0 +1,20 @@
+{
+  "file": "KFtaj2qTFEQiNLtoe",
+  "transcript": "DAVID: \tIt's probably just an endless, empty void of despair and darkness...",
+  "set": [],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {},
+      "softRef": "2agghMbT8wNYtZM5K"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "TRbiFWJ3oPKb4aLhA",
+  "email": "lisa@fabulaeobscurae.com",
+  "created": 1442545351307,
+  "edited": 1444975835019,
+  "_id": "n9WezP7kqtLyvNsgC"
+}

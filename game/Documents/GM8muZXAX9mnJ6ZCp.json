@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "GM8muZXAX9mnJ6ZCp",
+  "copies": {
+    "binaries": {
+      "name": "journal.mp3",
+      "type": "audio/mp3",
+      "size": 2289024,
+      "key": "binaries-GM8muZXAX9mnJ6ZCp-journal.mp3",
+      "updatedAt": "2015-10-16T06:21:31.000Z",
+      "createdAt": "2015-10-16T06:21:31.000Z"
+    }
+  },
+  "original": {
+    "name": "journal.mp3",
+    "updatedAt": "2015-10-16T06:20:45.000Z",
+    "size": 2289024,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:21:31.205Z",
+  "collectionName": "binaries"
+}

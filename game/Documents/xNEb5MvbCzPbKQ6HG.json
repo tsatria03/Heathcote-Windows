@@ -1,0 +1,41 @@
+{
+  "file": "KjKdakJTo6nHnAQ2F",
+  "transcript": "DAVID: OK, I'm heading back...\n\n[SFX: door opens. Footsteps play while...]\n\nMARTIN: You should be seeing three main entranceways soon. There's the cells... the offices... plus whatever remains of the east wing. That's where you want to be if you can get to it.\n\n[SFX: footsteps]\n\nDAVID: I hear ya.\n\n[SFX: footsteps stop]\n\nDAVID: K, I'm in the foyer.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "foyer",
+        "uTYZBw9oZC5Zdp6eZ": "foyer",
+        "u9A9g7skyQT96NvBx": "foyer",
+        "S8voH47psKfyKxK98": "1",
+        "kEawLAST5aQSsEW7G": "50% battery"
+      }
+    },
+    {
+      "at": 19.2,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443235426192,
+  "edited": 1445149771471,
+  "ambience2": [
+    {
+      "at": 19,
+      "fadeTo": {
+        "softRef": "wwy7yXsZPcezLs79m",
+        "duration": 7
+      }
+    }
+  ],
+  "_id": "xNEb5MvbCzPbKQ6HG"
+}

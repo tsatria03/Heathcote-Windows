@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "azbvAhCc5nsHqQ2qA",
+  "copies": {
+    "binaries": {
+      "name": "who's there.wav",
+      "type": "audio/wav",
+      "size": 439338,
+      "key": "binaries-azbvAhCc5nsHqQ2qA-who's there.wav",
+      "updatedAt": "2015-10-17T16:15:09.000Z",
+      "createdAt": "2015-10-17T16:15:09.000Z"
+    }
+  },
+  "original": {
+    "name": "who's there.wav",
+    "updatedAt": "2015-10-17T16:14:58.000Z",
+    "size": 439338,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T16:15:09.905Z",
+  "collectionName": "binaries"
+}

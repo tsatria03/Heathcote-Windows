@@ -1,0 +1,20 @@
+{
+  "if": {
+    "FretZEsGf5N8WCAzB": "foyer",
+    "5ZTS9fWWF6BhswMEh": "0",
+    "RMjzwXNJDFg5GgLEu": "0"
+  },
+  "systemVoice": "gFm9NvdC4Ba64Cpt9",
+  "set": {},
+  "actionSpiels": [
+    "4zjBG5RSGDeqKoEwt"
+  ],
+  "burnAfterReading": false,
+  "order": 202,
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442826567209,
+  "edited": 1444353896590,
+  "_id": "MdG2Tva95LPK4nBjv"
+}

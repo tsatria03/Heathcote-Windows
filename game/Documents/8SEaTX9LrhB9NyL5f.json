@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "8SEaTX9LrhB9NyL5f",
+  "copies": {
+    "binaries": {
+      "name": "outside, stormy (M-C).mp3",
+      "type": "audio/mp3",
+      "size": 1272999,
+      "key": "binaries-8SEaTX9LrhB9NyL5f-outside, stormy (M-C).mp3",
+      "updatedAt": "2015-10-08T11:28:06.000Z",
+      "createdAt": "2015-10-08T11:28:06.000Z"
+    }
+  },
+  "original": {
+    "name": "outside, stormy (M-C).mp3",
+    "updatedAt": "2015-10-08T11:27:48.000Z",
+    "size": 1272999,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-08T11:28:06.169Z",
+  "collectionName": "binaries"
+}

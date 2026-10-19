@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "gg2fFXzXgeNDopnKa",
+  "copies": {
+    "binaries": {
+      "name": "where you at (cell block c - windy).mp3",
+      "type": "audio/mp3",
+      "size": 306432,
+      "key": "binaries-gg2fFXzXgeNDopnKa-where you at (cell block c - windy).mp3",
+      "updatedAt": "2015-10-16T11:08:57.000Z",
+      "createdAt": "2015-10-16T11:08:57.000Z"
+    }
+  },
+  "original": {
+    "name": "where you at (cell block c - windy).mp3",
+    "updatedAt": "2015-10-16T11:08:49.000Z",
+    "size": 306432,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T11:08:57.838Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "HebgpChpyGkYSAxth",
+  "copies": {
+    "binaries": {
+      "name": "notebook (P).wav",
+      "type": "audio/wav",
+      "size": 281850,
+      "key": "binaries-HebgpChpyGkYSAxth-notebook (P).wav",
+      "updatedAt": "2015-10-03T06:59:55.000Z",
+      "createdAt": "2015-10-03T06:59:55.000Z"
+    }
+  },
+  "original": {
+    "name": "notebook (P).wav",
+    "updatedAt": "2015-10-03T06:27:51.000Z",
+    "size": 281850,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T06:59:55.842Z",
+  "collectionName": "binaries"
+}

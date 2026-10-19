@@ -1,0 +1,42 @@
+{
+  "file": "nZi2uxjSYMsGbCqae",
+  "transcript": "[Switch to Martin POV]\n\nMARTIN (CONT’D): David? I’m freaking out here... Please... Talk to me... God, please be okay. I'm gonna call the cops... David?\n\nAfter the longest silence, we hear a whimper, turning into a weak laugh.\n\nDAVID (Weak): Martin?\n\nMARTIN (Freaking out): Talk to me, buddy!\n\nDAVID: It’s okay... He’s out now. It’s done...\n\nMARTIN: Jesus David, what are you talking about? What happened? Please... Tell me you're okay...\n\nDAVID: The doctor took my fear... But it's not him... It's something else... Inside of him... It’s all it wants... To escape... And it went to the only other fear it could find... Yours...\n\n[SFX: We hear Martin swallow hard.]\n\nMARTIN: David...\n\nDAVID: Thank you... Thank you for being afraid... It can now spread... It will take the pain away... It will bleed your fear dry... You will become one with it... Like me.... But it is for a bigger cause... He has a plan...\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "u9A9g7skyQT96NvBx": "he’s out now",
+        "S8voH47psKfyKxK98": "1"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "spiders"
+      },
+      "softRef": "4zq9wcqzr2w3ixt2e"
+    },
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "clowns"
+      },
+      "softRef": "WbiDDkvpLwne8KAme"
+    },
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "darkness"
+      },
+      "softRef": "ErFBr2wwnc3JfMPQQ"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443153348014,
+  "edited": 1445054212605,
+  "_id": "EziG7CZdRTXJDYeny"
+}

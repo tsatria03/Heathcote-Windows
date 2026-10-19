@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "rpsHEL3vnwxF9nLtD",
+  "copies": {
+    "binaries": {
+      "name": "head back (P).wav",
+      "type": "audio/wav",
+      "size": 274922,
+      "key": "binaries-rpsHEL3vnwxF9nLtD-head back (P).wav",
+      "updatedAt": "2015-10-03T06:58:28.000Z",
+      "createdAt": "2015-10-03T06:58:28.000Z"
+    }
+  },
+  "original": {
+    "name": "head back (P).wav",
+    "updatedAt": "2015-10-03T06:15:09.000Z",
+    "size": 274922,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T06:58:28.393Z",
+  "collectionName": "binaries"
+}

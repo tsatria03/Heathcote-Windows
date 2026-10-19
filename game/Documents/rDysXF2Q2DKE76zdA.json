@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "rDysXF2Q2DKE76zdA",
+  "copies": {
+    "binaries": {
+      "name": "where are you.wav",
+      "type": "audio/wav",
+      "size": 292402,
+      "key": "binaries-rDysXF2Q2DKE76zdA-where are you.wav",
+      "updatedAt": "2015-10-08T07:24:51.000Z",
+      "createdAt": "2015-10-08T07:24:51.000Z"
+    }
+  },
+  "original": {
+    "name": "where are you.wav",
+    "updatedAt": "2015-10-08T07:22:42.000Z",
+    "size": 292402,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-08T07:24:51.865Z",
+  "collectionName": "binaries"
+}

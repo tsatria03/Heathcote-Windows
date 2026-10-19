@@ -1,0 +1,28 @@
+{
+  "file": "Z4FzLLKC72NomdMR8",
+  "transcript": "MARTIN: \tMe? We've talked about it before... The dark...\n\nDAVID: \tExactly! So why didn’t they play on that idea a bit in the trailer? \n\nMARTIN: \tWell, not everyone’s afraid of the dark...\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "xxReZ6t5dx9JujyP8": "darkness",
+        "FretZEsGf5N8WCAzB": "approach the door?",
+        "S8voH47psKfyKxK98": "1"
+      }
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442438855516,
+  "edited": 1445025521300,
+  "next": [
+    {
+      "if": {},
+      "softRef": "QxWkpCiQhvBZLS2v3"
+    }
+  ],
+  "_id": "3xYsgqmXaEh6crigh"
+}

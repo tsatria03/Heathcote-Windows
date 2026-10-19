@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "RZBN8sBd9DJ88Z6jJ",
+  "copies": {
+    "binaries": {
+      "name": "records room.mp3",
+      "type": "audio/mp3",
+      "size": 617088,
+      "key": "binaries-RZBN8sBd9DJ88Z6jJ-records room.mp3",
+      "updatedAt": "2015-10-18T08:31:50.000Z",
+      "createdAt": "2015-10-18T08:31:50.000Z"
+    }
+  },
+  "original": {
+    "name": "records room.mp3",
+    "updatedAt": "2015-10-18T08:31:30.000Z",
+    "size": 617088,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-18T08:31:50.533Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "fdwgwPZMKzYCpPEXD",
+  "copies": {
+    "binaries": {
+      "name": "Title.mp3",
+      "type": "audio/mp3",
+      "size": 1216896,
+      "key": "binaries-fdwgwPZMKzYCpPEXD-Title.mp3",
+      "updatedAt": "2015-10-17T12:04:44.000Z",
+      "createdAt": "2015-10-17T12:04:44.000Z"
+    }
+  },
+  "original": {
+    "name": "Title.mp3",
+    "updatedAt": "2015-10-17T12:04:29.000Z",
+    "size": 1216896,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-17T12:04:44.552Z",
+  "collectionName": "binaries"
+}

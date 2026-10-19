@@ -1,0 +1,37 @@
+{
+  "file": "3FTdjvZcKH5mFJAhH",
+  "transcript": "MARTIN: Have a look in there.\n\nDAVID: Really?!\n\nMARTIN: It's what you're there for! \n\nDAVID (Playfully) FIIIIINNNNE!\n\n[SFX:footsteps]\n\nDAVID (CONT’D in presenter voice): So I'm standing in an empty damp hall, clearly a place used for the more difficult patients. It's lined with about four cells, each with small, round, windows. I can't imagine this place was ever hospitable. \n\nMARTIN: Can you open any of them? \n\n[SFX: We hear a door trying to be opened - it’s locked]\n\nDAVID (CONT’D): Just the one. Seems when the doors close, they lock, but some junk kept this one from closing. \n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "open door",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 38.5,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442818062938,
+  "edited": 1445028112467,
+  "ambience3": [
+    {
+      "at": 1,
+      "fadeOut": {
+        "duration": 6
+      }
+    }
+  ],
+  "_id": "v8PSTi7c8DYEGCeRm"
+}

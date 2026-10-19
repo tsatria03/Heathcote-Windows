@@ -1,0 +1,31 @@
+{
+  "file": "74Jq48X2cTrw5pdGd",
+  "transcript": "MARTIN: Your levels are fine. Keep going...\n\n[DAVID mutters an acknowledgement]\n\n[SFX: He walks through a door into another room.]\n\nDAVID (CONT’D): I am now in what looks to be an office... The rain from outside is streaming in through cracks in the ceiling. There are a couple of old typewriters covered in dust, and rusting.\n\n[SFX: He presses a couple of the keys which clack loudly.]\n\nDAVID (CONT’D): There is some graffiti on the wall here... \n\n[SFX Martin flushes the toilet]\n\nDAVID: (Breaking from his serious presenter character)... Really?\n\nMARTIN (Laughing): When nature calls.\n\nDAVID: Get back to your desk!\n\nMARTIN: Okay okay... Now, can you say that again? \n\nDAVID: You're an ass, you know that? Anyway... (back in character) There's some graffiti here... Barely readable... and a couple doors leading out. (NORMAL VOICE) Martin, do you know where they lead?\n\nMARTIN: \tOh, uh... says here one leads to the cells, one leads to the offices, and there should also be an entrance to the east wing.\n\nDAVID: Yeah... sounds about right.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "typewriter room",
+        "uTYZBw9oZC5Zdp6eZ": "typewriter room",
+        "u9A9g7skyQT96NvBx": "foyer office",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 59.6,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443231633055,
+  "edited": 1445027551488,
+  "_id": "4qijYCopAdBit2py5"
+}

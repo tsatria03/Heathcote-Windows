@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "YEkqfx354fHhjhAuW",
+  "copies": {
+    "binaries": {
+      "name": "keep walking (P).wav",
+      "type": "audio/wav",
+      "size": 290378,
+      "key": "binaries-YEkqfx354fHhjhAuW-keep walking (P).wav",
+      "updatedAt": "2015-10-03T06:59:32.000Z",
+      "createdAt": "2015-10-03T06:59:32.000Z"
+    }
+  },
+  "original": {
+    "name": "keep walking (P).wav",
+    "updatedAt": "2015-10-03T06:37:38.000Z",
+    "size": 290378,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T06:59:32.871Z",
+  "collectionName": "binaries"
+}

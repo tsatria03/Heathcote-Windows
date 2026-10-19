@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "AnbkA2qQc9EZndrLY",
+  "copies": {
+    "binaries": {
+      "name": "ident - police radio.mp3",
+      "type": "audio/mp3",
+      "size": 273289,
+      "key": "binaries-AnbkA2qQc9EZndrLY-ident - police radio.mp3",
+      "updatedAt": "2015-07-21T06:25:34.000Z",
+      "createdAt": "2015-07-21T06:25:34.000Z"
+    }
+  },
+  "original": {
+    "name": "ident - police radio.mp3",
+    "updatedAt": "2015-07-21T06:24:26.000Z",
+    "size": 273289,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-07-21T06:25:34.916Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "xwokajfjqpzweNNYW",
+  "copies": {
+    "binaries": {
+      "name": "open cell.mp3",
+      "type": "audio/mp3",
+      "size": 816384,
+      "key": "binaries-xwokajfjqpzweNNYW-open cell.mp3",
+      "updatedAt": "2015-10-16T06:00:11.000Z",
+      "createdAt": "2015-10-16T06:00:11.000Z"
+    }
+  },
+  "original": {
+    "name": "open cell.mp3",
+    "updatedAt": "2015-10-16T06:00:02.000Z",
+    "size": 816384,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:00:11.064Z",
+  "collectionName": "binaries"
+}

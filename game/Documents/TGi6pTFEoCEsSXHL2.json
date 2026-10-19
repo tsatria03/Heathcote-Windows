@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "TGi6pTFEoCEsSXHL2",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (paper flipping).mp3",
+      "type": "audio/mp3",
+      "size": 202187,
+      "key": "binaries-TGi6pTFEoCEsSXHL2-idle loop (paper flipping).mp3",
+      "updatedAt": "2015-10-03T03:07:23.000Z",
+      "createdAt": "2015-10-03T03:07:23.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (paper flipping).mp3",
+    "updatedAt": "2015-10-02T23:03:22.000Z",
+    "size": 202187,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-03T03:07:23.855Z",
+  "collectionName": "binaries"
+}

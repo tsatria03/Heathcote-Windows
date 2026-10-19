@@ -1,0 +1,20 @@
+{
+  "file": "rcZFrGMsS8YAGLo5g",
+  "transcript": "DAVID: \"Can you see in the dark without your eyes?\"\n\nMARTIN: What does that mean?\n\nDAVID: I dunno, but in a dark hallway it's damn freaky...\n",
+  "set": [],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {},
+      "softRef": "3KXgTukEgMJAEsZpD"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442817845969,
+  "edited": 1444985466356,
+  "_id": "rL7n2gfzXhPZrnkWS"
+}

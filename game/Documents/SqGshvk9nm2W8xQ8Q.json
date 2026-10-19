@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "SqGshvk9nm2W8xQ8Q",
+  "copies": {
+    "binaries": {
+      "name": "ending (spiders).mp3",
+      "type": "audio/mp3",
+      "size": 206208,
+      "key": "binaries-SqGshvk9nm2W8xQ8Q-ending (spiders).mp3",
+      "updatedAt": "2015-10-15T07:48:42.000Z",
+      "createdAt": "2015-10-15T07:48:42.000Z"
+    }
+  },
+  "original": {
+    "name": "ending (spiders).mp3",
+    "updatedAt": "2015-10-15T07:48:31.000Z",
+    "size": 206208,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T07:48:42.397Z",
+  "collectionName": "binaries"
+}

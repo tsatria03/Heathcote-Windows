@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "oXyhCrNT9iXiHePgu",
+  "copies": {
+    "binaries": {
+      "name": "pick up.wav",
+      "type": "audio/wav",
+      "size": 245780,
+      "key": "binaries-oXyhCrNT9iXiHePgu-pick up.wav",
+      "updatedAt": "2015-10-17T15:37:22.000Z",
+      "createdAt": "2015-10-17T15:37:22.000Z"
+    }
+  },
+  "original": {
+    "name": "pick up.wav",
+    "updatedAt": "2015-10-17T15:37:04.000Z",
+    "size": 245780,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T15:37:22.929Z",
+  "collectionName": "binaries"
+}

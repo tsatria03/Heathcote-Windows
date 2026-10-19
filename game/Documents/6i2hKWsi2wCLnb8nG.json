@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "6i2hKWsi2wCLnb8nG",
+  "copies": {
+    "binaries": {
+      "name": "David!!.mp3",
+      "type": "audio/mp3",
+      "size": 16896,
+      "key": "binaries-6i2hKWsi2wCLnb8nG-David!!.mp3",
+      "updatedAt": "2015-10-16T10:25:15.000Z",
+      "createdAt": "2015-10-16T10:25:15.000Z"
+    }
+  },
+  "original": {
+    "name": "David!!.mp3",
+    "updatedAt": "2015-10-16T10:24:46.000Z",
+    "size": 16896,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T10:25:15.319Z",
+  "collectionName": "binaries"
+}

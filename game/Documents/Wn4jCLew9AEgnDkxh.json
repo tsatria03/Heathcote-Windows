@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Wn4jCLew9AEgnDkxh",
+  "copies": {
+    "binaries": {
+      "name": "offices (end).mp3",
+      "type": "audio/mp3",
+      "size": 579456,
+      "key": "binaries-Wn4jCLew9AEgnDkxh-offices (end).mp3",
+      "updatedAt": "2015-10-16T08:05:25.000Z",
+      "createdAt": "2015-10-16T08:05:25.000Z"
+    }
+  },
+  "original": {
+    "name": "offices (end).mp3",
+    "updatedAt": "2015-10-16T08:03:47.000Z",
+    "size": 579456,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T08:05:25.036Z",
+  "collectionName": "binaries"
+}

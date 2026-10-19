@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "3FTdjvZcKH5mFJAhH",
+  "copies": {
+    "binaries": {
+      "name": "self-opened door.mp3",
+      "type": "audio/mp3",
+      "size": 626304,
+      "key": "binaries-3FTdjvZcKH5mFJAhH-self-opened door.mp3",
+      "updatedAt": "2015-10-16T12:40:57.000Z",
+      "createdAt": "2015-10-16T12:40:57.000Z"
+    }
+  },
+  "original": {
+    "name": "self-opened door.mp3",
+    "updatedAt": "2015-10-16T12:40:44.000Z",
+    "size": 626304,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T12:40:57.846Z",
+  "collectionName": "binaries"
+}

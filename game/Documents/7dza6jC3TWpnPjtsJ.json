@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "7dza6jC3TWpnPjtsJ",
+  "copies": {
+    "binaries": {
+      "name": "hallway graffiti (darkness).mp3",
+      "type": "audio/mp3",
+      "size": 151296,
+      "key": "binaries-7dza6jC3TWpnPjtsJ-hallway graffiti (darkness).mp3",
+      "updatedAt": "2015-10-16T08:45:37.000Z",
+      "createdAt": "2015-10-16T08:45:37.000Z"
+    }
+  },
+  "original": {
+    "name": "hallway graffiti (darkness).mp3",
+    "updatedAt": "2015-10-16T08:44:48.000Z",
+    "size": 151296,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T08:45:37.415Z",
+  "collectionName": "binaries"
+}

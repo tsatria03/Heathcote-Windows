@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "sSHTADrgddeR94ots",
+  "copies": {
+    "binaries": {
+      "name": "pause-pause healed.wav",
+      "type": "audio/wav",
+      "size": 198156,
+      "key": "binaries-sSHTADrgddeR94ots-pause-pause healed.wav",
+      "updatedAt": "2015-09-27T06:09:03.000Z",
+      "createdAt": "2015-09-27T06:09:03.000Z"
+    }
+  },
+  "original": {
+    "name": "pause-pause healed.wav",
+    "updatedAt": "2015-09-27T06:08:12.000Z",
+    "size": 198156,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-09-27T06:09:03.658Z",
+  "collectionName": "binaries"
+}

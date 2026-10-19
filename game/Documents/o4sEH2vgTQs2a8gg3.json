@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "o4sEH2vgTQs2a8gg3",
+  "copies": {
+    "binaries": {
+      "name": "burning hair (P).wav",
+      "type": "audio/wav",
+      "size": 189354,
+      "key": "binaries-o4sEH2vgTQs2a8gg3-burning hair (P).wav",
+      "updatedAt": "2015-10-17T17:59:27.000Z",
+      "createdAt": "2015-10-17T17:59:27.000Z"
+    }
+  },
+  "original": {
+    "name": "burning hair (P).wav",
+    "updatedAt": "2015-10-17T17:58:20.000Z",
+    "size": 189354,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T17:59:27.579Z",
+  "collectionName": "binaries"
+}

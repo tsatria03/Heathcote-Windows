@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "TiXsh2uLrz8yK7HDm",
+  "copies": {
+    "binaries": {
+      "name": "landline (dropped call).mp3",
+      "type": "audio/mp3",
+      "size": 271872,
+      "key": "binaries-TiXsh2uLrz8yK7HDm-landline (dropped call).mp3",
+      "updatedAt": "2015-10-15T23:02:57.000Z",
+      "createdAt": "2015-10-15T23:02:57.000Z"
+    }
+  },
+  "original": {
+    "name": "landline (dropped call).mp3",
+    "updatedAt": "2015-10-15T23:02:01.000Z",
+    "size": 271872,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T23:02:57.812Z",
+  "collectionName": "binaries"
+}

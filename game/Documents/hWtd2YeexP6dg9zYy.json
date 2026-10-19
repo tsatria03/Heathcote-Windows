@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "hWtd2YeexP6dg9zYy",
+  "copies": {
+    "binaries": {
+      "name": "examination room (P).wav",
+      "type": "audio/wav",
+      "size": 412268,
+      "key": "binaries-hWtd2YeexP6dg9zYy-examination room (P).wav",
+      "updatedAt": "2015-10-03T06:57:59.000Z",
+      "createdAt": "2015-10-03T06:57:59.000Z"
+    }
+  },
+  "original": {
+    "name": "examination room (P).wav",
+    "updatedAt": "2015-10-03T06:29:08.000Z",
+    "size": 412268,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T06:57:59.367Z",
+  "collectionName": "binaries"
+}

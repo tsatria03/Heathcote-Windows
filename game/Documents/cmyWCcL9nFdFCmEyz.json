@@ -1,0 +1,22 @@
+{
+  "file": "z7rpfvwb5FzkhZWp8",
+  "transcript": "how's your signal?\n\nUm. 4 bars. We're good.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "kEawLAST5aQSsEW7G": "rotation 1"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443156462390,
+  "edited": 1445156922535,
+  "_id": "cmyWCcL9nFdFCmEyz"
+}

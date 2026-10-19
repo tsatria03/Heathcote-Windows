@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "EgRycwZcNYwBkzXFc",
+  "copies": {
+    "binaries": {
+      "name": "email.m4a",
+      "type": "audio/x-m4a",
+      "size": 65874,
+      "key": "binaries-EgRycwZcNYwBkzXFc-email.m4a",
+      "updatedAt": "2015-09-30T09:03:08.000Z",
+      "createdAt": "2015-09-30T09:03:08.000Z"
+    }
+  },
+  "original": {
+    "name": "email.m4a",
+    "updatedAt": "2015-09-30T09:00:24.000Z",
+    "size": 65874,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:03:08.390Z",
+  "collectionName": "binaries"
+}

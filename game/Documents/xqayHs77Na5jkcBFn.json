@@ -1,0 +1,28 @@
+{
+  "file": "akCd7MBzp5HwgDict",
+  "transcript": "MARTIN: \tMe? We've talked about it before... Clowns, man.. \n\nDAVID: \tExactly! So why didn’t they have a clown laughing quietly through the trailer? \n\nMARTIN: \tDude, not everyone’s afraid of clowns...\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "xxReZ6t5dx9JujyP8": "clowns",
+        "FretZEsGf5N8WCAzB": "approach the door?",
+        "S8voH47psKfyKxK98": "1"
+      }
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442438639737,
+  "edited": 1445025515847,
+  "next": [
+    {
+      "if": {},
+      "softRef": "QxWkpCiQhvBZLS2v3"
+    }
+  ],
+  "_id": "xqayHs77Na5jkcBFn"
+}

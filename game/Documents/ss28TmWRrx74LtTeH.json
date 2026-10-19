@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "ss28TmWRrx74LtTeH",
+  "copies": {
+    "binaries": {
+      "name": "hear what.wav",
+      "type": "audio/wav",
+      "size": 330132,
+      "key": "binaries-ss28TmWRrx74LtTeH-hear what.wav",
+      "updatedAt": "2015-10-17T18:15:53.000Z",
+      "createdAt": "2015-10-17T18:15:53.000Z"
+    }
+  },
+  "original": {
+    "name": "hear what.wav",
+    "updatedAt": "2015-10-17T15:30:47.000Z",
+    "size": 330132,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T18:15:53.964Z",
+  "collectionName": "binaries"
+}

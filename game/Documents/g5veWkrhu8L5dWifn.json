@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "g5veWkrhu8L5dWifn",
+  "copies": {
+    "binaries": {
+      "name": "indoors (M-C).mp3",
+      "type": "audio/mp3",
+      "size": 1320646,
+      "key": "binaries-g5veWkrhu8L5dWifn-indoors (M-C).mp3",
+      "updatedAt": "2015-10-08T12:21:51.000Z",
+      "createdAt": "2015-10-08T12:21:51.000Z"
+    }
+  },
+  "original": {
+    "name": "indoors (M-C).mp3",
+    "updatedAt": "2015-10-08T12:19:46.000Z",
+    "size": 1320646,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-08T12:21:51.195Z",
+  "collectionName": "binaries"
+}

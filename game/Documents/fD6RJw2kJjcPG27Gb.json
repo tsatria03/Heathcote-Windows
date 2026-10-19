@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "fD6RJw2kJjcPG27Gb",
+  "copies": {
+    "binaries": {
+      "name": "Ending.mp3",
+      "type": "audio/mp3",
+      "size": 417024,
+      "key": "binaries-fD6RJw2kJjcPG27Gb-Ending.mp3",
+      "updatedAt": "2015-10-15T13:57:57.000Z",
+      "createdAt": "2015-10-15T13:57:57.000Z"
+    }
+  },
+  "original": {
+    "name": "Ending.mp3",
+    "updatedAt": "2015-10-15T13:56:23.000Z",
+    "size": 417024,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T13:57:57.390Z",
+  "collectionName": "binaries"
+}

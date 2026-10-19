@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "NNQiHKXSBzt5fnehx",
+  "copies": {
+    "binaries": {
+      "name": "doctor's office (P).wav",
+      "type": "audio/wav",
+      "size": 341946,
+      "key": "binaries-NNQiHKXSBzt5fnehx-doctor's office (P).wav",
+      "updatedAt": "2015-10-03T06:57:25.000Z",
+      "createdAt": "2015-10-03T06:57:25.000Z"
+    }
+  },
+  "original": {
+    "name": "doctor's office (P).wav",
+    "updatedAt": "2015-10-03T06:39:44.000Z",
+    "size": 341946,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T06:57:25.870Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "352LmZhzG9q4J6eRW",
+  "copies": {
+    "binaries": {
+      "name": "cellphone (dropped call).mp3",
+      "type": "audio/mp3",
+      "size": 715392,
+      "key": "binaries-352LmZhzG9q4J6eRW-cellphone (dropped call).mp3",
+      "updatedAt": "2015-10-16T02:08:21.000Z",
+      "createdAt": "2015-10-16T02:08:21.000Z"
+    }
+  },
+  "original": {
+    "name": "cellphone (dropped call).mp3",
+    "updatedAt": "2015-10-16T02:08:17.000Z",
+    "size": 715392,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T02:08:21.611Z",
+  "collectionName": "binaries"
+}

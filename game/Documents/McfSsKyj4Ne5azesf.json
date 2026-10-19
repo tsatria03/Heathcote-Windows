@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "McfSsKyj4Ne5azesf",
+  "copies": {
+    "binaries": {
+      "name": "east wing (P).wav",
+      "type": "audio/wav",
+      "size": 281194,
+      "key": "binaries-McfSsKyj4Ne5azesf-east wing (P).wav",
+      "updatedAt": "2015-10-03T06:57:42.000Z",
+      "createdAt": "2015-10-03T06:57:42.000Z"
+    }
+  },
+  "original": {
+    "name": "east wing (P).wav",
+    "updatedAt": "2015-10-03T06:13:57.000Z",
+    "size": 281194,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T06:57:42.595Z",
+  "collectionName": "binaries"
+}

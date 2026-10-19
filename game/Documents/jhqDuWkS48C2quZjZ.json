@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "jhqDuWkS48C2quZjZ",
+  "copies": {
+    "binaries": {
+      "name": "dual calls (landline).mp3",
+      "type": "audio/mp3",
+      "size": 893568,
+      "key": "binaries-jhqDuWkS48C2quZjZ-dual calls (landline).mp3",
+      "updatedAt": "2015-10-15T06:48:08.000Z",
+      "createdAt": "2015-10-15T06:48:08.000Z"
+    }
+  },
+  "original": {
+    "name": "dual calls (landline).mp3",
+    "updatedAt": "2015-10-15T06:47:35.000Z",
+    "size": 893568,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T06:48:08.161Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "YtubCp2BMLYszPinh",
+  "copies": {
+    "binaries": {
+      "name": "east wing more rain (M-L).mp3",
+      "type": "audio/mp3",
+      "size": 872832,
+      "key": "binaries-YtubCp2BMLYszPinh-east wing more rain (M-L).mp3",
+      "updatedAt": "2015-10-15T13:22:18.000Z",
+      "createdAt": "2015-10-15T13:22:18.000Z"
+    }
+  },
+  "original": {
+    "name": "east wing more rain (M-L).mp3",
+    "updatedAt": "2015-10-15T13:21:56.000Z",
+    "size": 872832,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T13:22:18.262Z",
+  "collectionName": "binaries"
+}

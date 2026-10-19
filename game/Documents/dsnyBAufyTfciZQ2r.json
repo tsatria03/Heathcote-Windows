@@ -1,0 +1,73 @@
+{
+  "file": "jhqDuWkS48C2quZjZ",
+  "transcript": "MARTIN: I-I’m sorry... Look, be honest with me right now, are you messing with me? \n\nDAVID: What? What’s going on, man?\n\nMARTIN: I- I... \n\nDAVID: Martin... I’m going back into the east wing, okay? This is all hard enough as is, I can't do it with you freaking out.\n\n[SFX: He walks out of the room into the ruined east wing]\n\nDAVID: What the-? (With dread) No...\n\n[SFX: We hear the sounds of a fire in the east wing.]\n\nDAVID (CONT’D): How..? This isn't possible.\n\nMARTIN (Upset): Please... Leave.\n\nDAVID: It's on fire. It-  (Confused) There’re people there...\n\n[SFX: We hear the fire now with sounds of some people in agony - not screaming they are too close to death - more moaning than anything.]\n\nMARTIN: David, LEAVE.\n\nDAVID (Suddenly terrified): ARRGHH!!\n\n[SFX: David turns and runs... Fast. We just hear him terrified running. Behind him is an approaching force. We only hear a moan, like the voice of a man in hell, a ghoulish moan of agony and torment. It is hard to hear, but is a noise in the background catching up with him. Even as the sound of the fire disappears into the background.]\n\n\n[IDLE LOOP: more of same]",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "escape 1",
+        "7f9WDNve3yXjaZCYa": "0",
+        "kEawLAST5aQSsEW7G": "0",
+        "u9A9g7skyQT96NvBx": "run!",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 46.5,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "ybKtXbhnHJDQB2Q2q",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443152628651,
+  "edited": 1445053891962,
+  "ambience3": [
+    {
+      "at": 25,
+      "fadeTo": {
+        "softRef": "h98fRSsZpq5DJAfZp",
+        "duration": 3
+      }
+    },
+    {
+      "at": 49,
+      "fadeTo": {
+        "softRef": "jhTYuaL4W4LY4YNDs",
+        "duration": 1
+      }
+    }
+  ],
+  "ambience2": [
+    {
+      "at": 2,
+      "fadeTo": {
+        "softRef": "MLihu75X8bDj4r8hm",
+        "duration": 1
+      }
+    },
+    {
+      "at": 21,
+      "fadeTo": {
+        "softRef": "SZi3eSM2hfXEbcSba",
+        "duration": 4
+      }
+    }
+  ],
+  "ambience1": [
+    {
+      "at": 40,
+      "fadeTo": {
+        "softRef": "nMf4kEeeyFEpF6z6a",
+        "duration": 10
+      }
+    }
+  ],
+  "_id": "dsnyBAufyTfciZQ2r"
+}

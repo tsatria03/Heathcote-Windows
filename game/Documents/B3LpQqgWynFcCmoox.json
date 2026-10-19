@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "B3LpQqgWynFcCmoox",
+  "copies": {
+    "binaries": {
+      "name": "doctor's office.mp3",
+      "type": "audio/mp3",
+      "size": 2194560,
+      "key": "binaries-B3LpQqgWynFcCmoox-doctor's office.mp3",
+      "updatedAt": "2015-10-16T07:04:34.000Z",
+      "createdAt": "2015-10-16T07:04:34.000Z"
+    }
+  },
+  "original": {
+    "name": "doctor's office.mp3",
+    "updatedAt": "2015-10-16T07:04:05.000Z",
+    "size": 2194560,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T07:04:34.130Z",
+  "collectionName": "binaries"
+}

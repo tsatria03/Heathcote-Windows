@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Q5fh6KNikaj3bu4KZ",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (inside entrance) .mp3",
+      "type": "audio/mp3",
+      "size": 689664,
+      "key": "binaries-Q5fh6KNikaj3bu4KZ-idle loop (inside entrance) .mp3",
+      "updatedAt": "2015-10-16T06:17:35.000Z",
+      "createdAt": "2015-10-16T06:17:35.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (inside entrance) .mp3",
+    "updatedAt": "2015-10-16T05:57:40.000Z",
+    "size": 689664,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:17:35.799Z",
+  "collectionName": "binaries"
+}

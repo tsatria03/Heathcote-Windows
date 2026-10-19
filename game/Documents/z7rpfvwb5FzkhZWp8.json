@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "z7rpfvwb5FzkhZWp8",
+  "copies": {
+    "binaries": {
+      "name": "cellphone (rotation 2).mp3",
+      "type": "audio/mp3",
+      "size": 89088,
+      "key": "binaries-z7rpfvwb5FzkhZWp8-cellphone (rotation 2).mp3",
+      "updatedAt": "2015-10-18T08:28:39.000Z",
+      "createdAt": "2015-10-18T08:28:39.000Z"
+    }
+  },
+  "original": {
+    "name": "cellphone (rotation 2).mp3",
+    "updatedAt": "2015-10-18T08:28:31.000Z",
+    "size": 89088,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-18T08:28:39.963Z",
+  "collectionName": "binaries"
+}

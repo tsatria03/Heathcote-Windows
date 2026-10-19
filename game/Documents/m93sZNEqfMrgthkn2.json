@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "m93sZNEqfMrgthkn2",
+  "copies": {
+    "binaries": {
+      "name": "commercial.mp3",
+      "type": "audio/mp3",
+      "size": 776832,
+      "key": "binaries-m93sZNEqfMrgthkn2-commercial.mp3",
+      "updatedAt": "2015-10-16T06:34:42.000Z",
+      "createdAt": "2015-10-16T06:34:42.000Z"
+    }
+  },
+  "original": {
+    "name": "commercial.mp3",
+    "updatedAt": "2015-10-16T06:33:58.000Z",
+    "size": 776832,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:34:42.539Z",
+  "collectionName": "binaries"
+}

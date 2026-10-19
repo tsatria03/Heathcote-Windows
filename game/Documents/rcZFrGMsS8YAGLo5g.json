@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "rcZFrGMsS8YAGLo5g",
+  "copies": {
+    "binaries": {
+      "name": "hallway graffiti (spiders).mp3",
+      "type": "audio/mp3",
+      "size": 182784,
+      "key": "binaries-rcZFrGMsS8YAGLo5g-hallway graffiti (spiders).mp3",
+      "updatedAt": "2015-10-16T08:51:05.000Z",
+      "createdAt": "2015-10-16T08:51:05.000Z"
+    }
+  },
+  "original": {
+    "name": "hallway graffiti (spiders).mp3",
+    "updatedAt": "2015-10-16T08:50:54.000Z",
+    "size": 182784,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T08:51:05.503Z",
+  "collectionName": "binaries"
+}

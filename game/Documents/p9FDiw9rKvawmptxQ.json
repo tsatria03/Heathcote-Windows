@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "p9FDiw9rKvawmptxQ",
+  "copies": {
+    "binaries": {
+      "name": "building plans.mp3",
+      "type": "audio/mp3",
+      "size": 26772,
+      "key": "binaries-p9FDiw9rKvawmptxQ-building plans.mp3",
+      "updatedAt": "2015-10-17T12:35:29.000Z",
+      "createdAt": "2015-10-17T12:35:29.000Z"
+    }
+  },
+  "original": {
+    "name": "building plans.mp3",
+    "updatedAt": "2015-10-17T12:31:46.000Z",
+    "size": 26772,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-17T12:35:29.475Z",
+  "collectionName": "binaries"
+}

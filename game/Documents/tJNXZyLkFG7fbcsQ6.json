@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "tJNXZyLkFG7fbcsQ6",
+  "copies": {
+    "binaries": {
+      "name": "handwritten note (P).wav",
+      "type": "audio/wav",
+      "size": 461634,
+      "key": "binaries-tJNXZyLkFG7fbcsQ6-handwritten note (P).wav",
+      "updatedAt": "2015-10-17T15:48:45.000Z",
+      "createdAt": "2015-10-17T15:48:45.000Z"
+    }
+  },
+  "original": {
+    "name": "handwritten note (P).wav",
+    "updatedAt": "2015-10-17T15:48:23.000Z",
+    "size": 461634,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T15:48:45.105Z",
+  "collectionName": "binaries"
+}

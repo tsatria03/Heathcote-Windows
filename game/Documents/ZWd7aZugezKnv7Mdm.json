@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "ZWd7aZugezKnv7Mdm",
+  "copies": {
+    "binaries": {
+      "name": "book-pageturn-1.png",
+      "type": "image/png",
+      "size": 23442,
+      "key": "binaries-ZWd7aZugezKnv7Mdm-book-pageturn-1.png",
+      "updatedAt": "2015-01-21T05:21:18.000Z",
+      "createdAt": "2015-01-21T05:21:18.000Z"
+    }
+  },
+  "original": {
+    "name": "book-pageturn-1.png",
+    "updatedAt": "2014-11-08T01:41:38.000Z",
+    "size": 23442,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-01-21T05:21:18.144Z",
+  "collectionName": "binaries"
+}

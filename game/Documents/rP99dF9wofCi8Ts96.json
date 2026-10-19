@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "rP99dF9wofCi8Ts96",
+  "copies": {
+    "binaries": {
+      "name": "Untitled Session 1_mixdown.wav",
+      "type": "audio/wav",
+      "size": 1358810,
+      "key": "binaries-rP99dF9wofCi8Ts96-Untitled Session 1_mixdown.wav",
+      "updatedAt": "2015-10-15T22:38:20.000Z",
+      "createdAt": "2015-10-15T22:38:20.000Z"
+    }
+  },
+  "original": {
+    "name": "Untitled Session 1_mixdown.wav",
+    "updatedAt": "2015-10-15T22:37:37.000Z",
+    "size": 1358810,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-15T22:38:20.667Z",
+  "collectionName": "binaries"
+}

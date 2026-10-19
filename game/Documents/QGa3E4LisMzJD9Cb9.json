@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "QGa3E4LisMzJD9Cb9",
+  "copies": {
+    "binaries": {
+      "name": "east wing (blocked 1).mp3",
+      "type": "audio/mp3",
+      "size": 394368,
+      "key": "binaries-QGa3E4LisMzJD9Cb9-east wing (blocked 1).mp3",
+      "updatedAt": "2015-10-16T09:19:31.000Z",
+      "createdAt": "2015-10-16T09:19:31.000Z"
+    }
+  },
+  "original": {
+    "name": "east wing (blocked 1).mp3",
+    "updatedAt": "2015-10-16T09:18:58.000Z",
+    "size": 394368,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T09:19:31.987Z",
+  "collectionName": "binaries"
+}

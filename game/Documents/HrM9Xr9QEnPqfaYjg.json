@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "HrM9Xr9QEnPqfaYjg",
+  "copies": {
+    "binaries": {
+      "name": "escape 1.mp3",
+      "type": "audio/mp3",
+      "size": 324480,
+      "key": "binaries-HrM9Xr9QEnPqfaYjg-escape 1.mp3",
+      "updatedAt": "2015-10-15T06:55:07.000Z",
+      "createdAt": "2015-10-15T06:55:07.000Z"
+    }
+  },
+  "original": {
+    "name": "escape 1.mp3",
+    "updatedAt": "2015-10-15T06:55:00.000Z",
+    "size": 324480,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T06:55:07.618Z",
+  "collectionName": "binaries"
+}

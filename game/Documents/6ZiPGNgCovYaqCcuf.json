@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "6ZiPGNgCovYaqCcuf",
+  "copies": {
+    "binaries": {
+      "name": "cellphone.wav",
+      "type": "audio/wav",
+      "size": 256762,
+      "key": "binaries-6ZiPGNgCovYaqCcuf-cellphone.wav",
+      "updatedAt": "2015-10-06T20:33:17.000Z",
+      "createdAt": "2015-10-06T20:33:17.000Z"
+    }
+  },
+  "original": {
+    "name": "cellphone.wav",
+    "updatedAt": "2015-10-06T20:29:13.000Z",
+    "size": 256762,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-06T20:33:17.190Z",
+  "collectionName": "binaries"
+}

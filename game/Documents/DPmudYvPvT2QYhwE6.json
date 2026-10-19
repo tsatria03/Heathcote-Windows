@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "DPmudYvPvT2QYhwE6",
+  "copies": {
+    "binaries": {
+      "name": "clowns.m4a",
+      "type": "audio/x-m4a",
+      "size": 69233,
+      "key": "binaries-DPmudYvPvT2QYhwE6-clowns.m4a",
+      "updatedAt": "2015-09-30T09:07:59.000Z",
+      "createdAt": "2015-09-30T09:07:59.000Z"
+    }
+  },
+  "original": {
+    "name": "clowns.m4a",
+    "updatedAt": "2015-09-30T09:06:15.000Z",
+    "size": 69233,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:07:59.779Z",
+  "collectionName": "binaries"
+}

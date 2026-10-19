@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "XGMZkudo6v3ELFxjG",
+  "copies": {
+    "binaries": {
+      "name": "graffiti (P).wav",
+      "type": "audio/wav",
+      "size": 255970,
+      "key": "binaries-XGMZkudo6v3ELFxjG-graffiti (P).wav",
+      "updatedAt": "2015-10-03T06:58:11.000Z",
+      "createdAt": "2015-10-03T06:58:11.000Z"
+    }
+  },
+  "original": {
+    "name": "graffiti (P).wav",
+    "updatedAt": "2015-10-03T06:22:21.000Z",
+    "size": 255970,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T06:58:11.057Z",
+  "collectionName": "binaries"
+}

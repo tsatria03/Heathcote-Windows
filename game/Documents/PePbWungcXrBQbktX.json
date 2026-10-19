@@ -1,0 +1,41 @@
+{
+  "file": "NtiXp8xMx6XPeXiCi",
+  "transcript": "DAVID: Let's pick up... In three.. Two... [AS PRESENTER] So I am here in cell block C. I think this is where the mid-level patients were held - those with severe mental issues, but not criminal... The wall at the end of the hallway is open to the elements. I can see the remains of the east wing past it; The place where 89 people lost their lives. From outside the vines are growing inwards, coating this hallway in its wooden tendrils...\n\nHe walks down the hall.\n\nDAVID (CONT’D): It’s amazing... I have seen haunted houses, haunted ships, and many hospitals... But this is the only one where it seems nature is taking over... \n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "S8voH47psKfyKxK98": "1"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "spiders"
+      },
+      "softRef": "YRuQ76D9CGkSEwbbP"
+    },
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "clowns"
+      },
+      "softRef": "e9ftxBJWWkdT2FZrP"
+    },
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "darkness"
+      },
+      "softRef": "5nGoZvfwRSK5JApST"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442817295175,
+  "edited": 1445027922555,
+  "_id": "PePbWungcXrBQbktX"
+}

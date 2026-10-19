@@ -1,0 +1,61 @@
+{
+  "file": "CenZh6FQ9KtFLFErz",
+  "transcript": "MARTIN: I got the building plans here. Hold on...\n\n[SFX: We hear a rustling of paper from Martin frantically looking for something.]\n\nMARTIN: Ok. Calm down! Calm down! There should be a window on that floor, see if you can get out from there. If not, look for a fire escape on the second floor - find the stairs...\n\n[SFX: running]\n\nDAVID: The windows are all boarded up!\n\nMARTIN: Damn! The stairs. Back near the foyer.\n\n[SFX: running along hallway]\n\nDAVID: (nervously) They're rickety as hell...\n\nMARTIN: Is there any other way out that you can see?\n\nDAVID: DAMN!! No... Okay... I'm going up...  \n\n[SFX: David lets out an exhalation of panic, and turns and runs up the stairs. As he gets halfway up - the stairs crack and break apart.]\n\n[SFX: He screams as he tumbles downward.]\n\nMARTIN: DAVID!!!?\n\n[SFX: We hear a thud of David's body hitting concrete. Hard. We hear what must be the sound of a few of his bones breaking.]\n\nMARTIN (CONT’D): ANSWER ME!!!\n\nNo answer.\n\nMARTIN (CONT’D): David? Please... Say something... Please...\n\nThe silence is palpable. \n\n[IDLE LOOP: SFX: We hear the wind howling above David. Far above. Where he is sounds closed in.]",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "fallen",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 43.25,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "FgAqHXc58P3ZjrLZY",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443153204804,
+  "edited": 1445152976915,
+  "ambience3": [
+    {
+      "at": 34,
+      "fadeTo": {
+        "softRef": "jhTYuaL4W4LY4YNDs",
+        "duration": 0.25
+      }
+    },
+    {
+      "at": 41,
+      "fadeOut": {
+        "duration": 0.25
+      }
+    }
+  ],
+  "ambience2": [
+    {
+      "at": 29,
+      "fadeTo": {
+        "softRef": "LHE2QGn4SnPMXbZ9F",
+        "duration": 4
+      }
+    }
+  ],
+  "ambience1": [
+    {
+      "at": 40,
+      "fadeOut": {
+        "duration": 1.5
+      }
+    }
+  ],
+  "_id": "QbyaHrsB7GzzPEZiT"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "vdEef7JQYpoerusqv",
+  "copies": {
+    "binaries": {
+      "name": "book-open.png",
+      "type": "image/png",
+      "size": 22611,
+      "key": "binaries-vdEef7JQYpoerusqv-book-open.png",
+      "updatedAt": "2015-01-21T05:21:05.000Z",
+      "createdAt": "2015-01-21T05:21:05.000Z"
+    }
+  },
+  "original": {
+    "name": "book-open.png",
+    "updatedAt": "2014-11-08T01:41:18.000Z",
+    "size": 22611,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-01-21T05:21:05.508Z",
+  "collectionName": "binaries"
+}

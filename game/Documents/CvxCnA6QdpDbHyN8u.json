@@ -1,0 +1,28 @@
+{
+  "file": "SqGshvk9nm2W8xQ8Q",
+  "transcript": "DAVID:Now don't be afraid of them... They just want somewhere warm to live...\n\nMARTIN: What?\n\n[SFX: the faint scuttling of 1000s of spiders...]\n\nMARTIN: No!! NO!!!! \n\n[SFX: He screams until we hear the spiders crawling down his throat. His voice is muffled and gagging.]\n",
+  "set": [],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {},
+      "softRef": "MjDjB9zo6mkg6cBL2"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443153385820,
+  "edited": 1444895323875,
+  "ambience2": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 3
+      }
+    }
+  ],
+  "_id": "CvxCnA6QdpDbHyN8u"
+}

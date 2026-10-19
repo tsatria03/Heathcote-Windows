@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "49FjC9KjY8yMaWHHA",
+  "copies": {
+    "binaries": {
+      "name": "painting (P).wav",
+      "type": "audio/wav",
+      "size": 217402,
+      "key": "binaries-49FjC9KjY8yMaWHHA-painting (P).wav",
+      "updatedAt": "2015-10-03T07:00:39.000Z",
+      "createdAt": "2015-10-03T07:00:39.000Z"
+    }
+  },
+  "original": {
+    "name": "painting (P).wav",
+    "updatedAt": "2015-10-03T06:17:12.000Z",
+    "size": 217402,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T07:00:39.643Z",
+  "collectionName": "binaries"
+}

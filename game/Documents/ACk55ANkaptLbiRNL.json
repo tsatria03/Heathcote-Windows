@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "ACk55ANkaptLbiRNL",
+  "copies": {
+    "binaries": {
+      "name": "Martin office.mp3",
+      "type": "audio/mp3",
+      "size": 1761024,
+      "key": "binaries-ACk55ANkaptLbiRNL-Martin office.mp3",
+      "updatedAt": "2015-10-15T12:08:10.000Z",
+      "createdAt": "2015-10-15T12:08:10.000Z"
+    }
+  },
+  "original": {
+    "name": "Martin office.mp3",
+    "updatedAt": "2015-10-15T12:07:57.000Z",
+    "size": 1761024,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T12:08:10.348Z",
+  "collectionName": "binaries"
+}

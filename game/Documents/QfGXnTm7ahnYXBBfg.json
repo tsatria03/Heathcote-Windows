@@ -1,0 +1,64 @@
+{
+  "file": "fzbCMmxQ3sBnHzsaD",
+  "transcript": "DAVID: Checking out the cells now.\n\nMARTIN: Sounds good.\n\n[SFX: we hear him walk into from the room through the door.]\n\nDAVID: Leads into a hallway...\n\n[He walks into a long hallway of patient rooms. We hear the wind howling in there.]\n\nDAVID (CONT’D): And here we are.... Jeez, it's a long damn hallway.. anyway.. Just gonna talk some more for atmosphere... (back in character) I think this heads towards the main complex, which was destroyed by the fire... It is said after they died, the spirits of the insane walked back to their cells and stayed there. Some say even their souls were too mentally ill to be granted residence in the afterlife.\n\nMARTIN: Who said that?\n\nDAVID: I'm being dramatic, man... We've got a show to record, 'member?\n\nMARTIN: Fine, but-\n\n[SFX: a door slams loudly.]\n\nDAVID: Damn! Another!? What is it with the doors here?\n\n[SFX: The call with David is dropped. A tone can be heard.]\n\nMARTIN: David? David, you there? David? Damn!\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "dropped call",
+        "uTYZBw9oZC5Zdp6eZ": "0",
+        "u9A9g7skyQT96NvBx": "approaching the cells",
+        "S8voH47psKfyKxK98": "1",
+        "kEawLAST5aQSsEW7G": "0"
+      }
+    },
+    {
+      "at": 63.5,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [
+    {
+      "at": 0.1,
+      "fadeTo": {
+        "softRef": "wwy7yXsZPcezLs79m",
+        "duration": 6
+      }
+    }
+  ],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442816812222,
+  "edited": 1445150764507,
+  "ambience2": [
+    {
+      "at": 57.95,
+      "fadeOut": {
+        "duration": 0
+      }
+    },
+    {
+      "at": 62,
+      "fadeTo": {
+        "softRef": "R3S9MBM7jXxu9r7kW",
+        "duration": 1
+      }
+    }
+  ],
+  "ambience1": [
+    {
+      "at": 61,
+      "fadeTo": {
+        "softRef": "Po2Kpg82bqttPQPjW",
+        "duration": 4
+      }
+    }
+  ],
+  "_id": "QfGXnTm7ahnYXBBfg"
+}

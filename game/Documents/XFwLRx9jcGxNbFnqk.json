@@ -1,0 +1,42 @@
+{
+  "file": "9NmXirSvfJiwPyGH2",
+  "transcript": "MARTIN: Well, onward and upwards. What's next? Any other doors?\n\n[SFX: We hear David walk to the next room. He opens the door, and walks through.]\n\nDAVID: Just a hallway... A really long one...\n\n[SFX: We hear his footsteps as he starts down the hallway.]\n\n\nMARTIN: Wishing you stayed in the cells now?\n\nDAVID: Lil' bit, man. Lil' bit. \n\n\n\nDAVID: No doors... No windows...  If it wasn't for the flashlight I would be walking blind... Damn it...\n\n[SFX: He walks on further...] \n\nDAVID: Nothing here. God knows where this ends up...\n\n[SFX: He walks even further...]\n\nDAVID: There's more graffiti on the walls here...\n\nMARTIN: What's it say?\n\nDAVID: It's damn weird... It says: \n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "u9A9g7skyQT96NvBx": "hallway from offices",
+        "S8voH47psKfyKxK98": "1"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "clowns"
+      },
+      "softRef": "hSwnJ6F2GddfKi38Q"
+    },
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "spiders"
+      },
+      "softRef": "iDDuZxdPrPygTz4gb"
+    },
+    {
+      "if": {
+        "xxReZ6t5dx9JujyP8": "darkness"
+      },
+      "softRef": "8aqSzCbTrB5msNEk7"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442817942940,
+  "edited": 1445028877068,
+  "_id": "XFwLRx9jcGxNbFnqk"
+}

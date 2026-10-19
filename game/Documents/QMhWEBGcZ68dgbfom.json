@@ -1,0 +1,39 @@
+{
+  "file": "kY8nERNC7QPTwzHuB",
+  "transcript": "DAVID: \tWhy can I smell burning hair?\t(Pause, shift in tone)\tI smell burning hair. \n\nMARTIN: What? Talk to me, man!\n\nDAVID: Oh no...\n\nMARTIN: What is going-\n\nDAVID: Judith. Poor Judith.\n\nMARTIN: \tWho’s Judith?! \t\nDavid? Is someone else with you?\tDavid?\t\nYou’re starting to scare me...\n\n\nDAVID: I shouldn’t have done this... No good can come of it...\n\n[SFX: David’s voice slowly starts to drift further away from the phone, his voice getting quiet and quieter.]\n\n[Pause]\n\nDAVID: Her eyes... The fire took her eyes... But she is still looking at me... She is seeing me... She tries to speak... but the fire is stealing her breath.\n\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "Judith 2",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 19,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "uuJ2S8iSQxEAwkkZW",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443147328230,
+  "edited": 1445053347584,
+  "ambience1": [],
+  "ambience2": [
+    {
+      "at": 7.16,
+      "fadeTo": {
+        "softRef": "nMf4kEeeyFEpF6z6a",
+        "duration": 2.24
+      }
+    }
+  ],
+  "_id": "QMhWEBGcZ68dgbfom"
+}

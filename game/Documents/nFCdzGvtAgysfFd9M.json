@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "nFCdzGvtAgysfFd9M",
+  "copies": {
+    "binaries": {
+      "name": "dual calls (answer landline).mp3",
+      "type": "audio/mp3",
+      "size": 315648,
+      "key": "binaries-nFCdzGvtAgysfFd9M-dual calls (answer landline).mp3",
+      "updatedAt": "2015-10-15T06:30:31.000Z",
+      "createdAt": "2015-10-15T06:30:31.000Z"
+    }
+  },
+  "original": {
+    "name": "dual calls (answer landline).mp3",
+    "updatedAt": "2015-10-15T06:29:55.000Z",
+    "size": 315648,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T06:30:31.084Z",
+  "collectionName": "binaries"
+}

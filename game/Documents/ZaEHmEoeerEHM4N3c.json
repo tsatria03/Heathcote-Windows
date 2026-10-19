@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "ZaEHmEoeerEHM4N3c",
+  "copies": {
+    "binaries": {
+      "name": "painting.mp3",
+      "type": "audio/mp3",
+      "size": 830976,
+      "key": "binaries-ZaEHmEoeerEHM4N3c-painting.mp3",
+      "updatedAt": "2015-10-16T10:48:25.000Z",
+      "createdAt": "2015-10-16T10:48:25.000Z"
+    }
+  },
+  "original": {
+    "name": "painting.mp3",
+    "updatedAt": "2015-10-16T10:48:07.000Z",
+    "size": 830976,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T10:48:25.103Z",
+  "collectionName": "binaries"
+}

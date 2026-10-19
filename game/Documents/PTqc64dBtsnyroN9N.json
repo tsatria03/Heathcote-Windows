@@ -1,0 +1,29 @@
+{
+  "file": "RpkudMxPpvodpdwzw",
+  "transcript": "DAVID: Now look behind you...\n\nMARTIN: What?\n\n[SFX: We hear him turn, and scream...]\n\n[SFX: We hear a clown laugh. A laugh so evil it chills to the core. We hear a hatchet bury into Martin's skull.]\n",
+  "set": [],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {},
+      "softRef": "MjDjB9zo6mkg6cBL2"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443153385820,
+  "edited": 1444912538379,
+  "ambience3": [],
+  "ambience2": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 3
+      }
+    }
+  ],
+  "_id": "PTqc64dBtsnyroN9N"
+}

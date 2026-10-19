@@ -1,0 +1,39 @@
+{
+  "file": "jvQaTg7cdpvvLAqt3",
+  "transcript": "[SFX THE CLACKING OF COMPUTER MOUSE AS MARTIN OPENS AN EMAIL]\n\nMARTIN: \tHey, the station just sent along the commercial... \nDAVID: \t(sarcastic) Oh goody.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "uTYZBw9oZC5Zdp6eZ": "0",
+        "u9A9g7skyQT96NvBx": "commercial disaster",
+        "S8voH47psKfyKxK98": "1"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {},
+      "softRef": "XunPnL2wv337NtN55"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "RETAKE. Martin says 'sent the long the commercial'.",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443209562875,
+  "edited": 1445093193474,
+  "ambience1": [],
+  "ambience2": [
+    {
+      "at": 6,
+      "fadeOut": {
+        "duration": 1.5
+      }
+    }
+  ],
+  "ambience3": [],
+  "_id": "q4uag2Sv3nMCtmrcn"
+}

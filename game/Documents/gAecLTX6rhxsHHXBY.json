@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "gAecLTX6rhxsHHXBY",
+  "copies": {
+    "binaries": {
+      "name": "run (P).wav",
+      "type": "audio/wav",
+      "size": 94102,
+      "key": "binaries-gAecLTX6rhxsHHXBY-run (P).wav",
+      "updatedAt": "2015-10-17T18:01:22.000Z",
+      "createdAt": "2015-10-17T18:01:22.000Z"
+    }
+  },
+  "original": {
+    "name": "run (P).wav",
+    "updatedAt": "2015-10-17T17:57:00.000Z",
+    "size": 94102,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T18:01:22.398Z",
+  "collectionName": "binaries"
+}

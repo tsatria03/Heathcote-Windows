@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "vsaAtFwQFRNKmL63z",
+  "copies": {
+    "binaries": {
+      "name": "graffiti.mp3",
+      "type": "audio/mp3",
+      "size": 1242624,
+      "key": "binaries-vsaAtFwQFRNKmL63z-graffiti.mp3",
+      "updatedAt": "2015-10-16T09:10:48.000Z",
+      "createdAt": "2015-10-16T09:10:48.000Z"
+    }
+  },
+  "original": {
+    "name": "graffiti.mp3",
+    "updatedAt": "2015-10-16T09:10:35.000Z",
+    "size": 1242624,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T09:10:48.401Z",
+  "collectionName": "binaries"
+}

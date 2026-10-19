@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "gTt77eHzRyuMQW9Fk",
+  "copies": {
+    "binaries": {
+      "name": "typewriters.mp3",
+      "type": "audio/mp3",
+      "size": 503424,
+      "key": "binaries-gTt77eHzRyuMQW9Fk-typewriters.mp3",
+      "updatedAt": "2015-10-16T09:03:25.000Z",
+      "createdAt": "2015-10-16T09:03:25.000Z"
+    }
+  },
+  "original": {
+    "name": "typewriters.mp3",
+    "updatedAt": "2015-10-16T09:03:17.000Z",
+    "size": 503424,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T09:03:25.980Z",
+  "collectionName": "binaries"
+}

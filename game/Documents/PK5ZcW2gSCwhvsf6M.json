@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "PK5ZcW2gSCwhvsf6M",
+  "copies": {
+    "binaries": {
+      "name": "David 1 (P).wav",
+      "type": "audio/wav",
+      "size": 161306,
+      "key": "binaries-PK5ZcW2gSCwhvsf6M-David 1 (P).wav",
+      "updatedAt": "2015-10-17T13:05:46.000Z",
+      "createdAt": "2015-10-17T13:05:46.000Z"
+    }
+  },
+  "original": {
+    "name": "David 1 (P).wav",
+    "updatedAt": "2015-10-17T13:03:13.000Z",
+    "size": 161306,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T13:05:46.921Z",
+  "collectionName": "binaries"
+}

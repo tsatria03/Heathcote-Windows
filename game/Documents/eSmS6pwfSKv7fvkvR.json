@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "eSmS6pwfSKv7fvkvR",
+  "copies": {
+    "binaries": {
+      "name": "flashlight (P).wav",
+      "type": "audio/wav",
+      "size": 256682,
+      "key": "binaries-eSmS6pwfSKv7fvkvR-flashlight (P).wav",
+      "updatedAt": "2015-10-06T20:38:21.000Z",
+      "createdAt": "2015-10-06T20:38:21.000Z"
+    }
+  },
+  "original": {
+    "name": "flashlight (P).wav",
+    "updatedAt": "2015-10-03T06:43:44.000Z",
+    "size": 256682,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-06T20:38:21.321Z",
+  "collectionName": "binaries"
+}

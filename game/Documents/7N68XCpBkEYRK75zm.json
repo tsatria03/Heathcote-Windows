@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "7N68XCpBkEYRK75zm",
+  "copies": {
+    "binaries": {
+      "name": "pick up (P).mp3",
+      "type": "audio/mp3",
+      "size": 24576,
+      "key": "binaries-7N68XCpBkEYRK75zm-pick up (P).mp3",
+      "updatedAt": "2015-10-16T10:06:42.000Z",
+      "createdAt": "2015-10-16T10:06:42.000Z"
+    }
+  },
+  "original": {
+    "name": "pick up (P).mp3",
+    "updatedAt": "2015-10-16T10:04:57.000Z",
+    "size": 24576,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T10:06:42.428Z",
+  "collectionName": "binaries"
+}

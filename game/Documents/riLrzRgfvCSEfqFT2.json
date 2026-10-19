@@ -1,0 +1,46 @@
+{
+  "file": "xwokajfjqpzweNNYW",
+  "transcript": "[SFX: He gets there. We hear the creak of the door.]\n\nDAVID (CONT’D): It’s a small cell. Empty except for a bookshelf. I'm going to check it out.\n\nMARTIN: Hell no! What if you get locked in?\n\nDAVID: Then send the police! Anyway, I'll prop it open with this brick.\n[sfx: brick dragging on stone]\n\nMARTIN: Okay, fine. Just as long as you're sure.\n\n[PAUSE]\n\nDAVID: Hmmm... There're a few mystery books... A bible... Oh... \n\n[SFX: We hear him pick up a book from the shelf.]\n\nDAVID (CONT’D): This one says journal...\n\n[SFX: We hear him pick up and leaf through a book]\n\nDAVID (CONT’D): Inmate 3538, Joe Banks.\n\n[SFX: He flicks through pages.]\n\nDAVID (CONT’D, slow, labored reading): It looks like insane ramblings... “The demon lives here. I can hear its claws scraping to get into my mind. Please someone help me.”\n\nDAVID (normal): Eesh.",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "open cell",
+        "Kfn9roWnYoSS7QJXa": "1",
+        "S9Ff5amxyc7Z5mve4": "1",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 45.1,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442818018015,
+  "edited": 1445028282461,
+  "ambience3": [
+    {
+      "at": 1,
+      "fadeTo": {
+        "softRef": "wBiD2xee9EaMT6cHa",
+        "duration": 1
+      }
+    },
+    {
+      "at": 20,
+      "fadeOut": {
+        "duration": 5
+      }
+    }
+  ],
+  "_id": "riLrzRgfvCSEfqFT2"
+}

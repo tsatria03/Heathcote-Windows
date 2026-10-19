@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "FaZBWYsw6AGG7GSdu",
+  "copies": {
+    "binaries": {
+      "name": "clearing.mp3",
+      "type": "audio/mp3",
+      "size": 696960,
+      "key": "binaries-FaZBWYsw6AGG7GSdu-clearing.mp3",
+      "updatedAt": "2015-10-14T23:36:55.000Z",
+      "createdAt": "2015-10-14T23:36:55.000Z"
+    }
+  },
+  "original": {
+    "name": "clearing.mp3",
+    "updatedAt": "2015-10-14T23:36:35.000Z",
+    "size": 696960,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-14T23:36:55.062Z",
+  "collectionName": "binaries"
+}

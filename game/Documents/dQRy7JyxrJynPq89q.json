@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "dQRy7JyxrJynPq89q",
+  "copies": {
+    "binaries": {
+      "name": "darkness.m4a",
+      "type": "audio/x-m4a",
+      "size": 69571,
+      "key": "binaries-dQRy7JyxrJynPq89q-darkness.m4a",
+      "updatedAt": "2015-09-30T09:08:06.000Z",
+      "createdAt": "2015-09-30T09:08:06.000Z"
+    }
+  },
+  "original": {
+    "name": "darkness.m4a",
+    "updatedAt": "2015-09-30T09:04:48.000Z",
+    "size": 69571,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:08:06.481Z",
+  "collectionName": "binaries"
+}

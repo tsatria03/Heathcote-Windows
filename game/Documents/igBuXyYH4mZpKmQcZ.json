@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "igBuXyYH4mZpKmQcZ",
+  "copies": {
+    "binaries": {
+      "name": "spiel 3 (clowns).mp3",
+      "type": "audio/mp3",
+      "size": 319872,
+      "key": "binaries-igBuXyYH4mZpKmQcZ-spiel 3 (clowns).mp3",
+      "updatedAt": "2015-10-18T07:08:54.000Z",
+      "createdAt": "2015-10-18T07:08:54.000Z"
+    }
+  },
+  "original": {
+    "name": "spiel 3 (clowns).mp3",
+    "updatedAt": "2015-10-18T07:08:14.000Z",
+    "size": 319872,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-18T07:08:54.729Z",
+  "collectionName": "binaries"
+}

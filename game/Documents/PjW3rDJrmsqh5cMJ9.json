@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "PjW3rDJrmsqh5cMJ9",
+  "copies": {
+    "binaries": {
+      "name": "records room (move on).mp3",
+      "type": "audio/mp3",
+      "size": 570624,
+      "key": "binaries-PjW3rDJrmsqh5cMJ9-records room (move on).mp3",
+      "updatedAt": "2015-10-15T04:44:29.000Z",
+      "createdAt": "2015-10-15T04:44:29.000Z"
+    }
+  },
+  "original": {
+    "name": "records room (move on).mp3",
+    "updatedAt": "2015-10-15T04:44:23.000Z",
+    "size": 570624,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T04:44:29.675Z",
+  "collectionName": "binaries"
+}

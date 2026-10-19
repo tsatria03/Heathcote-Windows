@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "usyujpmwavAxwQxtc",
+  "copies": {
+    "binaries": {
+      "name": "outside, calm (M-L).mp3",
+      "type": "audio/mp3",
+      "size": 288705,
+      "key": "binaries-usyujpmwavAxwQxtc-outside, calm (M-L).mp3",
+      "updatedAt": "2015-10-08T10:04:17.000Z",
+      "createdAt": "2015-10-08T10:04:17.000Z"
+    }
+  },
+  "original": {
+    "name": "outside, calm (M-L).mp3",
+    "updatedAt": "2015-10-08T10:02:26.000Z",
+    "size": 288705,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-08T10:04:17.767Z",
+  "collectionName": "binaries"
+}

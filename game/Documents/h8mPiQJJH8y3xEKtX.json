@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "h8mPiQJJH8y3xEKtX",
+  "copies": {
+    "binaries": {
+      "name": "rats.mp3",
+      "type": "audio/mp3",
+      "size": 228480,
+      "key": "binaries-h8mPiQJJH8y3xEKtX-rats.mp3",
+      "updatedAt": "2015-10-16T06:10:07.000Z",
+      "createdAt": "2015-10-16T06:10:07.000Z"
+    }
+  },
+  "original": {
+    "name": "rats.mp3",
+    "updatedAt": "2015-10-16T05:57:29.000Z",
+    "size": 228480,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:10:07.404Z",
+  "collectionName": "binaries"
+}

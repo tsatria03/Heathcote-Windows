@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "nkCP3Rs5tkE7sLXKJ",
+  "copies": {
+    "binaries": {
+      "name": "commercial reflection.mp3",
+      "type": "audio/mp3",
+      "size": 1276446,
+      "key": "binaries-nkCP3Rs5tkE7sLXKJ-commercial reflection.mp3",
+      "updatedAt": "2015-10-16T06:07:21.000Z",
+      "createdAt": "2015-10-16T06:07:21.000Z"
+    }
+  },
+  "original": {
+    "name": "commercial reflection.mp3",
+    "updatedAt": "2015-10-16T05:58:29.000Z",
+    "size": 1276446,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:07:21.833Z",
+  "collectionName": "binaries"
+}

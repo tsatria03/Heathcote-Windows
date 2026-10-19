@@ -1,0 +1,65 @@
+{
+  "file": "KJKwxSfbzEHPK3rBT",
+  "transcript": "MARTIN: \tHello?\n\nDAVID \t(over phone, and will be heard like this throughout): 'Bout time you picked up.\n\nMARTIN \t(not over phone): Hey David, you there already?\n\nDAVID: \tYeah, just pulled up.\n\nSFX: CAR PULLING UP\n\nMARTIN:\tHow's it look?\n\nDAVID: \tDilapidated, man. Not a whole lot to look at from the outside. Just a big, run-down building.\n\nMARTIN: \tHey, call my cell. I don't have the recorders hooked up to my landline.\n\nDAVID: \tAlright.\n\n[SFX: DAVID HANGS UP. WE HEAR MARTIN HANG UP HIS LANDLINE PHONE. THEN WE HEAR  MARTIN'S CELL PHONE RING. MARTIN PICKS IT UP]\n\nMARTIN: \tHey.\n\nDAVID: \tYo. You got a good signal?\n\nMARTIN:\tI hear ya loud and clear. Ready?\n\nDAVID: \tYeah, man, let's do it.\n\nMARTIN: \tWell I got the plans laid out in front of me... Ready when you are... \n\n[SFX, ON MARTIN'S SIDE, THRU COMPUTER SPEAKER. A MU-HA-HA-HA OR WILHELM SCREAM]\n\nDAVID: Oh you didn't say you had family over?\n\nMARTIN: It's an email. And you're funny. You nearly there?\n\nDAVID: Still heading down the path. Give me a minute.",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "approaching building",
+        "uTYZBw9oZC5Zdp6eZ": "path",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 5,
+      "set": {
+        "u9A9g7skyQT96NvBx": "approaching Heathcote"
+      }
+    },
+    {
+      "at": 44.7,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442437025559,
+  "edited": 1445025218207,
+  "ambience2": [
+    {
+      "at": 0.8,
+      "fadeTo": {
+        "softRef": "8JLkagCGL8Tpfhe4v",
+        "duration": 1
+      }
+    },
+    {
+      "at": 21,
+      "fadeOut": {
+        "duration": 0.5
+      }
+    },
+    {
+      "at": 25.6,
+      "fadeTo": {
+        "softRef": "9WhaffEjoKDB4G7J7",
+        "duration": 1
+      }
+    }
+  ],
+  "idleLoop": "GoKhKejpM9kAY28kD",
+  "ambience1": [
+    {
+      "at": 0.8,
+      "fadeOut": {
+        "duration": 12
+      }
+    }
+  ],
+  "_id": "oGp7x4vMwgqgpDbYw"
+}

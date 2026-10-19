@@ -1,0 +1,42 @@
+{
+  "file": "RZBN8sBd9DJ88Z6jJ",
+  "transcript": "DAVID (CONT'D from previous): There’s a room on the other side of the wing. I’m gonna check in there. \n\nMARTIN: There light there?\n\n[SFX: We heard him starting to walk across the room.]\n\nMARTIN (CONT’D): David?\n\nDAVID: It’s okay...\n\n[SFX: We hear a door open, followed by a few footsteps]\n\nDAVID (CONT’D): It looks like a records room. Lots of filing cabinets...\n\n[SFX: door slams shut]\n\nDAVID: Uh-oh. That's not good.\n\nMARTIN (alarmed): What?\n\nDAVID: The door shut. It's pitch black.\n\nMARTIN: Geez...\n\n(PAUSE)\n\nDAVID: Uh...\n\nMARTIN: Can you feel your way out?\n\nDAVID: I'm tryin' man, I'm tryin'.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "records room (dark)",
+        "kEawLAST5aQSsEW7G": "use light",
+        "gZE3yhqimpzp7mMSK": "0",
+        "oQmPM9ydj7qqfacPB": "records room",
+        "uTYZBw9oZC5Zdp6eZ": "records room, no light",
+        "u9A9g7skyQT96NvBx": "dark history"
+      }
+    },
+    {
+      "at": 23,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443141469181,
+  "edited": 1445157111948,
+  "ambience2": [
+    {
+      "at": 10,
+      "fadeTo": {
+        "softRef": "9qoFraHcRX2cvDw8C",
+        "duration": 4
+      }
+    }
+  ],
+  "_id": "zWGvMYxTaeRgJ3ZQm"
+}

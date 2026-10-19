@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Bj9uQwFqe8GATf4QH",
+  "copies": {
+    "binaries": {
+      "name": "start recording (passage to east wing).mp3",
+      "type": "audio/mp3",
+      "size": 696576,
+      "key": "binaries-Bj9uQwFqe8GATf4QH-start recording (passage to east wing).mp3",
+      "updatedAt": "2015-10-14T23:17:48.000Z",
+      "createdAt": "2015-10-14T23:17:48.000Z"
+    }
+  },
+  "original": {
+    "name": "start recording (passage to east wing).mp3",
+    "updatedAt": "2015-10-14T23:17:03.000Z",
+    "size": 696576,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-14T23:17:48.379Z",
+  "collectionName": "binaries"
+}

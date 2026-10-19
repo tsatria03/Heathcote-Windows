@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "JLZPwHFGGJtkxuYwm",
+  "copies": {
+    "binaries": {
+      "name": "whats going on.wav",
+      "type": "audio/wav",
+      "size": 447394,
+      "key": "binaries-JLZPwHFGGJtkxuYwm-whats going on.wav",
+      "updatedAt": "2015-10-17T16:11:08.000Z",
+      "createdAt": "2015-10-17T16:11:08.000Z"
+    }
+  },
+  "original": {
+    "name": "whats going on.wav",
+    "updatedAt": "2015-10-17T16:10:49.000Z",
+    "size": 447394,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T16:11:08.268Z",
+  "collectionName": "binaries"
+}

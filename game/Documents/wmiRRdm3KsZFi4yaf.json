@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "wmiRRdm3KsZFi4yaf",
+  "copies": {
+    "binaries": {
+      "name": "shut door (spiders).mp3",
+      "type": "audio/mp3",
+      "size": 36480,
+      "key": "binaries-wmiRRdm3KsZFi4yaf-shut door (spiders).mp3",
+      "updatedAt": "2015-10-16T06:11:38.000Z",
+      "createdAt": "2015-10-16T06:11:38.000Z"
+    }
+  },
+  "original": {
+    "name": "shut door (spiders).mp3",
+    "updatedAt": "2015-10-16T05:57:25.000Z",
+    "size": 36480,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:11:38.077Z",
+  "collectionName": "binaries"
+}

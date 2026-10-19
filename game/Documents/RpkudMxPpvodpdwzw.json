@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "RpkudMxPpvodpdwzw",
+  "copies": {
+    "binaries": {
+      "name": "ending (clowns).mp3",
+      "type": "audio/mp3",
+      "size": 226176,
+      "key": "binaries-RpkudMxPpvodpdwzw-ending (clowns).mp3",
+      "updatedAt": "2015-10-15T12:35:36.000Z",
+      "createdAt": "2015-10-15T12:35:36.000Z"
+    }
+  },
+  "original": {
+    "name": "ending (clowns).mp3",
+    "updatedAt": "2015-10-15T12:35:02.000Z",
+    "size": 226176,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T12:35:36.735Z",
+  "collectionName": "binaries"
+}

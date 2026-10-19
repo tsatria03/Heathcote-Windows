@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "HiRWXtrA52J4vsaPg",
+  "copies": {
+    "binaries": {
+      "name": "east wing more rain.mp3",
+      "type": "audio/mp3",
+      "size": 872832,
+      "key": "binaries-HiRWXtrA52J4vsaPg-east wing more rain.mp3",
+      "updatedAt": "2015-10-15T10:28:20.000Z",
+      "createdAt": "2015-10-15T10:28:20.000Z"
+    }
+  },
+  "original": {
+    "name": "east wing more rain.mp3",
+    "updatedAt": "2015-10-15T10:27:52.000Z",
+    "size": 872832,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T10:28:20.666Z",
+  "collectionName": "binaries"
+}

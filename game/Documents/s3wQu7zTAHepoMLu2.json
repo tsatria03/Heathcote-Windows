@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "s3wQu7zTAHepoMLu2",
+  "copies": {
+    "binaries": {
+      "name": "rats.m4a",
+      "type": "audio/x-m4a",
+      "size": 69517,
+      "key": "binaries-s3wQu7zTAHepoMLu2-rats.m4a",
+      "updatedAt": "2015-09-30T09:20:17.000Z",
+      "createdAt": "2015-09-30T09:20:17.000Z"
+    }
+  },
+  "original": {
+    "name": "rats.m4a",
+    "updatedAt": "2015-09-30T09:20:09.000Z",
+    "size": 69517,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:20:17.952Z",
+  "collectionName": "binaries"
+}

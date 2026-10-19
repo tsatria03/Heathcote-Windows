@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "RtEdGSkGnCFz3HYv4",
+  "copies": {
+    "binaries": {
+      "name": "typewriters (P).wav",
+      "type": "audio/wav",
+      "size": 265034,
+      "key": "binaries-RtEdGSkGnCFz3HYv4-typewriters (P).wav",
+      "updatedAt": "2015-10-03T07:01:07.000Z",
+      "createdAt": "2015-10-03T07:01:07.000Z"
+    }
+  },
+  "original": {
+    "name": "typewriters (P).wav",
+    "updatedAt": "2015-10-03T06:23:37.000Z",
+    "size": 265034,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T07:01:07.453Z",
+  "collectionName": "binaries"
+}

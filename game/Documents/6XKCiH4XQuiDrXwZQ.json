@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "6XKCiH4XQuiDrXwZQ",
+  "copies": {
+    "binaries": {
+      "name": "basement and kitchens.mp3",
+      "type": "audio/mp3",
+      "size": 615168,
+      "key": "binaries-6XKCiH4XQuiDrXwZQ-basement and kitchens.mp3",
+      "updatedAt": "2015-10-16T06:06:25.000Z",
+      "createdAt": "2015-10-16T06:06:25.000Z"
+    }
+  },
+  "original": {
+    "name": "basement and kitchens.mp3",
+    "updatedAt": "2015-10-16T05:58:35.000Z",
+    "size": 615168,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:06:25.745Z",
+  "collectionName": "binaries"
+}

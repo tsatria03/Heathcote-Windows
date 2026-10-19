@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "vaNfK3d7NAJjBD5wZ",
+  "copies": {
+    "binaries": {
+      "name": "spiel 3 (spiders).mp3",
+      "type": "audio/mp3",
+      "size": 229248,
+      "key": "binaries-vaNfK3d7NAJjBD5wZ-spiel 3 (spiders).mp3",
+      "updatedAt": "2015-10-17T11:06:10.000Z",
+      "createdAt": "2015-10-17T11:06:10.000Z"
+    }
+  },
+  "original": {
+    "name": "spiel 3 (spiders).mp3",
+    "updatedAt": "2015-10-17T11:02:41.000Z",
+    "size": 229248,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-17T11:06:10.007Z",
+  "collectionName": "binaries"
+}

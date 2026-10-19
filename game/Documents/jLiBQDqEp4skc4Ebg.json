@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "jLiBQDqEp4skc4Ebg",
+  "copies": {
+    "binaries": {
+      "name": "click.wav",
+      "type": "audio/wav",
+      "size": 9628,
+      "key": "binaries-jLiBQDqEp4skc4Ebg-click.wav",
+      "updatedAt": "2015-10-01T23:27:48.000Z",
+      "createdAt": "2015-10-01T23:27:48.000Z"
+    }
+  },
+  "original": {
+    "name": "click.wav",
+    "updatedAt": "2015-10-01T23:27:28.000Z",
+    "size": 9628,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-01T23:27:48.245Z",
+  "collectionName": "binaries"
+}

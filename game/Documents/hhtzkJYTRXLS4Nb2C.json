@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "hhtzkJYTRXLS4Nb2C",
+  "copies": {
+    "binaries": {
+      "name": "heartbeat (120bpm, f).mp3",
+      "type": "audio/mp3",
+      "size": 6896,
+      "key": "binaries-hhtzkJYTRXLS4Nb2C-heartbeat (120bpm, f).mp3",
+      "updatedAt": "2015-10-05T10:45:10.000Z",
+      "createdAt": "2015-10-05T10:45:10.000Z"
+    }
+  },
+  "original": {
+    "name": "heartbeat (120bpm, f).mp3",
+    "updatedAt": "2015-10-05T10:42:52.000Z",
+    "size": 6896,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-05T10:45:10.456Z",
+  "collectionName": "binaries"
+}

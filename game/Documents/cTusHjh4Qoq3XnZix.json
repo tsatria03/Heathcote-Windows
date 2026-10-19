@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "cTusHjh4Qoq3XnZix",
+  "copies": {
+    "binaries": {
+      "name": "repeat question (fear).mp3",
+      "type": "audio/mp3",
+      "size": 66816,
+      "key": "binaries-cTusHjh4Qoq3XnZix-repeat question (fear).mp3",
+      "updatedAt": "2015-10-16T06:10:16.000Z",
+      "createdAt": "2015-10-16T06:10:16.000Z"
+    }
+  },
+  "original": {
+    "name": "repeat question (fear).mp3",
+    "updatedAt": "2015-10-16T05:57:27.000Z",
+    "size": 66816,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:10:16.696Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "9gAKj7wkhqMiAFWP4",
+  "copies": {
+    "binaries": {
+      "name": "we're losing you.m4a",
+      "type": "audio/x-m4a",
+      "size": 74215,
+      "key": "binaries-9gAKj7wkhqMiAFWP4-we're losing you.m4a",
+      "updatedAt": "2015-10-17T16:46:49.000Z",
+      "createdAt": "2015-10-17T16:46:49.000Z"
+    }
+  },
+  "original": {
+    "name": "we're losing you.m4a",
+    "updatedAt": "2015-10-17T16:46:32.000Z",
+    "size": 74215,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-10-17T16:46:49.028Z",
+  "collectionName": "binaries"
+}

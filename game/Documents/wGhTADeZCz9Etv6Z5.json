@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "wGhTADeZCz9Etv6Z5",
+  "copies": {
+    "binaries": {
+      "name": "go back (clearing).mp3",
+      "type": "audio/mp3",
+      "size": 168576,
+      "key": "binaries-wGhTADeZCz9Etv6Z5-go back (clearing).mp3",
+      "updatedAt": "2015-10-15T00:25:34.000Z",
+      "createdAt": "2015-10-15T00:25:34.000Z"
+    }
+  },
+  "original": {
+    "name": "go back (clearing).mp3",
+    "updatedAt": "2015-10-15T00:25:29.000Z",
+    "size": 168576,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T00:25:34.823Z",
+  "collectionName": "binaries"
+}

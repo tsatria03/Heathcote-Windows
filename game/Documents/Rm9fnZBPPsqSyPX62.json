@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Rm9fnZBPPsqSyPX62",
+  "copies": {
+    "binaries": {
+      "name": "closed cells.mp3",
+      "type": "audio/mp3",
+      "size": 1616640,
+      "key": "binaries-Rm9fnZBPPsqSyPX62-closed cells.mp3",
+      "updatedAt": "2015-10-16T05:55:27.000Z",
+      "createdAt": "2015-10-16T05:55:27.000Z"
+    }
+  },
+  "original": {
+    "name": "closed cells.mp3",
+    "updatedAt": "2015-10-16T05:55:13.000Z",
+    "size": 1616640,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T05:55:27.036Z",
+  "collectionName": "binaries"
+}

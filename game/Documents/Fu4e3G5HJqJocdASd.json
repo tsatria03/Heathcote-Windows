@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Fu4e3G5HJqJocdASd",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (terror).mp3",
+      "type": "audio/mp3",
+      "size": 390528,
+      "key": "binaries-Fu4e3G5HJqJocdASd-idle loop (terror).mp3",
+      "updatedAt": "2015-10-15T06:51:23.000Z",
+      "createdAt": "2015-10-15T06:51:23.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (terror).mp3",
+    "updatedAt": "2015-10-15T06:51:17.000Z",
+    "size": 390528,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T06:51:23.822Z",
+  "collectionName": "binaries"
+}

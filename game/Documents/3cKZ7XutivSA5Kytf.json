@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "3cKZ7XutivSA5Kytf",
+  "copies": {
+    "binaries": {
+      "name": "Operation Paperclip (P).wav",
+      "type": "audio/wav",
+      "size": 471514,
+      "key": "binaries-3cKZ7XutivSA5Kytf-Operation Paperclip (P).wav",
+      "updatedAt": "2015-10-06T20:40:53.000Z",
+      "createdAt": "2015-10-06T20:40:53.000Z"
+    }
+  },
+  "original": {
+    "name": "Operation Paperclip (P).wav",
+    "updatedAt": "2015-10-03T06:46:03.000Z",
+    "size": 471514,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-06T20:40:53.818Z",
+  "collectionName": "binaries"
+}

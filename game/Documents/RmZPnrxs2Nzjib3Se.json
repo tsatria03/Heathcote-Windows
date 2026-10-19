@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "RmZPnrxs2Nzjib3Se",
+  "copies": {
+    "binaries": {
+      "name": "book-end5.png",
+      "type": "image/png",
+      "size": 23325,
+      "key": "binaries-RmZPnrxs2Nzjib3Se-book-end5.png",
+      "updatedAt": "2015-09-16T07:14:13.000Z",
+      "createdAt": "2015-09-16T07:14:13.000Z"
+    }
+  },
+  "original": {
+    "name": "book-end5.png",
+    "updatedAt": "2015-09-16T07:13:44.000Z",
+    "size": 23325,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-09-16T07:14:13.851Z",
+  "collectionName": "binaries"
+}

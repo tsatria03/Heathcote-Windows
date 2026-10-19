@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "iiQhTbbKAdQxWdXMm",
+  "copies": {
+    "binaries": {
+      "name": "call for help.wav",
+      "type": "audio/wav",
+      "size": 298532,
+      "key": "binaries-iiQhTbbKAdQxWdXMm-call for help.wav",
+      "updatedAt": "2015-10-17T15:39:14.000Z",
+      "createdAt": "2015-10-17T15:39:14.000Z"
+    }
+  },
+  "original": {
+    "name": "call for help.wav",
+    "updatedAt": "2015-10-17T15:39:02.000Z",
+    "size": 298532,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T15:39:14.339Z",
+  "collectionName": "binaries"
+}

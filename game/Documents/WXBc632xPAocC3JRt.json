@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "WXBc632xPAocC3JRt",
+  "copies": {
+    "binaries": {
+      "name": "journal (P).wav",
+      "type": "audio/wav",
+      "size": 218194,
+      "key": "binaries-WXBc632xPAocC3JRt-journal (P).wav",
+      "updatedAt": "2015-10-03T06:58:38.000Z",
+      "createdAt": "2015-10-03T06:58:38.000Z"
+    }
+  },
+  "original": {
+    "name": "journal (P).wav",
+    "updatedAt": "2015-10-03T06:16:22.000Z",
+    "size": 218194,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T06:58:38.371Z",
+  "collectionName": "binaries"
+}

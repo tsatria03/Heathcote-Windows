@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "LssnX9fA5Aw6JWCFu",
+  "copies": {
+    "binaries": {
+      "name": "run.wav",
+      "type": "audio/wav",
+      "size": 198692,
+      "key": "binaries-LssnX9fA5Aw6JWCFu-run.wav",
+      "updatedAt": "2015-10-17T16:31:59.000Z",
+      "createdAt": "2015-10-17T16:31:59.000Z"
+    }
+  },
+  "original": {
+    "name": "run.wav",
+    "updatedAt": "2015-10-17T16:31:38.000Z",
+    "size": 198692,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T16:31:59.098Z",
+  "collectionName": "binaries"
+}

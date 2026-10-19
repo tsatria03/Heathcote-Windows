@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "qftEq8ARGtX2JRnxQ",
+  "copies": {
+    "binaries": {
+      "name": "wind howling thru Martin's landline.mp3",
+      "type": "audio/mp3",
+      "size": 1584901,
+      "key": "binaries-qftEq8ARGtX2JRnxQ-wind howling thru Martin's landline.mp3",
+      "updatedAt": "2015-10-07T12:03:44.000Z",
+      "createdAt": "2015-10-07T12:03:44.000Z"
+    }
+  },
+  "original": {
+    "name": "wind howling thru Martin's landline.mp3",
+    "updatedAt": "2015-10-07T12:02:20.000Z",
+    "size": 1584901,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-07T12:03:44.300Z",
+  "collectionName": "binaries"
+}

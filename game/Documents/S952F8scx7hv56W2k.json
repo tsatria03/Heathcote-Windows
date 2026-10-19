@@ -1,0 +1,28 @@
+{
+  "file": "Shimks46Jzr8Sr8NQ",
+  "transcript": "MARTIN: Haunted house 101, man. Always make sure the flashlight has batteries.\n\nDAVID: It’s okay. I mean, it'll certainly make for a more exciting show. I’m going through to the site of the... Now suspected murders... The moon is bright... Should be okay... \n\n[SFX: We hear him walking faster. We hear the rain outside getting closer.]\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "oQmPM9ydj7qqfacPB": "0",
+        "S8voH47psKfyKxK98": "1"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {},
+      "softRef": "cJsLLbycYNp9QFnzM"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443139634082,
+  "edited": 1445052434154,
+  "_id": "S952F8scx7hv56W2k"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "jsySozaabYqbMmSQW",
+  "copies": {
+    "binaries": {
+      "name": "research Kaufer.mp3",
+      "type": "audio/mp3",
+      "size": 1420416,
+      "key": "binaries-jsySozaabYqbMmSQW-research Kaufer.mp3",
+      "updatedAt": "2015-10-15T04:18:49.000Z",
+      "createdAt": "2015-10-15T04:18:49.000Z"
+    }
+  },
+  "original": {
+    "name": "research Kaufer.mp3",
+    "updatedAt": "2015-10-15T04:18:37.000Z",
+    "size": 1420416,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T04:18:49.219Z",
+  "collectionName": "binaries"
+}

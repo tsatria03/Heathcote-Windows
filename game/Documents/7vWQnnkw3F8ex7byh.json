@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "7vWQnnkw3F8ex7byh",
+  "copies": {
+    "binaries": {
+      "name": "heartbeat (90bpm, mf).mp3",
+      "type": "audio/mp3",
+      "size": 8777,
+      "key": "binaries-7vWQnnkw3F8ex7byh-heartbeat (90bpm, mf).mp3",
+      "updatedAt": "2015-10-05T10:44:52.000Z",
+      "createdAt": "2015-10-05T10:44:52.000Z"
+    }
+  },
+  "original": {
+    "name": "heartbeat (90bpm, mf).mp3",
+    "updatedAt": "2015-10-05T10:41:26.000Z",
+    "size": 8777,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-05T10:44:52.841Z",
+  "collectionName": "binaries"
+}

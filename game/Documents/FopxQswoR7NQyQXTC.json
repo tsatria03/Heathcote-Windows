@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "FopxQswoR7NQyQXTC",
+  "copies": {
+    "binaries": {
+      "name": "spiders.m4a",
+      "type": "audio/x-m4a",
+      "size": 72059,
+      "key": "binaries-FopxQswoR7NQyQXTC-spiders.m4a",
+      "updatedAt": "2015-09-30T09:08:12.000Z",
+      "createdAt": "2015-09-30T09:08:12.000Z"
+    }
+  },
+  "original": {
+    "name": "spiders.m4a",
+    "updatedAt": "2015-09-30T09:07:48.000Z",
+    "size": 72059,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:08:12.928Z",
+  "collectionName": "binaries"
+}

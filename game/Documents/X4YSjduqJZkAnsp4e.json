@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "X4YSjduqJZkAnsp4e",
+  "copies": {
+    "binaries": {
+      "name": "smoke (P).wav",
+      "type": "audio/wav",
+      "size": 185562,
+      "key": "binaries-X4YSjduqJZkAnsp4e-smoke (P).wav",
+      "updatedAt": "2015-10-06T20:37:09.000Z",
+      "createdAt": "2015-10-06T20:37:09.000Z"
+    }
+  },
+  "original": {
+    "name": "smoke (P).wav",
+    "updatedAt": "2015-10-03T06:41:41.000Z",
+    "size": 185562,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-06T20:37:09.593Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "ycWnu85x2CYywycPH",
+  "copies": {
+    "binaries": {
+      "name": "David 3 (P).wav",
+      "type": "audio/wav",
+      "size": 286758,
+      "key": "binaries-ycWnu85x2CYywycPH-David 3 (P).wav",
+      "updatedAt": "2015-10-17T13:06:43.000Z",
+      "createdAt": "2015-10-17T13:06:43.000Z"
+    }
+  },
+  "original": {
+    "name": "David 3 (P).wav",
+    "updatedAt": "2015-10-17T13:05:00.000Z",
+    "size": 286758,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T13:06:43.211Z",
+  "collectionName": "binaries"
+}

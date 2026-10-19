@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "qKGzF6JrSRXmM4F8E",
+  "copies": {
+    "binaries": {
+      "name": "dual calls (switch to cell).mp3",
+      "type": "audio/mp3",
+      "size": 153600,
+      "key": "binaries-qKGzF6JrSRXmM4F8E-dual calls (switch to cell).mp3",
+      "updatedAt": "2015-10-15T06:34:41.000Z",
+      "createdAt": "2015-10-15T06:34:41.000Z"
+    }
+  },
+  "original": {
+    "name": "dual calls (switch to cell).mp3",
+    "updatedAt": "2015-10-15T06:34:31.000Z",
+    "size": 153600,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T06:34:41.271Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Sty9LHYgbwFmbGmqx",
+  "copies": {
+    "binaries": {
+      "name": "what's going on (P).mp3",
+      "type": "audio/mp3",
+      "size": 23808,
+      "key": "binaries-Sty9LHYgbwFmbGmqx-what's going on (P).mp3",
+      "updatedAt": "2015-10-16T10:26:53.000Z",
+      "createdAt": "2015-10-16T10:26:53.000Z"
+    }
+  },
+  "original": {
+    "name": "what's going on (P).mp3",
+    "updatedAt": "2015-10-16T10:26:38.000Z",
+    "size": 23808,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T10:26:53.682Z",
+  "collectionName": "binaries"
+}

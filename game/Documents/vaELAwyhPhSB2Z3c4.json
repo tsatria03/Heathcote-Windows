@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "vaELAwyhPhSB2Z3c4",
+  "copies": {
+    "binaries": {
+      "name": "where you at (outside entrance).mp3",
+      "type": "audio/mp3",
+      "size": 60288,
+      "key": "binaries-vaELAwyhPhSB2Z3c4-where you at (outside entrance).mp3",
+      "updatedAt": "2015-10-14T07:13:18.000Z",
+      "createdAt": "2015-10-14T07:13:18.000Z"
+    }
+  },
+  "original": {
+    "name": "where you at (outside entrance).mp3",
+    "updatedAt": "2015-10-14T07:13:05.000Z",
+    "size": 60288,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-14T07:13:18.123Z",
+  "collectionName": "binaries"
+}

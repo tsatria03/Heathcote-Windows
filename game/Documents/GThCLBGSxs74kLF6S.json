@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "GThCLBGSxs74kLF6S",
+  "copies": {
+    "binaries": {
+      "name": "handwritten note.mp3",
+      "type": "audio/mp3",
+      "size": 622080,
+      "key": "binaries-GThCLBGSxs74kLF6S-handwritten note.mp3",
+      "updatedAt": "2015-10-15T04:23:30.000Z",
+      "createdAt": "2015-10-15T04:23:30.000Z"
+    }
+  },
+  "original": {
+    "name": "handwritten note.mp3",
+    "updatedAt": "2015-10-15T04:23:12.000Z",
+    "size": 622080,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T04:23:30.990Z",
+  "collectionName": "binaries"
+}

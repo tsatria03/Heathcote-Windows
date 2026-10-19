@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Wb5MhNjRGNCZKZnxe",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (dual calls (answer landline)).mp3",
+      "type": "audio/mp3",
+      "size": 220800,
+      "key": "binaries-Wb5MhNjRGNCZKZnxe-idle loop (dual calls (answer landline)).mp3",
+      "updatedAt": "2015-10-15T06:31:15.000Z",
+      "createdAt": "2015-10-15T06:31:15.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (dual calls (answer landline)).mp3",
+    "updatedAt": "2015-10-15T06:31:10.000Z",
+    "size": 220800,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T06:31:15.616Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "WAH2ZeP3yGpbw9c9X",
+  "copies": {
+    "binaries": {
+      "name": "smoke.mp3",
+      "type": "audio/mp3",
+      "size": 505728,
+      "key": "binaries-WAH2ZeP3yGpbw9c9X-smoke.mp3",
+      "updatedAt": "2015-10-14T23:25:19.000Z",
+      "createdAt": "2015-10-14T23:25:19.000Z"
+    }
+  },
+  "original": {
+    "name": "smoke.mp3",
+    "updatedAt": "2015-10-14T23:25:04.000Z",
+    "size": 505728,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-14T23:25:19.598Z",
+  "collectionName": "binaries"
+}

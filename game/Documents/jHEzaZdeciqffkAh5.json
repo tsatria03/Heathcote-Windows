@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "jHEzaZdeciqffkAh5",
+  "copies": {
+    "binaries": {
+      "name": "menu-lockout-ended.wav",
+      "type": "audio/wav",
+      "size": 206906,
+      "key": "binaries-jHEzaZdeciqffkAh5-menu-lockout-ended.wav",
+      "updatedAt": "2015-10-10T01:15:37.000Z",
+      "createdAt": "2015-10-10T01:15:37.000Z"
+    }
+  },
+  "original": {
+    "name": "menu-lockout-ended.wav",
+    "updatedAt": "2015-10-10T01:15:25.000Z",
+    "size": 206906,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-10T01:15:37.658Z",
+  "collectionName": "binaries"
+}

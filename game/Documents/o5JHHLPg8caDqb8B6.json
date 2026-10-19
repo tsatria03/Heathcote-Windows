@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "o5JHHLPg8caDqb8B6",
+  "copies": {
+    "binaries": {
+      "name": "east wing less rain.mp3",
+      "type": "audio/mp3",
+      "size": 872832,
+      "key": "binaries-o5JHHLPg8caDqb8B6-east wing less rain.mp3",
+      "updatedAt": "2015-10-15T10:28:31.000Z",
+      "createdAt": "2015-10-15T10:28:31.000Z"
+    }
+  },
+  "original": {
+    "name": "east wing less rain.mp3",
+    "updatedAt": "2015-10-15T10:26:33.000Z",
+    "size": 872832,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T10:28:31.438Z",
+  "collectionName": "binaries"
+}

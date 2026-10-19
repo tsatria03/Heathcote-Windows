@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "4HJZXQfsjDEQJeXuj",
+  "copies": {
+    "binaries": {
+      "name": "FO_ident_bg.PNG",
+      "type": "image/png",
+      "size": 834471,
+      "key": "binaries-4HJZXQfsjDEQJeXuj-FO_ident_bg.PNG",
+      "updatedAt": "2015-10-16T13:46:40.000Z",
+      "createdAt": "2015-10-16T13:46:40.000Z"
+    }
+  },
+  "original": {
+    "name": "FO_ident_bg.PNG",
+    "updatedAt": "2015-10-16T04:26:48.000Z",
+    "size": 834471,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-10-16T13:46:40.439Z",
+  "collectionName": "binaries"
+}

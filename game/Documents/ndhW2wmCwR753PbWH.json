@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "ndhW2wmCwR753PbWH",
+  "copies": {
+    "binaries": {
+      "name": "flashlight (hint).mp3",
+      "type": "audio/mp3",
+      "size": 163200,
+      "key": "binaries-ndhW2wmCwR753PbWH-flashlight (hint).mp3",
+      "updatedAt": "2015-10-15T00:52:07.000Z",
+      "createdAt": "2015-10-15T00:52:07.000Z"
+    }
+  },
+  "original": {
+    "name": "flashlight (hint).mp3",
+    "updatedAt": "2015-10-15T00:51:51.000Z",
+    "size": 163200,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T00:52:07.054Z",
+  "collectionName": "binaries"
+}

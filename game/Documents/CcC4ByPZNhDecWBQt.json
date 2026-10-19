@@ -1,0 +1,31 @@
+{
+  "file": "B3LpQqgWynFcCmoox",
+  "transcript": "[SFX:We hear a door open...]\n\nDAVID: Okay.. Seems like a doctor's office... Just a desk and a chair... Some degrees on the wall.. Hmm.. All the names are scratched out on the certificates.. \n\nMARTIN: You can't read it?\n\nDAVID: No... But someone has scratched something into the wall, just underneath...\n\nMARTIN: Yeah?\n\nDAVID: Just says \"monster.\"\n\nMARTIN: Okaaaaay... So a no name monster doctor? There a name plate on the desk?\n\nDAVID: No, but there's a book. \n\n[SFX: DAVID picks up the book, and flicks through it.]\n\nDAVID: Seems like a note book. \n\n[SFX: Flicking more pages... ]\n\nDAVID: Entry dated December 19th 1956... Patient 3538, Joe Banks... Patient believes that a demon has taken up residence in Heathcote...  Complaining of claws scraping the bone of his skull to access his thoughts. His paranoid schitzophrenia leads me to surmise that the medication must be altered or changed radically. We'll put him forward for invasive treatment... I have not seen a case like this since back in the Fatherland.... Blah, blah, blah... \n\n[SFX: More pages flicking.]\n\nDAVID (CONT’D): Last entry is on December 24th... Day before the fire... Patient 3538's treatment was a success... His terror has been removed and offered... His prognosis is good... But his demeanour is now just one of desperation... He is telling other inmates to flee. We cannot have this... His shell may be still utilised... Tomorrow we shall look to increase his medication...\n\nMARTIN: Wait.. Did you say offered?\n\nDAVID: (Curiously) Yeah...\n\nMARTIN: The hell?\n\nDAVID: I don't know. Could be the owner planting this stuff around here to lend credibility to his story.\n\nMARTIN: You think so?\n\nDAVID: Honestly, no, I don't. But, it wouldn't be the first time something like this's been pulled on us, man. \n\n[SFX: He puts the book back down onto the desk.]\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "doctor's office",
+        "uTYZBw9oZC5Zdp6eZ": "doctor's office",
+        "u9A9g7skyQT96NvBx": "doctor’s office",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 80.4,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442817505055,
+  "edited": 1445028755788,
+  "_id": "CcC4ByPZNhDecWBQt"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "wWqAT8JYQHNrRxsan",
+  "copies": {
+    "binaries": {
+      "name": "go back (P).wav",
+      "type": "audio/wav",
+      "size": 257338,
+      "key": "binaries-wWqAT8JYQHNrRxsan-go back (P).wav",
+      "updatedAt": "2015-10-06T22:58:35.000Z",
+      "createdAt": "2015-10-06T22:58:35.000Z"
+    }
+  },
+  "original": {
+    "name": "go back (P).wav",
+    "updatedAt": "2015-10-03T06:44:47.000Z",
+    "size": 257338,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-06T22:58:35.841Z",
+  "collectionName": "binaries"
+}

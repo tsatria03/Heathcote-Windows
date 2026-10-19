@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "qcRqwLKporMeoe7qF",
+  "copies": {
+    "binaries": {
+      "name": "ending (darkness).mp3",
+      "type": "audio/mp3",
+      "size": 417024,
+      "key": "binaries-qcRqwLKporMeoe7qF-ending (darkness).mp3",
+      "updatedAt": "2015-10-15T12:41:35.000Z",
+      "createdAt": "2015-10-15T12:41:35.000Z"
+    }
+  },
+  "original": {
+    "name": "ending (darkness).mp3",
+    "updatedAt": "2015-10-15T12:41:30.000Z",
+    "size": 417024,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T12:41:35.300Z",
+  "collectionName": "binaries"
+}

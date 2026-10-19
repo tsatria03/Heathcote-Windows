@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "pNYrdfC4rBYnGdmFa",
+  "copies": {
+    "binaries": {
+      "name": "closed cells (P).wav",
+      "type": "audio/wav",
+      "size": 308218,
+      "key": "binaries-pNYrdfC4rBYnGdmFa-closed cells (P).wav",
+      "updatedAt": "2015-10-03T06:57:15.000Z",
+      "createdAt": "2015-10-03T06:57:15.000Z"
+    }
+  },
+  "original": {
+    "name": "closed cells (P).wav",
+    "updatedAt": "2015-10-03T06:36:50.000Z",
+    "size": 308218,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T06:57:15.197Z",
+  "collectionName": "binaries"
+}

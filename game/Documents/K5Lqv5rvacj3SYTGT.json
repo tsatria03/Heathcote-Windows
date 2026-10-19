@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "K5Lqv5rvacj3SYTGT",
+  "copies": {
+    "binaries": {
+      "name": "fear of the dark.mp3",
+      "type": "audio/mp3",
+      "size": 592128,
+      "key": "binaries-K5Lqv5rvacj3SYTGT-fear of the dark.mp3",
+      "updatedAt": "2015-10-16T06:08:05.000Z",
+      "createdAt": "2015-10-16T06:08:05.000Z"
+    }
+  },
+  "original": {
+    "name": "fear of the dark.mp3",
+    "updatedAt": "2015-10-16T05:57:46.000Z",
+    "size": 592128,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:08:05.880Z",
+  "collectionName": "binaries"
+}

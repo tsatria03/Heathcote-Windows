@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "84sHH7b5zZHnxycEd",
+  "copies": {
+    "binaries": {
+      "name": "go in.m4a",
+      "type": "audio/x-m4a",
+      "size": 66799,
+      "key": "binaries-84sHH7b5zZHnxycEd-go in.m4a",
+      "updatedAt": "2015-09-30T09:22:03.000Z",
+      "createdAt": "2015-09-30T09:22:03.000Z"
+    }
+  },
+  "original": {
+    "name": "go in.m4a",
+    "updatedAt": "2015-09-30T09:21:33.000Z",
+    "size": 66799,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:22:03.867Z",
+  "collectionName": "binaries"
+}

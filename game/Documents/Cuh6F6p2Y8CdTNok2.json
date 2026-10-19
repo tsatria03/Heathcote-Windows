@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Cuh6F6p2Y8CdTNok2",
+  "copies": {
+    "binaries": {
+      "name": "cellphone (records room).mp3",
+      "type": "audio/mp3",
+      "size": 461568,
+      "key": "binaries-Cuh6F6p2Y8CdTNok2-cellphone (records room).mp3",
+      "updatedAt": "2015-10-15T13:00:05.000Z",
+      "createdAt": "2015-10-15T13:00:05.000Z"
+    }
+  },
+  "original": {
+    "name": "cellphone (records room).mp3",
+    "updatedAt": "2015-10-15T12:59:35.000Z",
+    "size": 461568,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T13:00:05.699Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "o3wBS4gMSfrEP9nJA",
+  "copies": {
+    "binaries": {
+      "name": "hurt you (P).wav",
+      "type": "audio/wav",
+      "size": 167074,
+      "key": "binaries-o3wBS4gMSfrEP9nJA-hurt you (P).wav",
+      "updatedAt": "2015-10-17T18:12:46.000Z",
+      "createdAt": "2015-10-17T18:12:46.000Z"
+    }
+  },
+  "original": {
+    "name": "hurt you (P).wav",
+    "updatedAt": "2015-10-17T18:12:25.000Z",
+    "size": 167074,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T18:12:46.383Z",
+  "collectionName": "binaries"
+}

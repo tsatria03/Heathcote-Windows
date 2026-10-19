@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "FbJYneK5wA9oyyWMF",
+  "copies": {
+    "binaries": {
+      "name": "menu-open-try3.wav",
+      "type": "audio/wav",
+      "size": 102154,
+      "key": "binaries-FbJYneK5wA9oyyWMF-menu-open-try3.wav",
+      "updatedAt": "2015-10-03T23:16:45.000Z",
+      "createdAt": "2015-10-03T23:16:45.000Z"
+    }
+  },
+  "original": {
+    "name": "menu-open-try3.wav",
+    "updatedAt": "2015-10-03T23:16:33.000Z",
+    "size": 102154,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-03T23:16:45.517Z",
+  "collectionName": "binaries"
+}

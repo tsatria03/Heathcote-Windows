@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "BBCJoe9CHgRAa7GvG",
+  "copies": {
+    "binaries": {
+      "name": "book-pageturn-7.png",
+      "type": "image/png",
+      "size": 23260,
+      "key": "binaries-BBCJoe9CHgRAa7GvG-book-pageturn-7.png",
+      "updatedAt": "2015-01-21T05:22:32.000Z",
+      "createdAt": "2015-01-21T05:22:32.000Z"
+    }
+  },
+  "original": {
+    "name": "book-pageturn-7.png",
+    "updatedAt": "2014-11-08T01:43:02.000Z",
+    "size": 23260,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-01-21T05:22:32.890Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Bsy5SKrsmq6FsYEst",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (dual calls (switch to cell)).mp3",
+      "type": "audio/mp3",
+      "size": 327168,
+      "key": "binaries-Bsy5SKrsmq6FsYEst-idle loop (dual calls (switch to cell)).mp3",
+      "updatedAt": "2015-10-15T06:38:41.000Z",
+      "createdAt": "2015-10-15T06:38:41.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (dual calls (switch to cell)).mp3",
+    "updatedAt": "2015-10-15T06:38:31.000Z",
+    "size": 327168,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T06:38:41.152Z",
+  "collectionName": "binaries"
+}

@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "i3DCSyadaYA94N8xR",
+  "copies": {
+    "binaries": {
+      "name": "you kidding (P).wav",
+      "type": "audio/wav",
+      "size": 143862,
+      "key": "binaries-i3DCSyadaYA94N8xR-you kidding (P).wav",
+      "updatedAt": "2015-10-17T18:01:57.000Z",
+      "createdAt": "2015-10-17T18:01:57.000Z"
+    }
+  },
+  "original": {
+    "name": "you kidding (P).wav",
+    "updatedAt": "2015-10-17T17:56:23.000Z",
+    "size": 143862,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-10-17T18:01:57.686Z",
+  "collectionName": "binaries"
+}

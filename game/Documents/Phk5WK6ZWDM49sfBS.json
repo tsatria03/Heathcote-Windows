@@ -1,0 +1,42 @@
+{
+  "file": "XHqbHzAiSzGkptQzc",
+  "transcript": "SFX: THE SOUND OF CLANKING KEYS BEING REMOVED FROM DAVID'S POCKET, JANGLING AROUND, AND UNLOCKING THE LARGE FRONT DOOR.\n\nMARTIN: Any last words? Dark’s gonna get you, so may as well-\n\nDAVID: Martin, I freakin' hate you.\n\nMARTIN: (As Crazy Ralph) DOOOOOOOOMED!\n\nSFX: [MARTIN LAUGHS ON OUR END, AND OVER THE PHONE WE HEAR THE DOOR BEING UNLOCKED AND SLOWLY OPENED. IT CREAKS HEAVILY AS IT'S PUSHED OPEN. WE HEAR THE EFFORT OF PUSHING IT OPEN. WE HEAR DAVID STEPPING IN.\n\nDAVID (CONT’D): Okay, I'm walking in through the front door and--Woah!\n\nSFX: HIS VOICE ECHOES INSIDE THE ABANDONED ASYLUM.\n\nMARTIN: What?\n\nDAVID: This seems way bigger on the inside.\n\nMARTIN: Plans say that there are 2 doors. The one to your left leads to the offices leading to the cells, doctor's office and the east wing. The other door,  on your right, leads to the basement and kitchen.\n\nSFX: THERE IS A SCUTTLE OF RATS IN THE DISTANCE, ECHOING. THE RAIN BEATS HARD ON THE WINDOWS. WE HEAR THE WIND HOWL OUTSIDE.\n\nDAVID (CONT’D): Okay. Creepy dark room, check; rat infestation, check; storm, check. All we need is to find an old book bound in flesh and we'll have the full monty here.\n\nMARTIN: Working electricity?\n\nDAVID: Hold on...\n\nSFX: DAVID WALKS AND FLIPS AN OLD LIGHTSWITCH ON THE WALL.\n\nDAVID (CONT’D): YES!\n\nMARTIN: Yeah?\n\nDAVID: Nah man, I’m kidding. This place is..\n\nSFX: AS DAVID STARES AT THE ROOM WE HEAR ALL THE AMBIENT NOISES: THE STORM OUSIDE, A FEW STRAY DRIP-DRIP-DRIPS ECHOING.\n\nDAVID (CONT’D): ...dead. Good thing I got my flashlight...\n\nSFX: DAVID'S FLASHLIGHT BEING SWITCHED ON.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "wh5iuNqgYdwBSTwM8": "cold",
+        "FretZEsGf5N8WCAzB": "inside entrance",
+        "uTYZBw9oZC5Zdp6eZ": "inside entrance",
+        "tqNxMvLyaCJQMAWqQ": "1",
+        "u9A9g7skyQT96NvBx": "entering Heathcote",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 34,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443213123907,
+  "edited": 1445025839484,
+  "ambience2": [
+    {
+      "at": 9,
+      "fadeTo": {
+        "softRef": "YqfN3mkmuiJDm32gw",
+        "duration": 4
+      }
+    }
+  ],
+  "_id": "Phk5WK6ZWDM49sfBS"
+}

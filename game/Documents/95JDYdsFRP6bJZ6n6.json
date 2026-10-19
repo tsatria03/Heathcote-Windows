@@ -1,0 +1,57 @@
+{
+  "file": "zfGfAbuswWbrn6F7W",
+  "transcript": "DAVID (CONT’D): What? What did you say? \n\n[SFX: We hear a faint grumble. The sound of a dying woman - Judith -  trying to talk and only managing a faint guttural moan. Very difficult to decipher.]\n\nDAVID (CONT’D): Please... Just say it...\n\nDavid’s voice is now so faint, that you really have to struggle to hear.\n\nDAVID (CONT’D): Why don’t you just close your eyes? Here... I'll help you...\n\n[SFX: The grumble gets more pained, as he wraps his hands around Judith’s throat. We only know this because the gutteral moan starts to sound gasping for breath.]\n\nDAVID (CONT’D) (Straining under the act and sobbing): Shhhhh... Go to sleep... Please, just go to sleep...\n\nThe voices are so distant now. So distant. Those with acute hearing would hear Judith’s last words.\n\nJUDITH: You can never leave.\n\n[SFX: She then attacks him. But the sound by now is almost indecipherable.]\n\n[SFX - LOUD - VERY LOUD - An old telephone, the same one that we heard at the very beginning, rings. Cutting through the silence like a sledgehammer. Because of the sound getting quieter and quieter before, this is our big jump scare moment.]\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "dual calls",
+        "kEawLAST5aQSsEW7G": "0",
+        "7f9WDNve3yXjaZCYa": "dual calls",
+        "u9A9g7skyQT96NvBx": "twisted pair",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 43,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "tZ9a5icxc2YBREdEC",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443147328230,
+  "edited": 1445102678343,
+  "ambience3": [
+    {
+      "at": 28,
+      "fadeOut": {
+        "duration": 8
+      }
+    }
+  ],
+  "ambience2": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 30
+      }
+    }
+  ],
+  "ambience1": [
+    {
+      "at": 1,
+      "fadeTo": {
+        "softRef": "Po2Kpg82bqttPQPjW",
+        "duration": 27
+      }
+    }
+  ],
+  "_id": "95JDYdsFRP6bJZ6n6"
+}

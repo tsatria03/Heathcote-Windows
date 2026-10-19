@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "akCd7MBzp5HwgDict",
+  "copies": {
+    "binaries": {
+      "name": "I fear clowns.mp3",
+      "type": "audio/mp3",
+      "size": 190848,
+      "key": "binaries-akCd7MBzp5HwgDict-I fear clowns.mp3",
+      "updatedAt": "2015-10-16T06:08:13.000Z",
+      "createdAt": "2015-10-16T06:08:13.000Z"
+    }
+  },
+  "original": {
+    "name": "I fear clowns.mp3",
+    "updatedAt": "2015-10-16T05:57:44.000Z",
+    "size": 190848,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:08:13.192Z",
+  "collectionName": "binaries"
+}

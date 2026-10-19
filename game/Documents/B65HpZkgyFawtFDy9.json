@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "B65HpZkgyFawtFDy9",
+  "copies": {
+    "binaries": {
+      "name": "idle loop (footsteps).mp3",
+      "type": "audio/mp3",
+      "size": 341376,
+      "key": "binaries-B65HpZkgyFawtFDy9-idle loop (footsteps).mp3",
+      "updatedAt": "2015-10-18T09:22:54.000Z",
+      "createdAt": "2015-10-18T09:22:54.000Z"
+    }
+  },
+  "original": {
+    "name": "idle loop (footsteps).mp3",
+    "updatedAt": "2015-10-18T09:22:20.000Z",
+    "size": 341376,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-18T09:22:54.025Z",
+  "collectionName": "binaries"
+}

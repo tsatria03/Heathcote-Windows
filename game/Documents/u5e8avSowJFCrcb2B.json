@@ -1,0 +1,32 @@
+{
+  "file": "Bj9uQwFqe8GATf4QH",
+  "transcript": "DAVID: Huh? (Remembering) Oh yeah. (Clears throat).\n\nDAVID (presenter voice): I'm now walking towards the infamous east wing. \n\n[SFX: a couple more footsteps]\n\nDAVID (CONT'D): The fire burnt this area of the asylum pretty bad. Most of the roof has collapsed inward. As you can hear, it’s still raining outside. Raining inside this room, too.\n\n[SFX: We hear David stop walking and sniff at the air.]\n\nDAVID (confused, transition to normal voice): I can smell smoke...\n\n[DAVID sniffs some more]\n\nDAVID (CONT’D): Oh no. \n\nMARTIN: What?\n\nDAVID: It's the freaking flashlight. I charged the phone, but I forgot the goddamn batteries in the flashlight.   \n\n\n[IDLE LOOP: David clicking the flashlight; shaking it; banging it to try get more juice out of it]",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "flashlight out",
+        "gZE3yhqimpzp7mMSK": "1",
+        "oQmPM9ydj7qqfacPB": "just broke",
+        "uTYZBw9oZC5Zdp6eZ": "passage to east wing",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 38.6,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443137951599,
+  "edited": 1445052242357,
+  "_id": "u5e8avSowJFCrcb2B"
+}

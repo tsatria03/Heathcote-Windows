@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "QbvH5A2LQp8CMaCXj",
+  "copies": {
+    "binaries": {
+      "name": "spiel 3 (darkness).mp3",
+      "type": "audio/mp3",
+      "size": 210816,
+      "key": "binaries-QbvH5A2LQp8CMaCXj-spiel 3 (darkness).mp3",
+      "updatedAt": "2015-10-17T11:04:58.000Z",
+      "createdAt": "2015-10-17T11:04:58.000Z"
+    }
+  },
+  "original": {
+    "name": "spiel 3 (darkness).mp3",
+    "updatedAt": "2015-10-17T11:02:48.000Z",
+    "size": 210816,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-17T11:04:58.232Z",
+  "collectionName": "binaries"
+}

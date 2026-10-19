@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "iBDTHu7EimAgjiTwf",
+  "copies": {
+    "binaries": {
+      "name": "spiel 1.mp3",
+      "type": "audio/mp3",
+      "size": 1592064,
+      "key": "binaries-iBDTHu7EimAgjiTwf-spiel 1.mp3",
+      "updatedAt": "2015-10-15T21:38:57.000Z",
+      "createdAt": "2015-10-15T21:38:57.000Z"
+    }
+  },
+  "original": {
+    "name": "spiel 1.mp3",
+    "updatedAt": "2015-10-15T21:38:09.000Z",
+    "size": 1592064,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T21:38:57.580Z",
+  "collectionName": "binaries"
+}

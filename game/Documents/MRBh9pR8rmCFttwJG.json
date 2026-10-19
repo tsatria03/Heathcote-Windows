@@ -1,0 +1,43 @@
+{
+  "file": "4cu8uFpLgJmvJNSqP",
+  "transcript": "MARTIN:\tYou almost there?\nDAVID: \tYeah, getting to the door...\tAnyway, it's the principle of the thing.  I’m afraid of the dark, but-\nMARTIN:\tWait…You’re afraid of the dark?\t\nDAVID:\tYeah- and\nSFX: CRASH OF LIGHTNING\n\nCONVERSATION INTERRUPTED BY:\nSFX - CRASH OF THUNDER, LOUD, SUDDEN - FOLLOWED BY A TORRENTIAL DOWNPOUR\n\nDAVID:\tDAMN!\n\nMARTIN: \tRain?\n\nDAVID: \tNuclear apocalypse, actually... Yeah, of course rain. Came outta nowhere, too. Sky was pretty clear on the drive up. Crap. Hold on, my phone's getting wet.\n\n[SFX: DAVID RUNNING UP THE WET STONE STEPS. THE RAIN BEATS DOWN.]\n\nMARTIN:\tShoulda stayed in LA...\n\nSFX: DAVID CONTINUES UP THE STEPS. THE RAIN POUNDS DOWN HARDER. DAVID IS PANTING AND OUT OF BREATH AS HE GETS TO A SHELTERED AREA BY THE FRONT DOOR. AS HE FINDS SHELTER, THE SOUND OF RAIN GETS MORE DISTANT. \n\nDAVID : \t(out of breath)\tOkay... I’m here.\n\nMARTIN: \tYou need to work out more, man! \n\nDAVID (CONT’D): \tFunny guy!... Anyway... I'm opening the door ... Let's hope the owner wasn't right...\n\nMARTIN: \tWhattdya mean?\n\nDAVID: \tWhen he gave me the keys, he went all Crazy Ralph on me.\n\nMARTIN: Ah, whatever. Just get in there...",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "outside entrance",
+        "NrEq5pCjLnyQoLX4p": "1",
+        "Fo2TRJfgqW2vqmF9C": "1",
+        "wh5iuNqgYdwBSTwM8": "warm",
+        "uTYZBw9oZC5Zdp6eZ": "outside entrance",
+        "u9A9g7skyQT96NvBx": "front door",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 50,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443210622434,
+  "edited": 1445025648521,
+  "ambience2": [
+    {
+      "at": 10,
+      "fadeTo": {
+        "softRef": "77GrZMZy9yR9aQmN5",
+        "duration": 5
+      }
+    }
+  ],
+  "_id": "MRBh9pR8rmCFttwJG"
+}

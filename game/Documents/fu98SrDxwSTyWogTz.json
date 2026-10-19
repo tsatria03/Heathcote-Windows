@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "fu98SrDxwSTyWogTz",
+  "copies": {
+    "binaries": {
+      "name": "cellphone (25% battery).mp3",
+      "type": "audio/mp3",
+      "size": 115968,
+      "key": "binaries-fu98SrDxwSTyWogTz-cellphone (25% battery).mp3",
+      "updatedAt": "2015-10-15T12:52:18.000Z",
+      "createdAt": "2015-10-15T12:52:18.000Z"
+    }
+  },
+  "original": {
+    "name": "cellphone (25% battery).mp3",
+    "updatedAt": "2015-10-15T12:50:57.000Z",
+    "size": 115968,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T12:52:18.498Z",
+  "collectionName": "binaries"
+}

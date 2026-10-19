@@ -1,0 +1,67 @@
+{
+  "file": "SFhLNZddx3CraLPZw",
+  "transcript": "As the credits roll, we hear a commercial - With the same announcer as the first commercial.\n\nWhat follows is an advert for a Radio show. Not cheesy as before... Very ominous. Very atmospehreic.  \n\nVOICEOVER: Coming in December to 108.2 Eagle FM... The tragedy that befell David Scott at The Heathcote Asylum. While recording a ghost hunting special for this very station, David Scott and his partner Martin Fellows encountered true evil. With actual recordings of the tragic event, David Scott will give his first interview since his recovery...\n\nDAVID: I thought I knew what fear was before I went in there. But the demon I encountered reached out and took the life of my best friend... A demon that ate his fear and took his soul... \n\nVOICEOVER: Join us if you dare... \n\nDAVID: But whatever you do... Don't get scared... It wants your fear... It wants to feed...\n\nVOICEOVER: only on 108.2 Eagle FM. \n\nAfter the credits end, text appears on the screen that reads: \"It isn't over.\"\n\n[SFX: The faint sounds of moaning and fire, which plays on repeat until the player exits the story.]\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "u9A9g7skyQT96NvBx": "epilogue",
+        "S8voH47psKfyKxK98": "1"
+      }
+    },
+    {
+      "at": 59.5,
+      "set": {
+        "yAjcz8TynXrwnrMq2": "1"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 3
+      }
+    },
+    {
+      "at": 68,
+      "fadeTo": {
+        "softRef": "Wft9x4rFe8LZi7rtg",
+        "duration": 12
+      }
+    }
+  ],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443153401073,
+  "edited": 1445100992303,
+  "ambience1": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 3
+      }
+    }
+  ],
+  "ambience2": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 3
+      }
+    }
+  ],
+  "ambience3": [
+    {
+      "at": 0.1,
+      "fadeOut": {
+        "duration": 3
+      }
+    }
+  ],
+  "_id": "Rj9yxcjNADyk7wp37"
+}

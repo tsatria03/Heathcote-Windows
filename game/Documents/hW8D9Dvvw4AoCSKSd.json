@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "hW8D9Dvvw4AoCSKSd",
+  "copies": {
+    "binaries": {
+      "name": "book-closed.png",
+      "type": "image/png",
+      "size": 24878,
+      "key": "binaries-hW8D9Dvvw4AoCSKSd-book-closed.png",
+      "updatedAt": "2015-01-21T05:20:45.000Z",
+      "createdAt": "2015-01-21T05:20:45.000Z"
+    }
+  },
+  "original": {
+    "name": "book-closed.png",
+    "updatedAt": "2014-11-25T01:03:31.000Z",
+    "size": 24878,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-01-21T05:20:45.078Z",
+  "collectionName": "binaries"
+}

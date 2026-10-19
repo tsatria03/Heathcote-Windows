@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "T6uLifdW9uGFsXbzw",
+  "copies": {
+    "binaries": {
+      "name": "pause-unpause.wav",
+      "type": "audio/wav",
+      "size": 79704,
+      "key": "binaries-T6uLifdW9uGFsXbzw-pause-unpause.wav",
+      "updatedAt": "2015-01-21T05:14:44.000Z",
+      "createdAt": "2015-01-21T05:14:44.000Z"
+    }
+  },
+  "original": {
+    "name": "pause-unpause.wav",
+    "updatedAt": "2014-11-18T20:16:18.000Z",
+    "size": 79704,
+    "type": "audio/wav"
+  },
+  "uploadedAt": "2015-01-21T05:14:44.589Z",
+  "collectionName": "binaries"
+}

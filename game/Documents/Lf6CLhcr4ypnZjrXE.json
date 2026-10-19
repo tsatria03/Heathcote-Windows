@@ -1,0 +1,22 @@
+{
+  "file": "54tiwJoPDRMxDsmw5",
+  "transcript": "MARTIN: David, you're still hearing me OK?\n\nDAVID (away from mic as he looks at screen): Uh, sure. Hang on...\n\n[PAUSE]\n\nDAVID (back to mic): Meh... Phone's at two bars. You're still getting me OK tho?\n\nMARTIN: For now.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "kEawLAST5aQSsEW7G": "25% battery"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443156462390,
+  "edited": 1444913521381,
+  "_id": "Lf6CLhcr4ypnZjrXE"
+}

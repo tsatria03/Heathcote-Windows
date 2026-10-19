@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "eJq9ytZtrqsLibwi9",
+  "copies": {
+    "binaries": {
+      "name": "shut door (clowns).mp3",
+      "type": "audio/mp3",
+      "size": 123648,
+      "key": "binaries-eJq9ytZtrqsLibwi9-shut door (clowns).mp3",
+      "updatedAt": "2015-10-16T06:10:25.000Z",
+      "createdAt": "2015-10-16T06:10:25.000Z"
+    }
+  },
+  "original": {
+    "name": "shut door (clowns).mp3",
+    "updatedAt": "2015-10-16T05:57:27.000Z",
+    "size": 123648,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:10:25.965Z",
+  "collectionName": "binaries"
+}

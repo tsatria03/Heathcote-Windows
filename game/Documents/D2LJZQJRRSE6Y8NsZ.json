@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "D2LJZQJRRSE6Y8NsZ",
+  "copies": {
+    "binaries": {
+      "name": "shut door (end).mp3",
+      "type": "audio/mp3",
+      "size": 128256,
+      "key": "binaries-D2LJZQJRRSE6Y8NsZ-shut door (end).mp3",
+      "updatedAt": "2015-10-16T06:11:31.000Z",
+      "createdAt": "2015-10-16T06:11:31.000Z"
+    }
+  },
+  "original": {
+    "name": "shut door (end).mp3",
+    "updatedAt": "2015-10-16T06:11:22.000Z",
+    "size": 128256,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:11:31.321Z",
+  "collectionName": "binaries"
+}

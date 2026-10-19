@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "Y7k9RASauxdFGkBXJ",
+  "copies": {
+    "binaries": {
+      "name": "Judith.mp3",
+      "type": "audio/mp3",
+      "size": 1024896,
+      "key": "binaries-Y7k9RASauxdFGkBXJ-Judith.mp3",
+      "updatedAt": "2015-10-17T02:48:09.000Z",
+      "createdAt": "2015-10-17T02:48:09.000Z"
+    }
+  },
+  "original": {
+    "name": "Judith.mp3",
+    "updatedAt": "2015-10-17T02:47:12.000Z",
+    "size": 1024896,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-17T02:48:09.112Z",
+  "collectionName": "binaries"
+}

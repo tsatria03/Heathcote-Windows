@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "LiC6tcgqW4Gpn2ko5",
+  "copies": {
+    "binaries": {
+      "name": "padlock-body.png",
+      "type": "image/png",
+      "size": 18133,
+      "key": "binaries-LiC6tcgqW4Gpn2ko5-padlock-body.png",
+      "updatedAt": "2015-10-10T03:53:03.000Z",
+      "createdAt": "2015-10-10T03:53:03.000Z"
+    }
+  },
+  "original": {
+    "name": "padlock-body.png",
+    "updatedAt": "2015-10-10T03:49:36.000Z",
+    "size": 18133,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-10-10T03:53:03.087Z",
+  "collectionName": "binaries"
+}

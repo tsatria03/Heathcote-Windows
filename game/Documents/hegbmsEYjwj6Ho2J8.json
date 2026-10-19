@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "hegbmsEYjwj6Ho2J8",
+  "copies": {
+    "binaries": {
+      "name": "heartbeat (43 bpm, pp).mp3",
+      "type": "audio/mp3",
+      "size": 17240,
+      "key": "binaries-hegbmsEYjwj6Ho2J8-heartbeat (43 bpm, pp).mp3",
+      "updatedAt": "2015-10-05T10:44:20.000Z",
+      "createdAt": "2015-10-05T10:44:20.000Z"
+    }
+  },
+  "original": {
+    "name": "heartbeat (43 bpm, pp).mp3",
+    "updatedAt": "2015-10-05T10:39:40.000Z",
+    "size": 17240,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-05T10:44:20.586Z",
+  "collectionName": "binaries"
+}

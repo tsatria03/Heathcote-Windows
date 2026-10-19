@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "N3oskSoWCndTfXJX9",
+  "copies": {
+    "binaries": {
+      "name": "I fear spiders.mp3",
+      "type": "audio/mp3",
+      "size": 234240,
+      "key": "binaries-N3oskSoWCndTfXJX9-I fear spiders.mp3",
+      "updatedAt": "2015-10-16T06:08:29.000Z",
+      "createdAt": "2015-10-16T06:08:29.000Z"
+    }
+  },
+  "original": {
+    "name": "I fear spiders.mp3",
+    "updatedAt": "2015-10-16T05:57:42.000Z",
+    "size": 234240,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:08:29.903Z",
+  "collectionName": "binaries"
+}

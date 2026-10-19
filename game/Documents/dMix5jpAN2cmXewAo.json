@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "dMix5jpAN2cmXewAo",
+  "copies": {
+    "binaries": {
+      "name": "basement and kitchens.m4a",
+      "type": "audio/x-m4a",
+      "size": 74797,
+      "key": "binaries-dMix5jpAN2cmXewAo-basement and kitchens.m4a",
+      "updatedAt": "2015-09-30T09:31:45.000Z",
+      "createdAt": "2015-09-30T09:31:45.000Z"
+    }
+  },
+  "original": {
+    "name": "basement and kitchens.m4a",
+    "updatedAt": "2015-09-30T09:31:31.000Z",
+    "size": 74797,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:31:45.368Z",
+  "collectionName": "binaries"
+}

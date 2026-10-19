@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "NvZSTsoPLHZHvLedN",
+  "copies": {
+    "binaries": {
+      "name": "where you at (records room, no light).mp3",
+      "type": "audio/mp3",
+      "size": 192768,
+      "key": "binaries-NvZSTsoPLHZHvLedN-where you at (records room, no light).mp3",
+      "updatedAt": "2015-10-15T00:54:45.000Z",
+      "createdAt": "2015-10-15T00:54:45.000Z"
+    }
+  },
+  "original": {
+    "name": "where you at (records room, no light).mp3",
+    "updatedAt": "2015-10-15T00:54:23.000Z",
+    "size": 192768,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T00:54:45.693Z",
+  "collectionName": "binaries"
+}

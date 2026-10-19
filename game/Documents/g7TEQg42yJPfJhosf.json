@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "g7TEQg42yJPfJhosf",
+  "copies": {
+    "binaries": {
+      "name": "offices and cells.m4a",
+      "type": "audio/x-m4a",
+      "size": 75064,
+      "key": "binaries-g7TEQg42yJPfJhosf-offices and cells.m4a",
+      "updatedAt": "2015-09-30T09:34:44.000Z",
+      "createdAt": "2015-09-30T09:34:44.000Z"
+    }
+  },
+  "original": {
+    "name": "offices and cells.m4a",
+    "updatedAt": "2015-09-30T09:34:35.000Z",
+    "size": 75064,
+    "type": "audio/x-m4a"
+  },
+  "uploadedAt": "2015-09-30T09:34:43.998Z",
+  "collectionName": "binaries"
+}

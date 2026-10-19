@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "54tiwJoPDRMxDsmw5",
+  "copies": {
+    "binaries": {
+      "name": "cellphone (2 bars).mp3",
+      "type": "audio/mp3",
+      "size": 140928,
+      "key": "binaries-54tiwJoPDRMxDsmw5-cellphone (2 bars).mp3",
+      "updatedAt": "2015-10-15T12:52:00.000Z",
+      "createdAt": "2015-10-15T12:52:00.000Z"
+    }
+  },
+  "original": {
+    "name": "cellphone (2 bars).mp3",
+    "updatedAt": "2015-10-15T12:51:18.000Z",
+    "size": 140928,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T12:52:00.370Z",
+  "collectionName": "binaries"
+}

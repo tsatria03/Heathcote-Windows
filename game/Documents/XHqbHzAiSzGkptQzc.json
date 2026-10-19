@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "XHqbHzAiSzGkptQzc",
+  "copies": {
+    "binaries": {
+      "name": "enter from outside.mp3",
+      "type": "audio/mp3",
+      "size": 973440,
+      "key": "binaries-XHqbHzAiSzGkptQzc-enter from outside.mp3",
+      "updatedAt": "2015-10-16T06:07:58.000Z",
+      "createdAt": "2015-10-16T06:07:58.000Z"
+    }
+  },
+  "original": {
+    "name": "enter from outside.mp3",
+    "updatedAt": "2015-10-16T05:57:55.000Z",
+    "size": 973440,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:07:58.705Z",
+  "collectionName": "binaries"
+}

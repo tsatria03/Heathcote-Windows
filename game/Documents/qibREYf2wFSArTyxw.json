@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "qibREYf2wFSArTyxw",
+  "copies": {
+    "binaries": {
+      "name": "Crazy Ralph (cold).mp3",
+      "type": "audio/mp3",
+      "size": 79488,
+      "key": "binaries-qibREYf2wFSArTyxw-Crazy Ralph (cold).mp3",
+      "updatedAt": "2015-10-16T06:07:36.000Z",
+      "createdAt": "2015-10-16T06:07:36.000Z"
+    }
+  },
+  "original": {
+    "name": "Crazy Ralph (cold).mp3",
+    "updatedAt": "2015-10-16T05:58:02.000Z",
+    "size": 79488,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-16T06:07:36.929Z",
+  "collectionName": "binaries"
+}

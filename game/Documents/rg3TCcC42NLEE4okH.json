@@ -1,0 +1,40 @@
+{
+  "file": "Wn4jCLew9AEgnDkxh",
+  "transcript": "MARTIN: C'mon you're kidding, right? It doesn't really say that? \n\nDAVID: I'm serious... Okay, I'm coming up to a corner... Oh wait... At the end of the hall I can see... Wait...\n\n[SFX: He walks on... ]\n\nMARTIN: Should be the foyer?\n\nDAVID: Yeah, I can see it through the glass in the door ahead...\n\nMARTIN: OK, head there. That's the best way to get to the east wing. It's also the entranceway to the cells...\n\n[SFX: door opens. A few footsteps.]\n\nDAVID: Hey, I'm back at the foyer.\n",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "FretZEsGf5N8WCAzB": "foyer",
+        "uTYZBw9oZC5Zdp6eZ": "foyer",
+        "RMjzwXNJDFg5GgLEu": "1",
+        "kEawLAST5aQSsEW7G": "50% battery"
+      }
+    },
+    {
+      "at": 32.9,
+      "set": {
+        "S8voH47psKfyKxK98": "0"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1442817996387,
+  "edited": 1445149710968,
+  "ambience2": [
+    {
+      "at": 28,
+      "fadeTo": {
+        "softRef": "wwy7yXsZPcezLs79m",
+        "duration": 6
+      }
+    }
+  ],
+  "_id": "rg3TCcC42NLEE4okH"
+}

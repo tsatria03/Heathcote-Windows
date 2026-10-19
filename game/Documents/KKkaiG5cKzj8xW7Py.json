@@ -1,0 +1,20 @@
+{
+  "file": "igBuXyYH4mZpKmQcZ",
+  "transcript": "SFX, in the distance - on the wind - a high pitched clown's laugh. Very very low.\n\nMARTIN (CONT’D): What was that?\n\n[SHORT PAUSE]\n\nDAVID: Wha-\n\nMARTIN: I heard something... A laugh... Like... A clown...\n\nThe wind howls.\n\nDAVID (CONT’D): A clown? Nah man, it's just the wind picking up.\n",
+  "set": [],
+  "idleLoop": "",
+  "next": [
+    {
+      "if": {},
+      "softRef": "8v9fnPSypbMbm8hzW"
+    }
+  ],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "TRbiFWJ3oPKb4aLhA",
+  "email": "lisa@fabulaeobscurae.com",
+  "created": 1442817124338,
+  "edited": 1445152137168,
+  "_id": "KKkaiG5cKzj8xW7Py"
+}

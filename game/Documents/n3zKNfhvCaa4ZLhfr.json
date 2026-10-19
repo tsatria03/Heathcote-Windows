@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "n3zKNfhvCaa4ZLhfr",
+  "copies": {
+    "binaries": {
+      "name": "instruction-phone.png",
+      "type": "image/png",
+      "size": 18804,
+      "key": "binaries-n3zKNfhvCaa4ZLhfr-instruction-phone.png",
+      "updatedAt": "2015-07-08T05:45:56.000Z",
+      "createdAt": "2015-07-08T05:45:56.000Z"
+    }
+  },
+  "original": {
+    "name": "instruction-phone.png",
+    "updatedAt": "2015-07-08T05:44:11.000Z",
+    "size": 18804,
+    "type": "image/png"
+  },
+  "uploadedAt": "2015-07-08T05:45:56.836Z",
+  "collectionName": "binaries"
+}

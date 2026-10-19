@@ -1,0 +1,22 @@
+{
+  "file": "kDukmhMZob4LALNPF",
+  "transcript": "how's your phone? battery still good?\n\nYeah, it's full. Should be fine.",
+  "set": [
+    {
+      "at": 0.1,
+      "set": {
+        "kEawLAST5aQSsEW7G": "rotation 2"
+      }
+    }
+  ],
+  "idleLoop": "",
+  "next": [],
+  "bgm": [],
+  "ambience": [],
+  "notes": "",
+  "user_id": "FvgiEq3in69uYzNmD",
+  "email": "mike@mdd2.net",
+  "created": 1443156462390,
+  "edited": 1445156813713,
+  "_id": "gvB7cNoyLvxkiiMvD"
+}

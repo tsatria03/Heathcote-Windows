@@ -1,0 +1,22 @@
+{
+  "createdByTransform": true,
+  "_id": "P34pvnuLtPEY988Pb",
+  "copies": {
+    "binaries": {
+      "name": "fire (M-L).mp3",
+      "type": "audio/mp3",
+      "size": 348768,
+      "key": "binaries-P34pvnuLtPEY988Pb-fire (M-L).mp3",
+      "updatedAt": "2015-10-15T11:15:50.000Z",
+      "createdAt": "2015-10-15T11:15:50.000Z"
+    }
+  },
+  "original": {
+    "name": "fire (M-L).mp3",
+    "updatedAt": "2015-10-15T11:07:43.000Z",
+    "size": 348768,
+    "type": "audio/mp3"
+  },
+  "uploadedAt": "2015-10-15T11:15:50.451Z",
+  "collectionName": "binaries"
+}
