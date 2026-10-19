@@ -10,8 +10,8 @@ The developer tasks, which `docks/todo list.txt` leaves out because it ships to 
 
 ## Unfinished
 
-- Decide whether to commit the dev's reorganization of `game/` into `game/data/`, `game/certificate/` and `game/scripts/` (2026-10-19).
+None.
 
 ## Finished
 
-None.
+- The dev's reorganization of `game/` into `game/data/`, `game/certificate/` and `game/scripts/` is committed as five pure renames, with no file changed (2026-10-19).
