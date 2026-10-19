@@ -7,11 +7,12 @@
 - [Python only](project_python_only.md): pygame, Prism and the NVDA client; the dev converts .m4a to MP3, Claude never does.
 - [Windows only](project_windows_only.md): no Linux, macOS or GitHub Actions workflow.
 - [Solo project](project_solo.md): tsatria03 alone; credits name Fabulae Obscurae for the original.
+- [Later topics](project_later_topics.md): ideas the dev raised for plans not yet written, such as a screen reader key for the recorded menu choices.
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
 - [Reading the original](../plans/reading_original_plan.md): plan 1, planned, all questions answered. Binary and story tools, the readable script in analysis/, and a note of the original's behaviour with exact numbers.
-- [Foundation](../plans/foundation_plan.md): plan 2, being written. The package, entry script, paths, logs, speech, timers, settings, keys, the F1 screen and the spoken menu.
+- [Foundation](../plans/foundation_plan.md): plan 2, planned, all questions answered. The package, entry script, paths, logs, speech, timers, settings, keys, the F1 screen and the spoken menu.
 
 ## Completed projects
 
