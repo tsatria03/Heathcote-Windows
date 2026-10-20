@@ -43,14 +43,15 @@ Each section is confirmed by the dev before the next starts.
 - **After a spiel ends**, `menu-reminder` plays every 7 seconds until something happens (`-[PlayState tick_played]`, 0x100033194).
 - **The end:** when the variable labelled `end` becomes anything but "0", the story ends and the end credits begin (`-[Vars setString:to:]`, 0x100030f48).
 - **Losing the window's focus** plays `lost focus` and pauses, closing the actions menu if it is open.
+- **The keys during play,** following the original's swipes (the dev, 2026-10-19: "I want the arrow keys to be rebindable, so yes."):
+  - Up arrow or Enter opens the actions menu (swipe up).
+  - Left arrow rewinds (swipe right) and Right arrow fast-forwards (swipe left): the arrow that points back goes back.
+  - Escape pauses (swipe down).
+  - In the actions menu: Up and Down, or Left and Right, move through the choices; Enter accepts; Escape closes.
+  - Tab says where you are, as the two-finger tap did: "Story is playing.", "Story is at end of scene." or "Actions menu is open."
+  - **Every one of them is rebindable on the F1 screen, the arrows included** ([[foundation_plan]]). Each is an action in `config/keys.json`, never a key fixed in code; only the F1 screen's own F1 and Escape stay fixed, so there is always a way out of it.
 - **Two things are checked in the code before section 2 is built:** whether a spiel reached through next is marked heard, and whether timed sets fire again after a rewind.
 
 ## Open questions
-1. Which keys play the story? Proposed, following the original's swipes:
-   - Up arrow or Enter opens the actions menu (swipe up).
-   - Left arrow rewinds (swipe right) and Right arrow fast-forwards (swipe left).
-   - Escape pauses (swipe down).
-   - In the actions menu: Up and Down, or Left and Right, move through the choices; Enter accepts; Escape closes.
-   - Tab says where you are, as the two-finger tap did: "Story is playing.", "Story is at end of scene." or "Actions menu is open."
-2. Which key speaks the selected choice's text through the screen reader, the idea kept in [[project_later_topics]]? Proposed: Space.
-3. Debug mode's keys? Proposed: F2 skips to the end of the current spiel, F3 asks for a spiel's label and jumps to it, and F4 speaks every variable that is not "0".
+1. Which key speaks the selected choice's text through the screen reader, the idea kept in [[project_later_topics]]? Proposed: Space.
+2. Debug mode's keys? Proposed: F2 skips to the end of the current spiel, F3 asks for a spiel's label and jumps to it, and F4 speaks every variable that is not "0".
