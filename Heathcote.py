@@ -107,16 +107,6 @@ def say_why(speech, text):
         pass
 
 
-def debug_from_options(options):
-    """Whether this run is in debug mode. It never exists in a built game."""
-    if not options.debug:
-        return False
-    if paths.FROZEN:
-        log.warning('--debug works only when running from source, so it is ignored')
-        return False
-    return True
-
-
 def spiel_from_options(options, debug):
     """The spiel label ``--spiel`` names, when it is allowed and the story has it; or None."""
     if not options.spiel:
@@ -132,32 +122,6 @@ def spiel_from_options(options, debug):
     return options.spiel
 
 
-def run_window(pygame, title, exit_after):
-    """A plain window until it is closed, Escape is pressed, or ``exit_after`` seconds
-    pass. It stands in for the screen loop until plan 2, section 3 builds it."""
-    from heathcote.platform.runloop import RunLoop
-    loop = RunLoop.main()
-    pygame.display.init()
-    try:
-        pygame.display.set_caption(title)
-        pygame.display.set_mode((640, 480))
-        clock = pygame.time.Clock()
-        started = time.monotonic()
-        while True:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    return
-                if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
-                    return
-            if exit_after is not None and time.monotonic() - started >= exit_after:
-                log.info('quitting after %g seconds, as --exit-after asked', exit_after)
-                return
-            loop.pump()
-            clock.tick(60)
-    finally:
-        pygame.display.quit()
-
-
 def main(argv=None):
     options = parse_args(argv)
     start_log(options.verbose)
@@ -166,14 +130,16 @@ def main(argv=None):
     try:
         # compiler.py --test looks for this line, to know a build found its data.
         log.info('game data: %s', paths.game())
-        debug = debug_from_options(options)
-        if debug:
-            log.info('debug mode is on')
-        spiel = spiel_from_options(options, debug)
+        if options.debug and paths.FROZEN:
+            log.warning('--debug works only when running from source, so it is ignored')
+        import pygame
+        from heathcote.app import App
+        from heathcote.game.menus import MainMenu
+        app = App(options, speech=speech)
+        spiel = spiel_from_options(options, app.debug)
         if spiel is not None:
             log.info('the story will start at "%s" once the story engine is built', spiel)
-        import pygame
-        run_window(pygame, 'Heathcote (debug)' if debug else 'Heathcote', options.exit_after)
+        app.run(MainMenu(app), pygame)
         log.info('Heathcote closed')
         return 0
     except SystemExit as stop:

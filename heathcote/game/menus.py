@@ -1,0 +1,25 @@
+"""The menus around the story.
+
+For now this is the stand-in main menu of aidocks/plans/foundation_plan.md, Settings and
+Quit, so the speech, the keys and the window can be tried by ear. The menus plan
+(aidocks/plans/menus_plan.md) puts the real one here, with Start story or Continue story,
+Settings, Credits and Quit.
+"""
+from __future__ import annotations
+
+from ..ui.menu import Menu, Row
+from ..ui.settings_screen import SettingsScreen
+
+
+class MainMenu(Menu):
+    name = 'main menu'
+    title = 'Heathcote.'
+
+    def rows(self):
+        # Quit is its way out, so it has no Back row (aidocks/general/feedback_back_first.md).
+        return [Row('Settings', lambda: self.stack.push(SettingsScreen(self.app))),
+                Row('Quit', self.app.quit)]
+
+    def back(self):
+        """Nothing is under the main menu: Escape says the row again."""
+        self.say(self.row_text())

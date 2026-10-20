@@ -10,7 +10,7 @@ The developer tasks, which `docks/todo list.txt` leaves out because it ships to 
 
 ## Unfinished
 
-None.
+- `docks/readme.txt` is still empty. It needs the keys, and how to use the F1 screen (Enter rebinds, A adds a key, Delete unbinds, R twice resets), which the screen itself no longer explains each time (2026-10-19).
 
 ## Finished
 
