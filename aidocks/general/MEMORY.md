@@ -13,7 +13,7 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Foundation](../plans/foundation_plan.md): plan 2, planned, all questions answered. The package, entry script, paths, logs, speech, timers, settings, keys, the F1 screen and the spoken menu.
+- [Foundation](../plans/foundation_plan.md): plan 2, being built; section 1 (entry script, paths, logs, crash file) done. The package, entry script, paths, logs, speech, timers, settings, keys, the F1 screen and the spoken menu.
 - [Audio](../plans/audio_plan.md): plan 3, planned, all questions answered.
 - [Story engine](../plans/story_engine_plan.md): plan 4, planned, all questions answered.
 - [Menus](../plans/menus_plan.md): plan 5, planned, all questions answered.

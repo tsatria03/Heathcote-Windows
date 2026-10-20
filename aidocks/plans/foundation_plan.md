@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
+**Status:** being built (the dev, 2026-10-19: "I'm ready for section 1 of plan 2."). Section 1 is built and waits for the dev to confirm it.
 
 Plan 2 ([[reading_original_plan]] lists the order). Everything else stands on it: the audio, the story engine, the menus and the saves all use its paths, speech, timers and screen loop.
 
@@ -19,6 +19,18 @@ Each section is confirmed by the dev before the next starts.
 4. The silent test setup, `tests/case/_quiet.py` and `tests/suite.py`.
 
 Until the menus plan is built, the game opens on a small stand-in menu, Settings and Quit, so its speech, keys and window can be tried by ear.
+
+## Progress
+
+- **Section 1, built 2026-10-19, waiting for the dev's word:**
+  - `Heathcote.py` takes the four options, starts the log and writes `crash.txt`.
+  - `heathcote/paths.py` finds the game data, the vendored DLLs, `VERSION` and the save folder.
+  - The `platform/`, `ui/` and `game/` packages exist, empty.
+  - The data counts as found only when `game/data/text/system/Heathcote v1.01.bundle.json` is there. If it is missing, the player is told where the game looked.
+  - `--spiel` is checked against the bundle's labels, and a label it doesn't have is logged and ignored. The story engine will use it later.
+  - Until section 3 builds the screen loop, the game opens a plain window titled "Heathcote", or "Heathcote (debug)", which Escape or closing the window shuts.
+  - Speaking the crash message waits for section 2's speech; until then the crash is only written down.
+  - Checked silently with a dummy video driver and a throwaway save folder: the log and `log.old.txt`, the debug title, `--spiel` with and without debug mode, `--exit-after`, and `crash.txt` for both missing data and an unexpected error.
 
 ## Decided
 
