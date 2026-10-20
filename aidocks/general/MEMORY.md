@@ -28,7 +28,7 @@
 - [Plans first](feedback_record_plans_first.md): an agreed plan gets its own note, committed first; finished only on the dev's word.
 - [Completed projects](feedback_completed_projects.md): a finished plan stays in plans/; only its index line moves.
 - [Don't run or build](feedback_dont_run_or_build.md): never build unless told; ask before running anything that plays sound or speaks.
-- [Git commits](feedback_git_commits.md): one commit per change, commit without asking, raise pushing at 10 or more; git commit -F from PowerShell.
+- [Git commits](feedback_git_commits.md): one commit per change, commit without asking, push only when a plan is finished and its docs updated; git commit -F from PowerShell.
 - [GitHub usernames](feedback_use_github_usernames.md): tsatria03 and the noreply address, never real names.
 - [No other games](feedback_no_other_games.md): never name the game in user/ anywhere in this repo.
 - [Questions are checks](feedback_questions_are_checks.md): a question from the dev is answered in chat, with no edits.
@@ -39,7 +39,7 @@
 - [Todo list format](feedback_todo_list_format.md): ##Unfinished. and ##Finished., players only, bugs stated as what happens.
 - [Back first](feedback_back_first.md): Back is the first row of every menu with a way back, and it opens on it.
 - [Say ear tests ahead](feedback_say_ear_tests_ahead.md): before each section, list the by-ear tests (sound and speech), each optional or mandatory; remind the dev of a mandatory one not reported on.
-- [Docs after each plan](feedback_docs_after_each_plan.md): when a plan is finished, bring every developer and player doc up to date.
+- [Docs after each plan](feedback_docs_after_each_plan.md): when a plan is finished, bring every developer doc (aidocks included) and player doc up to date, then push.
 - [Review plan sections](feedback_review_plan_sections.md): before building any plan, review it section by section with the dev; never start the next plan alone.
 - [Test tools in interact](feedback_test_tools_in_interact.md): by-ear tools go in tests/interact/, never in the game's menus.
 

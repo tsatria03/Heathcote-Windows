@@ -1,6 +1,6 @@
 ---
 name: feedback_git_commits
-description: "One commit per fix. Commit without asking; raise pushing only at 10 or more unpushed commits. 'Commit' means commit only; 'commit/push' means both. History rewrites need an explicit go-ahead. Use git commit -F with a message file written by the Write tool, run git from PowerShell, and never hide git's errors."
+description: "One commit per fix. Commit without asking; raise pushing only when a whole plan is finished and its docs are updated. 'Commit' means commit only; 'commit/push' means both. History rewrites need an explicit go-ahead. Use git commit -F with a message file written by the Write tool, run git from PowerShell, and never hide git's errors."
 metadata:
   node_type: memory
   type: feedback
@@ -10,7 +10,7 @@ metadata:
 
 **Commit without asking; ask before pushing** (the dev: "For commits, you don't have to ask me if I want it done. You can always commit, but still ask if I want it pushed"). When a change is done, commit it straight away.
 
-**Bring up pushing only from 10 unpushed commits.** Below 10, commit quietly, with no count and no question about pushing. At 10 or more, say how many are waiting and ask whether to push.
+**Push once a whole plan is complete, after its docs are updated** (the dev, 2026-10-19: "for pushing, do not do that untill the full plan is complete. I mean after the docks get updated."). While a plan is being built, commit quietly and never bring up pushing, however many commits wait. When the plan is finished and every doc is brought up to date ([[feedback_docs_after_each_plan]]), say how many commits wait and ask to push. The dev can still ask for a push at any time. This replaces the earlier rule of asking at 10 unpushed commits.
 
 **Hold while the dev says so.** When the dev holds pushes, do not ask about pushing even past 10 commits. When the hold ends, report the count and ask. The dev can still ask for a push during a hold.
 
