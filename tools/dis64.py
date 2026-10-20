@@ -8,6 +8,7 @@ Needs capstone (pip install capstone); the game itself never does.
     python tools/dis64.py --find lockout               methods whose selector holds a word
     python tools/dis64.py --refs 0x10023bbb0           the game's code that uses an address
     python tools/dis64.py --refs lockoutGraceTimerFired:   ... or calls a selector
+    python tools/dis64.py --brief Story +justStart     only calls, strings, numbers and tests
 
 A class method is named with a + in front, such as +shared. Output stops at
 the first ret, so a method that continues past one shows only its first part.
@@ -79,8 +80,19 @@ def number_at(addr, reg):
     return None if v is None else "= %g" % v
 
 
+BRIEF = False
+# In --brief, the lines kept besides those with a note: tests, branches and constants.
+KEEP = ("cmp", "fcmp", "cbz", "cbnz", "tbz", "tbnz", "b.", "csel", "cset", "ret", "movz")
+
+
 def dis(start, limit=600):
     for ins, note, addr in walk(start, limit):
+        if BRIEF and not note and not ins.mnemonic.startswith(KEEP) and ins.mnemonic != "b" \
+                and not (ins.mnemonic == "mov" and "#" in ins.op_str):
+            continue
+        if BRIEF and note in ("_objc_retainAutoreleasedReturnValue", "_objc_release", "_objc_retain",
+                              "_objc_msgSend") and ins.mnemonic == "bl":
+            continue
         print("  %x: %-6s %-34s %s" % (ins.address, ins.mnemonic, ins.op_str, ("; " + note) if note else ""))
 
 
@@ -143,6 +155,9 @@ def refs(target):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
+    if "--brief" in args:
+        args.remove("--brief")
+        BRIEF = True
     if args[:1] == ["--list"]:
         for (cls, sel), imp in sorted(IMPS.items(), key=lambda kv: kv[1]):
             if cls == args[1]:
