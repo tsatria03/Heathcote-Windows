@@ -1,6 +1,6 @@
 ---
 name: project_fmod
-description: "Heathcote plays its sound through FMOD Engine 2.02.35, the original's own audio engine, via pyfmodex; the DLL is in vendor/fmod/, committed since the repo is private, and the licence needs a credit line in the game."
+description: "Heathcote plays its sound through FMOD Engine 2.02.35, the original's own audio engine, via pyfmodex; the DLL is in vendor/fmod/ but gitignored, shipping only in the built game, and the licence needs a credit line in the game."
 metadata:
   node_type: memory
   type: project
@@ -13,7 +13,8 @@ metadata:
 **How to apply:**
 - **The engine:** FMOD Engine 2.02.35 for Windows, from `fmodstudioapi20235win-installer.exe` (not the UWP one), 64-bit. The dev installed it at `C:\Program Files (x86)\FMOD SoundSystem\FMOD Studio API Windows\`.
 - **`vendor/fmod/`** holds `fmod.dll` (from `api\core\lib\x64\`, version 2.2.35, build 164197, checked to be x64) and `license.txt` (from `doc\LICENSE.TXT`). Never `fmodL.dll`, the logging build, and nothing else from the install: the licence lets only the run-time libraries be passed on.
-- **The repo is private and will stay so** (the dev, 2026-10-19: "I'm not planning to make this repository public. RIght now it's private, and will remain there."). So `vendor/fmod/fmod.dll` is committed like `vendor/nvda/`; keeping it in a private repo is not distributing it.
+- **`vendor/fmod/fmod.dll` is gitignored** (the dev, 2026-10-19: "I change my mind about the fmod dll. I want it git ignored so I can give this game release out to people."). It stays on the dev's machine for builds and ships only inside the built game; `license.txt` stays tracked. It was committed once, in 6ef2d33, before the dev changed their mind; that commit is still in the history, which has not been pushed. The repo is private and will stay so ("I'm not planning to make this repository public. RIght now it's private, and will remain there.").
+- **A fresh clone has no `fmod.dll`.** Install FMOD Engine 2.02.35 and copy `api\core\lib\x64\fmod.dll` into `vendor/fmod/`. The game says so plainly if the file is missing, rather than crashing.
 - **The binding:** `pyfmodex` 0.7.2 (MIT, March 2024). It ships no DLL. It loads the file named by `PYFMODEX_DLL_PATH` if that is set before the import, so the game sets it to `vendor/fmod/fmod.dll` (or the build's copy) first. Which FMOD version pyfmodex was built against is not stated anywhere; 2.02 was chosen as the line current during its releases.
 - **The licence** (`vendor/fmod/license.txt`, last updated 17 June 2024):
   - Free for personal, educational or non-commercial use, with no "monetisation, sponsorship or promotion" (clause 1.2).

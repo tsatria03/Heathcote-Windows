@@ -23,7 +23,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 - **`tests/interact/`**: tools played by ear, not tests, run by the dev. A tool for testing goes here, never into the game's menus ([[feedback_test_tools_in_interact]]).
 - **`tests/case/`**: silent test scripts, to come; results go in the gitignored `tests/results/`. Run only the files covering what changed, in the background, and the full suite only when the dev asks ([[feedback_dont_run_or_build]]).
 - **`vendor/nvda/`**: `nvdaControllerClient64.dll` (x64) and its license.
-- **`vendor/fmod/`**: `fmod.dll` (FMOD Engine 2.02.35, x64) and its licence ([[project_fmod]]).
+- **`vendor/fmod/`**: `fmod.dll` (FMOD Engine 2.02.35, x64), gitignored and copied in by hand from the FMOD install, and its licence, which is tracked ([[project_fmod]]).
 - **`docks/`**: the documents a player reads: `readme.txt`, `changelog.txt` and `todo list.txt` ([[feedback_changelog]], [[feedback_todo_list_format]]).
 - **`analysis/`**: what the tools write from the original, for reference. `analysis/script/Heathcote.txt` is the whole story as plain text, written by `tools/script_text.py`; find "Spiel: <label>" to jump to a spiel.
 - **`tools/`**: scripts for reading the original, described in `tools/README.md`. `macho64.py` and `dis64.py` read and disassemble `game/Heathcote` (not encrypted), citing the binary's own addresses; `story.py` reads and checks the story data the way the game will; `script_text.py` writes the script.

@@ -6,7 +6,7 @@
 - [Audio names](project_audio_names.md): every story recording's English name and folder, mapped back to the id the data names it by.
 - [No downloads](project_no_downloads.md): every recording ships with the game; no pack, download screen or release asset.
 - [Python only](project_python_only.md): pygame for the window and keys, FMOD for sound, Prism and the NVDA client for speech; the dev converts audio, Claude never does.
-- [FMOD](project_fmod.md): FMOD Engine 2.02.35 through pyfmodex for all sound; vendor/fmod/, committed as the repo is private; a credit line is required.
+- [FMOD](project_fmod.md): FMOD Engine 2.02.35 through pyfmodex for all sound; vendor/fmod/fmod.dll gitignored, shipped only in the build; a credit line is required.
 - [Windows only](project_windows_only.md): no Linux, macOS or GitHub Actions workflow.
 - [Solo project](project_solo.md): tsatria03 alone; credits name Fabulae Obscurae for the original.
 - [Later topics](project_later_topics.md): ideas and requirements for plans not yet written, such as FMOD's credit line.
