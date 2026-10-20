@@ -2,14 +2,21 @@
 
     python tests/interact/audio_check.py
 
-It grows with each section of the audio plan. For now, section 1: the title music, an
-ambience loop, the interface sounds and the four volumes. The keys:
+It grows with each section of the audio plan. For now, sections 1 and 2: the title
+music, an ambience loop, the interface sounds, the four volumes, and a spiel with pause,
+rewind and fast-forward. The keys:
 
     1                    the title music: start it, fading in, or stop it, fading out over 3 seconds
     2                    the ambience loop: start it, fading in, or stop it, fading out over 2 seconds
     Up and Down          choose the ambience; a playing loop changes to it at once
-    Left and Right       choose an interface sound, saying its name
+    [ and ]              choose an interface sound, saying its name
     Space                play the interface sound chosen
+    Comma and Full stop  choose a spiel, saying its label; with Shift, 10 at a time
+    3                    play the spiel chosen from its start, or stop it
+    Left                 rewind, as the original: back 1 second every 7 ticks for 0.75 seconds
+    Right                fast-forward, as the original: 1.75 times for 1.5 seconds, voices kept at pitch
+    P                    pause the story, the spiel and the ambience together, or resume it
+    Tab                  say where the spiel is, in seconds
     Shift+Home, Shift+End        the master volume, up and down
     Page Up, Page Down           the background volume: the ambience loop
     Shift+Page Up, Shift+Page Down   the interface volume: the interface sounds
@@ -62,8 +69,12 @@ class Check:
         self.sounds = [(self.story.label(s), self.story.audio_path(s))
                        for s in self.story.refs('systemSounds') if self.story.audio_path(s)]
         self.title = self.story.sound_path('bgm', 'title')
+        self.spiels = [(self.story.label(s), self.story.audio_path(s))
+                       for s in self.story.refs('actionSpiels')
+                       if self.story.audio_path(s) and os.path.isfile(self.story.audio_path(s))]
         self.ambience_index = 0
         self.sound_index = 0
+        self.spiel_index = 0
         self.running = True
 
     def say(self, text):
@@ -106,6 +117,48 @@ class Check:
     def play_sound(self):
         self.audio.slot('sfx').play(self.sounds[self.sound_index][1])
 
+    # ---- the spiel ---------------------------------------------------------
+    def choose_spiel(self, step):
+        self.spiel_index = (self.spiel_index + step) % len(self.spiels)
+        self.say('%s, %d of %d.' % (self.spiels[self.spiel_index][0], self.spiel_index + 1,
+                                    len(self.spiels)))
+
+    def toggle_spiel(self):
+        spiel = self.audio.spiel
+        if spiel.playing:
+            spiel.stop()
+            self.say('Spiel stopped.')
+        else:
+            if self.audio.story_paused:
+                self.audio.resume_story()
+            spiel.play(self.spiels[self.spiel_index][1])
+
+    def rewind(self):
+        if not self.audio.spiel.rewind():
+            self.say('No spiel is playing.')
+
+    def fast_forward(self):
+        if not self.audio.spiel.fast_forward():
+            self.say('No spiel is playing.')
+
+    def toggle_pause(self):
+        sfx = self.audio.slot('sfx')
+        if self.audio.story_paused:
+            self.audio.resume_story()
+            sfx.play(self.story.sound_path('systemSounds', 'pause-unpause'))
+        else:
+            self.audio.pause_story()
+            sfx.play(self.story.sound_path('systemSounds', 'pause-pause'))
+
+    def where(self):
+        spiel = self.audio.spiel
+        if not spiel.started:
+            self.say('No spiel is playing.')
+            return
+        state = 'ended' if spiel.ended else 'paused' if self.audio.story_paused else \
+            'fast-forwarding' if spiel.fast_forwarding else 'rewinding' if spiel.rewinding else 'playing'
+        self.say('%.1f of %.1f seconds, %s.' % (spiel.position, spiel.length, state))
+
     # ---- the volumes -------------------------------------------------------
     def step_volume(self, key, steps):
         level = self.settings.step_volume(key, steps)
@@ -118,6 +171,8 @@ class Check:
             playing.append('the title music')
         if self.audio.slot('ambience1').playing:
             playing.append('the ambience %s' % self.ambiences[self.ambience_index][0])
+        if self.audio.spiel.playing:
+            playing.append('the spiel %s' % self.spiels[self.spiel_index][0])
         volumes = ', '.join('%s %d' % (VOLUME_LABELS[k], self.settings.get(k)) for k in VOLUME_LABELS)
         self.say('%s. %s.' % ('Playing ' + ' and '.join(playing) if playing else 'Nothing is playing',
                               volumes))
@@ -126,6 +181,8 @@ class Check:
         volume = VOLUME_KEYS.get((key, tuple(mods)))
         if volume:
             self.step_volume(*volume)
+        elif key in (',', '.') and mods in ([], ['shift']):
+            self.choose_spiel((-1 if key == ',' else 1) * (10 if mods else 1))
         elif mods:
             return
         elif key == 'escape':
@@ -134,12 +191,22 @@ class Check:
             self.toggle_title()
         elif key == '2':
             self.toggle_ambience()
+        elif key == '3':
+            self.toggle_spiel()
         elif key in ('up', 'down'):
             self.choose_ambience(-1 if key == 'up' else 1)
-        elif key in ('left', 'right'):
-            self.choose_sound(-1 if key == 'left' else 1)
+        elif key in ('[', ']'):
+            self.choose_sound(-1 if key == '[' else 1)
         elif key == 'space':
             self.play_sound()
+        elif key == 'left':
+            self.rewind()
+        elif key == 'right':
+            self.fast_forward()
+        elif key == 'p':
+            self.toggle_pause()
+        elif key == 'tab':
+            self.where()
         elif key in ('return', 'enter'):
             self.status()
 
@@ -148,8 +215,9 @@ class Check:
         pygame.display.set_caption('Heathcote audio check')
         pygame.display.set_mode((640, 480))
         self.audio.open()
-        self.say('Audio check. Press 1 for the title music, 2 for an ambience loop, Space for '
-                 'an interface sound, and Enter for what is playing. Escape quits.')
+        self.audio.spiel.rewind_sound = self.story.sound_path('systemSounds', 'rewind')
+        self.say('Audio check. Press 1 for the title music, 2 for an ambience loop, 3 for a spiel, '
+                 'Space for an interface sound, and Enter for what is playing. Escape quits.')
         clock = pygame.time.Clock()
         try:
             while self.running:

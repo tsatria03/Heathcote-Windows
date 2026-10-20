@@ -6,11 +6,40 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Section 1 is built and waits for the dev's word.
+**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Section 1 is confirmed ("Yes go ahead."); section 2 is built and waits for the dev's word.
 
 ## Progress
 
-- **Section 1, built 2026-10-20, waiting for the dev's word:**
+- **Section 2, built 2026-10-20, waiting for the dev's word:**
+  - **`heathcote/platform/spiel.py`, the `SpielPlayer`, owned by `Audio` as `audio.spiel`:**
+    - **The spiel:** opened as a stream, with its exact length, position, seek, pause and resume.
+    - **Rewind:**
+      - the `rewind` interface sound
+      - a jump back of 1 second every 7 ticks for 45 ticks, the first at once, so 7 jumps
+      - at the beginning, it stops early and fades the sound out over 0.75 seconds
+    - **A finished spiel** restarts 1 second before its end. This was read on 2026-10-20: `-[SoundChannel setPositionBeforeEnd:]`, 0x10002eda0, adds -1000 milliseconds to the length.
+    - **Fast-forward:**
+      - 1.75 times speed for 90 ticks, with FMOD's pitch shift at 1/1.75 and 2 channels
+      - pressing again starts its time over
+      - it carries into a spiel started during it, and stops where a spiel ends, with one frame's grace so the story engine can start the next spiel first
+    - Both hold their time through a pause. `stop_effects()` ends either and plays on, as the original's tap did.
+  - **Two pitch shift findings,** checked against the DLL. pyfmodex numbers the effect's settings wrongly for 2.02: it puts Max channels at 4, but the DLL has it at 3. And every setting is a float in 2.02. So the game finds settings by name, and sets the channel count as a float.
+  - **`Audio.pause_story()` and `resume_story()`** pause the story group, the spiel with the background lanes, and leave the system group, so the pause sounds can play. Whether pausing should instead hush the backgrounds and leave them playing, as the original did, is a question for the dev.
+  - **`audio_check.py` gains the spiel:**
+    - Comma and Full stop choose among the 103 recorded spiels, 10 at a time with Shift, and 3 plays or stops it.
+    - Left rewinds and Right fast-forwards.
+    - P pauses and resumes, with the pause sounds, and Tab says the position.
+    - Choosing an interface sound moves to the bracket keys.
+  - **`tests/case/test_spiel.py`, 11 tests.** They found two bugs, fixed before commit: rewind's 7-tick sum drifting a frame late, and the channel count set as a whole number. The suite passes, 87 tests.
+  - **To test by ear:**
+    - **Mandatory:**
+      - fast-forward keeps voices at pitch
+      - rewind sounds right, including at the beginning
+      - pause and resume stop and bring back the spiel and the ambience together
+    - **Optional:** a second fast-forward press restarts its time.
+- **The data folder was renamed** by the dev on 2026-10-20, from `game/data/` to `game/documents/`. The game follows it through `DATA_FOLDER` in `heathcote/paths.py`.
+
+- **Section 1, confirmed by the dev 2026-10-20 ("Yes go ahead."):**
   - **`heathcote/game/storydata.py` holds the rules for reading the story data and finding recordings**, moved out of `tools/story.py`, which now imports them. The game and the tool cannot disagree. The tool's report and the written script are unchanged. `sound_path(category, label)` finds a recording by label, such as `('bgm', 'title')`.
   - **`heathcote/platform/audio.py`:**
     - **Starting FMOD:** `load_pyfmodex()` sets `PYFMODEX_DLL_PATH` before the import. A missing `fmod.dll` stops the game with a message saying where to copy it from.
