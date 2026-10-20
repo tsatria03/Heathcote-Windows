@@ -29,3 +29,7 @@ crash.txt
 
 # A binary dropped next to the tools by hand; analysis/bin has the real one
 tools/heathcote
+
+# FMOD's run-time library, copied in by hand from the FMOD Engine install;
+# it ships only inside the built game, never in the repository
+vendor/fmod/fmod.dll
