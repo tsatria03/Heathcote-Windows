@@ -6,11 +6,11 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Sections 1 and 2 are confirmed, section 2 after the dev's ear tests ("Awesome. My hereing tests past."). Section 3 is built and waits for the dev's word (the dev: "ready for section 3.").
+**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Sections 1 and 2 are confirmed, section 2 after the dev's ear tests ("Awesome. My hereing tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 3 tests past."). Section 4 is next.
 
 ## Progress
 
-- **Section 3, built 2026-10-20, waiting for the dev's word:**
+- **Section 3, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 3 tests past."): smooth crossfades, lanes on cue, and a rewind restoring the earlier background.
   - **`heathcote/platform/lanes.py`, `Lanes(audio, story)`:**
     - **Following a spiel:** `begin_spiel(record)` keeps what each lane held as the spiel began, takes its events, and stops the idle loop. `update(position)` fires each event as playback passes it.
     - **The events:** `fadeTo` crossfades, the old recording fading out on its own channel as the new fades in, then loops. A lane already playing the recording carries on. `fadeOut` fades out and stops.
