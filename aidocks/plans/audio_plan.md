@@ -46,6 +46,8 @@ metadata:
       - each volume changes only its own sounds
       - the loops come round seamlessly
     - **Optional:** every interface sound plays.
+  - **The dev's ear tests passed** (2026-10-20: "all 3 hering tests past. No silent gaps."): even steps, each volume on its own sounds, and seamless loops.
+  - **`Title.mp3` fades out by itself in its last seconds.** The dev noticed it fading with no key pressed. Decoded silently and measured in 2-second stretches, it holds about -23 dB to 70 seconds, then falls to -40.6 dB by 74 seconds and -73 dB at its end, 75.96 seconds. So each loop fades away and starts again. The original looped the same whole file, with no loop points of its own (`-[GameView titleMusicShouldBePlaying]`, 0x100019594), so it is kept as it is.
 
 Plan 3 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]] and serves the story engine. Every number below comes from [[project_original_behaviour]], which cites the original's code.
 
