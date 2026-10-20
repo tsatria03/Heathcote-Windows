@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-19: "I'm ready for section 1 of plan 2."). Section 1 is confirmed ("it looks good."), and so is section 2 ("Section 2 is good."); section 3 is built and waits for the dev to confirm it.
+**Status:** being built (the dev, 2026-10-19: "I'm ready for section 1 of plan 2."). Section 1 is confirmed ("it looks good."), section 2 ("Section 2 is good.") and section 3 ("Section 3 is good."). Section 4 is next.
 
 Plan 2 ([[reading_original_plan]] lists the order). Everything else stands on it: the audio, the story engine, the menus and the saves all use its paths, speech, timers and screen loop.
 
@@ -22,7 +22,7 @@ Until the menus plan is built, the game opens on a small stand-in menu, Settings
 
 ## Progress
 
-- **Section 3, built 2026-10-19, waiting for the dev's word:**
+- **Section 3, confirmed by the dev 2026-10-19 ("Section 3 is good."):**
   - `heathcote/platform/files.py`: the safe JSON files. One change from the reference: a damaged file with no backup is still marked for rewriting, so it is replaced with the defaults at once rather than left damaged.
   - `heathcote/platform/settings.py`, writing `config/settings.json`:
     - the three volumes, `master_volume`, `backgrounds_volume` and `interface_volume`, from 0 to 100
