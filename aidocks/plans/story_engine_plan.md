@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned. Being written; open questions below are still being answered.
+**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
 
 Plan 4 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]] and [[audio_plan]], and reads the story data directly as `tools/story.py` does. Every rule below comes from [[project_original_behaviour]], which cites the original's code.
 
@@ -47,11 +47,16 @@ Each section is confirmed by the dev before the next starts.
   - Up arrow or Enter opens the actions menu (swipe up).
   - Left arrow rewinds (swipe right) and Right arrow fast-forwards (swipe left): the arrow that points back goes back.
   - Escape pauses (swipe down).
-  - In the actions menu: Up and Down, or Left and Right, move through the choices; Enter accepts; Escape closes.
+  - In the actions menu: all four arrows move through the choices, Up and Left back and Down and Right on, wrapping round; Home jumps to the first choice and End to the last; Enter accepts; Escape closes. Each move plays the choice's clip, as in the original. These are the same keys as every other menu ([[foundation_plan]]; the dev, 2026-10-19: "this game should be like [the other game] where you can press all the arrow keys for menu choices, plus home/end.").
   - Tab says where you are, as the two-finger tap did: "Story is playing.", "Story is at end of scene." or "Actions menu is open."
   - **Every one of them is rebindable on the F1 screen, the arrows included** ([[foundation_plan]]). Each is an action in `config/keys.json`, never a key fixed in code; only the F1 screen's own F1 and Escape stay fixed, so there is always a way out of it.
 - **Space speaks the selected choice's text through the screen reader** (the dev, 2026-10-19: "I like that. Space is fine."), the idea the dev raised earlier ("you should be able to press a key to here the screen reader version of those choices if you hover over one"). It reads the transcript of the choice's `systemVoice` record, or its label when there is none, without moving or accepting. It is rebindable like the rest.
+- **Debug mode's keys** (the dev, 2026-10-19: "I like that."), in debug mode only ([[foundation_plan]]), rebindable like the rest:
+  - F2 skips to the end of the current spiel. The timed sets and lane events left in it fire on the way, so the story stays as it would have been.
+  - F3 asks for a spiel's label and jumps to it, taking the same labels as `--spiel` and the "Spiel:" headings of `analysis/script/Heathcote.txt`.
+  - F4 speaks every story variable that is not "0", by label, such as "fear is clowns, flashlight is hint", or "Every variable is 0." when none is.
 - **Two things are checked in the code before section 2 is built:** whether a spiel reached through next is marked heard, and whether timed sets fire again after a rewind.
 
 ## Open questions
-1. Debug mode's keys? Proposed: F2 skips to the end of the current spiel, F3 asks for a spiel's label and jumps to it, and F4 speaks every variable that is not "0".
+
+None.
