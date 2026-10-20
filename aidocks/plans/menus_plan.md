@@ -52,16 +52,21 @@ Each section is confirmed by the dev before the next starts.
 - **Restart asks first,** as the original did, with No as the first row.
 - **The main menu** (the dev, 2026-10-19: "I like that."), with the same navigation as every menu, all four arrows, wrapping, and Home and End, which the dev checked ("This will have the same menu functions right? I mean the arrow/home nav, plus menu wrapping"):
   1. **Start story,** or once started, **"Continue story from chapter: <location>."**, the original's own words, where <location> is the story variable `location`. It comes first, so one Enter gets back into the story.
-  2. **Restart,** once started, asking first.
-  3. **Settings.**
-  4. **Credits.**
-  5. **Quit,** its way out, so it has no Back row ([[feedback_back_first]]).
+  2. **Settings.**
+  3. **Credits.**
+  4. **Quit,** its way out, so it has no Back row ([[feedback_back_first]]).
+  - **No Restart here** (the dev, 2026-10-19: "Also get rid of it from the main menu."). The original's title menu had one, but the port's Restart is in the pause menu instead.
 
 - **The opening** (the dev, 2026-10-19: "Agreed."):
   1. The `ident` sound, the original's police radio, with "Heathcote" spoken.
   2. The first time only, a notice from the original's tutorial: "Heathcote is a responsive story told through sound. Headphones are strongly recommended. For the most immersive experience, try playing with your eyes closed." Enter continues, and the game remembers it has been shown, as the original's `tutor-preflight` did. The line "Control the story by swiping, not tapping." is left out, since it does not fit a keyboard.
   3. Then the `title` music and the main menu, with no 4-second title wait.
 
+- **The pause menu** (the dev, 2026-10-19: "I like this, but what about the restart button?", then "Yes."). Escape during the story pauses every channel and opens it:
+  1. **Resume,** first and opened on; Escape does the same.
+  2. **Restart:** "Restart the story? Your progress will be lost.", with No first. Yes resets the story's variables, the heard spiels and the actions' counts, and starts again at `start`, as the original's restart did (`-[ViewController resetGameState]`, 0x100011068). Settings and the first-run notice stay as they were. The original had no restart in its pause screen, only on its title menu.
+  3. **Settings,** the same screen as the main menu's.
+  4. **Return to menu,** leaving the story paused, so Continue picks it up exactly where it stopped, as the original did. It does not ask, since nothing is lost.
+
 ## Open questions
-1. What does the pause menu hold? Proposed: Resume, first, which Escape also does; Settings; and Return to menu, leaving the story paused so Continue picks it up where it stopped, as the original did.
-2. What happens at the end? Proposed: the `ending` music plays on, the credits menu opens, and leaving it resets the story and returns to the main menu, as the original did. The "Want more?" link to the developer's website is left out.
+1. What happens at the end? Proposed: the `ending` music plays on, the credits menu opens, and leaving it resets the story and returns to the main menu, as the original did. The "Want more?" link to the developer's website is left out.
