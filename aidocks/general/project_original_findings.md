@@ -15,8 +15,8 @@ Findings from the first read-only survey of `game/` (2026-10-19). Claude changes
 - **Every recording is MP3** (the dev converted them all on 2026-10-19: "I was able to convert every sound to mp3, even in the system folder"). The original formats were 148 MP3, 61 WAV and 12 AAC `.m4a`. The data's `original.name` still gives the old extension.
 - `game/data/text/story/`: the 606 record JSON files.
 - `game/data/text/system/`: `Heathcote v1.01.bundle.json` and `ReadMe.txt`.
-- `game/data/image/story/`: the 48 story graphics (24 ids, each `.png` and `@2x.png`).
-- `game/data/image/system/`: the 22 interface images (were `game/Images/`).
+- `game/images/story/`: the 48 story graphics (24 ids, each `.png` and `@2x.png`). The dev moved the images out of `game/data/` on 2026-10-19, so `game/data/` holds only what the game reads.
+- `game/images/system/`: the 22 interface images (were `game/Images/`).
 - `game/certificate/`: the four `.der` certificates.
 - `game/scripts/`: the three stray source files.
 - The app binary, `Info.plist`, icons, `Base.lproj/` and `_CodeSignature/` stay at the top of `game/`.
