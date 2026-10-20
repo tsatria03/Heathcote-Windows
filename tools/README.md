@@ -20,6 +20,7 @@ Examples, from the repo root:
     python tools/dis64.py --refs 0x10023bbb0
     python tools/dis64.py --refs lockoutGraceTimerFired:
     python tools/dis64.py --brief Story +justStart
+    python tools/dis64.py --full --brief Sound +tick
     python tools/story.py
     python tools/story.py --labels
     python tools/script_text.py
@@ -27,6 +28,7 @@ Examples, from the repo root:
 Notes:
 - Addresses are the binary's own virtual addresses, as the plans and notes cite them.
 - A class method is named with a + in front, such as `+raiseActionsDial`.
+- A listing stops at a method's first `ret` unless `--full` is given, which reads on to where the next method begins; many methods return early and carry on after. `--refs` always reads in full.
 - A class from the system frameworks, such as `NSTimer`, shows as `class@0`, since the binary names it only when it is loaded. The selector sent to it says which it is.
 - Most of the binary is FMOD 1.7, the audio library, which these tools do not read.
 - `HEATHCOTE_BINARY` sets the path of the binary to read.
