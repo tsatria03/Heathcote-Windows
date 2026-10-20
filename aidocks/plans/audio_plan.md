@@ -6,11 +6,11 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Sections 1 and 2 are confirmed, section 2 after the dev's ear tests ("Awesome. My hereing tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 3 tests past."). Section 4, the last, is built and waits for the dev's word (the dev: "yes").
+**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Sections 1 and 2 are confirmed, section 2 after the dev's ear tests ("Awesome. My hereing tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 3 tests past."). Section 4, the last, is confirmed too, after the dev's ear tests ("All search tests past."). Every section is confirmed; the plan is finished once the dev says so.
 
 ## Progress
 
-- **Section 4, built 2026-10-20, waiting for the dev's word:** `audio_check.py` is the whole tool.
+- **Section 4, confirmed by the dev 2026-10-20, whose ear tests passed** ("All search tests past."): `audio_check.py` is the whole tool.
   - **Finding a spiel:** S starts it. Letters are spoken as they are typed, Backspace takes one off, and Escape gives up without quitting. Enter plays the first spiel whose label holds the text, in any case, and says its label and which match it is, such as "closed cells, 2 of 2 matches.". The same text again moves on to the next match, and a text with no match says so.
   - **A found spiel starts with every lane silent,** so only its own cues are heard. Setting the lanes up as they would be when that spiel begins was tried first, by following the first `next` from `start`, but only 1 of the 103 recorded spiels lies on that path: almost every way through the story passes a choice. The backgrounds before a spiel depend on the choices made on the way, which only the story engine knows, so plan 4's `story_check.py` plays spiels in their real context.
   - Driven silently: two matches for "cells", no match, Backspace, Escape, and upper-case "DUAL".
