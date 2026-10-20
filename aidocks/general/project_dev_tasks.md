@@ -10,7 +10,7 @@ The developer tasks, which `docks/todo list.txt` leaves out because it ships to 
 
 ## Unfinished
 
-- `docks/readme.txt` is still empty. It needs the keys, and how to use the F1 screen (Enter rebinds, A adds a key, Delete unbinds, R twice resets), which the screen itself no longer explains each time (2026-10-19).
+- `docks/readme.txt` needed the keys and how to use the F1 screen (Enter rebinds, A adds a key, Delete unbinds, R twice resets), since the screen does not explain itself each time. It was written on 2026-10-19, when the dev asked for every doc to be brought up to date ("updating all docks where possible, including the player facing ones."), and waits for the dev's word.
 
 ## Finished
 
