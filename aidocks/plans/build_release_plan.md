@@ -1,0 +1,37 @@
+---
+name: build_release_plan
+description: "Plan 7: compiler.py builds Heathcote.exe with PyInstaller, carrying the audio, the story data, FMOD and the NVDA client; releaser.py versions, files the changelog, zips and publishes a release from the dev's own machine. Windows only, no downloads, no workflow."
+metadata:
+  node_type: memory
+  type: project
+---
+
+**Status:** planned. Being written; open questions below are still being answered.
+
+Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
+
+## Built in sections
+
+Each section is confirmed by the dev before the next starts.
+1. `compiler.py`, the build, with its silent test.
+2. `releaser.py`, the release.
+
+## Decided
+
+- **Windows only,** with no GitHub Actions workflow and no Linux or macOS parts ([[project_windows_only]]).
+- **No downloads** ([[project_no_downloads]]): every recording ships inside the game, so there is no pack, no pack builder and no release step that uploads one. The audio is about 152 MB, so the zip is about that size.
+- **Two scripts at the repo's root, adapted from the reference material in the gitignored `user/` folder,** never naming where they came from ([[feedback_no_other_games]]):
+  - `compiler.py` builds the game with PyInstaller into `dist\Heathcote-Windows\`, around `Heathcote.exe`. It only builds: it never zips and never changes the repository. Run with no options, it shows a numbered menu, each choice one command line.
+  - `releaser.py` makes a release on the dev's own machine, asking Y or N before each step: check the changelog and the repo, set `VERSION` to today's date and that day's number (such as `26.10.19-1`), file the changelog's `unrelease:` lines under it, build with the compiler, zip the build, commit "Release <version>", tag `V<version>`, and upload the zip with `gh`. A failed build puts `VERSION` and the changelog back. It never moves or replaces a tag, a release, or a file already on one.
+- **What a build carries:**
+  - From `game/`, only what the game reads: `game/data/Audio/` and `game/data/text/`. Not the binary, the images, the certificates, the stray source files or the rest of the iOS bundle.
+  - `vendor/fmod/fmod.dll` and `vendor/nvda/nvdaControllerClient64.dll`, with Prism's own native part.
+  - Beside the exe: `docks\` (the readme, changelog and todo list, the changelog without an empty `unrelease:`), `VERSION` and the port's licence as `license.txt`.
+  - The third-party licences, as `licenses\`: FMOD's (`vendor/fmod/license.txt`, which carries the Ogg Vorbis notice that must go with the binaries, [[project_fmod]]), the NVDA client's, Prism's, pygame's and pyfmodex's.
+- **`compiler.py --test` starts a finished build silently** for a few seconds with `--exit-after`, on a throwaway save, with speech off and FMOD's no-sound output, and reads its log ([[foundation_plan]]).
+- **The changelog's release rules** (5 to 100 entries, never more than 100) are in [[feedback_changelog]]. Releases are never recorded in notes or the README ([[feedback_no_release_records]]).
+- **Claude never builds or releases**; the dev runs both ([[feedback_dont_run_or_build]]).
+
+## Open questions
+1. The repo is private, so a GitHub release on it can be seen only by people with access to the repo. Where do players get the game? Proposed: the releaser still tags and uploads each release to this repo, for the dev's own record, and the dev shares the zip wherever they choose; the releaser does not need to know where.
+2. Which kinds of build? Proposed, as before: the folder build, the default, and the single exe, chosen each time.
