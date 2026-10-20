@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-19: "Sure! Go ahead.", then "Please build the entire plann1. Section 1 looks good."). Section 1 is confirmed. Sections 2, 3 and 4 are built, not yet confirmed.
+**Status:** finished, confirmed by the dev on 2026-10-19 ("Section 1 looks good.", then "sections 2 through 4 are good."). Built the same day (the dev: "Sure! Go ahead.", then "Please build the entire plann1.").
 
 **Built so far:**
 - Section 1, confirmed: `tools/macho64.py`, `tools/dis64.py` and `tools/README.md`. Beyond the plan, `dis64.py` also has `--find`, methods whose selector holds a word; `--refs`, the game's code that uses an address or calls a selector; and `--brief`, only the lines that carry meaning. `--refs` was needed straight away: the lockout grace timer is kept in a global, so the method that starts it could only be found by its uses.

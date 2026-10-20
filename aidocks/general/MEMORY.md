@@ -12,12 +12,10 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Reading the original](../plans/reading_original_plan.md): plan 1, planned, all questions answered. Binary and story tools, the readable script in analysis/, and a note of the original's behaviour with exact numbers.
 - [Foundation](../plans/foundation_plan.md): plan 2, planned, all questions answered. The package, entry script, paths, logs, speech, timers, settings, keys, the F1 screen and the spoken menu.
 
 ## Completed projects
-
-None yet.
+- [Reading the original](../plans/reading_original_plan.md): plan 1, FINISHED 2026-10-19. tools/macho64.py, dis64.py, story.py and script_text.py; analysis/script/Heathcote.txt; and [Original behaviour](project_original_behaviour.md).
 
 ## Feedback
 - [Memory in aidocks](feedback_memory_in_aidocks.md): all memory lives in aidocks/, general/ for notes and plans/ for plans.

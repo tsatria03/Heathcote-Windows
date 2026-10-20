@@ -14,7 +14,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 - **No downloads.** Every recording ships with the game ([[project_no_downloads]]).
 - **Developer tasks**, open and finished, are in [[project_dev_tasks]].
 - **The game is data-driven.** The story is JSON exported from the original's authoring tool: choices with conditions, recordings ("spiels") that set variables at timed points and chain on, and ambience and music lanes with timed fades. What the data, the binary and the original's behaviour say is in [[project_original_findings]].
-- **Status:** the original has been surveyed. The first plan, reading the original, is being written ([[reading_original_plan]]).
+- **Status:** plan 1, reading the original, is finished ([[reading_original_plan]]): the tools, the readable script and [[project_original_behaviour]]. Plan 2, the foundation, is written with every question answered ([[foundation_plan]]). Plans 3 to 7 are still to be written.
 
 ## Layout
 
@@ -24,8 +24,8 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 - **`tests/case/`**: silent test scripts, to come; results go in the gitignored `tests/results/`. Run only the files covering what changed, in the background, and the full suite only when the dev asks ([[feedback_dont_run_or_build]]).
 - **`vendor/nvda/`**: `nvdaControllerClient64.dll` (x64) and its license.
 - **`docks/`**: the documents a player reads: `readme.txt`, `changelog.txt` and `todo list.txt` ([[feedback_changelog]], [[feedback_todo_list_format]]).
-- **`analysis/`**: data exported from the original for reference, to come.
-- **`tools/`**: scripts for reading the original, to come.
+- **`analysis/`**: what the tools write from the original, for reference. `analysis/script/Heathcote.txt` is the whole story as plain text, written by `tools/script_text.py`; find "Spiel: <label>" to jump to a spiel.
+- **`tools/`**: scripts for reading the original, described in `tools/README.md`. `macho64.py` and `dis64.py` read and disassemble `game/Heathcote` (not encrypted), citing the binary's own addresses; `story.py` reads and checks the story data the way the game will; `script_text.py` writes the script.
 - **`build/`** and **`dist/`**: build output, gitignored.
 - **`user/`** is gitignored private reference material. Read it, but never edit it. Never name the dev's other games kept in it, in any of this repo's files ([[feedback_no_other_games]]).
 - **`New File*.txt`** at the root is the dev's private scratchpad. It is gitignored; never read, edit, flag or delete it.
