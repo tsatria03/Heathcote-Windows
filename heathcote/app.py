@@ -4,7 +4,8 @@
 
 1. reads the window's events: closing the window quits, losing the keyboard tells the top
    screen (the story pauses), and a key goes to the top screen;
-2. runs the timers that are due (platform/runloop.py);
+2. lets FMOD do its work (platform/audio.py), and runs the timers that are due
+   (platform/runloop.py);
 3. draws the top screen's text in the window, for a sighted helper.
 
 Two kinds of key are handled here, before the top screen sees them
@@ -23,6 +24,7 @@ import logging
 
 from . import paths
 from .platform import runloop
+from .platform.audio import Audio
 from .platform.keymap import MASTER_VOLUME, MODIFIER_KEYS, KeyMap, mods_from_pygame
 from .platform.runloop import RunLoop
 from .platform.settings import VOLUME_LABELS, Settings
@@ -50,12 +52,14 @@ VOLUME_ACTIONS = {
 
 
 class App:
-    def __init__(self, options, speech=None, settings=None, keymap=None, loop=None):
+    def __init__(self, options, speech=None, settings=None, keymap=None, loop=None, audio=None):
         self.options = options
         self.speech = speech or Speech.shared()
         self.settings = settings or Settings.shared()
         self.keymap = keymap or KeyMap.shared()
         self.loop = loop or RunLoop.main()
+        # FMOD starts in run(), once there is a window (aidocks/plans/audio_plan.md).
+        self.audio = audio or Audio(self.settings)
         self.stack = ScreenStack()
         self.running = True
         self.held = None            # [key, mods, action, when it next repeats] for a volume key
@@ -97,7 +101,20 @@ class App:
         self.speech.speak('%s, %d percent.' % (VOLUME_LABELS[key], level))
 
     def volumes_changed(self):
-        """The audio plan hands the new volumes to FMOD here."""
+        """Hand the new volumes to FMOD, at once."""
+        self.audio.apply_volumes()
+
+    # ---- interface sounds -------------------------------------------------
+    def play_sound(self, label):
+        """One of the original's interface sounds by its label, such as 'click-good', on
+        the sfx channel."""
+        from .game.storydata import StoryData
+        path = StoryData.shared().sound_path('systemSounds', label)
+        if path is None:
+            log.warning('there is no interface sound labelled %s', label)
+            return
+        if self.audio.ok:
+            self.audio.slot('sfx').play(path)
 
     # ---- running --------------------------------------------------------
     def quit(self):
@@ -170,6 +187,7 @@ class App:
         self.retitle()
         font = pygame.font.SysFont('consolas', 18) or pygame.font.Font(None, 22)
         clock = pygame.time.Clock()
+        self.audio.open()
         exit_after = getattr(self.options, 'exit_after', None)
         if exit_after:
             self.loop.after(exit_after, self.quit)
@@ -182,11 +200,13 @@ class App:
                 self.repeat_keys()
                 if self.stack.top is not None:
                     self.stack.top.update()
+                self.audio.update()
                 self.loop.pump()
                 self.draw(screen, font, pygame)
                 clock.tick(FPS)
         finally:
             self.stack.clear()
+            self.audio.close()
             pygame.display.quit()
 
     def handle_event(self, event, pygame):

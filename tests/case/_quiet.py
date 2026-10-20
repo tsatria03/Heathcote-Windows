@@ -8,10 +8,10 @@ Every test file imports this first, before any of the game. It:
 * sets ``HEATHCOTE_SILENT``, so ``platform/speech.py`` never loads NVDA's client or Prism
   and never speaks or cuts off the player's screen reader;
 * gives SDL a dummy audio driver and a dummy display, so nothing is heard and no window
-  opens for a screen reader to announce.
-
-Once the audio plan is built, FMOD starts with its no-sound output here too
-(aidocks/general/project_fmod.md).
+  opens for a screen reader to announce;
+* sets ``HEATHCOTE_NOSOUND``, so FMOD starts with its no-sound output: it plays,
+  streams, fades and keeps time as it would, but opens no sound device and is never
+  heard (aidocks/general/project_fmod.md).
 
 Each is set outright, whatever the shell has set, so a test is silent and off the real save
 wherever it is run from. ``test_paths.py`` fails if a test file does not import this. It is
@@ -34,6 +34,7 @@ FOLDER = tempfile.mkdtemp(prefix='heathcote_test_save_')
 QUIET = {
     'HEATHCOTE_USER_DIR': FOLDER,
     'HEATHCOTE_SILENT': '1',
+    'HEATHCOTE_NOSOUND': '1',
     'SDL_AUDIODRIVER': 'dummy',
     'SDL_VIDEODRIVER': 'dummy',
     'PYGAME_HIDE_SUPPORT_PROMPT': '1',
