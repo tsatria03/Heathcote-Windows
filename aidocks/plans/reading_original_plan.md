@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-19: "Sure! Go ahead.", then "Please build the entire plann1. Section 1 looks good."). Section 1 is confirmed. Sections 2 and 3 are built, not yet confirmed; section 4 is being built.
+**Status:** being built (the dev, 2026-10-19: "Sure! Go ahead.", then "Please build the entire plann1. Section 1 looks good."). Section 1 is confirmed. Sections 2, 3 and 4 are built, not yet confirmed.
 
 **Built so far:**
 - Section 1, confirmed: `tools/macho64.py`, `tools/dis64.py` and `tools/README.md`. Beyond the plan, `dis64.py` also has `--find`, methods whose selector holds a word; `--refs`, the game's code that uses an address or calls a selector; and `--brief`, only the lines that carry meaning. `--refs` was needed straight away: the lockout grace timer is kept in a global, so the method that starts it could only be found by its uses.
@@ -17,7 +17,10 @@ metadata:
   - "east wing dispatch" has three next entries, and "east wing (blocked 3)", listed first, can be true together with either of the others.
   - No two spiels, and no two actions, share a label, so `--spiel LABEL` is never ambiguous.
   - One recording's original name has a space before its extension, "idle loop (inside entrance) .mp3"; the lookup trims it, as the rename did.
-- Section 3: `tools/script_text.py` and `analysis/script/Heathcote.txt`, 2229 lines. The walk tracks every value seen so far, defaults included, so an action opens as soon as its whole condition is possible; 103 spiels come in story order and the dead one comes after.
+- Section 4: [[project_original_behaviour]], read with the tools by a helper agent and spot-checked: the plain `ambience` key is never read, rewind steps back 1 second for 45 ticks, and fast-forward runs at 1.75 times. Reading it showed that listings stopped at a method's first `ret`, missing code after an early return, so `dis64.py` gained `--full`, and `--refs` now always reads in full; it then found a caller of `remindedThatSpielHasEnded` it had missed.
+- What section 4 changed in the earlier tools: the first matching `next` wins, so `story.py` now notes overlapping entries as precedence, and it notes fades on the plain `ambience` lane as never played; the script says both.
+- The dev moved the 14 interface sounds into `game/data/Audio/System/menu/` and `System/misc/` on 2026-10-19, so `story.py` now looks for a category's recordings in a list of folders.
+- Section 3: `tools/script_text.py` and `analysis/script/Heathcote.txt`, 2234 lines. The walk tracks every value seen so far, defaults included, so an action opens as soon as its whole condition is possible; 103 spiels come in story order and the dead one comes after.
 
 ## Why
 
