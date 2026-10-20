@@ -73,9 +73,8 @@ The original's run-time behaviour, read from `game/Heathcote` on 2026-10-19 with
 - **The `ambience` key is never read.** The lane code reads only `bgm`, `ambience1`, `ambience2` and `ambience3` (`+[Sound tick]`, 0x100020dd4 to 0x100020e30), and the binary holds no bare "ambience" string. Fades listed under a spiel's plain `ambience` key never played in the original.
 - `+[Sound pushSpiel]` and `+[Sound popSpiel]` exist but nothing calls them: `python tools/dis64.py --refs pushSpiel` finds no caller, reading every method in full.
 
-### Not yet confirmed
-- Whether a spiel reached through `next` is marked heard. `-[PlayState startPlayed]` (0x1000336bc) marks only the last spiel, once nothing more follows.
-- After a rewind, whether timed sets fire again on the way forward: the last position (0x100203b90) is compared with the new one, but where it is updated has not been traced.
+- **Only the spiel that ends with nothing to follow is marked heard** (confirmed 2026-10-20). The heard store is written only by `-[PlayState startPlayed]` (0x100033704) and cleared by `-[ViewController resetGameState]` (0x1000110c0); `+[StoryView raiseActionsDial]` (0x1000242fc) only reads it. So a spiel passed through by `next` is never marked heard.
+- **Timed sets fire again after a rewind** (confirmed 2026-10-20). `+[Sound tick]` stores the current position as the last position at the end of every tick (0x100020fdc), on the backwards path too, which logs and skips to 0x100020fc4 and then stores it. So after a jump back, a set between the new position and the old one fires again on the way forward.
 
 ## Sound channels
 

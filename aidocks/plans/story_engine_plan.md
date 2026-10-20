@@ -74,7 +74,9 @@ Each section is confirmed by the dev before the next starts.
   - F2 skips to the end of the current spiel. The timed sets and lane events left in it fire on the way, so the story stays as it would have been.
   - F3 asks for a spiel's label and jumps to it, taking the same labels as `--spiel` and the "Spiel:" headings of `analysis/script/Heathcote.txt`.
   - F4 speaks every story variable that is not "0", by label, such as "fear is clowns, flashlight is hint", or "Every variable is 0." when none is.
-- **Two things are checked in the code before section 2 is built:** whether a spiel reached through next is marked heard, and whether timed sets fire again after a rewind.
+- **The two checks, settled from the code on 2026-10-20** ([[project_original_behaviour]]):
+  - Only the spiel that ends with nothing to follow is marked heard. A spiel passed through by `next` never is.
+  - Timed sets fire again after a rewind, on the way forward, since the original stores the new position as the last position even after a jump back.
 
 ## Open questions
 
