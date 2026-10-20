@@ -33,7 +33,11 @@ Reviewed section by section with the dev on 2026-10-19 ([[feedback_review_plan_s
   - attached the pitch shift effect
   - made a channel group
   - closed cleanly
-- **Still to settle before section 1:** how a volume's percentage becomes loudness.
+- **Volumes move in even-sounding steps** (the dev, 2026-10-19: "I want even steps if possible."), not as a straight fraction of the signal:
+  - Each 10 percent step is 6 decibels, and 6 decibels halves the signal.
+  - So 100 percent is full, 90 percent is half the signal, 50 percent is -30 dB, and 10 percent is -54 dB.
+  - 0 percent is silence, set outright rather than as -60 dB.
+  - The level each channel gets is its own volume times the master, worked out in decibels.
 - **Still to check before section 3:** how fast the hush ramps to -12 dB, in the original's code.
 
 ## Decided
