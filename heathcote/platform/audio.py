@@ -225,6 +225,8 @@ class Audio:
         self.rate = 48000
         self.silent = False             # running FMOD's no-sound output
         self.fading_out = []            # (channel, sound) fading out, freed once stopped
+        self.spiel = None               # the SpielPlayer, once FMOD has started
+        self.story_paused = False
 
     @property
     def ok(self):
@@ -254,6 +256,8 @@ class Audio:
                        'story': self.system.create_channel_group('story'),
                        'system': self.system.create_channel_group('system')}
         self.slots = {name: Slot(self, name, group, key) for name, (group, key) in SLOTS.items()}
+        from .spiel import SpielPlayer
+        self.spiel = SpielPlayer(self)
         self.apply_volumes()
 
     def _start(self, fmod, silent):
@@ -282,14 +286,38 @@ class Audio:
         for slot in self.slots.values():
             slot.apply_volume()
 
+    def pause_story(self):
+        """Pause the story's channels together, the spiel and every background lane, leaving
+        the system group, so the pause sound itself can play."""
+        if not self.ok or self.story_paused:
+            return
+        self.spiel.pause()
+        try:
+            self.groups['story'].paused = True
+        except Exception:
+            log.exception('the story could not pause')
+        self.story_paused = True
+
+    def resume_story(self):
+        if not self.ok or not self.story_paused:
+            return
+        try:
+            self.groups['story'].paused = False
+        except Exception:
+            log.exception('the story could not resume')
+        self.spiel.resume()
+        self.story_paused = False
+
     def update(self):
-        """Once a frame: let FMOD do its work, and free what has finished fading out."""
+        """Once a frame: let FMOD do its work, move rewind and fast-forward on, and free
+        what has finished fading out."""
         if not self.ok:
             return
         try:
             self.system.update()
         except Exception:
             log.exception('FMOD update failed')
+        self.spiel.update()
         still = []
         for channel, sound in self.fading_out:
             try:
@@ -308,6 +336,7 @@ class Audio:
     def close(self):
         if not self.ok:
             return
+        self.spiel.close()
         for slot in self.slots.values():
             slot._release()
         for channel, sound in self.fading_out:
@@ -324,4 +353,6 @@ class Audio:
         self.system = None
         self.slots = {}
         self.groups = {}
+        self.spiel = None
+        self.story_paused = False
         log.info('FMOD closed')
