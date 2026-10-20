@@ -57,7 +57,11 @@ Each section is confirmed by the dev before the next starts.
   4. **Credits.**
   5. **Quit,** its way out, so it has no Back row ([[feedback_back_first]]).
 
+- **The opening** (the dev, 2026-10-19: "Agreed."):
+  1. The `ident` sound, the original's police radio, with "Heathcote" spoken.
+  2. The first time only, a notice from the original's tutorial: "Heathcote is a responsive story told through sound. Headphones are strongly recommended. For the most immersive experience, try playing with your eyes closed." Enter continues, and the game remembers it has been shown, as the original's `tutor-preflight` did. The line "Control the story by swiping, not tapping." is left out, since it does not fit a keyboard.
+  3. Then the `title` music and the main menu, with no 4-second title wait.
+
 ## Open questions
-1. How does the game open? Proposed: the `ident` sound with "Heathcote" spoken; the first time only, a notice adapted from the original's tutorial, "Heathcote is a responsive story told through sound. Headphones are strongly recommended. For the most immersive experience, try playing with your eyes closed.", which Enter continues; then the title music and the main menu, without the original's 4-second title wait.
-2. What does the pause menu hold? Proposed: Resume, first, which Escape also does; Settings; and Return to menu, leaving the story paused so Continue picks it up where it stopped, as the original did.
-3. What happens at the end? Proposed: the `ending` music plays on, the credits menu opens, and leaving it resets the story and returns to the main menu, as the original did. The "Want more?" link to the developer's website is left out.
+1. What does the pause menu hold? Proposed: Resume, first, which Escape also does; Settings; and Return to menu, leaving the story paused so Continue picks it up where it stopped, as the original did.
+2. What happens at the end? Proposed: the `ending` music plays on, the credits menu opens, and leaving it resets the story and returns to the main menu, as the original did. The "Want more?" link to the developer's website is left out.
