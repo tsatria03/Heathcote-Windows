@@ -10,9 +10,10 @@ The developer tasks, which `docks/todo list.txt` leaves out because it ships to 
 
 ## Unfinished
 
-- `docks/readme.txt` needed the keys and how to use the F1 screen (Enter rebinds, A adds a key, Delete unbinds, R twice resets), since the screen does not explain itself each time. It was written on 2026-10-19, when the dev asked for every doc to be brought up to date ("updating all docks where possible, including the player facing ones."), and waits for the dev's word.
+None.
 
 ## Finished
 
+- `docks/readme.txt` is written, with the keys and how to use the F1 screen, along with every other doc brought up to date. The dev confirmed it ("It sure does.") (2026-10-19).
 - The 220 story recordings, all MP3 after the dev's conversion, have their English names in six folders by kind under `game/data/Audio/story/`, committed one folder at a time, with the old ids in [[project_audio_names]] (2026-10-19).
 - The dev's reorganization of `game/` into `game/data/`, `game/certificate/` and `game/scripts/` is committed as five pure renames, with no file changed (2026-10-19).

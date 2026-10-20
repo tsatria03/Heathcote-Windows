@@ -39,6 +39,7 @@
 - [Todo list format](feedback_todo_list_format.md): ##Unfinished. and ##Finished., players only, bugs stated as what happens.
 - [Back first](feedback_back_first.md): Back is the first row of every menu with a way back, and it opens on it.
 - [Say ear tests ahead](feedback_say_ear_tests_ahead.md): before each section, list the by-ear tests (sound and speech), each optional or mandatory; remind the dev of a mandatory one not reported on.
+- [Docs after each plan](feedback_docs_after_each_plan.md): when a plan is finished, bring every developer and player doc up to date.
 - [Review plan sections](feedback_review_plan_sections.md): before building any plan, review it section by section with the dev; never start the next plan alone.
 - [Test tools in interact](feedback_test_tools_in_interact.md): by-ear tools go in tests/interact/, never in the game's menus.
 
