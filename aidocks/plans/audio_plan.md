@@ -6,7 +6,46 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
+**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Section 1 is built and waits for the dev's word.
+
+## Progress
+
+- **Section 1, built 2026-10-20, waiting for the dev's word:**
+  - **`heathcote/game/storydata.py` holds the rules for reading the story data and finding recordings**, moved out of `tools/story.py`, which now imports them. The game and the tool cannot disagree. The tool's report and the written script are unchanged. `sound_path(category, label)` finds a recording by label, such as `('bgm', 'title')`.
+  - **`heathcote/platform/audio.py`:**
+    - **Starting FMOD:** `load_pyfmodex()` sets `PYFMODEX_DLL_PATH` before the import. A missing `fmod.dll` stops the game with a message saying where to copy it from.
+    - **No sound:** `HEATHCOTE_NOSOUND`, or no sound device, starts FMOD's no-sound output, and the game carries on.
+    - **The groups and slots:** the master, story and system groups, and the nine slots of `SLOTS`, the original's channels. Each slot plays one recording at a time.
+    - **Streams and samples:** the looping slots (music, ambiences, idle loop, title) open streams. The others load samples. All are 2D, and use FMOD's accurate time.
+    - **Fades** are FMOD fade points on the mixer clock. A fade-out ends with FMOD stopping the channel to the sample, then it is freed.
+    - **Volumes:** `gain()` makes 6 dB per 10 percent, with 0 as silence. The master sets the master group. Each slot follows one other volume: backgrounds, interface or title. The spiel follows only the master.
+  - **`heathcote/app.py`:**
+    - opens FMOD in `run()`, updates it every frame, and closes it at the end
+    - `volumes_changed()` now applies the volumes
+    - `play_sound(label)` plays an interface sound on the sfx channel
+  - **`app.title_music` is still the stand-in flag the main menu sets.** The menus plan starts the title music and ties the flag to it.
+  - **`tests/case/_quiet.py`** sets `HEATHCOTE_NOSOUND`.
+  - **`tests/interact/audio_check.py`, at its section 1 stage:**
+    - 1 starts or stops the title music, and 2 the ambience loop, each fading in and out.
+    - Up and Down choose among the 21 ambiences.
+    - Left and Right choose among the 14 interface sounds, and Space plays one.
+    - Shift+Home and Shift+End set the master volume, and Page Up and Page Down the backgrounds.
+    - Shift+Page Up and Page Down set the interface volume, and Control+Page Up and Page Down the title volume. The tool needs both title and background keys at once, so the title volume moves to Control here.
+    - Enter says what is playing and every volume.
+    - It keeps its own save.
+  - **`tests/case/test_audio.py`, 11 tests:**
+    - the steps, FMOD starting silently with the original's channels, and the missing-DLL message
+    - every interface sound, both musics and every ambience found
+    - the shared rule
+    - looping, one recording per slot, each volume on its own channel, fade-outs stopping, and fade levels
+    - the App's interface sounds and volumes
+  - The whole suite passes, 76 tests. The tool's pieces were also driven silently.
+  - **To test by ear,** with `python tests\interact\audio_check.py`:
+    - **Mandatory:**
+      - the volume steps sound even, and 0 is silent
+      - each volume changes only its own sounds
+      - the loops come round seamlessly
+    - **Optional:** every interface sound plays.
 
 Plan 3 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]] and serves the story engine. Every number below comes from [[project_original_behaviour]], which cites the original's code.
 
