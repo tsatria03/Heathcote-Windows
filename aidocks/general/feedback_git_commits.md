@@ -14,7 +14,7 @@ metadata:
 
 **Hold while the dev says so.** When the dev holds pushes, do not ask about pushing even past 10 commits. When the hold ends, report the count and ask. The dev can still ask for a push during a hold.
 
-**A hold is on now** (the dev, 2026-10-19: "Do not push untill all plans are written and recorded with answered questions."). It began with 12 unpushed commits. Until every plan is written in `aidocks/plans/` with its questions answered, never push and never ask about pushing. Once they are all written, report the count and ask.
+**The first hold** (the dev, 2026-10-19: "Do not push untill all plans are written and recorded with answered questions.") began with 12 unpushed commits and ended the same day, when plan 7's last question was answered and every plan was written.
 
 **Make multiple commits when possible** (the dev, 2026-10-19: "in the future, try to make multiple commits when possible"). Split a batch into one commit per logical change. The dev's reorganization of `game/` went in as five commits, one per kind of file (audio, text, images, certificates, source files), each staging the old and new paths together so git records them as renames.
 
@@ -22,7 +22,7 @@ metadata:
 
 **Rewriting published history needs an explicit go-ahead every time.** That covers force pushes, amending or rebasing pushed commits, and changing authors. When approved, push with `--force-with-lease`, and keep a backup until the dev is happy.
 
-**The first rewrite** was on 2026-10-19, before any push: `fmod.dll` was taken out of every commit on `main` with `git filter-branch`, after the dev asked for a backup branch first ([[project_fmod]]). **Push only `main`, never `backup/before-fmod-rewrite`,** and never `git push --all` or `--mirror`: that backup branch still holds the DLL, which FMOD's licence does not allow in a public repo. Delete it only when the dev says so.
+**The first rewrite** was on 2026-10-19, before any push: `fmod.dll` was taken out of every commit on `main` with `git filter-branch`, after the dev asked for a backup branch first ([[project_fmod]]). The backup branch, `backup/before-fmod-rewrite`, was deleted the same day at the dev's word ("Also delete the backup branch if you didn't already do so."). A backup branch made before any later rewrite is never pushed, and is deleted only when the dev says so.
 
 **Why:** The dev's standing rules, adopted for this project on 2026-10-19. The dev approves what goes into a commit, and history rewrites can lose work.
 
