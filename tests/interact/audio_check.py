@@ -2,10 +2,11 @@
 
     python tests/interact/audio_check.py
 
-It grows with each section of the audio plan. For now, sections 1 to 3: the title
-music, an ambience loop, the interface sounds, the four volumes, and a spiel with pause,
-rewind and fast-forward, playing with its own music and ambience lanes, which change on
-cue and are set up again after a rewind, and its idle loop when it ends. The keys:
+It grew with each section of the audio plan, and now has all of it: the title music, an
+ambience loop, the interface sounds, the four volumes, and any spiel, found by its label,
+with pause, rewind and fast-forward, playing with its own music and ambience lanes, which
+change on cue and are set up again after a rewind, and its idle loop when it ends. The
+keys:
 
     1                    the title music: start it, fading in, or stop it, fading out over 3 seconds
     2                    the ambience loop: start it, fading in, or stop it, fading out over 2 seconds
@@ -15,6 +16,12 @@ cue and are set up again after a rewind, and its idle loop when it ends. The key
     Comma and Full stop  choose a spiel, saying its label; with Shift, 10 at a time; a spiel
                          that is playing changes to the one chosen at once
     3                    play the spiel chosen from its start, with its lanes, or stop it and its lanes
+    S                    find a spiel by its label: type part of it, such as "cells", then Enter
+                         plays the first match; the same text again moves to the next match.
+                         Each letter is spoken as typed, Backspace takes one off, and Escape gives
+                         up. The labels are the "Spiel:" headings of analysis/script/Heathcote.txt.
+                         A spiel found this way starts with every lane silent, so only its own
+                         cues are heard
     Left                 rewind, as the original: back 1 second every 7 ticks for 0.75 seconds
     Right                fast-forward, as the original: 1.75 times for 1.5 seconds, voices kept at pitch
     P                    pause as the original: the spiel stops, and the ambience and music play on,
@@ -81,6 +88,8 @@ class Check:
                        if self.story.audio_path(s) and os.path.isfile(self.story.audio_path(s))]
         self.lanes = Lanes(self.audio, self.story)
         self.idle_started = False       # the ended spiel's idle loop has been started
+        self.searching = None           # the text typed so far while finding a spiel, or None
+        self.last_search = None
         self.ambience_index = 0
         self.sound_index = 0
         self.spiel_index = 0
@@ -137,12 +146,17 @@ class Check:
         if self.audio.spiel.playing:
             self.start_spiel()
 
-    def start_spiel(self):
+    def start_spiel(self, fresh=False):
         """Play the spiel chosen from its start, with its own lane events. The lanes carry
-        on from the spiel before, as in the game."""
+        on from the spiel before, as in the game. With ``fresh``, as for a spiel found by its
+        label, every lane starts silent, so only the spiel's own cues are heard: what the
+        lanes held before it depends on the choices made on the way, which only the story
+        engine knows (aidocks/plans/story_engine_plan.md)."""
         if self.audio.story_paused:
             self.audio.resume_story()
         label, path, soft = self.spiels[self.spiel_index]
+        if fresh:
+            self.lanes.stop_all()
         self.lanes.begin_spiel(self.story.record(soft))
         self.audio.spiel.play(path)
         self.idle_started = False
@@ -233,7 +247,55 @@ class Check:
         self.say('%s. %s.' % ('Playing ' + ' and '.join(playing) if playing else 'Nothing is playing',
                               volumes))
 
-    def key(self, key, mods):
+    # ---- finding a spiel by its label ------------------------------------------
+    def start_search(self):
+        self.searching = ''
+        self.say('Find a spiel: type part of its label, then Enter. Escape cancels.')
+
+    def search_key(self, key, char):
+        """A key while searching: letters build the text, Backspace takes one off, Enter
+        finds, and Escape gives up."""
+        if key == 'escape':
+            self.searching = None
+            self.say('Search cancelled.')
+        elif key in ('return', 'enter'):
+            self.find(self.searching)
+        elif key == 'backspace':
+            if self.searching:
+                gone, self.searching = self.searching[-1], self.searching[:-1]
+                self.say(gone if gone.strip() else 'space')
+        elif char and char.isprintable():
+            self.searching += char
+            self.say(char if char.strip() else 'space')
+
+    def find(self, text):
+        """Play the first spiel whose label holds ``text``, any case; the same text again
+        moves on to the next match."""
+        self.searching = None
+        text = text.strip().lower()
+        if not text:
+            self.say('Nothing typed.')
+            return
+        matches = [i for i, s in enumerate(self.spiels) if text in s[0].lower()]
+        if not matches:
+            self.say('No spiel has "%s" in its label.' % text)
+            return
+        if text == self.last_search:
+            later = [i for i in matches if i > self.spiel_index]
+            index = later[0] if later else matches[0]
+        else:
+            index = matches[0]
+        self.last_search = text
+        self.spiel_index = index
+        if self.audio.spiel.started:
+            self.audio.spiel.stop()
+        label = self.start_spiel(fresh=True)
+        self.say('%s, %d of %d matches.' % (label, matches.index(index) + 1, len(matches)))
+
+    def key(self, key, mods, char=''):
+        if self.searching is not None:
+            self.search_key(key, char)
+            return
         volume = VOLUME_KEYS.get((key, tuple(mods)))
         if volume:
             self.step_volume(*volume)
@@ -267,6 +329,8 @@ class Check:
             self.say_lanes()
         elif key == 'f':
             self.toggle_story_fade()
+        elif key == 's':
+            self.start_search()
         elif key in ('return', 'enter'):
             self.status()
 
@@ -285,7 +349,8 @@ class Check:
                     if event.type == pygame.QUIT:
                         self.running = False
                     elif event.type == pygame.KEYDOWN:
-                        self.key(pygame.key.name(event.key), mods_from_pygame(event.mod, pygame))
+                        self.key(pygame.key.name(event.key), mods_from_pygame(event.mod, pygame),
+                                 event.unicode)
                 self.audio.update()
                 self.follow_lanes()
                 clock.tick(60)
