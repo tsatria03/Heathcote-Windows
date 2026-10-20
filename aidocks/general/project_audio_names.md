@@ -18,8 +18,9 @@ On 2026-10-19, once the dev had converted every recording to MP3, each story rec
   - `ambience`: `ambience/`
   - `idleLoops`: `idle/`
   - `bgm`: `music/`
-  - `systemSounds`: `interface/`
-- The two app sounds, `bugfound.mp3` and `thonk.mp3`, are in `game/data/Audio/System/misc/`; neither is in the story data.
+  - `systemSounds`: `game/data/Audio/System/menu/` for the seven `menu-*` sounds, and `game/data/Audio/System/misc/` for the other seven, so the game looks in both
+- The folders above are under `game/data/Audio/story/`, except the interface sounds'.
+- The two app sounds, `bugfound.mp3` and `thonk.mp3`, are also in `game/data/Audio/System/misc/`; neither is in the story data.
 - One name lost a character: `what was the question?` is now `what was the question.mp3`.
 - Each line below reads: new name, then the original id.
 
@@ -244,11 +245,12 @@ On 2026-10-19, once the dev had converted every recording to MP3, each story rec
 - `Ending.mp3`: fD6RJw2kJjcPG27Gb
 - `Title.mp3`: fdwgwPZMKzYCpPEXD
 
-## interface/: the interface sounds (systemSounds), 14 files
+## The interface sounds (systemSounds), 14 files, under game/data/Audio/System/
 
-- `click-bad.mp3`: Zv6QRNuE3MzLwPH9k
-- `click.mp3`: jLiBQDqEp4skc4Ebg
-- `ident - police radio.mp3`: AnbkA2qQc9EZndrLY
+These were in `story/interface/` until the dev moved them on 2026-10-19.
+
+### System/menu/, 7 files
+
 - `menu-accepted-try1.mp3`: GcZvWaGvTf6nzqnWd
 - `menu-available.mp3`: 7EbuiHN2BGqKXSn3b
 - `menu-close-try1.mp3`: WuGAzWQniekEytAXW
@@ -256,6 +258,12 @@ On 2026-10-19, once the dev had converted every recording to MP3, each story rec
 - `menu-open-try3.mp3`: FbJYneK5wA9oyyWMF
 - `menu-reminder.mp3`: SKLKBkamqkeev4N5q
 - `menu-unavailable-try2.mp3`: 55dQB2vhhSZfDaLj2
+
+### System/misc/, 7 files, beside bugfound.mp3 and thonk.mp3
+
+- `click-bad.mp3`: Zv6QRNuE3MzLwPH9k
+- `click.mp3`: jLiBQDqEp4skc4Ebg
+- `ident - police radio.mp3`: AnbkA2qQc9EZndrLY
 - `pause-pause healed.mp3`: sSHTADrgddeR94ots
 - `pause-unpause.mp3`: T6uLifdW9uGFsXbzw
 - `rewind-try2.mp3`: PEEhT2Q9u8im4Stze

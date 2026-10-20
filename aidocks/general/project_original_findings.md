@@ -6,11 +6,12 @@ metadata:
   type: project
 ---
 
-Findings from the first read-only survey of `game/` (2026-10-19). Nothing in `game/` was changed by Claude.
+Findings from the first read-only survey of `game/` (2026-10-19). Claude changes `game/` only when the dev asks, as with the extensions and English names of the recordings.
 
 ## The dev's layout of game/ (reorganized 2026-10-19)
-- `game/data/Audio/story/`: the 220 story recordings (were `game/Documents/`), all MP3, in six folders by kind: `scene/`, `speech/`, `ambience/`, `idle/`, `music/` and `interface/`. The dev named `scene/` and `speech/` on 2026-10-19. Each has its English name from its record; the old id of each is in [[project_audio_names]].
-- `game/data/Audio/System/misc/`: `bugfound.mp3` and `thonk.mp3` (were `game/Audio/`).
+- `game/data/Audio/story/`: 206 of the story recordings (were `game/Documents/`), all MP3, in five folders by kind: `scene/`, `speech/`, `ambience/`, `idle/` and `music/`. The dev named `scene/` and `speech/` on 2026-10-19. Each has its English name from its record; the old id of each is in [[project_audio_names]].
+- `game/data/Audio/System/menu/`: the seven `menu-*` interface sounds.
+- `game/data/Audio/System/misc/`: the other seven interface sounds, plus `bugfound.mp3` and `thonk.mp3` (were `game/Audio/`).
 - **Every recording is MP3** (the dev converted them all on 2026-10-19: "I was able to convert every sound to mp3, even in the system folder"). The original formats were 148 MP3, 61 WAV and 12 AAC `.m4a`. The data's `original.name` still gives the old extension.
 - `game/data/text/story/`: the 606 record JSON files.
 - `game/data/text/system/`: `Heathcote v1.01.bundle.json` and `ReadMe.txt`.
