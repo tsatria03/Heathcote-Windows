@@ -16,7 +16,8 @@ rewind and fast-forward. The keys:
     3                    play the spiel chosen from its start, or stop it
     Left                 rewind, as the original: back 1 second every 7 ticks for 0.75 seconds
     Right                fast-forward, as the original: 1.75 times for 1.5 seconds, voices kept at pitch
-    P                    pause the story, the spiel and the ambience together, or resume it
+    P                    pause as the original: the spiel stops, and the ambience and music play on,
+                         muffled by the hush; P again resumes and unmuffles them
     Tab                  say where the spiel is, in seconds
     Shift+Home, Shift+End        the master volume, up and down
     Page Up, Page Down           the background volume: the ambience loop

@@ -57,18 +57,22 @@ def test_a_spiel_plays_with_its_length_and_position():
         a.close()
 
 
-def test_pause_and_resume_the_story_together():
+def test_pause_stops_the_spiel_and_hushes_the_backgrounds_as_the_original():
     a = fresh()
     try:
         a.spiel.play(LONG)
-        a.slot('ambience1').play(STORY.audio_path(STORY.refs('ambience')[0]))
+        ambience = a.slot('ambience1')
+        ambience.play(STORY.audio_path(STORY.refs('ambience')[0]))
         a.pause_story()
-        assert a.story_paused and a.spiel.paused and a.groups['story'].paused
+        assert a.story_paused and a.spiel.paused
+        assert ambience.playing and not a.groups['story'].paused   # plays on...
+        assert ambience.eq is not None and a.hush_count == 1       # ...muffled
         at = a.spiel.position
         wait(a, 0.3)
-        assert close(a.spiel.position, at, 0.02)            # held still
+        assert close(a.spiel.position, at, 0.02)            # the spiel held still
         a.resume_story()
-        assert not a.groups['story'].paused and not a.spiel.paused
+        assert not a.spiel.paused and a.hush_count == 0
+        assert ambience.eq_step > 0                         # unhushing
     finally:
         a.close()
 

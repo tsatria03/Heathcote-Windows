@@ -58,6 +58,20 @@ SLOTS = {
 #: plays rather than all at once.
 LOOPING = ('bgm', 'ambience1', 'ambience2', 'ambience3', 'idleLoop', 'titleBgm')
 
+#: The hush (-[SoundChannel hush], 0x10002f4e0; +[Sound hushBackgrounds], 0x1000223b8): a
+#: parametric EQ, FMOD effect type 12, on the music and the three ambiences, never the
+#: spiel or the idle loop. Each tick its gain moves by a step towards its target
+#: (-[SoundChannel tick], 0x10002f6e0): down by 0.796875 dB a tick to -12 dB, about a
+#: quarter of a second, and back up by 0.5 dB a tick to 0, 0.4 seconds, when the effect
+#: comes off.
+HUSHED = ('bgm', 'ambience1', 'ambience2', 'ambience3')
+HUSH_CENTER = 1250.0
+HUSH_OCTAVES = 5.0
+HUSH_DB = -12.0
+HUSH_STEP = -0.796875
+UNHUSH_STEP = 0.5
+TICK = 1 / 60.0
+
 MISSING_DLL = ("Heathcote's sound engine, fmod.dll, was not found in %s. Install the FMOD "
                "Engine 2.02.35 for Windows from fmod.com, and copy api\\core\\lib\\x64\\fmod.dll "
                "from its install into that folder.")
@@ -94,6 +108,11 @@ class Slot:
         self.path = None
         # The fade level last aimed for, and the fade towards it: (from, to, start, seconds).
         self._fade = (1.0, 1.0, 0.0, 0.0)
+        # The hush's EQ on this channel, its gain in dB, and where that gain is heading.
+        self.eq = None
+        self.eq_gain = 0.0
+        self.eq_step = 0.0
+        self.eq_target = 0.0
 
     # ---- the level a fade has reached ---------------------------------------
     def level(self, now=None):
@@ -126,6 +145,8 @@ class Slot:
         self.sound, self.channel, self.path = sound, channel, path
         self._fade = (1.0, 1.0, 0.0, 0.0)
         self.apply_volume()
+        if self.name in HUSHED and self.audio.hush_count > 0:
+            self._attach_eq(HUSH_DB)        # started while hushed: muffled from the first sample
         if fade_in > 0:
             self._fade_points(0.0, 1.0, fade_in)
         channel.paused = False
@@ -157,14 +178,76 @@ class Slot:
                 try:
                     # Stopped by FMOD itself, to the sample, once the fade has ended.
                     self.channel.delay = types.SimpleNamespace(dsp_start=0, dsp_end=end, stop_channels=True)
-                    self.audio.fading_out.append((self.channel, self.sound))
-                    self.channel = self.sound = self.path = None
+                    # The hush, if any, stays on the fading channel and is freed with it.
+                    self.audio.fading_out.append((self.channel, self.sound, self.eq))
+                    self.channel = self.sound = self.path = self.eq = None
+                    self.eq_gain = self.eq_target = self.eq_step = 0.0
                     return
                 except Exception:
                     log.exception('%s could not fade out', self.name)
         self._release()
 
+    # ---- the hush ------------------------------------------------------------
+    def _attach_eq(self, gain_db):
+        fmod = self.audio.fmod
+        try:
+            if self.eq is None:
+                dsp = self.audio.system.create_dsp_by_type(fmod.enums.DSP_TYPE.PARAMEQ)
+                dsp.set_parameter_float(0, HUSH_CENTER)
+                dsp.set_parameter_float(1, HUSH_OCTAVES)
+                dsp.set_parameter_float(2, gain_db)
+                self.channel.add_dsp(0, dsp)
+                self.eq = dsp
+            self.eq_gain = self.eq_target = gain_db
+            self.eq_step = 0.0
+        except Exception:
+            log.exception('%s could not be hushed', self.name)
+
+    def hush(self):
+        """Start muffling, as the original: only a channel that is playing."""
+        if not self.playing:
+            return
+        if self.eq is None:
+            self._attach_eq(0.0)
+        self.eq_step, self.eq_target = HUSH_STEP, HUSH_DB
+
+    def unhush(self):
+        if self.eq is not None:
+            self.eq_step, self.eq_target = UNHUSH_STEP, 0.0
+
+    def tick(self):
+        """One tick of the hush's ramp."""
+        if self.eq is None or self.eq_step == 0.0:
+            return
+        self.eq_gain += self.eq_step
+        if (self.eq_step < 0 and self.eq_gain <= self.eq_target) or \
+                (self.eq_step > 0 and self.eq_gain >= self.eq_target):
+            self.eq_gain, self.eq_step = self.eq_target, 0.0
+            if self.eq_target == 0.0:
+                self._detach_eq()           # fully unhushed: the effect comes off
+                return
+        try:
+            self.eq.set_parameter_float(2, self.eq_gain)
+        except Exception:
+            pass
+
+    def _detach_eq(self):
+        if self.eq is None:
+            return
+        try:
+            if self.channel is not None:
+                self.channel.remove_dsp(self.eq)
+        except Exception:
+            pass
+        try:
+            self.eq.release()
+        except Exception:
+            pass
+        self.eq = None
+        self.eq_gain = self.eq_target = self.eq_step = 0.0
+
     def _release(self):
+        self._detach_eq()
         try:
             if self.channel is not None:
                 self.channel.stop()
@@ -224,7 +307,10 @@ class Audio:
         self.slots = {}
         self.rate = 48000
         self.silent = False             # running FMOD's no-sound output
-        self.fading_out = []            # (channel, sound) fading out, freed once stopped
+        self.fading_out = []            # (channel, sound, eq or None) fading out, freed once stopped
+        self.hush_count = 0             # nested hushes; the backgrounds are muffled while above 0
+        self._tick_time = 0.0           # time towards the next hush tick
+        self._last_update = None
         self.spiel = None               # the SpielPlayer, once FMOD has started
         self.story_paused = False
 
@@ -286,52 +372,87 @@ class Audio:
         for slot in self.slots.values():
             slot.apply_volume()
 
+    # ---- the hush ------------------------------------------------------------
+    def hush_backgrounds(self):
+        """Muffle the music and the three ambiences. A counter, as the original's: nested
+        hushes need as many unhushes (+[Sound hushBackgrounds], 0x1000223b8)."""
+        if not self.ok:
+            return
+        self.hush_count += 1
+        if self.hush_count == 1:
+            for name in HUSHED:
+                self.slots[name].hush()
+
+    def unhush_backgrounds(self):
+        if not self.ok or self.hush_count == 0:
+            return
+        self.hush_count -= 1
+        if self.hush_count == 0:
+            for name in HUSHED:
+                self.slots[name].unhush()
+
+    # ---- pausing ---------------------------------------------------------------
     def pause_story(self):
-        """Pause the story's channels together, the spiel and every background lane, leaving
-        the system group, so the pause sound itself can play."""
+        """Pause as the original paused (+[StoryView pause], 0x1000252cc): the backgrounds
+        are hushed and play on, muffled, and only the spiel stops (the dev, 2026-10-20: "It
+        should match the original, including in the audio checker."). The pause sound is
+        the caller's to play."""
         if not self.ok or self.story_paused:
             return
+        self.hush_backgrounds()
         self.spiel.pause()
-        try:
-            self.groups['story'].paused = True
-        except Exception:
-            log.exception('the story could not pause')
         self.story_paused = True
 
     def resume_story(self):
+        """Unpause (+[StoryView unpause], 0x100025484): unhush, and the spiel plays on."""
         if not self.ok or not self.story_paused:
             return
-        try:
-            self.groups['story'].paused = False
-        except Exception:
-            log.exception('the story could not resume')
+        self.unhush_backgrounds()
         self.spiel.resume()
         self.story_paused = False
 
-    def update(self):
-        """Once a frame: let FMOD do its work, move rewind and fast-forward on, and free
-        what has finished fading out."""
+    def update(self, now=None):
+        """Once a frame: let FMOD do its work, move rewind, fast-forward and the hush on,
+        and free what has finished fading out."""
         if not self.ok:
             return
+        now = time.perf_counter() if now is None else now
         try:
             self.system.update()
         except Exception:
             log.exception('FMOD update failed')
-        self.spiel.update()
+        self.spiel.update(now)
+        self.tick_hush(now)
         still = []
-        for channel, sound in self.fading_out:
+        for item in self.fading_out:
             try:
-                playing = channel.is_playing
+                playing = item[0].is_playing
             except Exception:
                 playing = False
             if playing:
-                still.append((channel, sound))
+                still.append(item)
             else:
-                try:
-                    sound.release()
-                except Exception:
-                    pass
+                self._free(*item)
         self.fading_out = still
+
+    def tick_hush(self, now):
+        """Step the hush's ramps once for every 1/60 second passed, as the original ticked."""
+        if self._last_update is not None:
+            self._tick_time += max(0.0, now - self._last_update)
+        self._last_update = now
+        while self._tick_time >= TICK:
+            self._tick_time -= TICK
+            for name in HUSHED:
+                self.slots[name].tick()
+
+    @staticmethod
+    def _free(channel, sound, eq):
+        for release in (lambda: channel.stop(), lambda: sound.release(),
+                        lambda: eq.release() if eq is not None else None):
+            try:
+                release()
+            except Exception:
+                pass
 
     def close(self):
         if not self.ok:
@@ -339,13 +460,10 @@ class Audio:
         self.spiel.close()
         for slot in self.slots.values():
             slot._release()
-        for channel, sound in self.fading_out:
-            try:
-                channel.stop()
-                sound.release()
-            except Exception:
-                pass
+        for item in self.fading_out:
+            self._free(*item)
         self.fading_out = []
+        self.hush_count = 0
         try:
             self.system.release()
         except Exception:

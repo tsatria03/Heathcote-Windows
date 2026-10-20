@@ -165,6 +165,59 @@ def test_a_fade_goes_between_its_levels():
         a.close()
 
 
+def test_the_hush_is_the_originals_eq_and_ramps_at_its_speeds():
+    a = fresh()
+    try:
+        bgm = a.slot('bgm')
+        bgm.play(STORY.sound_path('bgm', 'title'))
+        idle = a.slot('idleLoop')
+        idle.play(STORY.audio_path(STORY.refs('ambience')[0]))
+        a.update(now=0.0)
+        a.hush_backgrounds()
+        assert bgm.eq is not None and idle.eq is None       # never the idle loop
+        assert bgm.eq.get_parameter_float(0)[0] == 1250.0
+        assert bgm.eq.get_parameter_float(1)[0] == 5.0
+        a.update(now=15 / 60 + 1e-6)                        # 15 ticks: not quite there
+        assert -12.0 < bgm.eq_gain < -11.0
+        a.update(now=16 / 60 + 1e-6)
+        assert bgm.eq_gain == -12.0 and bgm.eq_step == 0.0
+        assert abs(bgm.eq.get_parameter_float(2)[0] + 12.0) < 1e-4
+        a.unhush_backgrounds()
+        a.update(now=(16 + 23) / 60 + 1e-6)                 # 23 of the 24 ticks back up
+        assert bgm.eq is not None and bgm.eq_gain < 0
+        a.update(now=(16 + 24) / 60 + 1e-6)
+        assert bgm.eq is None                               # fully unhushed: the effect is off
+    finally:
+        a.close()
+
+
+def test_hushes_nest_and_a_lane_started_while_hushed_is_muffled_at_once():
+    a = fresh()
+    try:
+        a.hush_backgrounds()
+        a.hush_backgrounds()
+        lane = a.slot('ambience2')
+        lane.play(STORY.audio_path(STORY.refs('ambience')[1]))
+        assert lane.eq is not None and lane.eq_gain == -12.0
+        a.unhush_backgrounds()
+        assert lane.eq_step == 0.0                          # still hushed once
+        a.unhush_backgrounds()
+        assert lane.eq_step > 0
+        a.unhush_backgrounds()                              # one too many does nothing
+        assert a.hush_count == 0
+    finally:
+        a.close()
+
+
+def test_a_silent_channel_is_not_hushed():
+    a = fresh()
+    try:
+        a.hush_backgrounds()
+        assert all(a.slot(n).eq is None for n in ('bgm', 'ambience1', 'ambience2', 'ambience3'))
+    finally:
+        a.close()
+
+
 def test_the_app_plays_interface_sounds_and_passes_volumes_on():
     from heathcote.app import App
     from heathcote.platform.keymap import KeyMap
