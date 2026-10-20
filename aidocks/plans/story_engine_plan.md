@@ -50,8 +50,8 @@ Each section is confirmed by the dev before the next starts.
   - In the actions menu: Up and Down, or Left and Right, move through the choices; Enter accepts; Escape closes.
   - Tab says where you are, as the two-finger tap did: "Story is playing.", "Story is at end of scene." or "Actions menu is open."
   - **Every one of them is rebindable on the F1 screen, the arrows included** ([[foundation_plan]]). Each is an action in `config/keys.json`, never a key fixed in code; only the F1 screen's own F1 and Escape stay fixed, so there is always a way out of it.
+- **Space speaks the selected choice's text through the screen reader** (the dev, 2026-10-19: "I like that. Space is fine."), the idea the dev raised earlier ("you should be able to press a key to here the screen reader version of those choices if you hover over one"). It reads the transcript of the choice's `systemVoice` record, or its label when there is none, without moving or accepting. It is rebindable like the rest.
 - **Two things are checked in the code before section 2 is built:** whether a spiel reached through next is marked heard, and whether timed sets fire again after a rewind.
 
 ## Open questions
-1. Which key speaks the selected choice's text through the screen reader, the idea kept in [[project_later_topics]]? Proposed: Space.
-2. Debug mode's keys? Proposed: F2 skips to the end of the current spiel, F3 asks for a spiel's label and jumps to it, and F4 speaks every variable that is not "0".
+1. Debug mode's keys? Proposed: F2 skips to the end of the current spiel, F3 asks for a spiel's label and jumps to it, and F4 speaks every variable that is not "0".

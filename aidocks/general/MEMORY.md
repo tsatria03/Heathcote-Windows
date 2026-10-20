@@ -9,7 +9,7 @@
 - [FMOD](project_fmod.md): FMOD Engine 2.02.35 through pyfmodex for all sound; vendor/fmod/, committed as the repo is private; a credit line is required.
 - [Windows only](project_windows_only.md): no Linux, macOS or GitHub Actions workflow.
 - [Solo project](project_solo.md): tsatria03 alone; credits name Fabulae Obscurae for the original.
-- [Later topics](project_later_topics.md): ideas and requirements for plans not yet written: a screen reader key for the recorded menu choices, and FMOD's credit line.
+- [Later topics](project_later_topics.md): ideas and requirements for plans not yet written, such as FMOD's credit line.
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
