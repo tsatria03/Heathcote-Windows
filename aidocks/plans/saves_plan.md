@@ -35,9 +35,9 @@ Each section is confirmed by the dev before the next starts.
 - **Every file is written safely,** a temporary file first, then a `.bak` of the old one, then a swap; a damaged file is kept as `.damaged` and the backup read instead ([[foundation_plan]]).
 - **Saved by softRef id, not by label,** since the ids never change while a label could be shared or edited.
 - **Restart story and the end reset** the variables, the heard spiels and the actions' counts, and go back to `start`, leaving the settings and the first-run notice alone, as the original did.
+- **Continue story picks up at the start of the spiel the player was in** (the dev, 2026-10-19: "I like the option 2 method."), whether a choice or a next led there, unlike the original, which only ever saved the spiel a choice opened. The save keeps that spiel's softRef and a snapshot taken as it began: the story's variables, the heard spiels, the actions' counts and the four lanes playing. Continue restores the snapshot and plays the spiel from its beginning, so its timed sets apply once, not twice, and its fades line up as they did. Closing the game mid-spiel replays at most that one spiel.
 - **No import of a save from the original app.**
 - **Tests use a throwaway save folder** and never touch the real one ([[feedback_dont_run_or_build]]).
 
 ## Open questions
-1. Where does Continue story pick up after the game has been closed? Proposed: as the original, the start of the spiel the last chosen action opened, with its lanes as they were. The alternative is the exact second the story was left, which the original never saved.
-2. When is progress written? Proposed: as the original, at every change: each timed set, each choice and each heard spiel, so closing the window at any moment loses nothing.
+1. When is progress written? Proposed: as each spiel begins, when its snapshot is taken, and when a spiel is marked heard. Writing each timed set as it fires, as the original did, gains nothing now, since Continue replays the spiel from its snapshot anyway. Settings are written whenever one changes.
