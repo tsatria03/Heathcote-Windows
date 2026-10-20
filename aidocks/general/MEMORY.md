@@ -14,7 +14,7 @@
 
 ## Plans
 - [Foundation](../plans/foundation_plan.md): plan 2, planned, all questions answered. The package, entry script, paths, logs, speech, timers, settings, keys, the F1 screen and the spoken menu.
-- [Audio](../plans/audio_plan.md): plan 3, being written. The spiel, the four background lanes and their crossfades, the idle loop, system sounds, rewind, fast-forward, the hush and the volumes.
+- [Audio](../plans/audio_plan.md): plan 3, planned, all questions answered. The spiel, the four background lanes and their crossfades, the idle loop, system sounds, rewind, fast-forward, the hush and the volumes.
 
 ## Completed projects
 - [Reading the original](../plans/reading_original_plan.md): plan 1, FINISHED 2026-10-19. tools/macho64.py, dis64.py, story.py and script_text.py; analysis/script/Heathcote.txt; and [Original behaviour](project_original_behaviour.md).

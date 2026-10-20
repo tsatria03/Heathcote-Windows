@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned. Being written; open questions below are still being answered.
+**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
 
 Plan 3 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]] and serves the story engine. Every number below comes from [[project_original_behaviour]], which cites the original's code.
 
@@ -54,7 +54,12 @@ Each section is confirmed by the dev before the next starts.
   - The story group fades out over 2 seconds and in over 1 second (`+[Sound fadeOutStoryChannelGroup]`, 0x1000225d4; `fadeInStoryChannelGroup`, 0x100022690).
 - **Pausing pauses every channel together**, and resumes them together.
 - **Lengths and positions come from FMOD**, which knows a stream's length and position exactly.
-- **Master volume:** Shift+Home raises it and Shift+End lowers it ([[foundation_plan]]).
+- **Three volumes** (the dev, 2026-10-19: "I like that."):
+  - **Master,** Shift+Home louder and Shift+End quieter: everything together ([[foundation_plan]]). The spiel follows only this one, so the story's voices are never quieter than its backgrounds.
+  - **Backgrounds,** Page Up louder and Page Down quieter: the music, the three ambiences and the idle loop.
+  - **Interface,** Shift+Page Up louder and Shift+Page Down quieter: the system sounds and the recorded choices.
+  - Each press says the new level, and the game remembers all three. The original had no volume settings.
 
 ## Open questions
-1. Which volumes are there besides the master? Proposed: Page Up and Page Down for the backgrounds (the music, the ambiences and the idle loop), and Shift with Page Up and Page Down for the interface (the system sounds and the recorded choices). Each press says the new level, and the game remembers them.
+
+None.
