@@ -29,7 +29,7 @@ TEXT = os.path.join(DATA, "text")
 INDEX = os.path.join(TEXT, "system", "Heathcote v1.01.bundle.json")
 RECORDS = os.path.join(TEXT, "story")
 AUDIO = os.path.join(DATA, "Audio")
-IMAGES = os.path.join(DATA, "image", "story")
+IMAGES = os.path.join(ROOT, "game", "images", "story")
 
 # The folders under game/data/Audio/ that hold each category's recordings,
 # as the dev laid them out. A recording is looked for in each, in order.
