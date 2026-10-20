@@ -6,11 +6,13 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Section 1 is confirmed ("Yes go ahead."); section 2 is built and waits for the dev's word.
+**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Sections 1 and 2 are confirmed, section 2 after the dev's ear tests ("Awesome. My hereing tests past."). Section 3 is next.
 
 ## Progress
 
-- **Section 2, built 2026-10-20, waiting for the dev's word:**
+- **Section 2, confirmed by the dev 2026-10-20, whose ear tests passed** ("Awesome. My hereing tests past."): fast-forward at pitch, rewind, and the original's pause with the hush. Along the way, at the dev's word:
+  - Comma and Full stop switch a playing spiel.
+  - 3 says the spiel's label as 1 and 2 say theirs.
   - **`heathcote/platform/spiel.py`, the `SpielPlayer`, owned by `Audio` as `audio.spiel`:**
     - **The spiel:** opened as a stream, with its exact length, position, seek, pause and resume.
     - **Rewind:**
