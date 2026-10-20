@@ -1,0 +1,10 @@
+unrelease:
+Shift with Home and Shift with End turn the master volume up and down from anywhere in the game.
+Page Up and Page Down turn the title volume up and down wherever the title music plays.
+Each volume key moves its volume by 10 percent, says the new level, and keeps moving while held.
+F1 opens the key bindings from anywhere, where every action can be rebound, given another key, unbound or reset.
+Settings has Back and Key bindings, and the game remembers your settings and key bindings.
+Every menu moves with all four arrows, wraps round at either end, and jumps with Home and End.
+The game opens on a main menu with Settings and Quit.
+If an error stops the game, it says so aloud and writes what happened to crash.txt in its logs folder.
+The game speaks through NVDA, another screen reader, or a Windows voice.
