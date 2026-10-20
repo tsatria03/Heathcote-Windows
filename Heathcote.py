@@ -83,8 +83,8 @@ def write_crash(error_text):
 
 
 def get_speech():
-    """The screen reader speech, or None until it is built (plan 2, section 2) or when it
-    cannot start; the game runs without it rather than not at all."""
+    """The screen reader speech, or None when it cannot start; the game runs without it
+    rather than not at all."""
     try:
         from heathcote.platform.speech import Speech
     except ImportError:
@@ -135,6 +135,8 @@ def spiel_from_options(options, debug):
 def run_window(pygame, title, exit_after):
     """A plain window until it is closed, Escape is pressed, or ``exit_after`` seconds
     pass. It stands in for the screen loop until plan 2, section 3 builds it."""
+    from heathcote.platform.runloop import RunLoop
+    loop = RunLoop.main()
     pygame.display.init()
     try:
         pygame.display.set_caption(title)
@@ -150,6 +152,7 @@ def run_window(pygame, title, exit_after):
             if exit_after is not None and time.monotonic() - started >= exit_after:
                 log.info('quitting after %g seconds, as --exit-after asked', exit_after)
                 return
+            loop.pump()
             clock.tick(60)
     finally:
         pygame.display.quit()
