@@ -60,10 +60,11 @@ Each section is confirmed by the dev before the next starts.
   - **Interface,** Shift+Page Up louder and Shift+Page Down quieter: the system sounds and the recorded choices.
   - **Title,** Page Up louder and Page Down quieter: the title music alone.
   - **Where the keys work:**
-    - The master, background and interface keys work only in the story, the actions menu included.
+    - The master keys work everywhere, in every menu and in the story, since the master scales everything, the title music included (the dev, 2026-10-19: "you should be able to adjust the master volume from anywhere in the game, not just the story.").
+    - The background and interface keys work only in the story, the actions menu included.
     - The title keys work only where the title music plays: the main menu, and Settings or Credits opened from it ([[menus_plan]]).
     - So Page Up and Page Down are the title volume in the menu, and the background volume in the story.
-  - The master volume still scales the title music, as it does everything, even though its keys work only in the story.
+    - The F1 screen takes every key for itself, so none of them work there.
   - Each press says the new level, and the game remembers all four. The original had no volume settings.
 
 ## Open questions

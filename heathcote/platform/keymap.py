@@ -10,12 +10,15 @@ Each action belongs to a group, by where it works:
 
     menu           every spoken menu, the story's actions menu included
     story          while the story plays
-    story volumes  the master, background and interface volumes: in the story only, its
-                   actions menu included
+    master volume  the master volume: everywhere, every menu and the story alike
+    story volumes  the background and interface volumes: in the story only, its actions
+                   menu included
     title volume   the title volume: only where the title music plays, such as the main menu
 
 (the dev, 2026-10-19: "Page up/down can adjust this, but only when the music plays
-there. Also, the other volume keys should only work when you are in the actual game.")
+there. Also, the other volume keys should only work when you are in the actual game.",
+then "you should be able to adjust the master volume from anywhere in the game, not just
+the story.")
 
 The same key can do one thing in one place and another elsewhere, as Up, Escape and Page
 Up do, so a key clashes only with actions that can be pressed in the same place
@@ -38,11 +41,14 @@ from .files import JsonFile
 
 log = logging.getLogger('keymap')
 
-MENU, STORY, STORY_VOLUMES, TITLE_VOLUME = 'menu', 'story', 'story volumes', 'title volume'
+MENU, STORY = 'menu', 'story'
+MASTER_VOLUME, STORY_VOLUMES, TITLE_VOLUME = 'master volume', 'story volumes', 'title volume'
 #: The pairs of groups that can be pressed in the same place, besides a group with itself:
-#: the story volumes during the story and in its actions menu, and the title volume in the
-#: menus the title music plays under.
-CLASHES = {frozenset((STORY_VOLUMES, STORY)), frozenset((STORY_VOLUMES, MENU)),
+#: the master everywhere, the story volumes during the story and in its actions menu, and
+#: the title volume in the menus the title music plays under.
+CLASHES = {frozenset((MASTER_VOLUME, MENU)), frozenset((MASTER_VOLUME, STORY)),
+           frozenset((MASTER_VOLUME, STORY_VOLUMES)), frozenset((MASTER_VOLUME, TITLE_VOLUME)),
+           frozenset((STORY_VOLUMES, STORY)), frozenset((STORY_VOLUMES, MENU)),
            frozenset((TITLE_VOLUME, MENU))}
 
 #: (action, group, what the F1 screen calls it, default bindings). Debug actions work only
@@ -63,8 +69,8 @@ ACTIONS = (
     ('debug_skip', STORY, 'Debug: skip to the end of the spiel', ('f2',)),
     ('debug_jump', STORY, 'Debug: jump to a spiel', ('f3',)),
     ('debug_variables', STORY, 'Debug: say the variables', ('f4',)),
-    ('master_up', STORY_VOLUMES, 'Story: master volume up', ('shift+home',)),
-    ('master_down', STORY_VOLUMES, 'Story: master volume down', ('shift+end',)),
+    ('master_up', MASTER_VOLUME, 'Master volume up', ('shift+home',)),
+    ('master_down', MASTER_VOLUME, 'Master volume down', ('shift+end',)),
     ('backgrounds_up', STORY_VOLUMES, 'Story: background volume up', ('page up',)),
     ('backgrounds_down', STORY_VOLUMES, 'Story: background volume down', ('page down',)),
     ('interface_up', STORY_VOLUMES, 'Story: interface volume up', ('shift+page up',)),

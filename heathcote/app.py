@@ -12,9 +12,9 @@ Two kinds of key are handled here, before the top screen sees them
 
 * F1 opens the key bindings screen from anywhere, and the timers are held while it is
   open, so the story's timed sets keep their places.
-* The volume keys, where the top screen allows them (``Screen.volume_group``): the
-  master, background and interface volumes in the story, and the title volume wherever
-  the title music plays. Each press says the new level, and holding one down moves it on
+* The volume keys: the master's on every screen, then those the top screen allows
+  (``Screen.volume_group``), the background and interface volumes in the story, and the
+  title volume wherever the title music plays. Each press says the new level, and holding one down moves it on
   step by step; every other key fires once however long it is held.
 """
 from __future__ import annotations
@@ -23,7 +23,7 @@ import logging
 
 from . import paths
 from .platform import runloop
-from .platform.keymap import MODIFIER_KEYS, KeyMap, mods_from_pygame
+from .platform.keymap import MASTER_VOLUME, MODIFIER_KEYS, KeyMap, mods_from_pygame
 from .platform.runloop import RunLoop
 from .platform.settings import VOLUME_LABELS, Settings
 from .platform.speech import Speech
@@ -109,6 +109,18 @@ class App:
         self.loop.hold()
         self.stack.push(KeyBindScreen(self))
 
+    def volume_action(self, key, mods):
+        """The volume action this key does on the top screen, or None: the master's on every
+        screen, then whichever volumes the screen allows."""
+        top = self.stack.top
+        if top is None or isinstance(top, KeyBindScreen):
+            return None
+        action = self.keymap.action_for(key, mods, MASTER_VOLUME)
+        if action is None:
+            group = top.volume_group()
+            action = self.keymap.action_for(key, mods, group) if group else None
+        return action if action in VOLUME_ACTIONS else None
+
     def key_down(self, key, mods, now=None):
         if key in MODIFIER_KEYS:
             return                          # Shift and the rest only go with another key
@@ -122,9 +134,8 @@ class App:
         if key == 'f1' and not mods:
             self.open_key_bindings()
             return
-        group = top.volume_group() if top is not None else None
-        action = self.keymap.action_for(key, mods, group) if group else None
-        if action in VOLUME_ACTIONS:
+        action = self.volume_action(key, mods)
+        if action is not None:
             self.step_volume(action)
             now = runloop.clock() if now is None else now
             self.held = [key, list(mods), action, now + REPEAT_DELAY]
@@ -144,9 +155,7 @@ class App:
         now = runloop.clock() if now is None else now
         if now < self.held[3]:
             return
-        top = self.stack.top
-        group = top.volume_group() if top is not None else None
-        if group is None or self.keymap.action_for(self.held[0], self.held[1], group) != self.held[2]:
+        if self.volume_action(self.held[0], self.held[1]) != self.held[2]:
             self.held = None                # the screen changed under the held key
             return
         self.held[3] = now + REPEAT_EVERY

@@ -45,9 +45,9 @@ class Screen:
         return False
 
     def volume_group(self):
-        """Which volume keys work here, as a key map group, or None. The title volume's
-        wherever the title music is playing; the story's screens give the story volumes'
-        instead (aidocks/plans/audio_plan.md)."""
+        """Which volume keys work here besides the master's, which work everywhere, as a key
+        map group, or None. The title volume's wherever the title music is playing; the
+        story's screens give the story volumes' instead (aidocks/plans/audio_plan.md)."""
         return TITLE_VOLUME if self.app.title_music else None
 
     def update(self):
