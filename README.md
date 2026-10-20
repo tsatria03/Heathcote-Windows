@@ -19,17 +19,27 @@ seven plans, in `aidocks/plans/`:
 1. **Reading the original: finished.** Tools that read the original's binary and story
    data, a readable script of the whole story, and a note of how the original behaves,
    with every number taken from its code.
-2. **The foundation: finished.**
+2. **The foundation: finished.** In it:
    - `Heathcote.py`, with its logs and crash file
    - speech through your screen reader, and a timer loop that can pause
    - the settings and key bindings, every key rebindable with F1
    - the four volumes
    - the spoken menus, opening for now on a stand-in main menu with Settings and Quit
    - 65 silent tests
-3. **The audio:** reviewed, and next to be built. All sound plays through FMOD, the engine
-   the original used, so fast-forward keeps voices at their pitch and the backgrounds are
-   muffled as the original muffled them.
-4. **The story engine:** the original's rules, the actions menu, and the keys during play.
+3. **The audio: finished.** Every sound plays through FMOD, the engine the original used:
+   - the original's channels, and four volumes in even steps of 6 decibels
+   - the spiel, with the original's rewind, and its fast-forward at 1.75 times with
+     voices kept at their pitch
+   - the hush, which muffles the backgrounds, and the original's pause, in which the
+     backgrounds play on muffled while the voice stops
+   - the four background lanes, crossfading on each spiel's cues and set up again after
+     a rewind, the idle loop, and the story's fades
+   - `tests\interact\audio_check.py` to hear all of it, and 101 silent tests in all
+   
+   The game itself is still silent: the story and menus that play these sounds come
+   next.
+4. **The story engine:** next. The original's rules, the actions menu, and the keys
+   during play.
 5. **The menus:** the opening, the main menu, Settings, the pause menu, the end and the
    credits.
 6. **Saving:** progress, Continue story and Restart story.
@@ -61,6 +71,7 @@ and three packages:
 FMOD itself is not in the repository, since its licence lets it be passed on only inside
 the game. Install the FMOD Engine 2.02.35 for Windows from fmod.com (a free account is
 needed), and copy `api\core\lib\x64\fmod.dll` from its install into `vendor\fmod\`.
+Without it, the game says so and where to copy it from, rather than starting silently.
 
 `vendor/nvda/nvdaControllerClient64.dll` ships with the repository, so NVDA speaks through
 its own client.
@@ -80,7 +91,8 @@ Every menu moves with all four arrows, wrapping round at either end, with Home a
 for the first and last row, Enter to choose, and Escape to go back. Back is the first row
 of every menu that has one. F1 opens the key bindings from anywhere.
 
-The volume keys, each step 10 percent, each level spoken:
+The volume keys, each step 10 percent, which is 6 decibels, so every step sounds the
+same, with 0 silent, and each level spoken:
 
 - Shift with Home and End: the master volume, from anywhere.
 - Page Up and Page Down: the title volume wherever the title music plays, and the
@@ -114,9 +126,20 @@ Some files can be run by name, such as `python tests\suite.py keymap menus`, and
 runs on its own too, such as `python tests\case\test_keymap.py`. The tests never speak,
 never play a sound, never open a window, and never touch your save.
 
-`tests\interact` holds tools to try the game by ear instead. `python
-tests\interact\speech_check.py` tries the speech and the timer loop. Each tool keeps its
-own save, so none changes your settings or keys.
+FMOD runs in every test with its no-sound output, so the sound code is tested for real
+without a sound device.
+
+`tests\interact` holds tools to try the game by ear instead. Each keeps its own save, so
+none changes your settings or keys.
+
+- `python tests\interact\speech_check.py` tries the speech and the timer loop.
+- `python tests\interact\audio_check.py` plays the game's sound through FMOD:
+  - the title music, any ambience and the interface sounds
+  - all four volumes
+  - any spiel with its own background lanes and idle loop, found with S by part of its
+    label, with rewind, fast-forward and the original's pause
+  
+  It says its keys as it opens, and lists them all at the top of the file.
 
 ## Layout
 
