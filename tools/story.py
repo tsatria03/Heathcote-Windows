@@ -9,123 +9,35 @@ The data is the export of the original's authoring tool, in game/data/text/:
 - story/<record id>.json, one record each.
 
 Every reference inside a record is a softRef, except `file`, which is the id
-of the record describing the audio or image file. A recording is found
-through that file record's `original.name`, with `.mp3` in place of its
-extension and any character Windows does not allow dropped, in the folders
-for the referring record's category (FOLDERS below, and
-aidocks/general/project_audio_names.md).
+of the record describing the audio or image file.
 
-This module only reads; it writes nothing. The game's own loader follows the
-same rules, so what these checks report is what the game would meet.
+The rules for reading the data and finding each recording live in the game's
+own package, heathcote/game/storydata.py, and this tool uses them as they are,
+so what these checks report is what the game would meet. What is here is the
+checking, and the original's images, which the game never ships.
+
+This module only reads; it writes nothing.
 """
-import json
 import os
-import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA = os.path.join(ROOT, "game", "data")
-TEXT = os.path.join(DATA, "text")
-INDEX = os.path.join(TEXT, "system", "Heathcote v1.01.bundle.json")
-RECORDS = os.path.join(TEXT, "story")
-AUDIO = os.path.join(DATA, "Audio")
+sys.path.insert(0, ROOT)
+
+from heathcote.game.storydata import (  # noqa: E402  (the game's own rules)
+    FOLDERS, LANES, START_LABEL, UNPLAYED_LANES, VARIABLE_DEFAULT, StoryData, disk_name)
+
 IMAGES = os.path.join(ROOT, "game", "images", "story")
-
-# The folders under game/data/Audio/ that hold each category's recordings,
-# as the dev laid them out. A recording is looked for in each, in order.
-FOLDERS = {
-    "actionSpiels": ("story/scene",),
-    "systemVoice": ("story/speech",),
-    "ambience": ("story/ambience",),
-    "idleLoops": ("story/idle",),
-    "bgm": ("story/music",),
-    "systemSounds": ("System/menu", "System/misc"),
-}
-
-# Every story variable starts as this string (+[Vars createStoryDefaults], 0x1000321e4).
-VARIABLE_DEFAULT = "0"
-
-# The spiel the story starts with (+[Story justStart], 0x10001a6e0).
-START_LABEL = "start"
-
-# The audio lanes a spiel can carry, besides its own recording.
-LANES = ("bgm", "ambience", "ambience1", "ambience2", "ambience3")
-
-# The plain "ambience" lane is in the data but the original never reads it
-# (+[Sound tick], 0x100020dd4 to 0x100020e30), so its fades never played.
-UNPLAYED_LANES = ("ambience",)
 
 # Categories in the index that the original never reads; a broken record in one is only a note.
 UNUSED = ("recaps", "describes", "describeSpiels", "recapSpiels", "orphanSpiels")
 
-
-def disk_name(original):
-    """The MP3 name a recording has on disk, from its file record's original name.
-
-    The extension becomes .mp3, characters Windows does not allow are dropped,
-    and spaces at either end of the name are trimmed, as in
-    "idle loop (inside entrance) .mp3".
-    """
-    base = os.path.splitext(original)[0]
-    return re.sub(r'[<>:"/\\|?*]', "", base).strip() + ".mp3"
+__all__ = ["FOLDERS", "LANES", "START_LABEL", "UNPLAYED_LANES", "VARIABLE_DEFAULT", "UNUSED",
+           "ROOT", "IMAGES", "Story", "disk_name"]
 
 
-class Story:
-    def __init__(self):
-        with open(INDEX, encoding="utf-8-sig") as f:
-            index = json.load(f)
-        self.labels = index["labels"]
-        self.assets = index["assets"]
-        self.records = {}
-        self.unreadable = []   # (file name, reason)
-        for name in sorted(os.listdir(RECORDS)):
-            path = os.path.join(RECORDS, name)
-            try:
-                with open(path, encoding="utf-8-sig") as f:
-                    rec = json.load(f)
-                self.records[rec["_id"]] = rec
-            except (ValueError, KeyError) as e:
-                self.unreadable.append((name, str(e).split(":")[0]))
-        self.category = {soft: cat for cat, refs in self.assets.items() for soft in refs}
-
-    # Looking things up.
-
-    def record(self, soft):
-        """The record a softRef stands for, or None."""
-        cat = self.category.get(soft)
-        return self.records.get(self.assets[cat][soft]) if cat else None
-
-    def label(self, soft):
-        return self.labels.get(soft, soft)
-
-    def refs(self, category):
-        """The softRefs of a category, in the index's order."""
-        return list(self.assets.get(category, {}))
-
-    def find(self, category, label):
-        """The softRefs in a category with this label; labels are not always unique."""
-        return [s for s in self.refs(category) if self.labels.get(s) == label]
-
-    def start(self):
-        found = self.find("actionSpiels", START_LABEL)
-        return found[0] if found else None
-
-    def audio_path(self, soft):
-        """The path of a softRef's recording, or None if it has no file.
-
-        It is the first of the category's folders that holds the file; when
-        none does, it is where the file would be in the first folder.
-        """
-        rec = self.record(soft)
-        cat = self.category.get(soft)
-        if not rec or not rec.get("file") or cat not in FOLDERS:
-            return None
-        frec = self.records.get(rec["file"])
-        if not frec or "original" not in frec:
-            return None
-        name = disk_name(frec["original"]["name"])
-        paths = [os.path.join(AUDIO, *folder.split("/"), name) for folder in FOLDERS[cat]]
-        return next((p for p in paths if os.path.exists(p)), paths[0])
+class Story(StoryData):
+    """The game's story data, with the checks and the images on top."""
 
     def graphic_path(self, soft):
         rec = self.record(soft)
