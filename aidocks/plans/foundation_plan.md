@@ -54,7 +54,7 @@ Until the menus plan is built, the game opens on a small stand-in menu, Settings
   - A key the player presses, such as a volume change, speaks at once, cutting off earlier speech but never the story audio, which keeps playing underneath.
   - Important messages, such as an error, are never cut off by background events, only by the player pressing a key.
   - Speech never pauses the story. Only the pause key does.
-- **Tests stay silent and off the real save** ([[feedback_dont_run_or_build]]): every test imports `_quiet.py` first, which points the save at a throwaway folder, turns speech off, and gives pygame dummy audio and video drivers.
+- **Tests stay silent and off the real save** ([[feedback_dont_run_or_build]]): every test imports `_quiet.py` first, which points the save at a throwaway folder, turns speech off, gives pygame a dummy video driver, and has FMOD start with its no-sound output ([[project_fmod]]).
 
 ## Open questions
 
