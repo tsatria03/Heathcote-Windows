@@ -30,7 +30,7 @@ Each section is confirmed by the dev before the next starts.
 
 - **Everything is kept in `%APPDATA%\Heathcote`**, or `HEATHCOTE_USER_DIR` when set ([[foundation_plan]]):
   - `saves\progress.json`: the story's variables, the heard spiels, the actions' counts, whether the story has started, where to continue, and the lanes playing there.
-  - `config\settings.json`: the three volumes, debug mode, and whether the first-run notice has been shown.
+  - `config\settings.json`: the four volumes (master, backgrounds, interface and title), debug mode, and whether the first-run notice has been shown.
   - `config\keys.json`: the key bindings ([[foundation_plan]]).
 - **Every file is written safely,** a temporary file first, then a `.bak` of the old one, then a swap; a damaged file is kept as `.damaged` and the backup read instead ([[foundation_plan]]).
 - **Saved by softRef id, not by label,** since the ids never change while a label could be shared or edited.

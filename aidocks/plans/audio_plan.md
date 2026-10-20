@@ -54,11 +54,17 @@ Each section is confirmed by the dev before the next starts.
   - The story group fades out over 2 seconds and in over 1 second (`+[Sound fadeOutStoryChannelGroup]`, 0x1000225d4; `fadeInStoryChannelGroup`, 0x100022690).
 - **Pausing pauses every channel together**, and resumes them together.
 - **Lengths and positions come from FMOD**, which knows a stream's length and position exactly.
-- **Three volumes** (the dev, 2026-10-19: "I like that."):
+- **Four volumes** (the dev, 2026-10-19: "I like that.", then the title volume: "Since the title music plays in a lot of places, there should be a volume for it, called title volume. Page up/down can adjust this, but only when the music plays there. Also, the other volume keys should only work when you are in the actual game."):
   - **Master,** Shift+Home louder and Shift+End quieter: everything together ([[foundation_plan]]). The spiel follows only this one, so the story's voices are never quieter than its backgrounds.
   - **Backgrounds,** Page Up louder and Page Down quieter: the music, the three ambiences and the idle loop.
   - **Interface,** Shift+Page Up louder and Shift+Page Down quieter: the system sounds and the recorded choices.
-  - Each press says the new level, and the game remembers all three. The original had no volume settings.
+  - **Title,** Page Up louder and Page Down quieter: the title music alone.
+  - **Where the keys work:**
+    - The master, background and interface keys work only in the story, the actions menu included.
+    - The title keys work only where the title music plays: the main menu, and Settings or Credits opened from it ([[menus_plan]]).
+    - So Page Up and Page Down are the title volume in the menu, and the background volume in the story.
+  - The master volume still scales the title music, as it does everything, even though its keys work only in the story.
+  - Each press says the new level, and the game remembers all four. The original had no volume settings.
 
 ## Open questions
 

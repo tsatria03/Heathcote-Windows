@@ -66,6 +66,7 @@ Each section is confirmed by the dev before the next starts.
   - It fades out over 3 seconds when Start story or Continue story enters the story.
   - It stays silent in the pause menu.
   - It starts again whenever the main menu comes back: from Return to menu in the pause menu, and after leaving the end credits.
+  - It has a volume of its own, the title volume, which Page Up and Page Down set while it plays ([[audio_plan]]).
 
 - **The pause menu** (the dev, 2026-10-19: "I like this, but what about the restart button?", then "Yes."). Escape during the story pauses every channel and opens it:
   1. **Resume,** first and opened on; Escape does the same.
