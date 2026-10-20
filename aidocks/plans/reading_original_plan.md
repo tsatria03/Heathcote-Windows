@@ -6,7 +6,10 @@ metadata:
   type: project
 ---
 
-**Status:** planned. Agreed by the dev on 2026-10-19 ("Yes, write them"), with every question answered. Waiting for the go-ahead to build.
+**Status:** being built (the dev, 2026-10-19: "Sure! Go ahead."). Section 1 is built, not yet confirmed; sections 2 to 4 are waiting.
+
+**Built so far:**
+- Section 1: `tools/macho64.py`, `tools/dis64.py` and `tools/README.md`. Beyond the plan, `dis64.py` also has `--find`, methods whose selector holds a word, and `--refs`, the game's code that uses an address or calls a selector. Both were needed straight away: the lockout grace timer is kept in a global, so the method that starts it could only be found by its uses.
 
 ## Why
 
@@ -76,6 +79,7 @@ Each section is confirmed by the dev before the next starts.
   - The audio wrapper around FMOD.
 - Write what they do, with exact numbers and the address of each method, into a new note, `aidocks/general/project_original_behaviour.md`.
 - Split it into "confirmed from the code" and "not yet confirmed".
+- Already found while testing section 1, to go into the note: `+[StoryView raiseActionsDial]` (0x100024204). With `lockout` at "1", the last spiel not heard before, and the `lockoutOverride` setting off, it plays `click-bad` and `menu-unavailable` and starts a 1.5-second grace timer (0x100024560). Otherwise it plays `click-good`, hushes the backgrounds once, pauses the spiel, and enters `ActionsDialState`.
 
 ## Decided
 - `game/` is never written to; every tool only reads it.
