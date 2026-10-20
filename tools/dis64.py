@@ -10,8 +10,11 @@ Needs capstone (pip install capstone); the game itself never does.
     python tools/dis64.py --refs lockoutGraceTimerFired:   ... or calls a selector
     python tools/dis64.py --brief Story +justStart     only calls, strings, numbers and tests
 
+    python tools/dis64.py --full Sound +tick           on past an early return, to the next method
+
 A class method is named with a + in front, such as +shared. Output stops at
-the first ret, so a method that continues past one shows only its first part.
+the first ret, so a method that continues past one shows only its first part;
+--full reads on to where the next method begins. --refs always reads in full.
 A number loaded into a floating-point register, such as a duration in
 seconds, is shown with its value.
 """
@@ -30,6 +33,15 @@ for name, inst, cls in M.classes():
     for s, i in cls:
         IMPS[(name, "+" + s)] = i
 BY_ADDR = {v: "%s %s" % k for k, v in IMPS.items()}
+STARTS = sorted(BY_ADDR)
+
+
+def method_end(start):
+    """Where the method after this one begins, which is as far as this one can reach."""
+    for a in STARTS:
+        if a > start:
+            return a
+    return start + 600 * 4
 
 classrefs = {}
 if "__DATA,__objc_classrefs" in M.sections:
@@ -81,6 +93,7 @@ def number_at(addr, reg):
 
 
 BRIEF = False
+FULL = False
 # In --brief, the lines kept besides those with a note: tests, branches and constants.
 KEEP = ("cmp", "fcmp", "cbz", "cbnz", "tbz", "tbnz", "b.", "csel", "cset", "ret", "movz")
 
@@ -96,8 +109,16 @@ def dis(start, limit=600):
         print("  %x: %-6s %-34s %s" % (ins.address, ins.mnemonic, ins.op_str, ("; " + note) if note else ""))
 
 
-def walk(start, limit=600):
-    """Yield (instruction, note, address it refers to or None) up to the method's end."""
+def walk(start, limit=600, full=None):
+    """Yield (instruction, note, address it refers to or None) up to the method's end.
+
+    By default it stops at the first ret or tail call. With full, it reads on
+    to where the next method begins, which takes in the code after an early
+    return. --full sets it for the listings, and --refs always uses it.
+    """
+    full = FULL if full is None else full
+    if full:
+        limit = (method_end(start) - start) // 4
     code = M.m[M.va2off(start):M.va2off(start) + limit * 4]
     regs = {}
     for ins in md.disasm(code, start):
@@ -133,6 +154,8 @@ def walk(start, limit=600):
             if len(parts) > 1 and parts[1] in regs and parts[-1].startswith("#"):
                 addr = regs[parts[1]] + int(parts[-1].strip("#"), 0)
         yield ins, note, addr
+        if full:
+            continue
         if ins.mnemonic == "ret":
             break
         if ins.mnemonic == "b":
@@ -148,7 +171,7 @@ def refs(target):
     for (cls, sel), imp in sorted(IMPS.items(), key=lambda kv: kv[1]):
         if M.is_library(cls):
             continue
-        for ins, note, addr in walk(imp):
+        for ins, note, addr in walk(imp, full=True):
             if addr == target or (isinstance(target, str) and note == "sel:" + target):
                 yield "%s %s" % (cls, sel), ins.address, note
 
@@ -158,6 +181,9 @@ if __name__ == "__main__":
     if "--brief" in args:
         args.remove("--brief")
         BRIEF = True
+    if "--full" in args:
+        args.remove("--full")
+        FULL = True
     if args[:1] == ["--list"]:
         for (cls, sel), imp in sorted(IMPS.items(), key=lambda kv: kv[1]):
             if cls == args[1]:
