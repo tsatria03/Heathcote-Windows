@@ -16,7 +16,7 @@ Lines are plain text for reading by screen reader: no tables and no markdown.
 import os
 import sys
 
-from story import ROOT, Story
+from story import ROOT, UNPLAYED_LANES, Story
 
 OUT = os.path.join(ROOT, "analysis", "script", "Heathcote.txt")
 
@@ -114,15 +114,20 @@ class Writer:
             for var, val in sets.items():
                 self.out('At %s, %s becomes "%s".' % (seconds(t), s.label(var), val))
         for lane, events in s.lanes(rec).items():
+            never = " The original never played this lane." if lane in UNPLAYED_LANES else ""
             for e in events:
                 if "fadeTo" in e:
-                    self.out('At %s, %s fades to "%s" over %s.' % (seconds(e["at"]), lane,
-                             s.label(e["fadeTo"]["softRef"]), seconds(e["fadeTo"]["duration"])))
+                    self.out('At %s, %s fades to "%s" over %s.%s' % (seconds(e["at"]), lane,
+                             s.label(e["fadeTo"]["softRef"]), seconds(e["fadeTo"]["duration"]), never))
                 else:
-                    self.out("At %s, %s fades out over %s." % (seconds(e["at"]), lane, seconds(e["fadeOut"]["duration"])))
+                    self.out("At %s, %s fades out over %s.%s" % (seconds(e["at"]), lane,
+                             seconds(e["fadeOut"]["duration"]), never))
         if rec.get("idleLoop"):
             self.out('When it ends, the idle loop "%s" plays.' % s.label(rec["idleLoop"]))
-        for n in rec.get("next", []):
+        nexts = rec.get("next", [])
+        if len(nexts) > 1:
+            self.out("When it ends, the first of these whose condition holds plays next:")
+        for n in nexts:
             self.out('Next: "%s", when %s.' % (s.label(n["softRef"]), self.cond(n.get("if", {}))))
         for a in self.actions_opened(rec):
             self.out('Opens the action "%s".' % s.label(a))

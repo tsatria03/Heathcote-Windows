@@ -13,7 +13,7 @@ Transcript:
   MARTIN: (Recorded answer machine message) You've reached Martin Fellows of Spectre Productions. Please leave a message after the beep.
   [SFX BEEP]
 At 0.1 seconds, location becomes "working late".
-At 1 second, ambience fades to "Martin office" over 2 seconds.
+At 1 second, ambience fades to "Martin office" over 2 seconds. The original never played this lane.
 At 0.1 seconds, ambience1 fades to "Martin office" over 2 seconds.
 When it ends, the idle loop "idle loop (start)" plays.
 
@@ -301,6 +301,7 @@ Transcript:
   [SFX: More rattling of lock]
 At 0.1 seconds, lockout becomes "1".
 At 26.3 seconds, lockout becomes "0".
+When it ends, the first of these whose condition holds plays next:
 Next: "shut door (clowns)", when fear is "clowns".
 Next: "shut door (spiders)", when fear is "spiders".
 Next: "shut door (darkness)", when fear is "darkness".
@@ -473,6 +474,7 @@ Transcript:
 Spiel: east wing dispatch
 Recording: none, it only chooses what comes next
 Reached from: the action "east wing (foyer)"; the action "east wing (typewriter room)".
+When it ends, the first of these whose condition holds plays next:
 Next: "east wing (blocked 3)", when examined painting is "1", and cells done is "1".
 Next: "east wing (blocked 1)", when east wing excuse is "0".
 Next: "east wing (blocked 2)", when east wing excuse is "1".
@@ -500,7 +502,7 @@ At 0.1 seconds, location becomes "approaching the cells".
 At 0.1 seconds, lockout becomes "1".
 At 0.1 seconds, cellphone becomes "0".
 At 63.5 seconds, lockout becomes "0".
-At 0.1 seconds, ambience fades to "indoors" over 6 seconds.
+At 0.1 seconds, ambience fades to "indoors" over 6 seconds. The original never played this lane.
 At 61 seconds, ambience1 fades to "Martin office" over 4 seconds.
 At 57.95 seconds, ambience2 fades out over 0 seconds.
 At 62 seconds, ambience2 fades to "disconnected tone" over 1 second.
@@ -523,7 +525,7 @@ At 0.1 seconds, where you at? becomes "offices 1".
 At 0.1 seconds, location becomes "offices".
 At 0.1 seconds, lockout becomes "1".
 At 21.2 seconds, lockout becomes "0".
-At 0.1 seconds, ambience fades to "offices" over 6 seconds.
+At 0.1 seconds, ambience fades to "offices" over 6 seconds. The original never played this lane.
 At 4 seconds, ambience2 fades to "offices" over 7 seconds.
 Opens the action "painting".
 Opens the action "doctor's office".
@@ -745,6 +747,7 @@ Transcript:
   He walks down the hall.
   DAVID (CONT’D): It’s amazing... I have seen haunted houses, haunted ships, and many hospitals... But this is the only one where it seems nature is taking over...
 At 0.1 seconds, lockout becomes "1".
+When it ends, the first of these whose condition holds plays next:
 Next: "spiel 3 (spiders)", when fear is "spiders".
 Next: "spiel 3 (clowns)", when fear is "clowns".
 Next: "spiel 3 (darkness)", when fear is "darkness".
@@ -875,6 +878,7 @@ Transcript:
   DAVID: It's damn weird... It says:
 At 0.1 seconds, location becomes "hallway from offices".
 At 0.1 seconds, lockout becomes "1".
+When it ends, the first of these whose condition holds plays next:
 Next: "hallway graffiti (clowns)", when fear is "clowns".
 Next: "hallway graffiti (spiders)", when fear is "spiders".
 Next: "hallway graffiti (darkness)", when fear is "darkness".
@@ -1601,6 +1605,7 @@ Transcript:
   DAVID: Thank you... Thank you for being afraid... It can now spread... It will take the pain away... It will bleed your fear dry... You will become one with it... Like me.... But it is for a bigger cause... He has a plan...
 At 0.1 seconds, location becomes "he’s out now".
 At 0.1 seconds, lockout becomes "1".
+When it ends, the first of these whose condition holds plays next:
 Next: "ending (spiders)", when fear is "spiders".
 Next: "ending (clowns)", when fear is "clowns".
 Next: "ending (darkness)", when fear is "darkness".
