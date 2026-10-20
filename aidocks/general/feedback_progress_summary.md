@@ -27,5 +27,7 @@ metadata:
   - plan 7, building and releasing: 10
   
   If a plan turns out bigger or smaller than its weight, change the weights here, and say so in the summary.
-- **Progress so far:** plans 1 and 2 finished, about 30 percent (2026-10-19).
+- **Progress so far:**
+  - plans 1 and 2 finished: about 30 percent (2026-10-19)
+  - plan 3 finished: about 50 percent (2026-10-20). Plan 3 came in at its weight: it grew a little, with the hush brought forward and two pyfmodex workarounds, but nothing that changes the scale.
 - Playtesting the whole story, once it plays, may add work none of the plans counts; say so when it does.

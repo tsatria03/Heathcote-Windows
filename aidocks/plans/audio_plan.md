@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Sections 1 and 2 are confirmed, section 2 after the dev's ear tests ("Awesome. My hereing tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 3 tests past."). Section 4, the last, is confirmed too, after the dev's ear tests ("All search tests past."). Every section is confirmed; the plan is finished once the dev says so.
+**Status:** finished, confirmed by the dev on 2026-10-20 ("You can mark this complete, and update the docks."). Built the same day, one section at a time, each confirmed after the dev's ear tests.
 
 ## Progress
 
