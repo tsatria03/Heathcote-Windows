@@ -14,7 +14,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 - **No downloads.** Every recording ships with the game ([[project_no_downloads]]).
 - **Developer tasks**, open and finished, are in [[project_dev_tasks]].
 - **The game is data-driven.** The story is JSON exported from the original's authoring tool: choices with conditions, recordings ("spiels") that set variables at timed points and chain on, and ambience and music lanes with timed fades. What the data, the binary and the original's behaviour say is in [[project_original_findings]].
-- **Status:** plan 1, reading the original, is finished ([[reading_original_plan]]): the tools, the readable script and [[project_original_behaviour]]. Plan 2 is being built: sections 1 to 3 are confirmed, and section 4, the silent tests, is built and waits for the dev's word. Plans 2 to 7 are written with every question answered: [[foundation_plan]], [[audio_plan]], [[story_engine_plan]], [[menus_plan]], [[saves_plan]] and [[build_release_plan]].
+- **Status:** plan 1, reading the original, is finished ([[reading_original_plan]]): the tools, the readable script and [[project_original_behaviour]]. Plan 2, the foundation, is finished ([[foundation_plan]]). Plans 3 to 7 are written with every question answered, and each is reviewed section by section with the dev before it is built ([[feedback_review_plan_sections]]): [[audio_plan]], [[story_engine_plan]], [[menus_plan]], [[saves_plan]] and [[build_release_plan]].
 
 ## Layout
 
@@ -40,7 +40,8 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 ## Working here
 
 - **The dev runs and builds, not Claude.** Ask before running the game or anything that plays sound or speaks ([[feedback_dont_run_or_build]]).
-- **Before each section,** say whether the dev will need to test anything by ear, and what ([[feedback_say_ear_tests_ahead]]).
+- **Before each plan,** review it section by section with the dev, and build only on their word ([[feedback_review_plan_sections]]).
+- **Before each section,** list what the dev will test by ear, sound or speech, each test marked optional or mandatory, and remind them of a mandatory test they haven't reported on ([[feedback_say_ear_tests_ahead]]).
 - **Plans first:** an agreed plan goes into its own note in `aidocks/plans/` before any code, and is marked finished only once the dev says it works ([[feedback_record_plans_first]], [[feedback_completed_projects]]).
 - **Committing and pushing:** commit finished work without asking; ask about pushing only once 10 or more commits are unpushed; "commit/push" means both; history rewrites need a go-ahead ([[feedback_git_commits]]). Name people by GitHub username only ([[feedback_use_github_usernames]]).
 - **Questions:** a question from the dev is a check, answered in chat ([[feedback_questions_are_checks]]). Ask one question per reply, in plain text ([[feedback_one_question_at_a_time]], [[feedback_no_question_pickers]]).

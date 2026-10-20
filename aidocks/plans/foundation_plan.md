@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-19: "I'm ready for section 1 of plan 2."). Section 1 is confirmed ("it looks good."), section 2 ("Section 2 is good.") and section 3 ("Section 3 is good."). Section 4, the last, is built and waits for the dev's word; the plan is finished once the dev says it works.
+**Status:** finished, confirmed by the dev on 2026-10-19 ("The test results look good from my end. I reran suite.py for myself just to check. Also yes, mark it as finished"). Built the same day, one section at a time, each confirmed ("it looks good.", "Section 2 is good.", "Section 3 is good.").
 
 Plan 2 ([[reading_original_plan]] lists the order). Everything else stands on it: the audio, the story engine, the menus and the saves all use its paths, speech, timers and screen loop.
 
@@ -22,7 +22,7 @@ Until the menus plan is built, the game opens on a small stand-in menu, Settings
 
 ## Progress
 
-- **Section 4, built 2026-10-19, waiting for the dev's word** (the dev: "Start the final section for plan 2."). Nothing in it is tested by ear ([[feedback_say_ear_tests_ahead]]).
+- **Section 4, confirmed by the dev 2026-10-19, who reran the suite** (the dev: "Start the final section for plan 2."). Nothing in it is tested by ear ([[feedback_say_ear_tests_ahead]]).
   - **`tests/case/_quiet.py`:**
     - Points `HEATHCOTE_USER_DIR` at a throwaway folder, deleted when the run ends.
     - Sets `HEATHCOTE_SILENT`, and gives SDL a dummy audio driver and display.

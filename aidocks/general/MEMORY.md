@@ -13,7 +13,6 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Foundation](../plans/foundation_plan.md): plan 2, being built; sections 1 (entry script, paths, logs, crash file) and 2 (speech, timer loop) and 3 (settings, keys, screens, menu, F1) confirmed; section 4 (silent tests, 65 passing) built. The package, entry script, paths, logs, speech, timers, settings, keys, the F1 screen and the spoken menu.
 - [Audio](../plans/audio_plan.md): plan 3, planned, all questions answered.
 - [Story engine](../plans/story_engine_plan.md): plan 4, planned, all questions answered.
 - [Menus](../plans/menus_plan.md): plan 5, planned, all questions answered.
@@ -21,6 +20,7 @@
 - [Build and release](../plans/build_release_plan.md): plan 7, planned, all questions answered. compiler.py and releaser.py, Windows only, carrying the audio, story data, FMOD and NVDA. The progress and settings files in %APPDATA%\Heathcote, Continue story, Restart story and the end's reset. The opening, title, main menu, Settings, pause menu, the end and the credits, read from the original's credit cards. The variables, timed sets, next, idle loops, lockout, the actions menu, the end, the keys during play and debug mode. The spiel, the four background lanes and their crossfades, the idle loop, system sounds, rewind, fast-forward, the hush and the volumes.
 
 ## Completed projects
+- [Foundation](../plans/foundation_plan.md): plan 2, FINISHED 2026-10-19. Heathcote.py, paths, logs and crash file; speech and the timer loop; settings, the grouped key map, the screens, the spoken menu and the F1 screen; the four volumes; and 65 silent tests.
 - [Reading the original](../plans/reading_original_plan.md): plan 1, FINISHED 2026-10-19. tools/macho64.py, dis64.py, story.py and script_text.py; analysis/script/Heathcote.txt; and [Original behaviour](project_original_behaviour.md).
 
 ## Feedback
@@ -38,7 +38,8 @@
 - [Changelog](feedback_changelog.md): the unrelease: block, newest first, one plain sentence per line ending in a period.
 - [Todo list format](feedback_todo_list_format.md): ##Unfinished. and ##Finished., players only, bugs stated as what happens.
 - [Back first](feedback_back_first.md): Back is the first row of every menu with a way back, and it opens on it.
-- [Say ear tests ahead](feedback_say_ear_tests_ahead.md): before each section, say whether the dev will test anything by ear, and what.
+- [Say ear tests ahead](feedback_say_ear_tests_ahead.md): before each section, list the by-ear tests (sound and speech), each optional or mandatory; remind the dev of a mandatory one not reported on.
+- [Review plan sections](feedback_review_plan_sections.md): before building any plan, review it section by section with the dev; never start the next plan alone.
 - [Test tools in interact](feedback_test_tools_in_interact.md): by-ear tools go in tests/interact/, never in the game's menus.
 
 ## User
