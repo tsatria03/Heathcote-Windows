@@ -124,9 +124,11 @@ class Slot:
         return start_level + (end_level - start_level) * (now - began) / seconds
 
     # ---- playing --------------------------------------------------------------
-    def play(self, path, loop=None, fade_in=0.0):
+    def play(self, path, loop=None, fade_in=0.0, start_level=0.0, end_level=1.0):
         """Play a recording, stopping what this slot was playing. Looping slots loop
-        unless ``loop`` says otherwise. True when it started."""
+        unless ``loop`` says otherwise. With ``fade_in``, it fades from ``start_level`` to
+        ``end_level``: up from 0 as a rule, or from part way when a crossfade is picked up
+        after a jump back. True when it started."""
         self.stop()
         loop = self.name in LOOPING if loop is None else loop
         fmod = self.audio.fmod
@@ -148,7 +150,7 @@ class Slot:
         if self.name in HUSHED and self.audio.hush_count > 0:
             self._attach_eq(HUSH_DB)        # started while hushed: muffled from the first sample
         if fade_in > 0:
-            self._fade_points(0.0, 1.0, fade_in)
+            self._fade_points(start_level, end_level, fade_in)
         channel.paused = False
         log.debug('%s plays %s', self.name, os.path.basename(path))
         return True
@@ -167,6 +169,16 @@ class Slot:
         if self.channel is None:
             return
         self._fade_points(self.level(), level, seconds)
+
+    def play_fading_out(self, path, from_level, seconds):
+        """Play a recording already part way through fading out, from ``from_level`` down
+        to silence over ``seconds``, then let it go: the old side of a crossfade picked up
+        part way, after a jump back."""
+        # The fade down is in place before the channel is heard, so it never starts loud.
+        if not self.play(path, fade_in=seconds, start_level=from_level, end_level=0.0):
+            return
+        self._fade = (from_level, from_level, 0.0, 0.0)
+        self.stop(fade_out=seconds)
 
     def stop(self, fade_out=0.0):
         """Stop, at once or after fading out over ``fade_out`` seconds."""
@@ -309,6 +321,7 @@ class Audio:
         self.silent = False             # running FMOD's no-sound output
         self.fading_out = []            # (channel, sound, eq or None) fading out, freed once stopped
         self.hush_count = 0             # nested hushes; the backgrounds are muffled while above 0
+        self._story_fade = (1.0, 1.0, 0.0, 0.0)   # the story group's fade: from, to, start, seconds
         self._tick_time = 0.0           # time towards the next hush tick
         self._last_update = None
         self.spiel = None               # the SpielPlayer, once FMOD has started
@@ -390,6 +403,37 @@ class Audio:
         if self.hush_count == 0:
             for name in HUSHED:
                 self.slots[name].unhush()
+
+    # ---- the story group's fades -------------------------------------------------
+    def fade_story(self, level, seconds):
+        """Fade the whole story group, spiel and backgrounds, to ``level`` over ``seconds``:
+        out over 2 and in over 1, as the original (+[Sound fadeOutStoryChannelGroup],
+        0x1000225d4; fadeInStoryChannelGroup, 0x100022690)."""
+        if not self.ok:
+            return
+        group = self.groups['story']
+        try:
+            clock = group.dsp_clock.parent_clock
+            group.remove_fade_points(0, 2 ** 63 - 1)
+            group.add_fade_point(clock, self.story_level())
+            group.add_fade_point(clock + int(seconds * self.rate), level)
+        except Exception:
+            log.exception('the story could not fade')
+            return
+        self._story_fade = (self.story_level(), level, time.perf_counter(), seconds)
+
+    @property
+    def story_target(self):
+        """The level the story group's fade is heading for, 0.0 or 1.0."""
+        return self._story_fade[1]
+
+    def story_level(self, now=None):
+        """How far the story group's fade has got, 0.0 to 1.0."""
+        start_level, end_level, began, seconds = self._story_fade
+        now = time.perf_counter() if now is None else now
+        if seconds <= 0 or now >= began + seconds:
+            return end_level
+        return start_level + (end_level - start_level) * (now - began) / seconds
 
     # ---- pausing ---------------------------------------------------------------
     def pause_story(self):
