@@ -14,7 +14,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 - **No downloads.** Every recording ships with the game ([[project_no_downloads]]).
 - **Developer tasks**, open and finished, are in [[project_dev_tasks]].
 - **The game is data-driven.** The story is JSON exported from the original's authoring tool: choices with conditions, recordings ("spiels") that set variables at timed points and chain on, and ambience and music lanes with timed fades. What the data, the binary and the original's behaviour say is in [[project_original_findings]].
-- **Status:** plan 1, reading the original, is finished ([[reading_original_plan]]): the tools, the readable script and [[project_original_behaviour]]. Plan 2, the foundation, is finished ([[foundation_plan]]). Plan 3, the audio, is being built: sections 1 and 2 are confirmed, the hush included, and section 3, the lanes, is next. Plans 3 to 7 are written with every question answered, and each is reviewed section by section with the dev before it is built ([[feedback_review_plan_sections]]): [[audio_plan]], [[story_engine_plan]], [[menus_plan]], [[saves_plan]] and [[build_release_plan]].
+- **Status:** plan 1, reading the original, is finished ([[reading_original_plan]]): the tools, the readable script and [[project_original_behaviour]]. Plan 2, the foundation, is finished ([[foundation_plan]]). Plan 3, the audio, is being built: sections 1 and 2 are confirmed, the hush included, and section 3, the lanes, is done and waits for the dev's word. Plans 3 to 7 are written with every question answered, and each is reviewed section by section with the dev before it is built ([[feedback_review_plan_sections]]): [[audio_plan]], [[story_engine_plan]], [[menus_plan]], [[saves_plan]] and [[build_release_plan]].
 
 ## Layout
 
@@ -23,7 +23,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 - **`heathcote/`**: the port's Python package.
   - `paths.py`: the game data, the vendored DLLs, `VERSION` and the save folder.
   - `app.py`: the main loop, with F1, the volume keys and debug mode.
-  - `platform/`: speech, the timer loop, safe JSON files, settings, the key map, `audio.py`, the FMOD side, and `spiel.py`, the spiel with rewind and fast-forward. The key map's actions are grouped into menu, story, story volumes and title volume, by where they work.
+  - `platform/`: speech, the timer loop, safe JSON files, settings, the key map, `audio.py`, the FMOD side, `spiel.py`, the spiel with rewind and fast-forward, and `lanes.py`, the four background lanes and the idle loop. The key map's actions are grouped into menu, story, story volumes and title volume, by where they work.
   - `ui/`: the screen stack, the spoken menu, the F1 screen and Settings.
   - `game/`: `storydata.py`, the one place the rules for reading the story data and finding recordings live, which `tools/story.py` imports; and the stand-in main menu.
 - **`tests/interact/`**: tools played by ear, not tests, run by the dev. `speech_check.py` tries the speech and the timer loop. `audio_check.py` plays the sound through FMOD, growing with each section of the audio plan. Each tool keeps its own save under `%APPDATA%\Heathcote\interact\`. A tool for testing goes here, never into the game's menus ([[feedback_test_tools_in_interact]]).

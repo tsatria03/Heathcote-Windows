@@ -6,9 +6,44 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Sections 1 and 2 are confirmed, section 2 after the dev's ear tests ("Awesome. My hereing tests past."). Section 3 is next.
+**Status:** being built (the dev, 2026-10-20: "yes", to starting section 1). Sections 1 and 2 are confirmed, section 2 after the dev's ear tests ("Awesome. My hereing tests past."). Section 3 is built and waits for the dev's word (the dev: "ready for section 3.").
 
 ## Progress
+
+- **Section 3, built 2026-10-20, waiting for the dev's word:**
+  - **`heathcote/platform/lanes.py`, `Lanes(audio, story)`:**
+    - **Following a spiel:** `begin_spiel(record)` keeps what each lane held as the spiel began, takes its events, and stops the idle loop. `update(position)` fires each event as playback passes it.
+    - **The events:** `fadeTo` crossfades, the old recording fading out on its own channel as the new fades in, then loops. A lane already playing the recording carries on. `fadeOut` fades out and stops.
+    - **The lanes carry on** from spiel to spiel, and the plain `ambience` lane is left out.
+    - **After a jump back,** each lane is set up again from the spiel's opening, its events replayed to the new position. A crossfade caught part way is picked up part way, the old side fading down from where it was and the new up.
+    - **Opening the story:** `restore(held)` starts the lanes held as the resumed spiel began, fading in over 0.5 seconds.
+    - **The idle loop:** `start_idle(soft)` starts it with no fade, as `+[Sound tick]` plays it with `playFilePath:` and `loop` (0x100020c6c). `begin_spiel` stops it, as `+[Sound playSpiel:]` sends `stop` (0x100021c68).
+    - What each lane holds is kept by softRef, for the saves.
+  - **`heathcote/platform/audio.py`:**
+    - `Slot.play()` takes a start and end level, and `play_fading_out()` plays the old side of a crossfade already part way down. Its fade is set before it is heard, so it never starts loud.
+    - `fade_story(level, seconds)` fades the story group, out over 2 and in over 1 as the original, with `story_level()` and `story_target`.
+  - **`audio_check.py`:**
+    - 3 plays the chosen spiel with its own lanes, which follow it every frame and carry on when Comma or Full stop switches spiels.
+    - An ended spiel starts its idle loop, and rewinding it stops the idle loop again.
+    - 3 again stops the spiel and fades its lanes out.
+    - L says what each lane holds, and F fades the story out or in.
+    - A double press of F first faded out twice. It now goes by where the fade is heading. This was found and fixed in the silent run.
+  - **`tests/case/test_lanes.py`, 11 tests:**
+    - reading events, and firing on cue
+    - a crossfade's two channels, carrying on with the same recording, and fade-out
+    - carrying on between spiels
+    - jumping back, including into a crossfade part way
+    - the 0.5-second opening fade, the idle loop, and the story group's fades
+  - The suite passes, 101 tests. The tool was driven silently on `start`, through fast-forward, rewind, the idle loop at the end, and a rewind of the ended spiel.
+  - **To test by ear,** with spiels whose lanes change partway through:
+    - "dual calls (landline)": rain at 2 seconds, fire at 21, a heartbeat at 25 and faster at 49, Judith at 40
+    - "records room (move on)"
+    - "cells": an ambience cut at 57.95 seconds, then a disconnected tone at 62
+    - **Mandatory:**
+      - crossfades are smooth
+      - lanes change on cue
+      - a rewind back past a change restores the earlier background
+    - **Optional:** the idle loop when a spiel ends, and F's story fade.
 
 - **Section 2, confirmed by the dev 2026-10-20, whose ear tests passed** ("Awesome. My hereing tests past."): fast-forward at pitch, rewind, and the original's pause with the hush. Along the way, at the dev's word:
   - Comma and Full stop switch a playing spiel.

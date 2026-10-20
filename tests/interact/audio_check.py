@@ -2,9 +2,10 @@
 
     python tests/interact/audio_check.py
 
-It grows with each section of the audio plan. For now, sections 1 and 2: the title
+It grows with each section of the audio plan. For now, sections 1 to 3: the title
 music, an ambience loop, the interface sounds, the four volumes, and a spiel with pause,
-rewind and fast-forward. The keys:
+rewind and fast-forward, playing with its own music and ambience lanes, which change on
+cue and are set up again after a rewind, and its idle loop when it ends. The keys:
 
     1                    the title music: start it, fading in, or stop it, fading out over 3 seconds
     2                    the ambience loop: start it, fading in, or stop it, fading out over 2 seconds
@@ -13,12 +14,14 @@ rewind and fast-forward. The keys:
     Space                play the interface sound chosen
     Comma and Full stop  choose a spiel, saying its label; with Shift, 10 at a time; a spiel
                          that is playing changes to the one chosen at once
-    3                    play the spiel chosen from its start, or stop it
+    3                    play the spiel chosen from its start, with its lanes, or stop it and its lanes
     Left                 rewind, as the original: back 1 second every 7 ticks for 0.75 seconds
     Right                fast-forward, as the original: 1.75 times for 1.5 seconds, voices kept at pitch
     P                    pause as the original: the spiel stops, and the ambience and music play on,
                          muffled by the hush; P again resumes and unmuffles them
     Tab                  say where the spiel is, in seconds
+    L                    say what each lane holds, and the idle loop
+    F                    fade the whole story out over 2 seconds, or back in over 1, as the original
     Shift+Home, Shift+End        the master volume, up and down
     Page Up, Page Down           the background volume: the ambience loop
     Shift+Page Up, Shift+Page Down   the interface volume: the interface sounds
@@ -27,7 +30,8 @@ rewind and fast-forward. The keys:
     Escape               quit
 
 Each volume step is 6 decibels, so every press should sound like the same change, and 0
-percent is silent. It keeps its own save under %APPDATA%\\Heathcote\\interact\\audio_check,
+percent is silent. Key 2's ambience plays on the first ambience lane, so a spiel's own
+events can take it over; stop it with 2 before trying a spiel's lanes. It keeps its own save under %APPDATA%\\Heathcote\\interact\\audio_check,
 so its volumes never change the game's.
 """
 from __future__ import annotations
@@ -48,6 +52,7 @@ from heathcote import paths  # noqa: E402
 from heathcote.game.storydata import StoryData  # noqa: E402
 from heathcote.platform.audio import Audio  # noqa: E402
 from heathcote.platform.keymap import mods_from_pygame  # noqa: E402
+from heathcote.platform.lanes import LANES, Lanes  # noqa: E402
 from heathcote.platform.settings import VOLUME_LABELS, Settings  # noqa: E402
 from heathcote.platform.speech import Speech  # noqa: E402
 
@@ -71,9 +76,11 @@ class Check:
         self.sounds = [(self.story.label(s), self.story.audio_path(s))
                        for s in self.story.refs('systemSounds') if self.story.audio_path(s)]
         self.title = self.story.sound_path('bgm', 'title')
-        self.spiels = [(self.story.label(s), self.story.audio_path(s))
+        self.spiels = [(self.story.label(s), self.story.audio_path(s), s)
                        for s in self.story.refs('actionSpiels')
                        if self.story.audio_path(s) and os.path.isfile(self.story.audio_path(s))]
+        self.lanes = Lanes(self.audio, self.story)
+        self.idle_started = False       # the ended spiel's idle loop has been started
         self.ambience_index = 0
         self.sound_index = 0
         self.spiel_index = 0
@@ -128,25 +135,61 @@ class Check:
         self.say('%s, %d of %d.' % (self.spiels[self.spiel_index][0], self.spiel_index + 1,
                                     len(self.spiels)))
         if self.audio.spiel.playing:
-            if self.audio.story_paused:
-                self.audio.resume_story()
-            self.audio.spiel.play(self.spiels[self.spiel_index][1])
+            self.start_spiel()
+
+    def start_spiel(self):
+        """Play the spiel chosen from its start, with its own lane events. The lanes carry
+        on from the spiel before, as in the game."""
+        if self.audio.story_paused:
+            self.audio.resume_story()
+        label, path, soft = self.spiels[self.spiel_index]
+        self.lanes.begin_spiel(self.story.record(soft))
+        self.audio.spiel.play(path)
+        self.idle_started = False
+        return label
 
     def toggle_spiel(self):
         spiel = self.audio.spiel
-        if spiel.playing:
+        if spiel.started:
             spiel.stop()
+            self.lanes.stop_all(fade_out=1.0)
             self.say('Spiel stopped.')
         else:
-            if self.audio.story_paused:
-                self.audio.resume_story()
-            label, path = self.spiels[self.spiel_index]
-            spiel.play(path)
-            self.say('Spiel: %s.' % label)    # as 1 and 2 say theirs
+            self.say('Spiel: %s.' % self.start_spiel())    # as 1 and 2 say theirs
+
+    def follow_lanes(self):
+        """Once a frame: the lanes follow the spiel, and an ended spiel starts its idle loop."""
+        spiel = self.audio.spiel
+        if not spiel.started:
+            return
+        self.lanes.update(spiel.position)
+        if spiel.ended and not self.idle_started:
+            self.idle_started = True
+            soft = (self.story.record(self.spiels[self.spiel_index][2]) or {}).get('idleLoop')
+            if soft:
+                self.lanes.start_idle(soft)
 
     def rewind(self):
+        if self.audio.spiel.ended:
+            self.lanes.stop_idle()          # rewinding an ended spiel stops its idle loop
+            self.idle_started = False
         if not self.audio.spiel.rewind():
             self.say('No spiel is playing.')
+
+    def say_lanes(self):
+        held = ['%s %s' % (lane, self.story.label(self.lanes.holding[lane]))
+                for lane in LANES if self.lanes.holding[lane]]
+        if self.lanes.idle:
+            held.append('idle loop %s' % self.story.label(self.lanes.idle))
+        self.say('. '.join(held) + '.' if held else 'Every lane is silent.')
+
+    def toggle_story_fade(self):
+        if self.audio.story_target > 0.5:   # by where it is heading, so a quick second press turns it back
+            self.audio.fade_story(0.0, 2.0)
+            self.say('Story fading out.')
+        else:
+            self.audio.fade_story(1.0, 1.0)
+            self.say('Story fading in.')
 
     def fast_forward(self):
         if not self.audio.spiel.fast_forward():
@@ -184,6 +227,8 @@ class Check:
             playing.append('the ambience %s' % self.ambiences[self.ambience_index][0])
         if self.audio.spiel.playing:
             playing.append('the spiel %s' % self.spiels[self.spiel_index][0])
+        if self.lanes.idle:
+            playing.append('the idle loop %s' % self.story.label(self.lanes.idle))
         volumes = ', '.join('%s %d' % (VOLUME_LABELS[k], self.settings.get(k)) for k in VOLUME_LABELS)
         self.say('%s. %s.' % ('Playing ' + ' and '.join(playing) if playing else 'Nothing is playing',
                               volumes))
@@ -218,6 +263,10 @@ class Check:
             self.toggle_pause()
         elif key == 'tab':
             self.where()
+        elif key == 'l':
+            self.say_lanes()
+        elif key == 'f':
+            self.toggle_story_fade()
         elif key in ('return', 'enter'):
             self.status()
 
@@ -238,6 +287,7 @@ class Check:
                     elif event.type == pygame.KEYDOWN:
                         self.key(pygame.key.name(event.key), mods_from_pygame(event.mod, pygame))
                 self.audio.update()
+                self.follow_lanes()
                 clock.tick(60)
         finally:
             self.audio.close()
