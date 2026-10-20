@@ -1,6 +1,6 @@
 """The original's story data, read as it is, and where its recordings are on disk.
 
-The data is the export of the original's authoring tool, in game/data/text/:
+The data is the export of the original's authoring tool, in game/documents/text/:
 
 - system/Heathcote v1.01.bundle.json, the index: ``labels`` maps each softRef to a
   readable name, and ``assets`` maps each category to {softRef: record id}.
@@ -24,7 +24,7 @@ import re
 
 from .. import paths
 
-#: The folders under game/data/Audio/ that hold each category's recordings, as the dev
+#: The folders under game/documents/Audio/ that hold each category's recordings, as the dev
 #: laid them out. A recording is looked for in each, in order.
 FOLDERS = {
     'actionSpiels': ('story/scene',),

@@ -3,7 +3,7 @@
     python tools/story.py              a summary, then every problem found
     python tools/story.py --labels     every softRef's label, by category
 
-The data is the export of the original's authoring tool, in game/data/text/:
+The data is the export of the original's authoring tool, in game/documents/text/:
 - system/Heathcote v1.01.bundle.json, the index: `labels` maps each softRef
   to a readable name, and `assets` maps each category to {softRef: record id}.
 - story/<record id>.json, one record each.

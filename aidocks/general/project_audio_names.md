@@ -1,6 +1,6 @@
 ---
 name: project_audio_names
-description: "Where each story recording now lives: its English file name under game/data/Audio/story/<kind>/, and the original id the story data names it by."
+description: "Where each story recording now lives: its English file name under game/documents/Audio/story/<kind>/, and the original id the story data names it by."
 metadata:
   node_type: memory
   type: project
@@ -18,9 +18,9 @@ On 2026-10-19, once the dev had converted every recording to MP3, each story rec
   - `ambience`: `ambience/`
   - `idleLoops`: `idle/`
   - `bgm`: `music/`
-  - `systemSounds`: `game/data/Audio/System/menu/` for the seven `menu-*` sounds, and `game/data/Audio/System/misc/` for the other seven, so the game looks in both
-- The folders above are under `game/data/Audio/story/`, except the interface sounds'.
-- The two app sounds, `bugfound.mp3` and `thonk.mp3`, are also in `game/data/Audio/System/misc/`; neither is in the story data.
+  - `systemSounds`: `game/documents/Audio/System/menu/` for the seven `menu-*` sounds, and `game/documents/Audio/System/misc/` for the other seven, so the game looks in both
+- The folders above are under `game/documents/Audio/story/`, except the interface sounds'.
+- The two app sounds, `bugfound.mp3` and `thonk.mp3`, are also in `game/documents/Audio/System/misc/`; neither is in the story data.
 - One name lost a character: `what was the question?` is now `what was the question.mp3`.
 - Each line below reads: new name, then the original id.
 
@@ -245,7 +245,7 @@ On 2026-10-19, once the dev had converted every recording to MP3, each story rec
 - `Ending.mp3`: fD6RJw2kJjcPG27Gb
 - `Title.mp3`: fdwgwPZMKzYCpPEXD
 
-## The interface sounds (systemSounds), 14 files, under game/data/Audio/System/
+## The interface sounds (systemSounds), 14 files, under game/documents/Audio/System/
 
 These were in `story/interface/` until the dev moved them on 2026-10-19.
 

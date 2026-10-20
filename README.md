@@ -143,13 +143,13 @@ VERSION                  the version, as year, month, day and that day's number
 `game/` holds the original app bundle, reorganised into folders. The port never writes to
 it.
 
-- `game/data/text/system/Heathcote v1.01.bundle.json` is the story's master index: every
+- `game/documents/text/system/Heathcote v1.01.bundle.json` is the story's master index: every
   record's label, and each kind's records.
-- `game/data/text/story/` holds the story's records, one JSON file each, named by its id.
-- `game/data/Audio/story/` holds the story's 220 recordings, one folder per kind, each
+- `game/documents/text/story/` holds the story's records, one JSON file each, named by its id.
+- `game/documents/Audio/story/` holds the story's 220 recordings, one folder per kind, each
   under its English name. The original named them by id;
   `aidocks/general/project_audio_names.md` maps each name back.
-- `game/data/Audio/System/` holds the 14 interface sounds, in `menu/` and `misc/`.
+- `game/documents/Audio/System/` holds the 14 interface sounds, in `menu/` and `misc/`.
 - Every recording is MP3, converted from the original's files.
 - `game/Heathcote` is the original's binary, read by the tools and never shipped.
 

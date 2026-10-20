@@ -9,15 +9,18 @@ metadata:
 Findings from the first read-only survey of `game/` (2026-10-19). Claude changes `game/` only when the dev asks, as with the extensions and English names of the recordings.
 
 ## The dev's layout of game/ (reorganized 2026-10-19)
-- `game/data/Audio/story/`: 206 of the story recordings (were `game/Documents/`), all MP3, in five folders by kind: `scene/`, `speech/`, `ambience/`, `idle/` and `music/`. The dev named `scene/` and `speech/` on 2026-10-19. Each has its English name from its record; the old id of each is in [[project_audio_names]].
-- `game/data/Audio/System/menu/`: the seven `menu-*` interface sounds.
-- `game/data/Audio/System/misc/`: the other seven interface sounds, plus `bugfound.mp3` and `thonk.mp3` (were `game/Audio/`).
+
+On 2026-10-20 the dev renamed `game/data/` to `game/documents/` and `game/certificate/` to `game/certificates/` (the dev: "I renamed the folders on perpis."). The paths below are the new ones. The game finds its data through `DATA_FOLDER` in `heathcote/paths.py`, the only place the name is kept.
+
+- `game/documents/Audio/story/`: 206 of the story recordings (were `game/Documents/`), all MP3, in five folders by kind: `scene/`, `speech/`, `ambience/`, `idle/` and `music/`. The dev named `scene/` and `speech/` on 2026-10-19. Each has its English name from its record; the old id of each is in [[project_audio_names]].
+- `game/documents/Audio/System/menu/`: the seven `menu-*` interface sounds.
+- `game/documents/Audio/System/misc/`: the other seven interface sounds, plus `bugfound.mp3` and `thonk.mp3` (were `game/Audio/`).
 - **Every recording is MP3** (the dev converted them all on 2026-10-19: "I was able to convert every sound to mp3, even in the system folder"). The original formats were 148 MP3, 61 WAV and 12 AAC `.m4a`. The data's `original.name` still gives the old extension.
-- `game/data/text/story/`: the 606 record JSON files.
-- `game/data/text/system/`: `Heathcote v1.01.bundle.json` and `ReadMe.txt`.
-- `game/images/story/`: the 48 story graphics (24 ids, each `.png` and `@2x.png`). The dev moved the images out of `game/data/` on 2026-10-19, so `game/data/` holds only what the game reads.
+- `game/documents/text/story/`: the 606 record JSON files.
+- `game/documents/text/system/`: `Heathcote v1.01.bundle.json` and `ReadMe.txt`.
+- `game/images/story/`: the 48 story graphics (24 ids, each `.png` and `@2x.png`). The dev moved the images out of `game/documents/` on 2026-10-19, so `game/documents/` holds only what the game reads.
 - `game/images/system/`: the 22 interface images (were `game/Images/`).
-- `game/certificate/`: the four `.der` certificates.
+- `game/certificates/`: the four `.der` certificates.
 - `game/scripts/`: the three stray source files.
 - The app binary, `Info.plist`, icons, `Base.lproj/` and `_CodeSignature/` stay at the top of `game/`.
 - Every file the story data references resolves in this layout; checked 2026-10-19.

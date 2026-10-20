@@ -35,12 +35,15 @@ SAVE_FOLDER = 'Heathcote'
 #: Set by the tests to a throwaway folder, never by the game.
 USER_DIR_ENV = 'HEATHCOTE_USER_DIR'
 
-#: The original's master index of the story, inside game/data/text/system/.
+#: The folder inside game/ holding everything the game reads, its text and its audio. The
+#: dev renamed it from data to documents on 2026-10-20 ("I renamed the folders on perpis.").
+DATA_FOLDER = 'documents'
+#: The original's master index of the story, inside game/documents/text/system/.
 BUNDLE_NAME = 'Heathcote v1.01.bundle.json'
 
 
 def _has_data(folder: str) -> bool:
-    return os.path.isfile(os.path.join(folder, 'data', 'text', 'system', BUNDLE_NAME))
+    return os.path.isfile(os.path.join(folder, DATA_FOLDER, 'text', 'system', BUNDLE_NAME))
 
 
 def game() -> str:
@@ -54,13 +57,13 @@ def game() -> str:
         if _has_data(folder):
             return folder
     raise SystemExit("Heathcote's game data was not found. Looked for %s in:\n  %s"
-                     % (BUNDLE_NAME, '\n  '.join(os.path.join(f, 'data', 'text', 'system')
+                     % (BUNDLE_NAME, '\n  '.join(os.path.join(f, DATA_FOLDER, 'text', 'system')
                                                  for f in tried)))
 
 
 def text() -> str:
-    """``game/data/text``: the story records in ``story/`` and the index in ``system/``."""
-    return os.path.join(game(), 'data', 'text')
+    """``game/documents/text``: the story records in ``story/`` and the index in ``system/``."""
+    return os.path.join(game(), DATA_FOLDER, 'text')
 
 
 def bundle() -> str:
@@ -69,14 +72,14 @@ def bundle() -> str:
 
 
 def story_records() -> str:
-    """``game/data/text/story``: one JSON file per record, named by its id."""
+    """``game/documents/text/story``: one JSON file per record, named by its id."""
     return os.path.join(text(), 'story')
 
 
 def audio() -> str:
-    """``game/data/Audio``: the story recordings in ``story/`` and the interface sounds
-    in ``System/``."""
-    return os.path.join(game(), 'data', 'Audio')
+    """``game/documents/Audio``: the story recordings in ``story/`` and the interface
+    sounds in ``System/``."""
+    return os.path.join(game(), DATA_FOLDER, 'Audio')
 
 
 def version() -> str:
