@@ -22,7 +22,7 @@ Until the menus plan is built, the game opens on a small stand-in menu, Settings
 
 ## Progress
 
-- **The title volume, added after section 3 was confirmed (2026-10-19)** ([[audio_plan]]):
+- **The title volume, added after section 3 was confirmed (2026-10-19), and confirmed by the dev the same day ("My tests past.")** ([[audio_plan]]):
   - `title_volume` is in the settings.
   - The key map's everywhere group became two groups: story volumes, for master, background and interface, and title volume.
   - Each screen says which volume keys work on it (`Screen.volume_group`). By default that's the title volume while `app.title_music` is set, and the story's screens will give the story volumes instead.
