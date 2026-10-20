@@ -32,6 +32,7 @@ Each section is confirmed by the dev before the next starts.
 - **The changelog's release rules** (5 to 100 entries, never more than 100) are in [[feedback_changelog]]. Releases are never recorded in notes or the README ([[feedback_no_release_records]]).
 - **Claude never builds or releases**; the dev runs both ([[feedback_dont_run_or_build]]).
 
+- **Players download releases from this repo's GitHub releases page,** since the repo is public (the dev, 2026-10-19: "I'm going to make this reposiory public. ... The fmod dll can still be packaged with the game at build time."). The releaser uploads each zip there, with `fmod.dll` inside it.
+
 ## Open questions
-1. The repo is private, so a GitHub release on it can be seen only by people with access to the repo. Where do players get the game? Proposed: the releaser still tags and uploads each release to this repo, for the dev's own record, and the dev shares the zip wherever they choose; the releaser does not need to know where.
-2. Which kinds of build? Proposed, as before: the folder build, the default, and the single exe, chosen each time.
+1. Which kinds of build? Proposed, as before: the folder build, the default, and the single exe, chosen each time.
