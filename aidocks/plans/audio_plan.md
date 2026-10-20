@@ -12,11 +12,29 @@ Plan 3 ([[reading_original_plan]] lists the order). It stands on [[foundation_pl
 
 ## Built in sections
 
-Each section is confirmed by the dev before the next starts.
-1. Starting FMOD, finding recordings, and the channels: playing, stopping, looping, fading and the volumes.
-2. The spiel: streaming, its position, pausing, rewind and fast-forward.
-3. The lanes: the music, the three ambiences and the idle loop, with their timed crossfades, the hush, and setting them up again after a jump back.
-4. `tests/interact/audio_check.py`, a tool to hear any spiel with its lanes by ear, with its own save.
+Each section is confirmed by the dev before the next starts. **`tests/interact/audio_check.py` grows with every section,** so each has something to hear (the dev, 2026-10-19, at the plan's review: "Deffenatly. I do not want to wait untill we do section 4 to use the entire tool."):
+1. Starting FMOD, finding recordings, and the channels: playing, stopping, looping, fading and the volumes. `audio_check.py` starts here, playing the system sounds, the title music and an ambience loop, with all four volume keys.
+2. The spiel: streaming, its position, pausing, rewind and fast-forward. `audio_check.py` adds a spiel, with rewind, fast-forward and pause.
+3. The lanes: the music, the three ambiences and the idle loop, with their timed crossfades, the hush, and setting them up again after a jump back. `audio_check.py` adds the lanes, the crossfades and the hush.
+4. `audio_check.py` becomes the whole tool: any spiel, by its label, with its lanes, and its own save.
+
+## Reviewed
+
+Reviewed section by section with the dev on 2026-10-19 ([[feedback_review_plan_sections]]). What the review found:
+- **The plan changed after it was written:**
+  - There are four volumes, with the title volume.
+  - The keys and settings are already built; `App.volumes_changed()` waits for FMOD.
+  - `app.title_music` should become true only while the title music really plays.
+  - `tests/case/_quiet.py` gains FMOD's no-sound output.
+- **pyfmodex is installed and checked** (the dev: "can you try to install the fmod python module? I have python 3.12."). `pip install pyfmodex==0.7.2` worked. A silent check with the no-sound output then did all of these against `vendor/fmod/fmod.dll`:
+  - reported version 2.02.35
+  - opened `Title.mp3` as a stream and read its length, 76.08 seconds
+  - set a channel's frequency to 1.75 times
+  - attached the pitch shift effect
+  - made a channel group
+  - closed cleanly
+- **Still to settle before section 1:** how a volume's percentage becomes loudness.
+- **Still to check before section 3:** how fast the hush ramps to -12 dB, in the original's code.
 
 ## Decided
 
