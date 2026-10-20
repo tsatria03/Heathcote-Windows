@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-19: "I'm ready for section 1 of plan 2."). Section 1 is built and waits for the dev to confirm it.
+**Status:** being built (the dev, 2026-10-19: "I'm ready for section 1 of plan 2."). Section 1 is confirmed ("it looks good."); section 2 is built and waits for the dev to confirm it.
 
 Plan 2 ([[reading_original_plan]] lists the order). Everything else stands on it: the audio, the story engine, the menus and the saves all use its paths, speech, timers and screen loop.
 
@@ -22,14 +22,26 @@ Until the menus plan is built, the game opens on a small stand-in menu, Settings
 
 ## Progress
 
-- **Section 1, built 2026-10-19, waiting for the dev's word:**
+- **Section 2, built 2026-10-19, waiting for the dev's word:**
+  - `heathcote/platform/speech.py`: NVDA's own client first, then Prism's screen readers, then a Windows voice, as decided. The prismatoid package, 0.18.2, is installed.
+  - `heathcote/platform/runloop.py`: `after`, `every`, `cancel`, `hold`, `resume` and `remaining`, on `time.perf_counter`. The stand-in window pumps it once a frame.
+  - **One change from the reference:** a call made while the loop is held counts its delay from the moment the clock stopped. In the reference it counted from when it was made, so a hold already under way when it was made was added on top. Without the fix, a timed set scheduled during the pause would come late.
+  - `tests/interact/speech_check.py` tries both by ear:
+    - Enter says what is speaking.
+    - 1 speaks a line that interrupts, and 2 a line that waits.
+    - T counts down on the timer loop.
+    - P holds and resumes it.
+    - S stops speech.
+    - Escape quits.
+  - Checked silently with `HEATHCOTE_SILENT`: ordering, repeats skipping missed beats, an error in a call being logged, hold and resume, calls made during a hold, and cancelling.
+- **Section 1, confirmed by the dev 2026-10-19 ("it looks good."):**
   - `Heathcote.py` takes the four options, starts the log and writes `crash.txt`.
   - `heathcote/paths.py` finds the game data, the vendored DLLs, `VERSION` and the save folder.
   - The `platform/`, `ui/` and `game/` packages exist, empty.
   - The data counts as found only when `game/data/text/system/Heathcote v1.01.bundle.json` is there. If it is missing, the player is told where the game looked.
   - `--spiel` is checked against the bundle's labels, and a label it doesn't have is logged and ignored. The story engine will use it later.
   - Until section 3 builds the screen loop, the game opens a plain window titled "Heathcote", or "Heathcote (debug)", which Escape or closing the window shuts.
-  - Speaking the crash message waits for section 2's speech; until then the crash is only written down.
+  - The crash message is spoken once section 2's speech is there; `Heathcote.py` loads it lazily and carries on without it if it cannot start.
   - Checked silently with a dummy video driver and a throwaway save folder: the log and `log.old.txt`, the debug title, `--spiel` with and without debug mode, `--exit-after`, and `crash.txt` for both missing data and an unexpected error.
 
 ## Decided
