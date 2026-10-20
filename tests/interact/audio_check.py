@@ -140,7 +140,9 @@ class Check:
         else:
             if self.audio.story_paused:
                 self.audio.resume_story()
-            spiel.play(self.spiels[self.spiel_index][1])
+            label, path = self.spiels[self.spiel_index]
+            spiel.play(path)
+            self.say('Spiel: %s.' % label)    # as 1 and 2 say theirs
 
     def rewind(self):
         if not self.audio.spiel.rewind():
