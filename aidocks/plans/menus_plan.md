@@ -36,6 +36,17 @@ The credits were two pictures, `credits-1` and `credits-2`, so a screen reader n
   - "This app uses many sounds from freesound. For the full list see fabulaeobscurae.com/heathcote"
   - "FMOD Studio by Firelight Technologies"
 
+## What plan 3 built for it
+
+The audio plan, finished 2026-10-20 ([[audio_plan]]), left these ready for the menus:
+- **The title music:**
+  - It plays on the `titleBgm` slot: `audio.slot('titleBgm').play(path)`, with the path from `StoryData.sound_path('bgm', 'title')`.
+  - It fades out with `stop(fade_out=3.0)`.
+  - It follows the title volume. `Title.mp3` fades out by itself in its last seconds before each loop, as the original's did.
+- **`app.title_music` is still a stand-in flag** set by the stand-in main menu. The menus plan sets it while the title music really plays, so the title volume's keys follow the music.
+- **The pause menu** uses `audio.pause_story()` and `resume_story()`, the original's pause, with `pause-pause` and `pause-unpause` played by `app.play_sound()`.
+- **The ending music** is `StoryData.sound_path('bgm', 'ending')`.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.

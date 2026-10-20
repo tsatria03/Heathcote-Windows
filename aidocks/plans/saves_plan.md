@@ -20,6 +20,13 @@ Plan 6 ([[reading_original_plan]] lists the order). It stands on [[foundation_pl
 - **Continue replays the last spiel an action opened, from its beginning,** with its lanes as they were when it opened (`+[Story startTape]`, 0x10001a898; `+[StoryView newTape:]`, 0x100024020). A spiel reached through next is never the resume point.
 - Restart reset story, heard and actioned, and left the rest.
 
+## What plan 3 built for it
+
+The audio plan, finished 2026-10-20 ([[audio_plan]]), left these ready for the saves:
+- **The lanes at a spiel's start:** `Lanes.opening` is what the four lanes held as the current spiel began, by softRef, for the snapshot.
+- **Restoring them:** `Lanes.restore(held)` starts them again with the original's 0.5-second fade-in when the story opens.
+- **The settings:** the title volume is the fourth volume in `config\settings.json`.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.

@@ -10,6 +10,25 @@ metadata:
 
 Plan 4 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]] and [[audio_plan]], and reads the story data directly as `tools/story.py` does. Every rule below comes from [[project_original_behaviour]], which cites the original's code.
 
+## What plan 3 built for it
+
+The audio plan, finished 2026-10-20 ([[audio_plan]]), left these ready for the story engine:
+- **`audio.spiel`, the `SpielPlayer`:**
+  - `play(path)`; `position`, `length` and `ended`
+  - `rewind()`, `fast_forward()` and `stop_effects()`, the original's tap
+  - `rewind_sound` takes the `rewind` interface sound's path
+  - A spiel started during fast-forward fast-forwards too, with a frame's grace, so the engine can start the next spiel in the frame it sees the end.
+- **`Lanes(audio, story)`:**
+  - The engine calls `begin_spiel(record)` as each spiel starts, which also stops the idle loop.
+  - It passes `update(spiel.position)` each frame, which fires the lane events and rebuilds after a rewind.
+  - It calls `start_idle(soft)` when a spiel ends with nothing to follow.
+  - `holding` and `opening` give what each lane holds by softRef, for the saves.
+- **Pausing and the hush:**
+  - `audio.pause_story()` and `resume_story()` pause as the original did, the backgrounds hushed and playing on, and only the spiel stopped. The caller plays `pause-pause` and `pause-unpause`.
+  - `audio.hush_backgrounds()` and `unhush_backgrounds()` nest, so the actions menu's hush opened over a pause needs its own unhush.
+- **Interface sounds:** `app.play_sound(label)` plays them by label on the sfx channel.
+- **The story fades:** `audio.fade_story(level, seconds)`.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.

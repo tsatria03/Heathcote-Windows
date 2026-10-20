@@ -22,5 +22,9 @@ metadata:
   - The engine may be passed on only inside the game, never on its own or as part of an engine or tool set.
   - **The game must show a credit line containing "FMOD" and "Firelight Technologies Pty Ltd."** (clause 3; examples at www.fmod.com/attribution). It goes into the credits ([[project_later_topics]]).
   - `license.txt` ships beside the game, since it carries the Ogg Vorbis notice that must go with the binaries.
+- **pyfmodex's quirks with FMOD 2.02,** found building plan 3 on 2026-10-20:
+  - New sounds default to 3D, so the game passes `MODE.TWOD`.
+  - Its enum puts the pitch shift's "Max channels" at 4, but the DLL has it at 3. And every pitch shift setting is a float in 2.02, so setting the channel count as an int is refused (`UNSUPPORTED`). The game finds effect settings by name and sets them as floats.
+  - `get_parameter_float()` returns a pair: the value, then its text.
 - **Tests stay silent** by starting FMOD with its no-sound output, so nothing is heard and no device is opened ([[feedback_dont_run_or_build]]).
 - A build carries `fmod.dll` and `license.txt`, the way it carries the NVDA client.

@@ -10,6 +10,14 @@ metadata:
 
 Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
 
+## What plan 3 built for it
+
+The audio plan, finished 2026-10-20 ([[audio_plan]]), means a build must carry:
+- `vendor\fmod\fmod.dll` and `license.txt`, which `heathcote/paths.py` looks for under the build's `vendor\fmod\`
+- the `pyfmodex` package, from `requirements.txt`
+
+Without the DLL, the game stops with a message saying where to copy it from, so `compiler.py --test` will show a missing DLL at once.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.
