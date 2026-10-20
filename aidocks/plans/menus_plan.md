@@ -50,9 +50,14 @@ Each section is confirmed by the dev before the next starts.
 - **Every menu follows the standing rules:** Back first and opened on ([[feedback_back_first]]), all four arrows moving and wrapping, Home and End to the first and last row, and no position readouts ([[foundation_plan]]).
 - **The bug report, the rate-me alert, analytics, crash reporting and location services are left out.**
 - **Restart asks first,** as the original did, with No as the first row.
+- **The main menu** (the dev, 2026-10-19: "I like that."), with the same navigation as every menu, all four arrows, wrapping, and Home and End, which the dev checked ("This will have the same menu functions right? I mean the arrow/home nav, plus menu wrapping"):
+  1. **Start story,** or once started, **"Continue story from chapter: <location>."**, the original's own words, where <location> is the story variable `location`. It comes first, so one Enter gets back into the story.
+  2. **Restart,** once started, asking first.
+  3. **Settings.**
+  4. **Credits.**
+  5. **Quit,** its way out, so it has no Back row ([[feedback_back_first]]).
 
 ## Open questions
-1. What does the main menu hold? Proposed: Start story, or "Continue story from chapter: <location>." once started; Restart, once started; Settings; Credits; Quit.
-2. How does the game open? Proposed: the `ident` sound with "Heathcote" spoken; the first time only, a notice adapted from the original's tutorial, "Heathcote is a responsive story told through sound. Headphones are strongly recommended. For the most immersive experience, try playing with your eyes closed.", which Enter continues; then the title music and the main menu, without the original's 4-second title wait.
-3. What does the pause menu hold? Proposed: Resume, first, which Escape also does; Settings; and Return to menu, leaving the story paused so Continue picks it up where it stopped, as the original did.
-4. What happens at the end? Proposed: the `ending` music plays on, the credits menu opens, and leaving it resets the story and returns to the main menu, as the original did. The "Want more?" link to the developer's website is left out.
+1. How does the game open? Proposed: the `ident` sound with "Heathcote" spoken; the first time only, a notice adapted from the original's tutorial, "Heathcote is a responsive story told through sound. Headphones are strongly recommended. For the most immersive experience, try playing with your eyes closed.", which Enter continues; then the title music and the main menu, without the original's 4-second title wait.
+2. What does the pause menu hold? Proposed: Resume, first, which Escape also does; Settings; and Return to menu, leaving the story paused so Continue picks it up where it stopped, as the original did.
+3. What happens at the end? Proposed: the `ending` music plays on, the credits menu opens, and leaving it resets the story and returns to the main menu, as the original did. The "Want more?" link to the developer's website is left out.
