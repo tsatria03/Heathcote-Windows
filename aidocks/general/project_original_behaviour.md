@@ -106,7 +106,8 @@ The original's run-time behaviour, read from `game/Heathcote` on 2026-10-19 with
   - If it reaches the beginning, it stops early and the `sfx` channel fades out over 0.75 seconds.
 - **Rewinding a spiel that has ended** (`+[Sound spotRewind:]`, 0x1000222cc) stops the idle loop and replays the spiel from just before its end (`-[SoundChannel spotRewind:]`, 0x10002ee7c, uses `setPositionBeforeEnd:`).
 - **Fast-forward** (`-[PlayState startFfwd]`, 0x100033544; `-[SoundChannel startFastForward]`, 0x10002f348):
-  - The spiel plays at 1.75 times its speed.
+  - The spiel plays at 1.75 times its speed (0x10002f3e0).
+  - **Voices keep their pitch.** A pitch shifter, which the code's own log calls the "chipmunk-suppression DSP", is attached while it runs (0x10002f40c). It is made in `-[SoundChannel initWithName:channelGroup:streamer:muffler:pitchShifter:preempts:]` (0x10002e2fc) as FMOD effect type 13 (pitch shift), with its pitch at 0.571429, which is 1/1.75 (0x10002e4e4), and 2 channels (0x10002e514).
   - It stops after 90 ticks (1.5 seconds), then plays on.
   - Swiping again while it runs restarts the 90 ticks.
   - If the spiel ends during it, it stops and the spiel counts as ended.
