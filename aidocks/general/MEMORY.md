@@ -38,6 +38,7 @@
 - [Changelog](feedback_changelog.md): the unrelease: block, newest first, one plain sentence per line ending in a period.
 - [Todo list format](feedback_todo_list_format.md): ##Unfinished. and ##Finished., players only, bugs stated as what happens.
 - [Back first](feedback_back_first.md): Back is the first row of every menu with a way back, and it opens on it.
+- [Say ear tests ahead](feedback_say_ear_tests_ahead.md): before each section, say whether the dev will test anything by ear, and what.
 - [Test tools in interact](feedback_test_tools_in_interact.md): by-ear tools go in tests/interact/, never in the game's menus.
 
 ## User
