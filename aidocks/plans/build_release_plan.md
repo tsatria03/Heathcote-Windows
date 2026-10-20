@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned. Being written; open questions below are still being answered.
+**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
 
 Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
 
@@ -34,5 +34,8 @@ Each section is confirmed by the dev before the next starts.
 
 - **Players download releases from this repo's GitHub releases page,** since the repo is public (the dev, 2026-10-19: "I'm going to make this reposiory public. ... The fmod dll can still be packaged with the game at build time."). The releaser uploads each zip there, with `fmod.dll` inside it.
 
+- **Both kinds of build, chosen each time** (the dev, 2026-10-19: "I like being able to choose, so yes, both builds."): the folder build, the default, and the single exe, each one choice in `compiler.py`'s numbered menu and one command line. `--test` checks either.
+
 ## Open questions
-1. Which kinds of build? Proposed, as before: the folder build, the default, and the single exe, chosen each time.
+
+None.

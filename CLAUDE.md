@@ -14,7 +14,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 - **No downloads.** Every recording ships with the game ([[project_no_downloads]]).
 - **Developer tasks**, open and finished, are in [[project_dev_tasks]].
 - **The game is data-driven.** The story is JSON exported from the original's authoring tool: choices with conditions, recordings ("spiels") that set variables at timed points and chain on, and ambience and music lanes with timed fades. What the data, the binary and the original's behaviour say is in [[project_original_findings]].
-- **Status:** plan 1, reading the original, is finished ([[reading_original_plan]]): the tools, the readable script and [[project_original_behaviour]]. Plan 2, the foundation, is written with every question answered ([[foundation_plan]]). Plans 3 to 7 are still to be written.
+- **Status:** plan 1, reading the original, is finished ([[reading_original_plan]]): the tools, the readable script and [[project_original_behaviour]]. Plans 2 to 7 are written with every question answered, and wait for the go-ahead to build: [[foundation_plan]], [[audio_plan]], [[story_engine_plan]], [[menus_plan]], [[saves_plan]] and [[build_release_plan]].
 
 ## Layout
 
