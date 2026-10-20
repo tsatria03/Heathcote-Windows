@@ -10,6 +10,8 @@ from __future__ import annotations
 
 import logging
 
+from ..platform.keymap import TITLE_VOLUME
+
 log = logging.getLogger('screens')
 
 
@@ -41,6 +43,12 @@ class Screen:
     def handle_key(self, key, mods):
         """A key was pressed: pygame's name for it, and the modifiers held. True when used."""
         return False
+
+    def volume_group(self):
+        """Which volume keys work here, as a key map group, or None. The title volume's
+        wherever the title music is playing; the story's screens give the story volumes'
+        instead (aidocks/plans/audio_plan.md)."""
+        return TITLE_VOLUME if self.app.title_music else None
 
     def update(self):
         """Called once a frame while on top."""

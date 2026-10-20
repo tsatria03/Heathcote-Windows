@@ -15,6 +15,12 @@ class MainMenu(Menu):
     name = 'main menu'
     title = 'Heathcote.'
 
+    def opened(self):
+        # The title music plays under the main menu (aidocks/plans/menus_plan.md). Until the
+        # audio plan plays it, this only lets the title volume's keys work here.
+        self.app.title_music = True
+        super().opened()
+
     def rows(self):
         # Quit is its way out, so it has no Back row (aidocks/general/feedback_back_first.md).
         return [Row('Settings', lambda: self.stack.push(SettingsScreen(self.app))),

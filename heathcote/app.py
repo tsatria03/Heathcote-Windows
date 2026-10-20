@@ -12,8 +12,10 @@ Two kinds of key are handled here, before the top screen sees them
 
 * F1 opens the key bindings screen from anywhere, and the timers are held while it is
   open, so the story's timed sets keep their places.
-* The volume keys work everywhere. Each press says the new level, and holding one down
-  moves it on step by step; every other key fires once however long it is held.
+* The volume keys, where the top screen allows them (``Screen.volume_group``): the
+  master, background and interface volumes in the story, and the title volume wherever
+  the title music plays. Each press says the new level, and holding one down moves it on
+  step by step; every other key fires once however long it is held.
 """
 from __future__ import annotations
 
@@ -21,7 +23,7 @@ import logging
 
 from . import paths
 from .platform import runloop
-from .platform.keymap import EVERYWHERE, MODIFIER_KEYS, KeyMap, mods_from_pygame
+from .platform.keymap import MODIFIER_KEYS, KeyMap, mods_from_pygame
 from .platform.runloop import RunLoop
 from .platform.settings import VOLUME_LABELS, Settings
 from .platform.speech import Speech
@@ -43,6 +45,7 @@ VOLUME_ACTIONS = {
     'master_up': ('master_volume', 1), 'master_down': ('master_volume', -1),
     'backgrounds_up': ('backgrounds_volume', 1), 'backgrounds_down': ('backgrounds_volume', -1),
     'interface_up': ('interface_volume', 1), 'interface_down': ('interface_volume', -1),
+    'title_up': ('title_volume', 1), 'title_down': ('title_volume', -1),
 }
 
 
@@ -58,6 +61,9 @@ class App:
         self.held = None            # [key, mods, action, when it next repeats] for a volume key
         self.pygame = None          # pygame, once run() has opened the window
         self.debug = False
+        # Whether the title music is playing, so the title volume's keys work. The menus
+        # set it; the audio plan makes it so.
+        self.title_music = False
         # Debug mode is for source runs only: --debug turns it on for one run, and the
         # Settings row turns it on or off for good.
         self.set_debug(bool(getattr(options, 'debug', False) or self.settings.get('debug')),
@@ -116,7 +122,8 @@ class App:
         if key == 'f1' and not mods:
             self.open_key_bindings()
             return
-        action = self.keymap.action_for(key, mods, EVERYWHERE)
+        group = top.volume_group() if top is not None else None
+        action = self.keymap.action_for(key, mods, group) if group else None
         if action in VOLUME_ACTIONS:
             self.step_volume(action)
             now = runloop.clock() if now is None else now
@@ -136,6 +143,11 @@ class App:
             return
         now = runloop.clock() if now is None else now
         if now < self.held[3]:
+            return
+        top = self.stack.top
+        group = top.volume_group() if top is not None else None
+        if group is None or self.keymap.action_for(self.held[0], self.held[1], group) != self.held[2]:
+            self.held = None                # the screen changed under the held key
             return
         self.held[3] = now + REPEAT_EVERY
         self.step_volume(self.held[2])

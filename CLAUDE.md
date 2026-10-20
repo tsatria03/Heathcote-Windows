@@ -23,7 +23,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 - **`heathcote/`**: the port's Python package.
   - `paths.py`: the game data, the vendored DLLs, `VERSION` and the save folder.
   - `app.py`: the main loop, with F1, the volume keys and debug mode.
-  - `platform/`: speech, the timer loop, safe JSON files, settings and the key map, whose actions are grouped into menu, story and everywhere.
+  - `platform/`: speech, the timer loop, safe JSON files, settings and the key map. Its actions are grouped into menu, story, story volumes and title volume, by where they work.
   - `ui/`: the screen stack, the spoken menu, the F1 screen and Settings.
   - `game/`: the stand-in main menu so far.
 - **`tests/interact/`**: tools played by ear, not tests, run by the dev. `speech_check.py` tries the speech and the timer loop. Each tool keeps its own save under `%APPDATA%\Heathcote\interact\`. A tool for testing goes here, never into the game's menus ([[feedback_test_tools_in_interact]]).

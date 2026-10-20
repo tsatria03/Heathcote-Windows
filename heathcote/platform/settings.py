@@ -17,18 +17,20 @@ log = logging.getLogger('settings')
 DEFAULTS = {
     # aidocks/plans/audio_plan.md: 0 to 100 percent. The spiel follows only the master;
     # the backgrounds are the music, the ambiences and the idle loop; the interface is the
-    # system sounds and the recorded choices.
+    # system sounds and the recorded choices; the title is the title music alone.
     'master_volume': 100,
     'backgrounds_volume': 100,
     'interface_volume': 100,
+    'title_volume': 100,
     'debug': False,                     # aidocks/plans/foundation_plan.md: source runs only
     'first_run_notice_shown': False,    # aidocks/plans/menus_plan.md: the first start only
 }
-VOLUMES = ('master_volume', 'backgrounds_volume', 'interface_volume')
+VOLUMES = ('master_volume', 'backgrounds_volume', 'interface_volume', 'title_volume')
 #: What each volume is called when it is spoken.
 VOLUME_LABELS = {'master_volume': 'Master volume',
                  'backgrounds_volume': 'Background volume',
-                 'interface_volume': 'Interface volume'}
+                 'interface_volume': 'Interface volume',
+                 'title_volume': 'Title volume'}
 #: How far one press of a volume key moves a volume, in percent. Every volume is a
 #: multiple of it, so 0 and 100 are always reached.
 VOLUME_STEP = 10

@@ -5,7 +5,8 @@ it; for now it has what the foundation needs:
     Debug mode, currently off   source runs only; Enter turns it on or off at once
     Key bindings                the F1 screen
 
-The volumes are set with their keys from anywhere (platform/keymap.py), and the game
+The volumes are set with their keys: the title volume here and in the main menu, while
+the title music plays, and the others in the story (platform/keymap.py). The game
 remembers every setting in ``config/settings.json``.
 """
 from __future__ import annotations

@@ -8,12 +8,18 @@ to put the others right.
 
 Each action belongs to a group, by where it works:
 
-    menu        every spoken menu, the story's actions menu included
-    story       while the story plays
-    everywhere  the volumes, which work in menus and in the story alike
+    menu           every spoken menu, the story's actions menu included
+    story          while the story plays
+    story volumes  the master, background and interface volumes: in the story only, its
+                   actions menu included
+    title volume   the title volume: only where the title music plays, such as the main menu
 
-The same key can do one thing in a menu and another in the story, as Up and Escape do,
-so a key clashes only with actions in its own group, or with one that works everywhere.
+(the dev, 2026-10-19: "Page up/down can adjust this, but only when the music plays
+there. Also, the other volume keys should only work when you are in the actual game.")
+
+The same key can do one thing in one place and another elsewhere, as Up, Escape and Page
+Up do, so a key clashes only with actions that can be pressed in the same place
+(``CLASHES``).
 
 A binding is one key with any of Shift, Control and Alt, written as pygame names it with
 the modifiers first, such as ``"page up"`` or ``"shift+page up"``. It matches only with
@@ -32,7 +38,12 @@ from .files import JsonFile
 
 log = logging.getLogger('keymap')
 
-MENU, STORY, EVERYWHERE = 'menu', 'story', 'everywhere'
+MENU, STORY, STORY_VOLUMES, TITLE_VOLUME = 'menu', 'story', 'story volumes', 'title volume'
+#: The pairs of groups that can be pressed in the same place, besides a group with itself:
+#: the story volumes during the story and in its actions menu, and the title volume in the
+#: menus the title music plays under.
+CLASHES = {frozenset((STORY_VOLUMES, STORY)), frozenset((STORY_VOLUMES, MENU)),
+           frozenset((TITLE_VOLUME, MENU))}
 
 #: (action, group, what the F1 screen calls it, default bindings). Debug actions work only
 #: in debug mode, and the F1 screen lists them only then.
@@ -52,12 +63,14 @@ ACTIONS = (
     ('debug_skip', STORY, 'Debug: skip to the end of the spiel', ('f2',)),
     ('debug_jump', STORY, 'Debug: jump to a spiel', ('f3',)),
     ('debug_variables', STORY, 'Debug: say the variables', ('f4',)),
-    ('master_up', EVERYWHERE, 'Master volume up', ('shift+home',)),
-    ('master_down', EVERYWHERE, 'Master volume down', ('shift+end',)),
-    ('backgrounds_up', EVERYWHERE, 'Background volume up', ('page up',)),
-    ('backgrounds_down', EVERYWHERE, 'Background volume down', ('page down',)),
-    ('interface_up', EVERYWHERE, 'Interface volume up', ('shift+page up',)),
-    ('interface_down', EVERYWHERE, 'Interface volume down', ('shift+page down',)),
+    ('master_up', STORY_VOLUMES, 'Story: master volume up', ('shift+home',)),
+    ('master_down', STORY_VOLUMES, 'Story: master volume down', ('shift+end',)),
+    ('backgrounds_up', STORY_VOLUMES, 'Story: background volume up', ('page up',)),
+    ('backgrounds_down', STORY_VOLUMES, 'Story: background volume down', ('page down',)),
+    ('interface_up', STORY_VOLUMES, 'Story: interface volume up', ('shift+page up',)),
+    ('interface_down', STORY_VOLUMES, 'Story: interface volume down', ('shift+page down',)),
+    ('title_up', TITLE_VOLUME, 'Title music: title volume up', ('page up',)),
+    ('title_down', TITLE_VOLUME, 'Title music: title volume down', ('page down',)),
 )
 
 ACTION_IDS = [a[0] for a in ACTIONS]
@@ -128,7 +141,7 @@ def bindings_text(bindings):
 
 def clashes(group, other):
     """Whether actions in these two groups can be pressed at the same moment."""
-    return group == other or EVERYWHERE in (group, other)
+    return group == other or frozenset((group, other)) in CLASHES
 
 
 def _clean(saved):
