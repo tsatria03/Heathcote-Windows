@@ -62,6 +62,10 @@ Each section is confirmed by the dev before the next starts.
   1. The `ident` sound, the original's police radio, with "Heathcote" spoken.
   2. The first time only, a notice from the original's tutorial: "Heathcote is a responsive story told through sound. Headphones are strongly recommended. For the most immersive experience, try playing with your eyes closed." Enter continues, and the game remembers it has been shown, as the original's `tutor-preflight` did. The line "Control the story by swiping, not tapping." is left out, since it does not fit a keyboard.
   3. Then the `title` music and the main menu, with no 4-second title wait.
+- **The title music plays under the main menu,** as the original's did under its title menu ([[project_original_behaviour]], "Where the title music plays"):
+  - It fades out over 3 seconds when Start story or Continue story enters the story.
+  - It stays silent in the pause menu.
+  - It starts again whenever the main menu comes back: from Return to menu in the pause menu, and after leaving the end credits.
 
 - **The pause menu** (the dev, 2026-10-19: "I like this, but what about the restart button?", then "Yes."). Escape during the story pauses every channel and opens it:
   1. **Resume,** first and opened on; Escape does the same.

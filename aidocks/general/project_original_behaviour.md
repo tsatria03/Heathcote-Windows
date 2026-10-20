@@ -86,7 +86,18 @@ The original's run-time behaviour, read from `game/Heathcote` on 2026-10-19 with
   - `fadeOut {duration}` fades the lane out over `duration` seconds and stops it.
   - After a jump backwards, each lane is set up again cold (`coldConfigureWithFromFilePath:toFilePath:fadeDuration:fadeProgress:`), from the softRef that lane had when the spiel opened, so the right recording is playing at the new position.
 - **Opening the story** (`+[StoryView go]`, 0x100025ce8) starts `teller/opening-bgm` and the three opening ambiences, each with a 0.5-second fade-in, looping.
-- **Title music**: `-[GameView titleMusicShouldBePlaying]` (0x100019594) loops the `bgm` labelled `title` on the title channel. `-[GameView titleMusicShouldNotBePlaying]` (0x1000196dc) fades it out over 3 seconds and fades the story group in.
+- **Title music**: `-[GameView titleMusicShouldBePlaying]` (0x100019594) loops the `bgm` labelled `title` (`Title.mp3`) on the title channel. `-[GameView titleMusicShouldNotBePlaying]` (0x1000196dc) fades it out over 3 seconds and fades the story group in.
+- **Where the title music plays** (found 2026-10-19, after the dev asked whether the menu had music):
+  - **The rule:** both are called only from `+[GameView setCarouselPosition:duration:]` (0x100019400). Positions 0 and 1 play the title music, and any higher position fades it out (0x100019460 to 0x100019478).
+  - **What sets each position:**
+    - 0, the title: `+showTitleScreen` (0x100018fa0), and swiping down from the title menu (`TitleMenuState down`, 0x1000383a4).
+    - 1, the title menu:
+      - the title moving on after 4 seconds (`TitleState tick`, 0x1000071c8)
+      - returning to the title menu from pause (`+[StoryView returnToTitle]`, 0x100025614)
+      - leaving the end credits (`+[StoryView lowerCredits]`, 0x1000264d8)
+    - 2, the pause screen: `+[StoryView pause]` (0x10002540c).
+    - 3, the story: entering it from the title menu (`TitleMenuState up`, 0x100038464), and `+[StoryView unpause]` (0x100025564).
+  - **So:** the title music plays under the title and the title menu, the original's main menu. It is silent while paused and during the story, and starts again whenever the player goes back to the title menu, from pause or from the credits.
 - **Story group fades**: `+[Sound fadeOutStoryChannelGroup]` (0x1000225d4) goes from 1 to 0 over 2 seconds; `+[Sound fadeInStoryChannelGroup]` (0x100022690) goes from 0 to 1 over 1 second.
 - **Hushing** (`+[Sound hushBackgrounds]`, 0x1000223b8; `+[Sound unhushBackgrounds]`, 0x100022434): a counter, so nested hushes need as many unhushes. The first hush calls `hush` on `bgm`, `ambience1`, `ambience2` and `ambience3`; the idle loop and the spiel are not hushed.
 - **What `hush` does** (`-[SoundChannel hush]`, 0x10002f4e0): it adds an FMOD effect of type 12 (parametric EQ) with centre 1250 Hz, bandwidth 5 and gain 0, and stores -12 as a target. So the backgrounds are muffled around 1250 Hz, by up to 12 dB.
