@@ -1,0 +1,2229 @@
+Heathcote: the whole story
+
+Written by tools/script_text.py from the original's data. Do not edit it by hand; run the tool again.
+104 spiels and 91 actions. Spiels come first, in the order the story opens up from the start; then the spiels that order does not reach; then every action, in menu order.
+
+Part 1: from the start
+
+Spiel: start
+Recording: game/data/Audio/story/scene/start.mp3
+Transcript:
+  [SFX: We hear a landline phone ringing.]
+  [NOTE: Graphics laid on screen telling people how to use the menu system.]
+  MARTIN: (Recorded answer machine message) You've reached Martin Fellows of Spectre Productions. Please leave a message after the beep.
+  [SFX BEEP]
+At 0.1 seconds, location becomes "working late".
+At 1 second, ambience fades to "Martin office" over 2 seconds.
+At 0.1 seconds, ambience1 fades to "Martin office" over 2 seconds.
+When it ends, the idle loop "idle loop (start)" plays.
+
+Spiel: call opening
+Recording: game/data/Audio/story/scene/call opening.mp3
+Reached from: the action "call opening".
+Transcript:
+  MARTIN:  Hello?
+  DAVID  (over phone, and will be heard like this throughout): 'Bout time you picked up.
+  MARTIN  (not over phone): Hey David, you there already?
+  DAVID:  Yeah, just pulled up.
+  SFX: CAR PULLING UP
+  MARTIN: How's it look?
+  DAVID:  Dilapidated, man. Not a whole lot to look at from the outside. Just a big, run-down building.
+  MARTIN:  Hey, call my cell. I don't have the recorders hooked up to my landline.
+  DAVID:  Alright.
+  [SFX: DAVID HANGS UP. WE HEAR MARTIN HANG UP HIS LANDLINE PHONE. THEN WE HEAR  MARTIN'S CELL PHONE RING. MARTIN PICKS IT UP]
+  MARTIN:  Hey.
+  DAVID:  Yo. You got a good signal?
+  MARTIN: I hear ya loud and clear. Ready?
+  DAVID:  Yeah, man, let's do it.
+  MARTIN:  Well I got the plans laid out in front of me... Ready when you are...
+  [SFX, ON MARTIN'S SIDE, THRU COMPUTER SPEAKER. A MU-HA-HA-HA OR WILHELM SCREAM]
+  DAVID: Oh you didn't say you had family over?
+  MARTIN: It's an email. And you're funny. You nearly there?
+  DAVID: Still heading down the path. Give me a minute.
+At 0.1 seconds, waypoint becomes "approaching building".
+At 0.1 seconds, where you at? becomes "path".
+At 0.1 seconds, lockout becomes "1".
+At 5 seconds, location becomes "approaching Heathcote".
+At 44.7 seconds, lockout becomes "0".
+At 0.8 seconds, ambience1 fades out over 12 seconds.
+At 0.8 seconds, ambience2 fades to "outside, calm (M-L)" over 1 second.
+At 21 seconds, ambience2 fades out over 0.5 seconds.
+At 25.6 seconds, ambience2 fades to "outside, calm (M-C)" over 1 second.
+When it ends, the idle loop "idle loop (path)" plays.
+Opens the action "email".
+Opens the action "where you at? (path)".
+
+Spiel: check email
+Recording: game/data/Audio/story/scene/check email.mp3
+Reached from: the action "email".
+Transcript:
+  [SFX THE CLACKING OF COMPUTER MOUSE AS MARTIN OPENS AN EMAIL]
+  MARTIN:  Hey, the station just sent along the commercial...
+  DAVID:  (sarcastic) Oh goody.
+At 0.1 seconds, where you at? becomes "0".
+At 0.1 seconds, location becomes "commercial disaster".
+At 0.1 seconds, lockout becomes "1".
+At 6 seconds, ambience2 fades out over 1.5 seconds.
+Next: "commercial", when always.
+
+Spiel: where you at? (path)
+Recording: game/data/Audio/story/scene/where you at (path).mp3
+Reached from: the action "where you at? (path)".
+Transcript:
+  DAVID: Yeah, nearly at the front gate. Hold on...
+When it ends, the idle loop "idle loop (path)" plays.
+
+Spiel: commercial
+Recording: game/data/Audio/story/scene/commercial.mp3
+Reached from: the end of "check email".
+Transcript:
+  [SFX - GHOSTS GOING OOOOOOH/ CLANKS OF CHAINS / SCREAMS OF TEENAGE GIRLS / A MONSTROUS LAUGH etc - Cheap and tacky as possible]
+  VOICEOVER: Coming in December to 108.2 Eagle FM... Your favorite spook detective, David Scott, in a brand new holiday special...
+  GHOULISH VOICE: THE FIRES OF HEATHCOTE HELL...
+  MAN: On Christmas Day 1956, the Heathcote Asylum for the Criminally Insane was the scene of a gruesome tragedy. Answering an anonymous 911 call, firefighters and police arrived on the scene to find one wing of the building engulfed in flames. Inside this inferno were all 89 members of staff and patients. No one survived... The cause of the fire was arson.
+  Left derelict for over 50 years, Heathcote Asylum is now known as a hot-spot of supernatural activity. David Scott will go in and face its wrath. Tune in at 9pm for the most terrifying Christmas gift you'll ever receive, only on 108.2 Eagle FM.
+At 0.1 seconds, waypoint becomes "commercial".
+At 10.3 seconds, lockout becomes "0".
+At 0.1 seconds, ambience1 fades out over 0 seconds.
+At 0.1 seconds, ambience2 fades out over 0 seconds.
+Next: "commercial reflection", when always.
+Opens the action "commercial skip".
+
+Spiel: commercial reflection
+Recording: game/data/Audio/story/scene/commercial reflection.mp3
+Reached from: the action "commercial skip"; the end of "commercial".
+Transcript:
+  MARTIN:   It's really not that bad.
+  DAVID:  It’s crap, Martin. It's like the trailer for a freaking Corman picture. Total schlock.
+  MARTIN: Look, we can send them back notes and see if they have time to change it before it goes to air.
+  DAVID:  Do their jobs for them, you mean?
+  MARTIN:  Alright, you've clearly got all the answers. So, how would you do an ad for this show?
+  DAVID: Where do I even start? Okay, here's an idea: We start with the details. (putting on a phony sounding announcer voice) On Christmas Day, 1956, all 89 residents of the Heathcote Asylum for the criminally insane were burned to death--
+  MARTIN:  (interrupting): Still sounds pretty cheeseball to me.
+  Look, it's not like there's a science to advertising a paranormal investigator show on the radio. The guys we were with on TV, sure, they knew how to push a show like this, but-
+  DAVID  (interrupting): I've gone from television to radio. At this rate, by next year I'll be standing at a freeway exit holding a sign that says "Will hunt ghosts for food."
+  MARTIN:  And I'll be right there with you holding one that says "Reality television producer for hire."
+  MARTIN AND DAVID: (laugh)
+  MARTIN:  Really though, what would you do?
+  DAVID:  Well, it’s gotta play with what people are afraid of... Like, what are you most afraid of?
+At 0.1 seconds, waypoint becomes "what do you fear?".
+At 0.1 seconds, lockout becomes "1".
+At 79.2 seconds, lockout becomes "0".
+At 0.1 seconds, ambience2 fades to "outside, calm (M-C)" over 1 second.
+When it ends, the idle loop "idle loop (path)" plays.
+Opens the action "I fear clowns".
+Opens the action "I fear spiders".
+Opens the action "I fear darkness".
+Opens the action "repeat question (fear)".
+
+Spiel: I fear clowns
+Recording: game/data/Audio/story/scene/I fear clowns.mp3
+Reached from: the action "I fear clowns".
+Transcript:
+  MARTIN:  Me? We've talked about it before... Clowns, man..
+  DAVID:  Exactly! So why didn’t they have a clown laughing quietly through the trailer?
+  MARTIN:  Dude, not everyone’s afraid of clowns...
+At 0.1 seconds, fear becomes "clowns".
+At 0.1 seconds, waypoint becomes "approach the door?".
+At 0.1 seconds, lockout becomes "1".
+Next: "David's fear", when always.
+
+Spiel: I fear spiders
+Recording: game/data/Audio/story/scene/I fear spiders.mp3
+Reached from: the action "I fear spiders".
+Transcript:
+  MARTIN:  Me? You know that already... Spiders, man..
+  DAVID:  Exactly! So why didn’t they have the sound of spiders?
+  MARTIN:  Dude, not everyone’s afraid of them... And how in the hell do you hear them?
+  DAVID:  Okay, bad example.
+At 0.1 seconds, fear becomes "spiders".
+At 0.1 seconds, waypoint becomes "approach the door?".
+At 0.1 seconds, lockout becomes "1".
+Next: "David's fear", when always.
+
+Spiel: I fear darkness
+Recording: game/data/Audio/story/scene/I fear darkness.mp3
+Reached from: the action "I fear darkness".
+Transcript:
+  MARTIN:  Me? We've talked about it before... The dark...
+  DAVID:  Exactly! So why didn’t they play on that idea a bit in the trailer?
+  MARTIN:  Well, not everyone’s afraid of the dark...
+At 0.1 seconds, fear becomes "darkness".
+At 0.1 seconds, waypoint becomes "approach the door?".
+At 0.1 seconds, lockout becomes "1".
+Next: "David's fear", when always.
+
+Spiel: repeat question (fear)
+Recording: game/data/Audio/story/scene/repeat question (fear).mp3
+Reached from: the action "repeat question (fear)".
+Transcript:
+  MARTIN: Sorry, what were you asking?
+  DAVID: Your fears, Martin. If the trailer played to your deepest fear, what would it be?
+
+Spiel: David's fear
+Recording: game/data/Audio/story/scene/David's fear.mp3
+Reached from: the end of "I fear clowns"; the end of "I fear spiders"; the end of "I fear darkness".
+Transcript:
+  MARTIN: You almost there?
+  DAVID:  Yeah, getting to the door... Anyway, it's the principle of the thing.  I’m afraid of the dark, but-
+  MARTIN: Wait…You’re afraid of the dark?
+  DAVID: Yeah- and
+  SFX: CRASH OF LIGHTNING
+  CONVERSATION INTERRUPTED BY:
+  SFX - CRASH OF THUNDER, LOUD, SUDDEN - FOLLOWED BY A TORRENTIAL DOWNPOUR
+  DAVID: DAMN!
+  MARTIN:  Rain?
+  DAVID:  Nuclear apocalypse, actually... Yeah, of course rain. Came outta nowhere, too. Sky was pretty clear on the drive up. Crap. Hold on, my phone's getting wet.
+  [SFX: DAVID RUNNING UP THE WET STONE STEPS. THE RAIN BEATS DOWN.]
+  MARTIN: Shoulda stayed in LA...
+  SFX: DAVID CONTINUES UP THE STEPS. THE RAIN POUNDS DOWN HARDER. DAVID IS PANTING AND OUT OF BREATH AS HE GETS TO A SHELTERED AREA BY THE FRONT DOOR. AS HE FINDS SHELTER, THE SOUND OF RAIN GETS MORE DISTANT.
+  DAVID :  (out of breath) Okay... I’m here.
+  MARTIN:  You need to work out more, man!
+  DAVID (CONT’D):  Funny guy!... Anyway... I'm opening the door ... Let's hope the owner wasn't right...
+  MARTIN:  Whattdya mean?
+  DAVID:  When he gave me the keys, he went all Crazy Ralph on me.
+  MARTIN: Ah, whatever. Just get in there...
+At 0.1 seconds, waypoint becomes "outside entrance".
+At 0.1 seconds, fear of the dark becomes "1".
+At 0.1 seconds, Crazy Ralph becomes "1".
+At 0.1 seconds, Crazy Ralph recency becomes "warm".
+At 0.1 seconds, where you at? becomes "outside entrance".
+At 0.1 seconds, location becomes "front door".
+At 0.1 seconds, lockout becomes "1".
+At 50 seconds, lockout becomes "0".
+At 10 seconds, ambience2 fades to "outside, stormy (M-C)" over 5 seconds.
+Opens the action "Crazy Ralph (warm)".
+Opens the action "enter from outside".
+Opens the action "Crazy Ralph (cold)".
+Opens the action "fear of the dark".
+Opens the action "where you at? (outside entrance)".
+
+Spiel: Crazy Ralph (warm)
+Recording: game/data/Audio/story/scene/Crazy Ralph (warm).mp3
+Reached from: the action "Crazy Ralph (warm)".
+Transcript:
+  MARTIN:  Who the hell is Crazy Ralph?
+Next: "Crazy Ralph", when always.
+
+Spiel: enter from outside
+Recording: game/data/Audio/story/scene/enter from outside.mp3
+Reached from: the action "enter from outside".
+Transcript:
+  SFX: THE SOUND OF CLANKING KEYS BEING REMOVED FROM DAVID'S POCKET, JANGLING AROUND, AND UNLOCKING THE LARGE FRONT DOOR.
+  MARTIN: Any last words? Dark’s gonna get you, so may as well-
+  DAVID: Martin, I freakin' hate you.
+  MARTIN: (As Crazy Ralph) DOOOOOOOOMED!
+  SFX: [MARTIN LAUGHS ON OUR END, AND OVER THE PHONE WE HEAR THE DOOR BEING UNLOCKED AND SLOWLY OPENED. IT CREAKS HEAVILY AS IT'S PUSHED OPEN. WE HEAR THE EFFORT OF PUSHING IT OPEN. WE HEAR DAVID STEPPING IN.
+  DAVID (CONT’D): Okay, I'm walking in through the front door and--Woah!
+  SFX: HIS VOICE ECHOES INSIDE THE ABANDONED ASYLUM.
+  MARTIN: What?
+  DAVID: This seems way bigger on the inside.
+  MARTIN: Plans say that there are 2 doors. The one to your left leads to the offices leading to the cells, doctor's office and the east wing. The other door,  on your right, leads to the basement and kitchen.
+  SFX: THERE IS A SCUTTLE OF RATS IN THE DISTANCE, ECHOING. THE RAIN BEATS HARD ON THE WINDOWS. WE HEAR THE WIND HOWL OUTSIDE.
+  DAVID (CONT’D): Okay. Creepy dark room, check; rat infestation, check; storm, check. All we need is to find an old book bound in flesh and we'll have the full monty here.
+  MARTIN: Working electricity?
+  DAVID: Hold on...
+  SFX: DAVID WALKS AND FLIPS AN OLD LIGHTSWITCH ON THE WALL.
+  DAVID (CONT’D): YES!
+  MARTIN: Yeah?
+  DAVID: Nah man, I’m kidding. This place is..
+  SFX: AS DAVID STARES AT THE ROOM WE HEAR ALL THE AMBIENT NOISES: THE STORM OUSIDE, A FEW STRAY DRIP-DRIP-DRIPS ECHOING.
+  DAVID (CONT’D): ...dead. Good thing I got my flashlight...
+  SFX: DAVID'S FLASHLIGHT BEING SWITCHED ON.
+At 0.1 seconds, Crazy Ralph recency becomes "cold".
+At 0.1 seconds, waypoint becomes "inside entrance".
+At 0.1 seconds, where you at? becomes "inside entrance".
+At 0.1 seconds, rats becomes "1".
+At 0.1 seconds, location becomes "entering Heathcote".
+At 0.1 seconds, lockout becomes "1".
+At 34 seconds, lockout becomes "0".
+At 9 seconds, ambience2 fades to "indoors (M-C)" over 4 seconds.
+Opens the action "basements and kitchens".
+Opens the action "offices and cells".
+Opens the action "Crazy Ralph (cold)".
+Opens the action "rats".
+Opens the action "where you at? (inside entrance)".
+
+Spiel: fear of the dark
+Recording: game/data/Audio/story/scene/fear of the dark.mp3
+Reached from: the action "fear of the dark".
+Transcript:
+  MARTIN: Did I hear you right earlier? You're afraid of the dark?
+  DAVID: Huh?
+  MARTIN: You’re at an asylum, on your own, at night, and you decide to spring this on me tonight - after 15 years of you working in dark places? Shouldn't you be doing my job? Sitting at home, relaxing, looking at building plans...
+  DAVID:  I gotta earn a living, man. No point letting fear ruin my livelihood.
+  MARTIN:  You’re a braver man than I... Or a stupider one.
+  DAVID:  Probably option number two... Anyway, I’m ready.
+At 0.1 seconds, fear of the dark becomes "0".
+At 0.1 seconds, Crazy Ralph recency becomes "cold".
+Opens the action "Crazy Ralph (cold)".
+
+Spiel: where you at? (outside entrance)
+Recording: game/data/Audio/story/scene/where you at (outside entrance).mp3
+Reached from: the action "where you at? (outside entrance)".
+Transcript:
+  MARTIN: What's happening, David?
+  DAVID: Outside still, just by the front door. Want me to go in?
+At 0.1 seconds, Crazy Ralph recency becomes "cold".
+Opens the action "Crazy Ralph (cold)".
+
+Spiel: Crazy Ralph
+Recording: game/data/Audio/story/scene/Crazy Ralph.mp3
+Reached from: the end of "Crazy Ralph (warm)"; the end of "Crazy Ralph (cold)".
+Transcript:
+  DAVID:  Oh c'mon - you know (doing an impression of an old man): " You're doomed. You're all doomed. Don't let it know you're afraid. If it senses your fear, it'll feed on it. You're DOOOOOOMED"
+  MARTIN:  (laughs)
+  DAVID:  You know, the usual crap. I swear, there's a certain kind of personality type to the people that own these places. Old, crazy and paranoid, every freakin' one of 'em.
+  MARTIN: Ah, quit your whining. You love those crazy old coots trying to ward you off!
+At 0.1 seconds, Crazy Ralph becomes "0".
+
+Spiel: basements and kitchens
+Recording: game/data/Audio/story/scene/basement and kitchens.mp3
+Reached from: the action "basements and kitchens".
+Transcript:
+  MARTIN: Check out the basement and kitchen first. Leave the best for last.
+  DAVID: Okay... Right it is.
+  [SFX: Crash of a door slamming to the right.]
+  MARTIN: What was that?
+  DAVID: Uhhh...
+  MARTIN: Yeah?
+  DAVID: It just slammed shut
+  MARTIN: Maybe it heard you?
+  [SFX: WE HEAR DAVID WALKING FOR A FEW SECONDS.]
+  DAVID: Well... I'm at the door...That's weird.
+  MARTIN: What?
+  [SFX: DAVID JIGGLES THE LOCK.]
+  DAVID: It's locked... with a padlock.
+  MARTIN: I thought you said it just slammed shut?
+  DAVID: Must have been another door. This place is really dark.
+  [SFX: DAVID LEANS ON DOOR]
+  DAVID: I can hear the wind behind it though; sounds huge.
+  [SFX: More rattling of lock]
+At 0.1 seconds, lockout becomes "1".
+At 26.3 seconds, lockout becomes "0".
+Next: "shut door (clowns)", when fear is "clowns".
+Next: "shut door (spiders)", when fear is "spiders".
+Next: "shut door (darkness)", when fear is "darkness".
+
+Spiel: spiel 1
+Recording: game/data/Audio/story/scene/spiel 1.mp3
+Reached from: the action "offices and cells".
+Transcript:
+  MARTIN: Why don't you start your shpiel? Let's get as much audio as we can of you first entering.
+  DAVID: Ok...
+  MARTIN: Don't worry, I can cut all you are saying together after. No need to do the presenter stuff..
+  DAVID: No. It's gotta be right. Gotta be genuine, my man!
+  MARTIN: Fine, have your stupid scruples. Start whenever you want.
+  [SFX: DAVID CLEARS HIS THROAT.]
+  DAVID: I am now in the foyer of the former Heathcote asylum...
+  [SFX: Some static can be heard on the line.]
+  DAVID (CONT’D): The fire didn’t reach this far. In all it seems like a normal derelict building of its time... The windows are thick with grime from decades of neglect...
+  [SFX: He starts to walk around.]
+  DAVID (CONT’D): Upon entering I heard some rats. But what could they be eating in a place like this? Moss grows on some of the window sills... So life is continuing, even in this desolate place... [INCREASINGLY DRAMATIC] I have a feeling though that this place doesn't want us here... [BACK TO NORMAL] Then Martin, here you'd cut in the door slam.
+  MARTIN: Thought it had to be genuine?
+  DAVID: Well, we do our best to be genuine. But we're not freakin' saints here, man.
+  [SFX: The wind howls through a broken pane on the other side of the room.]
+  DAVID (CONT’D): The owner of the property refuses to rebuild here, just letting it sit vacant. When I questioned him about it, he would not tell me why.
+  [SFX: HE WALKS ACROSS THE ROOM SLOWLY.]
+  DAVID (CONT’D): I presume it would be expensive to do anything with it, and this whole area is so remote, there are probably few buyers... Especially with the tragedy that happened here.
+  DAVID [BACK IN CHARACTER]: How we doing so far? Loud and clear?
+At 0.1 seconds, where you at? becomes "foyer during spiel".
+At 0.1 seconds, waypoint becomes "spiel 2".
+At 0.1 seconds, location becomes "the presenter stuff".
+At 0.1 seconds, lockout becomes "1".
+At 0.1 seconds, cellphone becomes "rotation 1".
+At 0.1 seconds, fear of the dark becomes "0".
+At 0.1 seconds, rats becomes "0".
+At 0.1 seconds, Crazy Ralph becomes "0".
+At 36.4 seconds, lockout becomes "0".
+At 23.075 seconds, ambience2 fades to "indoors" over 6.15 seconds.
+Opens the action "spiel 2".
+Opens the action "cellphone (rotation 1)".
+Opens the action "where you at? (during spiel)".
+
+Spiel: Crazy Ralph (cold)
+Recording: game/data/Audio/story/scene/Crazy Ralph (cold).mp3
+Reached from: the action "Crazy Ralph (cold)".
+Transcript:
+  MARTIN: Did you say the owner went all... Crazy Ralph? on you?
+Next: "Crazy Ralph", when always.
+
+Spiel: rats
+Recording: game/data/Audio/story/scene/rats.mp3
+Reached from: the action "rats".
+Transcript:
+  MARTIN:  Before you go on, get some sounds of those rats for me will ya?
+  DAVID:  Sure... Ah jeez, they're big suckers. Wonder what they're eating around here.
+  [SFX: DAVID WALKS OVER CLOSER TO THE RATS IN THE CORNER OF THE ROOM. AS WE GET CLOSER WE HEAR THEIR SQUEAKS, UNTIL THEY NOTICE HIM APPROACHING AND SCUTTLE AWAY.]
+  DAVID:  They don't like visitors, I guess...
+At 0.1 seconds, rats becomes "0".
+
+Spiel: where you at? (inside entrance)
+Recording: game/data/Audio/story/scene/where you at (inside entrance).mp3
+Reached from: the action "where you at? (inside entrance)".
+Transcript:
+  DAVID: I’m just inside the front door. Happy to be out of the rain, but man, this place…  Anyway, there are two doors ahead of me off the foyer.
+
+Spiel: shut door (clowns)
+Recording: game/data/Audio/story/scene/shut door (clowns).mp3
+Reached from: the end of "basements and kitchens".
+Transcript:
+  DAVID:  Wait! If I put my ear riiiight up to it, is that...is that circus music?
+Next: "shut door (end)", when always.
+
+Spiel: shut door (spiders)
+Recording: game/data/Audio/story/scene/shut door (spiders).mp3
+Reached from: the end of "basements and kitchens".
+Transcript:
+  DAVID:  I'll bet it's full of spiders.
+Next: "shut door (end)", when always.
+
+Spiel: shut door (darkness)
+Recording: game/data/Audio/story/scene/shut door (darkness).mp3
+Reached from: the end of "basements and kitchens".
+Transcript:
+  DAVID:  It's probably just an endless, empty void of despair and darkness...
+Next: "shut door (end)", when always.
+
+Spiel: spiel 2
+Recording: game/data/Audio/story/scene/spiel 2.mp3
+Reached from: the action "spiel 2".
+Transcript:
+  MARTIN: Your levels are fine. Keep going...
+  [DAVID mutters an acknowledgement]
+  [SFX: He walks through a door into another room.]
+  DAVID (CONT’D): I am now in what looks to be an office... The rain from outside is streaming in through cracks in the ceiling. There are a couple of old typewriters covered in dust, and rusting.
+  [SFX: He presses a couple of the keys which clack loudly.]
+  DAVID (CONT’D): There is some graffiti on the wall here...
+  [SFX Martin flushes the toilet]
+  DAVID: (Breaking from his serious presenter character)... Really?
+  MARTIN (Laughing): When nature calls.
+  DAVID: Get back to your desk!
+  MARTIN: Okay okay... Now, can you say that again?
+  DAVID: You're an ass, you know that? Anyway... (back in character) There's some graffiti here... Barely readable... and a couple doors leading out. (NORMAL VOICE) Martin, do you know where they lead?
+  MARTIN:  Oh, uh... says here one leads to the cells, one leads to the offices, and there should also be an entrance to the east wing.
+  DAVID: Yeah... sounds about right.
+At 0.1 seconds, waypoint becomes "typewriter room".
+At 0.1 seconds, where you at? becomes "typewriter room".
+At 0.1 seconds, location becomes "foyer office".
+At 0.1 seconds, lockout becomes "1".
+At 59.6 seconds, lockout becomes "0".
+Opens the action "typewriters".
+Opens the action "graffiti".
+Opens the action "east wing (typewriter room)".
+Opens the action "cells (from typewriter room)".
+Opens the action "offices (from typewriter room)".
+Opens the action "where you at? (typewriter room)".
+
+Spiel: cellphone (rotation 1)
+Recording: game/data/Audio/story/scene/cellphone (rotation 1).mp3
+Reached from: the action "cellphone (rotation 1)".
+Transcript:
+  how's your phone? battery still good?
+  Yeah, it's full. Should be fine.
+At 0.1 seconds, cellphone becomes "rotation 2".
+Opens the action "cellphone (rotation 2)".
+
+Spiel: where you at? (during spiel)
+Recording: game/data/Audio/story/scene/where you at (during spiel).mp3
+Reached from: the action "where you at? (during spiel)".
+Transcript:
+  DAVID: Still in the main foyer. Still recording?
+
+Spiel: shut door (end)
+Recording: game/data/Audio/story/scene/shut door (end).mp3
+Reached from: the end of "shut door (clowns)"; the end of "shut door (darkness)"; the end of "shut door (spiders)".
+Transcript:
+  MARTIN: Haha. Just try and open it.
+  DAVID: You mean with my non-existent safecracking skills?
+  [SFX: WE HEAR DAVID TAKE A FEW STEPS AS HE LOOKS AROUND.]
+  MARTIN: Smart ass.
+
+Spiel: typewriters
+Recording: game/data/Audio/story/scene/typewriters.mp3
+Reached from: the action "typewriters".
+Transcript:
+  MARTIN: Anything interesting with the typewriters?
+  [SFX: footsteps]
+  DAVID: Meh...
+  [SFX: He presses a couple of the keys which clack loudly.]
+  DAVID: Nah. No paper in them. Way too dark to read what's left on the rollers.
+  [SFX, INTERRUPTING: same 'new email' sound on Martin's PC as act 1]
+  DAVID: So soon? Can't be any worse than the last commercial!
+  [SFX: Martin's mouse clicking]
+  MARTIN: No... It's just a bunch of random letters... That's weird...
+
+Spiel: graffiti
+Recording: game/data/Audio/story/scene/graffiti.mp3
+Reached from: the action "graffiti".
+Transcript:
+  MARTIN: Can you make out the graffiti?
+  DAVID: It's barely readable... What the..?  It says... It's difficult to read... “I... Can smell... uh... Burning... hair... I can smell burning hair"... Jesus, that's weird...
+  MARTIN (CONT’D): That related to the fire?
+  DAVID: I can't imagine it would've been very easy to write while on fire.
+  MARTIN: What's it written in? Spraypaint?
+  DAVID: Don't think so. Lemme take a closer look.
+  [SFX: We hear David step closer.]
+  DAVID: No, it's something brown and... oh, fu... I think it's written in feces. Jesus.
+  MARTIN: Really? You sure?
+  DAVID: No. I mean, it's brown and it's starting to chip off. It really looks like-
+  MARTIN: Maybe it's dried blood?
+  DAVID: Whatever it is, it's... wait, there's more grafitti on the other wall... Same thing. This wall says "I can smell burning hair" over and over. Maybe two, three dozen times. It looks like it was written in a hurry, too. The letters are overlapping. Not gonna lie, this is pretty eerie....
+
+Spiel: east wing dispatch
+Recording: none, it only chooses what comes next
+Reached from: the action "east wing (foyer)"; the action "east wing (typewriter room)".
+Next: "east wing (blocked 3)", when examined painting is "1", and cells done is "1".
+Next: "east wing (blocked 1)", when east wing excuse is "0".
+Next: "east wing (blocked 2)", when east wing excuse is "1".
+
+Spiel: cells
+Recording: game/data/Audio/story/scene/cells.mp3
+Reached from: the action "cells (from typewriter room)"; the action "cells (from foyer)".
+Transcript:
+  DAVID: Checking out the cells now.
+  MARTIN: Sounds good.
+  [SFX: we hear him walk into from the room through the door.]
+  DAVID: Leads into a hallway...
+  [He walks into a long hallway of patient rooms. We hear the wind howling in there.]
+  DAVID (CONT’D): And here we are.... Jeez, it's a long damn hallway.. anyway.. Just gonna talk some more for atmosphere... (back in character) I think this heads towards the main complex, which was destroyed by the fire... It is said after they died, the spirits of the insane walked back to their cells and stayed there. Some say even their souls were too mentally ill to be granted residence in the afterlife.
+  MARTIN: Who said that?
+  DAVID: I'm being dramatic, man... We've got a show to record, 'member?
+  MARTIN: Fine, but-
+  [SFX: a door slams loudly.]
+  DAVID: Damn! Another!? What is it with the doors here?
+  [SFX: The call with David is dropped. A tone can be heard.]
+  MARTIN: David? David, you there? David? Damn!
+At 0.1 seconds, waypoint becomes "dropped call".
+At 0.1 seconds, where you at? becomes "0".
+At 0.1 seconds, location becomes "approaching the cells".
+At 0.1 seconds, lockout becomes "1".
+At 0.1 seconds, cellphone becomes "0".
+At 63.5 seconds, lockout becomes "0".
+At 0.1 seconds, ambience fades to "indoors" over 6 seconds.
+At 61 seconds, ambience1 fades to "Martin office" over 4 seconds.
+At 57.95 seconds, ambience2 fades out over 0 seconds.
+At 62 seconds, ambience2 fades to "disconnected tone" over 1 second.
+Opens the action "landline (dropped call)".
+Opens the action "cellphone (dropped call)".
+
+Spiel: offices
+Recording: game/data/Audio/story/scene/offices.mp3
+Reached from: the action "offices (from typewriter room)"; the action "offices (from foyer, 1st visit)".
+Transcript:
+  DAVID: Okay... I'm gonna go to the offices... It leads to... Well... Nothing... An empty room... but for a painting on the wall.
+  SFX: DAVID TAKES A FEW STEPS AROUND.
+  DAVID: (Curiously) Huh... That's...
+  MARTIN: What?
+  DAVID: There's no furniture, but there's still marks on the floor where the furniture was... Looks like it was moved recently.
+  MARTIN: Think it was Crazy Ralph moving some stuff around?
+  DAVID: Maybe, but he told me he never actually comes in here.
+At 0.1 seconds, waypoint becomes "offices".
+At 0.1 seconds, where you at? becomes "offices 1".
+At 0.1 seconds, location becomes "offices".
+At 0.1 seconds, lockout becomes "1".
+At 21.2 seconds, lockout becomes "0".
+At 0.1 seconds, ambience fades to "offices" over 6 seconds.
+At 4 seconds, ambience2 fades to "offices" over 7 seconds.
+Opens the action "painting".
+Opens the action "doctor's office".
+Opens the action "foyer from painting room".
+Opens the action "where you at? (offices 1)".
+
+Spiel: where you at? (typewriter room)
+Recording: game/data/Audio/story/scene/where you at (typewriter room).mp3
+Reached from: the action "where you at? (typewriter room)".
+Transcript:
+  DAVID (CONT’D): It's a small office just off the foyer. There's a couple of old typewriters covered in dust... lots of graffiti... not much else. I think I can still get to the cells or offices from here.
+
+Spiel: cellphone (rotation 2)
+Recording: game/data/Audio/story/scene/cellphone (rotation 2).mp3
+Reached from: the action "cellphone (rotation 2)".
+Transcript:
+  how's your signal?
+  Um. 4 bars. We're good.
+At 0.1 seconds, cellphone becomes "rotation 1".
+Opens the action "cellphone (rotation 1)".
+
+Spiel: east wing (blocked 3)
+Recording: game/data/Audio/story/scene/east wing (blocked 3).mp3
+Reached from: the end of "east wing dispatch".
+Transcript:
+  MARTIN: OK, you sure you don't feel like playing Tarzan?
+  DAVID: What?
+  MARTIN: Like, swinging from vine to vine, crossing the swamp?
+  DAVID: Sorry, did I miss something?
+  MARTIN: Dude, the east wing.
+  DAVID: What about it?
+  MARTIN: You said the entrance was too overgrown to get through?
+  DAVID (really puzzled now): What?
+  MARTIN: The... Am I...? [missing something]
+  DAVID: I said that *painting* had crap growing on it where the entranceway was. Not the real thing.
+  MARTIN: Uh...
+  DAVID: You want me to go there?
+  MARTIN (confused rather than creeped): Y...yes. Please.
+  [SFX: footsteps]
+  DAVID (mocking Martin, impersonates tarzan) Ahhh-oo-aa-oo-aa oo-aa-oo-aa
+  (The tarzan call echoes all around)
+  [DAVID chuckles under his breath at the echo]
+  [SFX: footsteps with echo. But as he walks further, we hear that the missing roof is letting the elements in. Rain and wind.]
+  [IDLE LOOP: continuing footsteps]
+At 0.1 seconds, location becomes "entering east wing".
+At 0.1 seconds, waypoint becomes "entering east wing".
+At 0.1 seconds, where you at? becomes "passage to east wing".
+At 0.1 seconds, lockout becomes "1".
+At 24.25 seconds, lockout becomes "0".
+At 20 seconds, ambience2 fades to "east wing less rain" over 5 seconds.
+When it ends, the idle loop "idle loop (footsteps)" plays.
+Opens the action "start recording (passage to east wing)".
+Opens the action "where you at? (passage to east wing)".
+
+Spiel: east wing (blocked 1)
+Recording: game/data/Audio/story/scene/east wing (blocked 1).mp3
+Reached from: the end of "east wing dispatch".
+Transcript:
+  MARTIN: OK, can you get to the east wing?
+  [SFX: footsteps]
+  DAVID: I wouldn't get your hopes up. The entranceway's burned to crap. Nature's taken over.
+  (trying to tiptoe thru vegetation):
+  DAVID (CONT'D): It's like a little mangrove swamp from where all the rainwater's settled amongst the... the weeds and the... vines... eesh.
+  MARTIN: The east wing is where the fire started. It was going to be the focus of the whole show. You really can't get there?
+  DAVID: Dude, there's no way.
+At 0.1 seconds, east wing excuse becomes "1".
+
+Spiel: east wing (blocked 2)
+Recording: game/data/Audio/story/scene/east wing (blocked 2).mp3
+Reached from: the end of "east wing dispatch".
+Transcript:
+  MARTIN: You really can't get to the east wing?
+  DAVID: not with this little... garden and... water feature in the entranceway, no.
+  MARTIN: yeah, but... maybe there's something around there that'd help you get across?
+  DAVID: Dude, it's an asylum, not a hardware store.
+At 0.1 seconds, east wing excuse becomes "0".
+
+Spiel: landline (dropped call)
+Recording: game/data/Audio/story/scene/landline (dropped call).mp3
+Reached from: the action "landline (dropped call)".
+Transcript:
+  MARTIN: Damnit, damnit, damnit!
+  [SFX: He dials. It goes straight to voicemail.]
+  DAVID (answering machine): You've reached David Scott. I can't make it to the phone right now, so please leave a message.
+  [MARTIN exclaiming stressed frustration]
+  [SFX: beep]
+  [AMBIENCE changes to phone comfort noise]
+At 0.1 seconds, ambience2 fades out over 0.25 seconds.
+
+Spiel: cellphone (dropped call)
+Recording: game/data/Audio/story/scene/cellphone (dropped call).mp3
+Reached from: the action "cellphone (dropped call)".
+Transcript:
+  MARTIN (anxious): Come on David...
+  [SFX: cellphone dialing]
+  DAVID (answering machine): You've reached David Scott. I can't make it to the phone right now, so please leave a message.
+  [SFX: of landline ringing, loudly, interrupting the early part of voicemail greeting. The voicemail picks up and starts playing its greeting, exactly as per the start of act 1. Martin immediately lifts the receiver].
+  DAVID (Laughing): Sorry, I dropped the phone.
+  MARTIN: Thought the dark got ya.
+  DAVID (Unimpressed): Funny guy.
+  MARTIN: Where are you now?
+  DAVID: A hallway... I think it leads into the east wing.
+  MARTIN: What’s the banging?
+  DAVID: Wind slamming the cell doors.
+  MARTIN: Glad you’re alive.
+  DAVID: Alive to die another day, my man. Okay. You still set up? I'm ready when you are.
+At 0.1 seconds, waypoint becomes "reconnected".
+At 0.1 seconds, where you at? becomes "cell block C, windy".
+At 0.1 seconds, location becomes "cell block C".
+At 0.1 seconds, lockout becomes "1".
+At 0.1 seconds, cellphone becomes "rotation 1".
+At 35.7 seconds, lockout becomes "0".
+At 17 seconds, ambience1 fades out over 3 seconds.
+At 0.1 seconds, ambience2 fades out over 0.75 seconds.
+At 17 seconds, ambience2 fades to "indoors (M-C)" over 1.5 seconds.
+At 27 seconds, ambience2 fades to "cells, windy" over 4.5 seconds.
+Opens the action "spiel 3".
+Opens the action "cellphone (rotation 1)".
+Opens the action "where you at? (cell block C, windy)".
+
+Spiel: painting
+Recording: game/data/Audio/story/scene/painting.mp3
+Reached from: the action "painting".
+Transcript:
+  MARTIN: They took the furniture but left the painting. What's it of?
+  DAVID: It's just a painting of the asylum back in the day. The foyer...
+  DAVID (CONT'D): Heh... funny. The canvas has got moss growing on it, right where the east wing entranceway is.
+  MARTIN: Have a look behind it?
+  DAVID (disgusted): Scrape off the moss?
+  MARTIN: Behind *the painting*. I don't know, some people hide wall safes behind them.
+  DAVID: In Sherlock Holmes, maybe. What ya hoping for? Find a secret stash of that sweet, sweet mental asylum money?
+  MARTIN: I wouldn't complain if we did.
+  DAVID: Alright man, I'm checking.
+  [SFX: David lifts up the painting. It creaks quietly as he does.]
+  DAVID: Nope... Just a wall...
+  [SFX: As David re-hangs the painting, he drops it. It breaks on the floor.]
+  DAVID: Crap!
+  MARTIN: 89 victims, and now one painting?
+  DAVID: Yeah.
+At 43.8 seconds, examined painting becomes "1".
+Opens the action "offices (from foyer, denied)".
+
+Spiel: doctor's office
+Recording: game/data/Audio/story/scene/doctor's office.mp3
+Reached from: the action "doctor's office".
+Transcript:
+  [SFX:We hear a door open...]
+  DAVID: Okay.. Seems like a doctor's office... Just a desk and a chair... Some degrees on the wall.. Hmm.. All the names are scratched out on the certificates..
+  MARTIN: You can't read it?
+  DAVID: No... But someone has scratched something into the wall, just underneath...
+  MARTIN: Yeah?
+  DAVID: Just says "monster."
+  MARTIN: Okaaaaay... So a no name monster doctor? There a name plate on the desk?
+  DAVID: No, but there's a book.
+  [SFX: DAVID picks up the book, and flicks through it.]
+  DAVID: Seems like a note book.
+  [SFX: Flicking more pages... ]
+  DAVID: Entry dated December 19th 1956... Patient 3538, Joe Banks... Patient believes that a demon has taken up residence in Heathcote...  Complaining of claws scraping the bone of his skull to access his thoughts. His paranoid schitzophrenia leads me to surmise that the medication must be altered or changed radically. We'll put him forward for invasive treatment... I have not seen a case like this since back in the Fatherland.... Blah, blah, blah...
+  [SFX: More pages flicking.]
+  DAVID (CONT’D): Last entry is on December 24th... Day before the fire... Patient 3538's treatment was a success... His terror has been removed and offered... His prognosis is good... But his demeanour is now just one of desperation... He is telling other inmates to flee. We cannot have this... His shell may be still utilised... Tomorrow we shall look to increase his medication...
+  MARTIN: Wait.. Did you say offered?
+  DAVID: (Curiously) Yeah...
+  MARTIN: The hell?
+  DAVID: I don't know. Could be the owner planting this stuff around here to lend credibility to his story.
+  MARTIN: You think so?
+  DAVID: Honestly, no, I don't. But, it wouldn't be the first time something like this's been pulled on us, man.
+  [SFX: He puts the book back down onto the desk.]
+At 0.1 seconds, waypoint becomes "doctor's office".
+At 0.1 seconds, where you at? becomes "doctor's office".
+At 0.1 seconds, location becomes "doctor’s office".
+At 0.1 seconds, lockout becomes "1".
+At 80.4 seconds, lockout becomes "0".
+Opens the action "doctor's notebook".
+Opens the action "examination room".
+Opens the action "where you at? (doctor's office)".
+
+Spiel: where you at? (offices 1)
+Recording: game/data/Audio/story/scene/where you at (offices 1).mp3
+Reached from: the action "where you at? (offices 1)".
+Transcript:
+  DAVID: It's the first of the offices... An empty room, with a distressed painting and marks on the floor where the furniture was. Looks like things were moved about recently.
+
+Spiel: start recording (passage to east wing)
+Recording: game/data/Audio/story/scene/start recording (passage to east wing).mp3
+Reached from: the action "start recording (passage to east wing)"; the action "where you at? (entering east wing)".
+Transcript:
+  DAVID: Huh? (Remembering) Oh yeah. (Clears throat).
+  DAVID (presenter voice): I'm now walking towards the infamous east wing.
+  [SFX: a couple more footsteps]
+  DAVID (CONT'D): The fire burnt this area of the asylum pretty bad. Most of the roof has collapsed inward. As you can hear, it’s still raining outside. Raining inside this room, too.
+  [SFX: We hear David stop walking and sniff at the air.]
+  DAVID (confused, transition to normal voice): I can smell smoke...
+  [DAVID sniffs some more]
+  DAVID (CONT’D): Oh no.
+  MARTIN: What?
+  DAVID: It's the freaking flashlight. I charged the phone, but I forgot the goddamn batteries in the flashlight.
+  [IDLE LOOP: David clicking the flashlight; shaking it; banging it to try get more juice out of it]
+At 0.1 seconds, waypoint becomes "flashlight out".
+At 0.1 seconds, smoke becomes "1".
+At 0.1 seconds, flashlight becomes "just broke".
+At 0.1 seconds, where you at? becomes "passage to east wing".
+At 0.1 seconds, lockout becomes "1".
+At 38.6 seconds, lockout becomes "0".
+Opens the action "smoke".
+Opens the action "flashlight (just broke)".
+Opens the action "where you at? (passage to east wing)".
+
+Spiel: where you at? (passage to east wing)
+Recording: game/data/Audio/story/scene/where you at (passage to east wing).mp3
+Reached from: the action "where you at? (passage to east wing)".
+Transcript:
+  DAVID: It's the passageway leading to the east wing. The roof's collapsed: all the rain from outside is streaming in. The fire burnt the crap outta this place. In fact... I'm still smelling smoke.
+
+Spiel: spiel 3 (start)
+Recording: game/data/Audio/story/scene/spiel 3 (start).mp3
+Reached from: the action "spiel 3".
+Transcript:
+  DAVID: Let's pick up... In three.. Two... [AS PRESENTER] So I am here in cell block C. I think this is where the mid-level patients were held - those with severe mental issues, but not criminal... The wall at the end of the hallway is open to the elements. I can see the remains of the east wing past it; The place where 89 people lost their lives. From outside the vines are growing inwards, coating this hallway in its wooden tendrils...
+  He walks down the hall.
+  DAVID (CONT’D): It’s amazing... I have seen haunted houses, haunted ships, and many hospitals... But this is the only one where it seems nature is taking over...
+At 0.1 seconds, lockout becomes "1".
+Next: "spiel 3 (spiders)", when fear is "spiders".
+Next: "spiel 3 (clowns)", when fear is "clowns".
+Next: "spiel 3 (darkness)", when fear is "darkness".
+
+Spiel: where you at? (cell block C - windy)
+Recording: game/data/Audio/story/scene/where you at (cell block c - windy).mp3
+Reached from: the action "where you at? (cell block C, windy)".
+Transcript:
+  DAVID: (we can still hear the wind)  Cell block C, according to the last sign I saw. It’s wrecked like the rest of this place. Small cells line the hall. This is where the patients used to live.  Cozy.  The wind is really strong here, hope you’re getting everything.
+
+Spiel: doctor's notebook
+Recording: game/data/Audio/story/scene/doctors notebook.mp3
+Reached from: the action "doctor's notebook".
+
+Spiel: examination room
+Recording: game/data/Audio/story/scene/examination room.mp3
+Reached from: the action "examination room".
+Transcript:
+  DAVID: Okay.. Onto the next room...
+  [SFX: We hear David walk to the next room and open the door.]
+  DAVID: Okay, this is clearly the examination room. There's a big metal table in the center of the room with leather arm and leg straps on it. Stirrups as well. This is grim, man. It's caked with rust, and it looks like the rats have eaten bits of the straps away... Oh, wow...
+  MARTIN: What is it?
+  DAVID: There's a small shelving unit on the wall. It's a shrine or something. Old candles all around it, half melted. There's a stone statue of Christ in the middle.
+  MARTIN: Anything unusual about it?
+  DAVID: Other than the fact that there's a shrine in an examination room?
+At 0.1 seconds, waypoint becomes "examination room".
+At 0.1 seconds, where you at? becomes "examination room".
+At 0.1 seconds, location becomes "examination room".
+At 0.1 seconds, lockout becomes "1".
+At 34.4 seconds, lockout becomes "0".
+Opens the action "shrine".
+Opens the action "hallway".
+Opens the action "where you at? (examination room)".
+
+Spiel: where you at? (doctor's office)
+Recording: game/data/Audio/story/scene/where you at (doctors office).mp3
+Reached from: the action "where you at? (doctor's office)".
+Transcript:
+  DAVID: Seems like a doctor's office... A desk... with a notebook on it... a chair... Some degrees on the wall with the names scratched out. Yeah.
+
+Spiel: smoke
+Recording: game/data/Audio/story/scene/smoke.mp3
+Reached from: the action "smoke".
+Transcript:
+  MARTIN: Smoke? Isn't it soaking wet in there?
+  DAVID: Yeah, but I swear I smell smoke. Strong too, man. Like I'm standing next to a campfire.
+  [SFX: He steps on some burned wood, it cracks beneath each step - he treads carefully. The rain beats down around him.]
+  DAVID (presenter voice): There are burnt wood beams lining the whole area. I think they are from when the roof collapsed... You can see where the beams were moved to get the bodies out... There’s a large clearing in the middle of the room. It looks like the people must have been in one place...
+At 0.1 seconds, smoke becomes "0".
+
+Spiel: flashlight (just broke)
+Recording: game/data/Audio/story/scene/flashlight (just broke).mp3
+Reached from: the action "flashlight (just broke)".
+Transcript:
+  MARTIN: Haunted house 101, man. Always make sure the flashlight has batteries.
+  DAVID: It’s okay. I mean, it'll certainly make for a more exciting show. I’m going through to the site of the... Now suspected murders... The moon is bright... Should be okay...
+  [SFX: We hear him walking faster. We hear the rain outside getting closer.]
+At 0.1 seconds, flashlight becomes "0".
+At 0.1 seconds, lockout becomes "1".
+Next: "clearing", when always.
+
+Spiel: spiel 3 (spiders)
+Recording: game/data/Audio/story/scene/spiel 3 (spiders).mp3
+Reached from: the end of "spiel 3 (start)".
+Transcript:
+  DAVID:  (regular voice) Jesus! You would HATE it here.
+  MARTIN (CONT’D):  Why?
+  (PAUSE)
+  DAVID:  Let's just say the walls... There are more spiders than walls.
+  MARTIN:  C'mon!
+  DAVID:  I'm serious dude... and they are huge!  (jumps) Gah. Stupid wind, just blew one of them on me! (Pause) I’ll save him for you; a little present from Heathcote Asylum.
+  MARTIN: Yeahh….I’m good, thanks. Just keep recording!
+Next: "spiel 3 (end)", when always.
+
+Spiel: spiel 3 (clowns)
+Recording: game/data/Audio/story/scene/spiel 3 (clowns).mp3
+Reached from: the end of "spiel 3 (start)".
+Transcript:
+  SFX, in the distance - on the wind - a high pitched clown's laugh. Very very low.
+  MARTIN (CONT’D): What was that?
+  [SHORT PAUSE]
+  DAVID: Wha-
+  MARTIN: I heard something... A laugh... Like... A clown...
+  The wind howls.
+  DAVID (CONT’D): A clown? Nah man, it's just the wind picking up.
+Next: "spiel 3 (end)", when always.
+
+Spiel: spiel 3 (darkness)
+Recording: game/data/Audio/story/scene/spiel 3 (darkness).mp3
+Reached from: the end of "spiel 3 (start)".
+Transcript:
+  [Short, silent pause]
+  DAVID: Jesus, even though I have a light, its so damn dark. I can't even see the corners of the walls here-
+  MARTIN: C'mon dude, you're just gonna freak out yourself saying that!...
+Next: "spiel 3 (end)", when always.
+
+Spiel: shrine
+Recording: game/data/Audio/story/scene/shrine.mp3
+Reached from: the action "shrine".
+Transcript:
+  MARTIN: Hang on. Take a closer look at that shrine, will ya?
+  DAVID: Yeah, alright.
+  [SFX: WE HEAR DAVID TAKE A FEW STEPS CLOSER.]
+  DAVID: Okay, that's pretty weird. Looks as through someone chipped Jesus's face off. It's like they tried to recarve it. I can't tell what it's supposed to be, though. There's something jammed in one of the grooves. I'm pulling it out.
+  [SFX: WE HEAR DAVID PULL SOMETHING OUT.]
+  DAVID: Oh Christ!
+  MARTIN: What? What is it?
+  DAVID: It's a fingernail. Like it was pulled out at the root. I think someone scratched the face out with their nails.
+  MARTIN: Ouch...
+  DAVID: Yeah...
+
+Spiel: hallway
+Recording: game/data/Audio/story/scene/hallway.mp3
+Reached from: the action "hallway".
+Transcript:
+  MARTIN: Well, onward and upwards. What's next? Any other doors?
+  [SFX: We hear David walk to the next room. He opens the door, and walks through.]
+  DAVID: Just a hallway... A really long one...
+  [SFX: We hear his footsteps as he starts down the hallway.]
+  MARTIN: Wishing you stayed in the cells now?
+  DAVID: Lil' bit, man. Lil' bit.
+  DAVID: No doors... No windows...  If it wasn't for the flashlight I would be walking blind... Damn it...
+  [SFX: He walks on further...]
+  DAVID: Nothing here. God knows where this ends up...
+  [SFX: He walks even further...]
+  DAVID: There's more graffiti on the walls here...
+  MARTIN: What's it say?
+  DAVID: It's damn weird... It says:
+At 0.1 seconds, location becomes "hallway from offices".
+At 0.1 seconds, lockout becomes "1".
+Next: "hallway graffiti (clowns)", when fear is "clowns".
+Next: "hallway graffiti (spiders)", when fear is "spiders".
+Next: "hallway graffiti (darkness)", when fear is "darkness".
+
+Spiel: where you at? (examination room)
+Recording: game/data/Audio/story/scene/where you at (examination room).mp3
+Reached from: the action "where you at? (examination room)".
+Transcript:
+  DAVID: Some kind of examination room. There's a big metal table in the center with leather arm and leg straps on it. Stirrups as well. Caked with rust. Chewed-up by rats. There's a small shelving unit on the wall with some kind of shrine on it. Old candles all around it, half melted. A stone statue of Christ in the middle.
+
+Spiel: clearing
+Recording: game/data/Audio/story/scene/clearing.mp3
+Reached from: the end of "flashlight (just broke)".
+Transcript:
+  MARTIN: This might be one of those things we wait on until you can go back with someone else. It's dangerous for you to mess around in the dark.
+  DAVID: Scary as hell, too. Heh. Don't worry about it, Martin. I've got enough moonlight to see around. Plus, this room is freaking gold. The roof has totally collapsed in here. The whole room is open to the elements.
+  [SFX: The rain starts to fall heavier.]
+  DAVID: The rain is stopping.
+  MARTIN: What?
+  DAVID: I can only guess that this place-
+  MARTIN: David!
+  DAVID: What?
+  MARTIN: It’s still raining, what are you talking about? I can hear it!
+  DAVID: ... Oh... Yeah... I-... Huh.
+At 0.1 seconds, waypoint becomes "clearing".
+At 24 seconds, lockout becomes "0".
+At 21 seconds, ambience2 fades to "east wing more rain" over 4 seconds.
+Opens the action "go back (clearing)".
+Opens the action "keep going (clearing)".
+
+Spiel: spiel 3 (end)
+Recording: game/data/Audio/story/scene/spiel 3 (end).mp3
+Reached from: the end of "spiel 3 (clowns)"; the end of "spiel 3 (darkness)"; the end of "spiel 3 (spiders)".
+Transcript:
+  SFX the wind slams the door again. The wind picks up; soon lots of doors are banging.
+  DAVID (CONT’D) (Speaking above the howling wind): It would be as if the wind is actually this asylum’s...
+  Suddenly all the doors slam at once, and never bang again. The wind dies down in an instant, almost hearing what David said.
+  DAVID (CONT’D) (Shocked at the silence): ...ghost...
+  The wind is almost gone. We hear David breathing.
+  DAVID (CONT’D): I...  (Slightly nervous) Okay, this place just managed to unnerve me... For... For those at home, all the doors just slammed shut at once. Not one is left open. The wind is also gone. I... Damn...
+  MARTIN: You okay?
+  DAVID: Yeah... That was...
+  One of the doors at the end of the hallway opens. We hear the creak of the door far away.
+  DAVID (CONT’D) (Quietly): OK, one of the doors just opened on its own. That was... pretty damn creepy.
+At 0.1 seconds, waypoint becomes "self-opened door".
+At 0.1 seconds, where you at? becomes "cell block C, not windy".
+At 55 seconds, lockout becomes "0".
+At 13.5 seconds, ambience2 fades out over 0.5 seconds.
+At 16 seconds, ambience2 fades to "indoors, calm" over 10 seconds.
+At 7 seconds, ambience3 fades to "heartbeat (43bpm, pp)" over 1 second.
+Opens the action "self-opened door".
+Opens the action "where you at? (cell block C, not windy)".
+
+Spiel: hallway graffiti (clowns)
+Recording: game/data/Audio/story/scene/hallway graffiti (clowns).mp3
+Reached from: the end of "hallway".
+Transcript:
+  DAVID: "The fire ate their lips. Now they smile all the time."
+  MARTIN: What?
+  DAVID: Smiling... Like clowns.
+  MARTIN: Oh screw you, David.
+Next: "offices end", when always.
+
+Spiel: hallway graffiti (spiders)
+Recording: game/data/Audio/story/scene/hallway graffiti (spiders).mp3
+Reached from: the end of "hallway".
+Transcript:
+  DAVID: "Can you see in the dark without your eyes?"
+  MARTIN: What does that mean?
+  DAVID: I dunno, but in a dark hallway it's damn freaky...
+Next: "offices end", when always.
+
+Spiel: hallway graffiti (darkness)
+Recording: game/data/Audio/story/scene/hallway graffiti (darkness).mp3
+Reached from: the end of "hallway".
+Next: "offices end", when always.
+
+Spiel: go back (clearing)
+Recording: game/data/Audio/story/scene/go back (clearing).mp3
+Reached from: the action "go back (clearing)".
+Transcript:
+  MARTIN: I think you better leave. You can go back tomorrow - Get Phil, he’s on the east coast. We can wire him the money-
+  DAVID: No. No... It’s okay...
+At 0.1 seconds, lockout becomes "1".
+Next: "records room", when always.
+
+Spiel: keep going (clearing)
+Recording: game/data/Audio/story/scene/keep going (clearing).mp3
+Reached from: the action "keep going (clearing)".
+Transcript:
+  MARTIN: Anything else around there?
+At 0.1 seconds, lockout becomes "1".
+Next: "records room", when always.
+
+Spiel: self-opened door
+Recording: game/data/Audio/story/scene/self-opened door.mp3
+Reached from: the action "self-opened door".
+Transcript:
+  MARTIN: Have a look in there.
+  DAVID: Really?!
+  MARTIN: It's what you're there for!
+  DAVID (Playfully) FIIIIINNNNE!
+  [SFX:footsteps]
+  DAVID (CONT’D in presenter voice): So I'm standing in an empty damp hall, clearly a place used for the more difficult patients. It's lined with about four cells, each with small, round, windows. I can't imagine this place was ever hospitable.
+  MARTIN: Can you open any of them?
+  [SFX: We hear a door trying to be opened - it’s locked]
+  DAVID (CONT’D): Just the one. Seems when the doors close, they lock, but some junk kept this one from closing.
+At 0.1 seconds, waypoint becomes "open door".
+At 0.1 seconds, lockout becomes "1".
+At 38.5 seconds, lockout becomes "0".
+At 1 second, ambience3 fades out over 6 seconds.
+Opens the action "closed cells".
+Opens the action "open cell".
+
+Spiel: where you at? (cell block C - not windy)
+Recording: game/data/Audio/story/scene/where you at (cell block c - not windy).mp3
+Reached from: the action "where you at? (cell block C, not windy)".
+Transcript:
+  DAVID: (disturbed)  Cell block C.  It’s wrecked like the rest of this place. Small cells line the hall.  All the doors are shut except for the one that just opened. It’s dead quiet.
+
+Spiel: offices end
+Recording: game/data/Audio/story/scene/offices (end).mp3
+Reached from: the end of "hallway graffiti (clowns)"; the end of "hallway graffiti (spiders)"; the end of "hallway graffiti (darkness)".
+Transcript:
+  MARTIN: C'mon you're kidding, right? It doesn't really say that?
+  DAVID: I'm serious... Okay, I'm coming up to a corner... Oh wait... At the end of the hall I can see... Wait...
+  [SFX: He walks on... ]
+  MARTIN: Should be the foyer?
+  DAVID: Yeah, I can see it through the glass in the door ahead...
+  MARTIN: OK, head there. That's the best way to get to the east wing. It's also the entranceway to the cells...
+  [SFX: door opens. A few footsteps.]
+  DAVID: Hey, I'm back at the foyer.
+At 0.1 seconds, waypoint becomes "foyer".
+At 0.1 seconds, where you at? becomes "foyer".
+At 0.1 seconds, offices passed through becomes "1".
+At 0.1 seconds, cellphone becomes "50% battery".
+At 32.9 seconds, lockout becomes "0".
+At 28 seconds, ambience2 fades to "indoors" over 6 seconds.
+Opens the action "east wing (foyer)".
+Opens the action "foyer from painting room".
+Opens the action "cells (from foyer)".
+Opens the action "cells (from foyer, denied)".
+Opens the action "offices (from foyer, 1st visit)".
+Opens the action "offices (from foyer, denied)".
+Opens the action "offices (from foyer, 2nd visit)".
+Opens the action "cellphone (50% battery)".
+Opens the action "where you at? (foyer)".
+
+Spiel: records room
+Recording: game/data/Audio/story/scene/records room.mp3
+Reached from: the end of "keep going (clearing)"; the end of "go back (clearing)".
+Transcript:
+  DAVID (CONT'D from previous): There’s a room on the other side of the wing. I’m gonna check in there.
+  MARTIN: There light there?
+  [SFX: We heard him starting to walk across the room.]
+  MARTIN (CONT’D): David?
+  DAVID: It’s okay...
+  [SFX: We hear a door open, followed by a few footsteps]
+  DAVID (CONT’D): It looks like a records room. Lots of filing cabinets...
+  [SFX: door slams shut]
+  DAVID: Uh-oh. That's not good.
+  MARTIN (alarmed): What?
+  DAVID: The door shut. It's pitch black.
+  MARTIN: Geez...
+  (PAUSE)
+  DAVID: Uh...
+  MARTIN: Can you feel your way out?
+  DAVID: I'm tryin' man, I'm tryin'.
+At 0.1 seconds, waypoint becomes "records room (dark)".
+At 0.1 seconds, cellphone becomes "use light".
+At 0.1 seconds, smoke becomes "0".
+At 0.1 seconds, flashlight becomes "records room".
+At 0.1 seconds, where you at? becomes "records room, no light".
+At 0.1 seconds, location becomes "dark history".
+At 23 seconds, lockout becomes "0".
+At 10 seconds, ambience2 fades to "indoors, calm" over 4 seconds.
+Opens the action "flashlight (records room)".
+Opens the action "cellphone (records room)".
+Opens the action "where you at? (records room, no light)".
+
+Spiel: closed cells
+Recording: game/data/Audio/story/scene/closed cells.mp3
+Reached from: the action "closed cells".
+Transcript:
+  MARTIN: See if you can see anything in through the cell windows.
+  DAVID: Y'okay
+  [SFX: We hear David walk down the hallway and stop at a cell.]
+  DAVID: First cell... The window is pretty grimy... Hold on...
+  [SFX: We hear the window squeak as he wipes them with his hand.]
+  DAVID: Nothing much in here. Some shredded papers... Maybe newspaper. It's hard to tell--wait. I think... I think there's blood on the walls. Yeah... Yeah, it's definitely old blood. Looks like someone nicked an artery in here. Thick squirts. What the hell happened in here?
+  DAVID: Keep going? (PAUSE) OK, I'm just going to look through them all unless you tell me otherwise...
+  [SFX: We hear David'd footsteps. until he gets to the next cell and rubs the glass of the window to have a better look.]
+  DAVID: Cell 2. There seems to be grime on the other side of the window. I can't see a thing.
+  [SFX: Again we hear him walk a bit further and look in the window of the cell.]
+  DAVID: And this is the third. The window here is clear... Looking through, it looks as though the cot inside is pretty severely soiled. Or... No, it's burned. Jesus, it's like someone spontaneously combusted in the bed, but there are charred footsteps leading to it. Someone was on fire and... walked to the bed. Wait... the footsteps are out here too. They came from the next cell... The open one...
+  (short pause)
+  DAVID: Check it out?
+At 1 second, ambience3 fades to "heartbeat (43bpm, pp)" over 1 second.
+
+Spiel: open cell
+Recording: game/data/Audio/story/scene/open cell.mp3
+Reached from: the action "open cell".
+Transcript:
+  [SFX: He gets there. We hear the creak of the door.]
+  DAVID (CONT’D): It’s a small cell. Empty except for a bookshelf. I'm going to check it out.
+  MARTIN: Hell no! What if you get locked in?
+  DAVID: Then send the police! Anyway, I'll prop it open with this brick.
+  [sfx: brick dragging on stone]
+  MARTIN: Okay, fine. Just as long as you're sure.
+  [PAUSE]
+  DAVID: Hmmm... There're a few mystery books... A bible... Oh...
+  [SFX: We hear him pick up a book from the shelf.]
+  DAVID (CONT’D): This one says journal...
+  [SFX: We hear him pick up and leaf through a book]
+  DAVID (CONT’D): Inmate 3538, Joe Banks.
+  [SFX: He flicks through pages.]
+  DAVID (CONT’D, slow, labored reading): It looks like insane ramblings... “The demon lives here. I can hear its claws scraping to get into my mind. Please someone help me.”
+  DAVID (normal): Eesh.
+At 0.1 seconds, waypoint becomes "open cell".
+At 0.1 seconds, journal becomes "1".
+At 0.1 seconds, cells done becomes "1".
+At 0.1 seconds, lockout becomes "1".
+At 45.1 seconds, lockout becomes "0".
+At 1 second, ambience3 fades to "heartbeat (43bpm, pp)" over 1 second.
+At 20 seconds, ambience3 fades out over 5 seconds.
+Opens the action "journal".
+Opens the action "foyer revisited".
+Opens the action "cells (from foyer, denied)".
+
+Spiel: foyer revisited
+Recording: game/data/Audio/story/scene/foyer revisited.mp3
+Reached from: the action "foyer revisited"; the action "foyer from painting room".
+Transcript:
+  DAVID: OK, I'm heading back...
+  [SFX: door opens. Footsteps play while...]
+  MARTIN: You should be seeing three main entranceways soon. There's the cells... the offices... plus whatever remains of the east wing. That's where you want to be if you can get to it.
+  [SFX: footsteps]
+  DAVID: I hear ya.
+  [SFX: footsteps stop]
+  DAVID: K, I'm in the foyer.
+At 0.1 seconds, waypoint becomes "foyer".
+At 0.1 seconds, where you at? becomes "foyer".
+At 0.1 seconds, location becomes "foyer".
+At 0.1 seconds, lockout becomes "1".
+At 0.1 seconds, cellphone becomes "50% battery".
+At 19.2 seconds, lockout becomes "0".
+At 19 seconds, ambience2 fades to "indoors" over 7 seconds.
+Opens the action "east wing (foyer)".
+Opens the action "cells (from foyer)".
+Opens the action "cells (from foyer, denied)".
+Opens the action "offices (from foyer, 1st visit)".
+Opens the action "offices (from foyer, denied)".
+Opens the action "offices (from foyer, 2nd visit)".
+Opens the action "cellphone (50% battery)".
+Opens the action "where you at? (foyer)".
+
+Spiel: can't revisit 2
+Recording: game/data/Audio/story/scene/cant revisit 2.mp3
+Reached from: the action "offices (from foyer, denied)".
+Transcript:
+  DAVID: I think we did that already
+
+Spiel: offices revisit
+Recording: game/data/Audio/story/scene/offices revisit.mp3
+Reached from: the action "offices (from foyer, 2nd visit)".
+Transcript:
+  MARTIN: Hey, you mind going back to the offices again?
+  DAVID (impersonating judgmental GPS): recalculating...
+  [SFX: footsteps]
+  DAVID: hold on
+  [SFX: more footsteps]
+  DAVID: OK, I', here. This is the room with that painting and nothing else.
+At 0.1 seconds, waypoint becomes "offices".
+At 0.1 seconds, location becomes "offices".
+At 0.1 seconds, where you at? becomes "offices 1".
+At 0.1 seconds, lockout becomes "1".
+At 15.2 seconds, lockout becomes "0".
+At 6 seconds, ambience2 fades to "offices" over 5 seconds.
+Opens the action "painting".
+Opens the action "doctor's office".
+Opens the action "foyer from painting room".
+Opens the action "where you at? (offices 1)".
+
+Spiel: cellphone (50% battery)
+Recording: game/data/Audio/story/scene/cellphone (50% battery).mp3
+Reached from: the action "cellphone (50% battery)".
+Transcript:
+  MARTIN: Hey, how's your phone charge?
+  DAVID (away from mic as he looks at screen): Uh...
+  [PAUSE]
+  DAVID (still away from screen). Hmm....
+  DAVID (back to mic): 50 percent. I think we're good.
+At 0.1 seconds, cellphone becomes "3 bars".
+Opens the action "cellphone (3 bars)".
+
+Spiel: where you at? (foyer)
+Recording: game/data/Audio/story/scene/where you at (foyer).mp3
+Reached from: the action "where you at? (foyer)".
+Transcript:
+  MARTIN: David, you're at the foyer, right?
+  DAVID: Yeah, in all its rat-infested, grimy glory. The doors from here lead out to the cells, some offices, and the east wing. Where do you want me?
+
+Spiel: flashlight (records room)
+Recording: game/data/Audio/story/scene/flashlight (records room).mp3
+Reached from: the action "flashlight (records room)".
+Transcript:
+  MARTIN: The batteries are, like, completely out?
+  DAVID: They're toast, man. Pitch freakin' black in here.
+At 0.1 seconds, flashlight becomes "hint".
+Opens the action "flashlight hint".
+
+Spiel: cellphone (records room)
+Recording: game/data/Audio/story/scene/cellphone (records room).mp3
+Reached from: the action "cellphone (records room)".
+Transcript:
+  MARTIN:  David, does your phone have a light?
+  DAVID:  Oof, yes!  Of course. Good idea. Hold on.   (Pause as he turns on the light) Ok. Looking around.
+  [SFX: WE HEAR THE PHONE BEING PLAYED WITH A COUPLE OF BEEPS FROM BUTTONS PRESSED.]
+  [SFX:  WE DAVID MUTTERING TO HIMSELF ]
+  DAVID: (sniffs air, absently and increasingly distracted)  Fire is really. Have to find her…need to find…where is it…where is it…I need to be… (we hear him shuffling around)
+  MARTIN:  David?
+  NO RESPONSE.
+  MARTIN:  David?  (Under his breath)  Godamnit.   David, Helloooooo….?
+  [SFX: IDLE LOOP: OCCASIONAL FOOSTEPS AND OPENING FILING CABINET DRAWERS]
+  TRY A VERSION WHERE DAVID IS HOLDING PHONE IN MOUTH SO HE CAN USE HIS HANDS.
+At 0.1 seconds, cellphone becomes "0".
+At 0.1 seconds, waypoint becomes "records room (lit)".
+At 0.1 seconds, flashlight becomes "0".
+At 0.1 seconds, where you at? becomes "0".
+At 0.1 seconds, lockout becomes "1".
+At 19 seconds, lockout becomes "0".
+When it ends, the idle loop "idle loop  (records room)" plays.
+Opens the action "David! (records room)".
+Opens the action "David? (records room)".
+Opens the action "David!! (records room)".
+
+Spiel: where you at? (records room, no light)
+Recording: game/data/Audio/story/scene/where you at (records room, no light).mp3
+Reached from: the action "where you at? (records room, no light)".
+Transcript:
+  DAVID: I think this is the records room, but it's really too dark to see. There's lots filing cabinets... but with my flashlight out, that's all I can tell ya.
+
+Spiel: journal
+Recording: game/data/Audio/story/scene/journal.mp3
+Reached from: the action "journal".
+Transcript:
+  [SFX: opening journal cover]
+  DAVID (CONT’D): Inmate 3538, Joe Banks.
+  DAVID (slow, labored reading): “The demon lives here. I can hear its claws scraping to get into my mind. Please someone help me.”
+  [SFX: More flicking pages. NOT TO BE CONFUSED with the end-of-spiel sound]
+  DAVID (CONT’D, slow, labored reading): “The doctor says I need the treatment to stop the voices. I can’t trust him. He is one of them.”
+  [SFX: More pages flicking.]
+  DAVID (CONT’D): Oh... It seems something happened. The handwriting goes from scrawls to being normal cursive. Last scrawl says “The demon has won. I cannot stop what will happen. I am so scared.” Then there’s one paragraph... I think...
+  [SFX: Flicks through the book.]
+  DAVID (CONT’D): Yeah, its the last entry. Dated 24th December 1936. The day before the fire. “I sit here, in my 43rd year on this earth. For the first time, I am sincerely alone... My voices silenced... My fear has been bled out of me and fed to it... Taken from me. For the first time in my life, I have a rational mind. I see now what is happening. Something is hungry... Something is living here... It feeds on fear... Not just my fear... Everyone's. It's eating their insanity. I cannot let this continue... I will stop this... I sacrifice myself and the lives of us all to stop this...”
+  MARTIN: Damn!... Did you just find a confession?
+  DAVID: I... Dunno...
+  MARTIN: Is that all it says?
+  DAVID: No. There... There’s more...
+  MARTIN: What does it say?
+  DAVID (Coldly): If someone is reading this, I hope I was successful... If it was and you are in this place... Run. If you stay here it can take form. Please, for the sake of your life - Run. Run now.
+  Pause...
+  DAVID: Wow.
+
+Spiel: can't revisit 1
+Recording: game/data/Audio/story/scene/cant revisit 1.mp3
+Reached from: the action "cells (from foyer, denied)".
+Transcript:
+  DAVID: You're sure? I don't think there's much we didn't pick up the first time
+  MARTIN: Yeah, OK
+
+Spiel: cellphone (3 bars)
+Recording: game/data/Audio/story/scene/cellphone (3 bars).mp3
+Reached from: the action "cellphone (3 bars)".
+Transcript:
+  MARTIN: Hey, your phone signal OK?
+  DAVID (away from mic as he looks at screen): Uh...
+  [PAUSE]
+  DAVID (still away from screen). Hmm....
+  DAVID (back to mic): It's at 3 bars. Should be alright.
+At 0.1 seconds, cellphone becomes "50% battery".
+Opens the action "cellphone (50% battery)".
+
+Spiel: flashlight hint
+Recording: game/data/Audio/story/scene/flashlight (hint).mp3
+Reached from: the action "flashlight hint".
+Transcript:
+  DAVID: Nah, it's totally out of juice.
+  MARTIN: Sheesh... you got anything else on you that gives off light?
+  DAVID: Uh.... not unless you can think of anything?
+
+Spiel: filing cabinet
+Recording: game/data/Audio/story/scene/filing cabinet.mp3
+Reached from: the action "David! (records room)"; the action "David? (records room)"; the action "David!! (records room)".
+Transcript:
+  DAVID  (still speaking himself, and sniffing the air…very quiet)  Where is she? Judith… I need to find…
+  MARTIN:  (Calling!)  David, hello? Recording a show here….! What are you doing? Answer me dude…
+  DAVID:  What? Oh. Yeah. yeah yeah. Sorry.  (laughs and snaps out of it)  Uh. Hang on. I’m looking for Joe Banks’ file, checking the filing cabinets.
+  [SFX: We hear a filing cabinet open.]
+  DAVID (still distant): The files seem water damaged, but they look okay.
+  [SFX: That drawer closes. Another opens.]
+  DAVID (CONT’D): Here it is.
+  [SFX: He takes out a file. Flips through some of the pages.]
+  DAVID (returning to mouthpiece): The doctor... Fausto Kaufer. Seems he was in charge of Joe...
+  MARTIN: Hold on. Fausto Kaufer? I'm on it. Anything else?
+  DAVID: Some handwritten note... a bunch of medical stuff... I'm just reading...
+  [IDLE LOOP: DAVID leafing through files]
+At 0.1 seconds, cellphone becomes "25% battery".
+At 0.1 seconds, flashlight becomes "0".
+At 0.1 seconds, waypoint becomes "records room".
+At 0.1 seconds, where you at? becomes "0".
+At 0.1 seconds, lockout becomes "1".
+At 31 seconds, lockout becomes "0".
+When it ends, the idle loop "idle loop (paper flipping)" plays.
+Opens the action "Operation Paperclip".
+Opens the action "research Kaufer".
+Opens the action "handwritten note".
+Opens the action "records room (move on)".
+Opens the action "cellphone (25% battery)".
+
+Spiel: research Kaufer
+Recording: game/data/Audio/story/scene/research Kaufer.mp3
+Reached from: the action "research Kaufer".
+Transcript:
+  MARTIN: Hold on...
+  [SFX: We hear rustling of papers on Martin's side]
+  MARTIN: OK, got some info on your doctor here. Want me to read it out?
+  DAVID: Yeah, man.
+  MARTIN: Not got much here, but Fausto Kaufer... Came to America in 1949... Jesus... He was part of Operation Paperclip.
+  DAVID: Paperclip?
+  MARTIN: Yeah. All it says other that that is that he was born March 16th, 1911...
+  DAVID: Not even a specialty?
+  MARTIN: Nope... Ah well, we can delve into it more when you get back. What else is in your file?
+  [SFX: As DAVID reads, his voice fades out and into Dr. Kaufer's]
+  DAVID: “Patient 3538. Suffering audio and visual hallucinations. Despite many adjustments to his medications, he still suffers symptoms... Patient believes the ghosts of former patients are here telling him about a demon who he is in mortal danger from. A curious aspect is the fact that one of the voices he hears is not human. He hears what he believes are calls from an animal. A chimpanzee to be specific. When questioned about it, he described it as a formless electrical entity made of blue light... He says it screams to him when he is in danger... Patient recommended for scourging for the December tribute.” What the...? Tribute?
+  Whoa, that's dark.
+At 0.1 seconds, researched Kaufer becomes "1".
+At 0.1 seconds, lockout becomes "1".
+At 82.5 seconds, lockout becomes "0".
+Opens the action "Operation Paperclip".
+Opens the action "records room (move on)".
+
+Spiel: handwritten note
+Recording: game/data/Audio/story/scene/handwritten note.mp3
+Reached from: the action "handwritten note".
+Transcript:
+  DAVID: Doesn't say who wrote it... It just says "You don't answer me... Maybe you can't hear me. Maybe you can't hear at all. But maybe you can read these words. I've been trying to set you free. Don't you understand that? We thought the ritual would win the war. But we were wrong. You didn't bring victory with you. You only brought your hunger. I'm sorry we woke you. I have been doing all I can to appease you... We have given you tribute after tribute to feed on... Isn't that what you wanted?"
+
+Spiel: cellphone (25% battery)
+Recording: game/data/Audio/story/scene/cellphone (25% battery).mp3
+Reached from: the action "cellphone (25% battery)".
+Transcript:
+  MARTIN: Hey, how's your phone battery holding out?
+  DAVID (away from mic as he looks at screen): Uh...
+  [PAUSE]
+  DAVID (still away from screen). Geez!
+  DAVID (back to mic): Down to 25 percent. That was quick!
+At 0.1 seconds, cellphone becomes "2 bars".
+Opens the action "cellphone (2 bars)".
+
+Spiel: Operation Paperclip
+Recording: game/data/Audio/story/scene/Operation Paperclip.mp3
+Reached from: the action "Operation Paperclip".
+Transcript:
+  DAVID: Operation Paperclip?
+  MARTIN: After World War 2, they brought a bunch of German scientists and doctors over to America. They granted them amnesty if they agreed to work for the US government... Says here they brought Kaufer over in 1949...
+  DAVID: Wait... He was a Nazi?
+  MARTIN: I have no idea...
+  DAVID: Hell, man, if he was a Nazi, that'd certainly make for some interesting cutaways during the show.
+
+Spiel: records room (move on)
+Recording: game/data/Audio/story/scene/records room (move on).mp3
+Reached from: the action "records room (move on)".
+Transcript:
+  DAVID: OK, I'll head back to the clearing...
+  MARTIN: Sounds like someone was sacrificing-
+  DAVID: What's the fu-
+  [SFX: LOUD SCREECHING SOUND - LIKE A BANSHEE WAIL]
+  [SFX: dropped phone]
+  MARTIN: David? David? You hear me?
+  DAVID : (distant) I don't-
+  [SFX: another sudden and piercing primal scream. A chimpanzee scream. Short and sharp.]
+  DAVID (CONT’D): JESUS!
+  [SFX: David's voice is distant.]
+  DAVID (CONT’D): What the hell was that?
+  [SFX: We hear him turning around frantically.]
+  DAVID: No. It... whoa!
+  MARTIN (More urgent): DAVID!
+  [SFX: The phone is picked up off the ground.]
+  DAVID: Martin!
+  MARTIN: What the hell's going on?
+  DAVID: Where the hell did that come from?
+  MARTIN: What?
+  DAVID: Whattdya mean, what?
+  MARTIN:  What did you see?
+  DAVID: See? You didn’t hear that?
+At 0.1 seconds, waypoint becomes "Judith 1".
+At 0.1 seconds, landline becomes "0".
+At 0.1 seconds, cellphone becomes "0".
+At 0.1 seconds, location becomes "exiting records room".
+At 0.1 seconds, lockout becomes "1".
+At 28.1 seconds, lockout becomes "0".
+At 7 seconds, ambience2 fades to "east wing more rain (M-L)" over 3 seconds.
+At 26 seconds, ambience2 fades to "Judith (M-C)" over 8 seconds.
+At 7 seconds, ambience3 fades to "heartbeat (90bpm, mf)" over 3 seconds.
+Opens the action "hear what? (Judith 1)".
+Opens the action "what's going on? (Judith 1)".
+
+Spiel: cellphone (2 bars)
+Recording: game/data/Audio/story/scene/cellphone (2 bars).mp3
+Reached from: the action "cellphone (2 bars)".
+Transcript:
+  MARTIN: David, you're still hearing me OK?
+  DAVID (away from mic as he looks at screen): Uh, sure. Hang on...
+  [PAUSE]
+  DAVID (back to mic): Meh... Phone's at two bars. You're still getting me OK tho?
+  MARTIN: For now.
+At 0.1 seconds, cellphone becomes "25% battery".
+Opens the action "cellphone (25% battery)".
+
+Spiel: Judith 1
+Recording: game/data/Audio/story/scene/Judith 1.mp3
+Reached from: the action "hear what? (Judith 1)"; the action "what's going on? (Judith 1)".
+Transcript:
+  DAVID:  Why can I smell burning hair? (Pause, shift in tone) I smell burning hair.
+  MARTIN: What? Talk to me, man!
+  DAVID: Oh no...
+  MARTIN: What is going-
+  DAVID: Judith. Poor Judith.
+  MARTIN:  Who’s Judith?!
+  David? Is someone else with you? David?
+  You’re starting to scare me...
+  DAVID: I shouldn’t have done this... No good can come of it...
+  [SFX: David’s voice slowly starts to drift further away from the phone, his voice getting quiet and quieter.]
+  [Pause]
+  DAVID: Her eyes... The fire took her eyes... But she is still looking at me... She is seeing me... She tries to speak... but the fire is stealing her breath.
+At 0.1 seconds, waypoint becomes "Judith 2".
+At 0.1 seconds, lockout becomes "1".
+At 19 seconds, lockout becomes "0".
+At 7.16 seconds, ambience2 fades to "Judith" over 2.24 seconds.
+When it ends, the idle loop "idle loop (Judith 1)" plays.
+Opens the action "burning hair? (Judith 2)".
+Opens the action "you kidding? (Judith 2)".
+
+Spiel: Judith 2
+Recording: game/data/Audio/story/scene/Judith 2.mp3
+Reached from: the action "you kidding? (Judith 2)"; the action "burning hair? (Judith 2)".
+Transcript:
+  MARTIN: David... You HAVE to listen-
+  DAVID (He starts to sob): The fire's eating away at them. Their skin is bubbling. They're trying to scream, but there's no sound. Their tongues are turning to ash. Their lips are melting off. It's like they're smiling. Please... Forgive me! I’m sorry... I’m so sorry... The demon HAD to die... HAD to go... We all have to sacrifice ourselves... I have to join you too... Please just stop staring... I didn’t want to hurt any of you... Especially you... Especially you...
+  His voice is faint now.
+  DAVID (CONT’D): Please... Just let go... Let the fire take you... Cleanse his evil out of you... They won’t be able to hurt you anymore...
+At 0.1 seconds, waypoint becomes "Judith 3".
+At 0.1 seconds, lockout becomes "1".
+At 47.5 seconds, lockout becomes "0".
+When it ends, the idle loop "idle loop (Judith 2)" plays.
+Opens the action "hurt you? (Judith 3)".
+Opens the action "listen to me (Judith 3)".
+
+Spiel: Judith 3
+Recording: game/data/Audio/story/scene/Judith 3.mp3
+Reached from: the action "listen to me (Judith 3)"; the action "hurt you? (Judith 3)".
+Transcript:
+  DAVID (CONT’D): What? What did you say?
+  [SFX: We hear a faint grumble. The sound of a dying woman - Judith -  trying to talk and only managing a faint guttural moan. Very difficult to decipher.]
+  DAVID (CONT’D): Please... Just say it...
+  David’s voice is now so faint, that you really have to struggle to hear.
+  DAVID (CONT’D): Why don’t you just close your eyes? Here... I'll help you...
+  [SFX: The grumble gets more pained, as he wraps his hands around Judith’s throat. We only know this because the gutteral moan starts to sound gasping for breath.]
+  DAVID (CONT’D) (Straining under the act and sobbing): Shhhhh... Go to sleep... Please, just go to sleep...
+  The voices are so distant now. So distant. Those with acute hearing would hear Judith’s last words.
+  JUDITH: You can never leave.
+  [SFX: She then attacks him. But the sound by now is almost indecipherable.]
+  [SFX - LOUD - VERY LOUD - An old telephone, the same one that we heard at the very beginning, rings. Cutting through the silence like a sledgehammer. Because of the sound getting quieter and quieter before, this is our big jump scare moment.]
+At 0.1 seconds, waypoint becomes "dual calls".
+At 0.1 seconds, cellphone becomes "0".
+At 0.1 seconds, landline becomes "dual calls".
+At 0.1 seconds, location becomes "twisted pair".
+At 0.1 seconds, lockout becomes "1".
+At 43 seconds, lockout becomes "0".
+At 1 second, ambience1 fades to "Martin office" over 27 seconds.
+At 0.1 seconds, ambience2 fades out over 30 seconds.
+At 28 seconds, ambience3 fades out over 8 seconds.
+When it ends, the idle loop "idle loop (Judith 3)" plays.
+Opens the action "dual calls (answer landline)".
+
+Spiel: dual calls (answer landline)
+Recording: game/data/Audio/story/scene/dual calls (answer landline).mp3
+Reached from: the action "dual calls (answer landline)".
+Transcript:
+  [He picks up the phone.]
+  MARTIN (Panicked): Hello?
+  DAVID: Why the hell didn’t you call back?
+  MARTIN: ...What? David? What’s going on? Why'd you call my land line?
+  DAVID: I dropped the phone. Tried to call you back and got your voicemail.
+  MARTIN: Hang on... Just.. The other phone... Hold on...
+At 0.1 seconds, landline becomes "final".
+At 0.1 seconds, cellphone becomes "dual calls".
+At 0.1 seconds, lockout becomes "1".
+At 14.5 seconds, lockout becomes "0".
+At 0.1 seconds, ambience1 fades out over 1 second.
+At 0.1 seconds, ambience2 fades to "east wing more rain (M-L)" over 1 second.
+When it ends, the idle loop "idle loop (dual calls (answer landline))" plays.
+Opens the action "dual calls (switch to cell)".
+Opens the action "dual calls (landline)".
+
+Spiel: dual calls (switch to cell)
+Recording: game/data/Audio/story/scene/dual calls (switch to cell).mp3
+Reached from: the action "dual calls (switch to cell)".
+Transcript:
+  [SFX:He switches phones to the mobile one we heard Judith and David on.]
+  MARTIN (CONT’D): H-Hello?
+  We hear a distant evil chuckle from David. A very sinister laugh.
+  DAVID: You think you can escape?
+  The phone cuts off dead.
+  MARTIN (CONT’D): Oh God.
+  DAVID (Distant on the land line):  Martin? What the hell? Where are you?
+  Martin picks up the land line again.
+At 0.1 seconds, cellphone becomes "0".
+At 0.1 seconds, ambience2 fades out over 0.25 seconds.
+When it ends, the idle loop "idle loop (dual calls (switch to cell))" plays.
+
+Spiel: dual calls (landline)
+Recording: game/data/Audio/story/scene/dual calls (landline).mp3
+Reached from: the action "dual calls (landline)".
+Transcript:
+  MARTIN: I-I’m sorry... Look, be honest with me right now, are you messing with me?
+  DAVID: What? What’s going on, man?
+  MARTIN: I- I...
+  DAVID: Martin... I’m going back into the east wing, okay? This is all hard enough as is, I can't do it with you freaking out.
+  [SFX: He walks out of the room into the ruined east wing]
+  DAVID: What the-? (With dread) No...
+  [SFX: We hear the sounds of a fire in the east wing.]
+  DAVID (CONT’D): How..? This isn't possible.
+  MARTIN (Upset): Please... Leave.
+  DAVID: It's on fire. It-  (Confused) There’re people there...
+  [SFX: We hear the fire now with sounds of some people in agony - not screaming they are too close to death - more moaning than anything.]
+  MARTIN: David, LEAVE.
+  DAVID (Suddenly terrified): ARRGHH!!
+  [SFX: David turns and runs... Fast. We just hear him terrified running. Behind him is an approaching force. We only hear a moan, like the voice of a man in hell, a ghoulish moan of agony and torment. It is hard to hear, but is a noise in the background catching up with him. Even as the sound of the fire disappears into the background.]
+  [IDLE LOOP: more of same]
+At 0.1 seconds, waypoint becomes "escape 1".
+At 0.1 seconds, landline becomes "0".
+At 0.1 seconds, cellphone becomes "0".
+At 0.1 seconds, location becomes "run!".
+At 0.1 seconds, lockout becomes "1".
+At 46.5 seconds, lockout becomes "0".
+At 40 seconds, ambience1 fades to "Judith" over 10 seconds.
+At 2 seconds, ambience2 fades to "east wing more rain (M-L)" over 1 second.
+At 21 seconds, ambience2 fades to "fire (M-L)" over 4 seconds.
+At 25 seconds, ambience3 fades to "heartbeat (90bpm, mf)" over 3 seconds.
+At 49 seconds, ambience3 fades to "heartbeat (120bpm, f)" over 1 second.
+When it ends, the idle loop "idle loop (terror)" plays.
+Opens the action "who's there? (escape 1)".
+Opens the action "what's happening? (escape 1)".
+
+Spiel: escape 1
+Recording: game/data/Audio/story/scene/escape 1.mp3
+Reached from: the action "what's happening? (escape 1)"; the action "who's there? (escape 1)".
+Transcript:
+  MARTIN: DAVID! Talk to me! What is it?
+  [SFX: As David opens a door and runs through the doorway, it closes behind him. He hear as he runs off the door opening again. The moan following him.]
+  [SFX: David runs for a while. Finally slowing, and out of breath speaks into the phone. ]
+  DAVID (Panicked and whispered):  I... I saw them... They came after me, man... They came after me...
+  MARTIN: Tell me you're out of there.
+  DAVID (Panicked and whispered): I couldn’t.. They were in front of the exit... I think one followed me.
+  [SFX: A door opens in the distance.]
+  DAVID (CONT’D) (Panicked and whispered): Damnit...
+At 0.1 seconds, waypoint becomes "escape 2".
+At 0.1 seconds, lockout becomes "1".
+At 18 seconds, lockout becomes "0".
+At 12 seconds, ambience3 fades to "heartbeat (90bpm, mf)" over 0.5 seconds.
+When it ends, the idle loop "idle loop (terror)" plays.
+Opens the action "building plans".
+
+Spiel: escape 2
+Recording: game/data/Audio/story/scene/escape 2.mp3
+Reached from: the action "building plans".
+Transcript:
+  MARTIN: I got the building plans here. Hold on...
+  [SFX: We hear a rustling of paper from Martin frantically looking for something.]
+  MARTIN: Ok. Calm down! Calm down! There should be a window on that floor, see if you can get out from there. If not, look for a fire escape on the second floor - find the stairs...
+  [SFX: running]
+  DAVID: The windows are all boarded up!
+  MARTIN: Damn! The stairs. Back near the foyer.
+  [SFX: running along hallway]
+  DAVID: (nervously) They're rickety as hell...
+  MARTIN: Is there any other way out that you can see?
+  DAVID: DAMN!! No... Okay... I'm going up...
+  [SFX: David lets out an exhalation of panic, and turns and runs up the stairs. As he gets halfway up - the stairs crack and break apart.]
+  [SFX: He screams as he tumbles downward.]
+  MARTIN: DAVID!!!?
+  [SFX: We hear a thud of David's body hitting concrete. Hard. We hear what must be the sound of a few of his bones breaking.]
+  MARTIN (CONT’D): ANSWER ME!!!
+  No answer.
+  MARTIN (CONT’D): David? Please... Say something... Please...
+  The silence is palpable.
+  [IDLE LOOP: SFX: We hear the wind howling above David. Far above. Where he is sounds closed in.]
+At 0.1 seconds, waypoint becomes "fallen".
+At 0.1 seconds, lockout becomes "1".
+At 43.25 seconds, lockout becomes "0".
+At 40 seconds, ambience1 fades out over 1.5 seconds.
+At 29 seconds, ambience2 fades to "wind howling thru Martin's landline" over 4 seconds.
+At 34 seconds, ambience3 fades to "heartbeat (120bpm, f)" over 0.25 seconds.
+At 41 seconds, ambience3 fades out over 0.25 seconds.
+When it ends, the idle loop "idle loop (escape 2)" plays.
+Opens the action "call for help (fallen)".
+Opens the action "what's happening? (fallen)".
+
+Spiel: fallen
+Recording: game/data/Audio/story/scene/fallen.mp3
+Reached from: the action "call for help (fallen)"; the action "what's happening? (fallen)".
+Transcript:
+  [Switch to Martin POV]
+  MARTIN (CONT’D): David? I’m freaking out here... Please... Talk to me... God, please be okay. I'm gonna call the cops... David?
+  After the longest silence, we hear a whimper, turning into a weak laugh.
+  DAVID (Weak): Martin?
+  MARTIN (Freaking out): Talk to me, buddy!
+  DAVID: It’s okay... He’s out now. It’s done...
+  MARTIN: Jesus David, what are you talking about? What happened? Please... Tell me you're okay...
+  DAVID: The doctor took my fear... But it's not him... It's something else... Inside of him... It’s all it wants... To escape... And it went to the only other fear it could find... Yours...
+  [SFX: We hear Martin swallow hard.]
+  MARTIN: David...
+  DAVID: Thank you... Thank you for being afraid... It can now spread... It will take the pain away... It will bleed your fear dry... You will become one with it... Like me.... But it is for a bigger cause... He has a plan...
+At 0.1 seconds, location becomes "he’s out now".
+At 0.1 seconds, lockout becomes "1".
+Next: "ending (spiders)", when fear is "spiders".
+Next: "ending (clowns)", when fear is "clowns".
+Next: "ending (darkness)", when fear is "darkness".
+
+Spiel: ending (spiders)
+Recording: game/data/Audio/story/scene/ending (spiders).mp3
+Reached from: the end of "fallen".
+Transcript:
+  DAVID:Now don't be afraid of them... They just want somewhere warm to live...
+  MARTIN: What?
+  [SFX: the faint scuttling of 1000s of spiders...]
+  MARTIN: No!! NO!!!!
+  [SFX: He screams until we hear the spiders crawling down his throat. His voice is muffled and gagging.]
+At 0.1 seconds, ambience2 fades out over 3 seconds.
+Next: "ending (commercial)", when always.
+
+Spiel: ending (clowns)
+Recording: game/data/Audio/story/scene/ending (clowns).mp3
+Reached from: the end of "fallen".
+Transcript:
+  DAVID: Now look behind you...
+  MARTIN: What?
+  [SFX: We hear him turn, and scream...]
+  [SFX: We hear a clown laugh. A laugh so evil it chills to the core. We hear a hatchet bury into Martin's skull.]
+At 0.1 seconds, ambience2 fades out over 3 seconds.
+Next: "ending (commercial)", when always.
+
+Spiel: ending (darkness)
+Recording: game/data/Audio/story/scene/ending (darkness).mp3
+Reached from: the end of "fallen".
+Transcript:
+  DAVID:Now you must accept the darkness... embrace it...
+  [SFX: We hear a light bulb burn out.]
+  DAVID: The dark is your tomb.
+  MARTIN: What?
+  DAVID (Close and in the same room as David, no other sounds like rain are heard): Close your eyes... Let it happen...
+  [SFX: Martin Screams]
+At 0.1 seconds, ambience2 fades out over 3 seconds.
+Next: "ending (commercial)", when always.
+
+Spiel: ending (commercial)
+Recording: game/data/Audio/story/scene/ending (commercial).mp3
+Reached from: the end of "ending (clowns)"; the end of "ending (darkness)"; the end of "ending (spiders)".
+Transcript:
+  As the credits roll, we hear a commercial - With the same announcer as the first commercial.
+  What follows is an advert for a Radio show. Not cheesy as before... Very ominous. Very atmospehreic.
+  VOICEOVER: Coming in December to 108.2 Eagle FM... The tragedy that befell David Scott at The Heathcote Asylum. While recording a ghost hunting special for this very station, David Scott and his partner Martin Fellows encountered true evil. With actual recordings of the tragic event, David Scott will give his first interview since his recovery...
+  DAVID: I thought I knew what fear was before I went in there. But the demon I encountered reached out and took the life of my best friend... A demon that ate his fear and took his soul...
+  VOICEOVER: Join us if you dare...
+  DAVID: But whatever you do... Don't get scared... It wants your fear... It wants to feed...
+  VOICEOVER: only on 108.2 Eagle FM.
+  After the credits end, text appears on the screen that reads: "It isn't over."
+  [SFX: The faint sounds of moaning and fire, which plays on repeat until the player exits the story.]
+At 0.1 seconds, location becomes "epilogue".
+At 0.1 seconds, lockout becomes "1".
+At 59.5 seconds, end becomes "1".
+At 0.1 seconds, bgm fades out over 3 seconds.
+At 68 seconds, bgm fades to "ending" over 12 seconds.
+At 0.1 seconds, ambience1 fades out over 3 seconds.
+At 0.1 seconds, ambience2 fades out over 3 seconds.
+At 0.1 seconds, ambience3 fades out over 3 seconds.
+
+Part 2: spiels not reached by that walk
+
+Spiel: where you at? (records room - light)
+Recording: game/data/Audio/story/scene/where you at_ (records room - light).mp3
+Reached from: the action "where you at? (records room, light)".
+Transcript:
+  DAVID: This is the records room. There are a lot of old filing cabinets, some rusted shut. A lot of water damaged files lying around too.  I guess when you’re worried about being burned alive, proper re-filing is low on your list of priorities.
+
+Part 3: the actions
+
+Action: Crazy Ralph (warm)
+Spoken as: "Crazy Ralph".
+Offered when Crazy Ralph is "1", and Crazy Ralph recency is "warm".
+Place in the menu: 100.
+Plays: "Crazy Ralph (warm)".
+
+Action: David! (records room)
+Spoken as: "David!".
+Offered when waypoint is "records room (lit)".
+Place in the menu: 100.
+Plays: "filing cabinet".
+
+Action: Operation Paperclip
+Spoken as: "Operation Paperclip".
+Offered when waypoint is "records room", and researched Kaufer is "1".
+Place in the menu: 100.
+Plays: "Operation Paperclip".
+
+Action: building plans
+Spoken as: "building plans".
+Offered when waypoint is "escape 2".
+Place in the menu: 100.
+Plays: "escape 2".
+
+Action: burning hair? (Judith 2)
+Spoken as: "burning hair?".
+Offered when waypoint is "Judith 2".
+Place in the menu: 100.
+Plays: "Judith 2".
+
+Action: call for help (fallen)
+Spoken as: "call for help".
+Offered when waypoint is "fallen".
+Place in the menu: 100.
+Plays: "fallen".
+
+Action: doctor's notebook
+Spoken as: "notebook".
+Offered when waypoint is "doctor's office".
+Place in the menu: 100.
+Plays: "doctor's notebook".
+
+Action: dual calls (answer landline)
+Spoken as: "landline".
+Offered when landline is "dual calls".
+Place in the menu: 100.
+Plays: "dual calls (answer landline)".
+
+Action: dual calls (switch to cell)
+Spoken as: "cellphone".
+Offered when cellphone is "dual calls".
+Place in the menu: 100.
+Plays: "dual calls (switch to cell)".
+
+Action: flashlight (records room)
+Spoken as: "flashlight".
+Offered when flashlight is "records room".
+Place in the menu: 100.
+Plays: "flashlight (records room)".
+
+Action: flashlight hint
+Spoken as: "flashlight".
+Offered when flashlight is "hint".
+Place in the menu: 100.
+Plays: "flashlight hint".
+
+Action: hear what? (Judith 1)
+Spoken as: "hear what?".
+Offered when waypoint is "Judith 1".
+Place in the menu: 100.
+Plays: "Judith 1".
+
+Action: hurt you? (Judith 3)
+Spoken as: "hurt you?".
+Offered when waypoint is "Judith 3".
+Place in the menu: 100.
+Plays: "Judith 3".
+
+Action: journal
+Spoken as: "journal".
+Offered when waypoint is "open cell".
+Place in the menu: 100.
+Plays: "journal".
+
+Action: painting
+Spoken as: "painting".
+Offered when waypoint is "offices", and examined painting is "0".
+Place in the menu: 100.
+Plays: "painting".
+
+Action: shrine
+Spoken as: "shrine".
+Offered when waypoint is "examination room".
+Place in the menu: 100.
+It goes away once chosen.
+Plays: "shrine".
+
+Action: smoke
+Spoken as: "smoke".
+Offered when smoke is "1".
+Place in the menu: 100.
+Plays: "smoke".
+
+Action: start recording (passage to east wing)
+Spoken as: "start recording".
+Offered when waypoint is "entering east wing".
+Place in the menu: 100.
+Plays: "start recording (passage to east wing)".
+
+Action: typewriters
+Spoken as: "typewriters".
+Offered when waypoint is "typewriter room".
+Place in the menu: 100.
+It goes away once chosen.
+Plays: "typewriters".
+
+Action: who's there? (escape 1)
+Spoken as: "who’s there?".
+Offered when waypoint is "escape 1".
+Place in the menu: 100.
+Plays: "escape 1".
+
+Action: David? (records room)
+Spoken as: "David?".
+Offered when waypoint is "records room (lit)".
+Place in the menu: 101.
+Plays: "filing cabinet".
+
+Action: cellphone (records room)
+Spoken as: "cellphone".
+Offered when cellphone is "use light".
+Place in the menu: 101.
+Plays: "cellphone (records room)".
+
+Action: dual calls (landline)
+Spoken as: "landline".
+Offered when landline is "final".
+Place in the menu: 101.
+Plays: "dual calls (landline)".
+
+Action: flashlight (just broke)
+Spoken as: "flashlight".
+Offered when waypoint is "flashlight out".
+Place in the menu: 101.
+Plays: "flashlight (just broke)".
+
+Action: graffiti
+Spoken as: "graffiti".
+Offered when waypoint is "typewriter room".
+Place in the menu: 101.
+It goes away once chosen.
+Plays: "graffiti".
+
+Action: listen to me (Judith 3)
+Spoken as: "listen to me!".
+Offered when waypoint is "Judith 3".
+Place in the menu: 101.
+Plays: "Judith 3".
+
+Action: research Kaufer
+Spoken as: "Doctor Kaufer".
+Offered when waypoint is "records room".
+Place in the menu: 101.
+Plays: "research Kaufer".
+
+Action: you kidding? (Judith 2)
+Spoken as: "you kidding?".
+Offered when waypoint is "Judith 2".
+Place in the menu: 101.
+Plays: "Judith 2".
+
+Action: David!! (records room)
+Spoken as: "David!!".
+Offered when waypoint is "records room (lit)".
+Place in the menu: 102.
+Plays: "filing cabinet".
+
+Action: handwritten note
+Spoken as: "handwritten note".
+Offered when waypoint is "records room".
+Place in the menu: 102.
+Plays: "handwritten note".
+
+Action: I fear clowns
+Spoken as: "clowns".
+Offered when waypoint is "what do you fear?".
+Place in the menu: 200.
+Plays: "I fear clowns".
+
+Action: basements and kitchens
+Spoken as: "basement and kitchens".
+Offered when waypoint is "inside entrance".
+Place in the menu: 200.
+It goes away once chosen.
+Plays: "basements and kitchens".
+
+Action: call opening
+Spoken as: "landline".
+Offered when waypoint is "0".
+Place in the menu: 200.
+Plays: "call opening".
+
+Action: closed cells
+Spoken as: "closed cells".
+Offered when waypoint is "open door".
+Place in the menu: 200.
+It goes away once chosen.
+Plays: "closed cells".
+
+Action: commercial skip
+Spoken as: "enough already".
+Offered when waypoint is "commercial".
+Place in the menu: 200.
+Plays: "commercial reflection".
+
+Action: doctor's office
+Spoken as: "keep walking".
+Offered when waypoint is "offices", and offices passed through is "0".
+Place in the menu: 200.
+Plays: "doctor's office".
+
+Action: east wing (foyer)
+Spoken as: "east wing".
+Offered when waypoint is "foyer".
+Place in the menu: 200.
+Plays: "east wing dispatch".
+
+Action: east wing (typewriter room)
+Spoken as: "east wing".
+Offered when waypoint is "typewriter room".
+Place in the menu: 200.
+Plays: "east wing dispatch".
+
+Action: email
+Spoken as: "email".
+Offered when waypoint is "approaching building".
+Place in the menu: 200.
+Plays: "check email".
+
+Action: enter from outside
+Spoken as: "go in".
+Offered when waypoint is "outside entrance".
+Place in the menu: 200.
+Plays: "enter from outside".
+
+Action: examination room
+Spoken as: "keep walking".
+Offered when waypoint is "doctor's office".
+Place in the menu: 200.
+Plays: "examination room".
+
+Action: foyer from painting room
+Spoken as: "head back".
+Offered when waypoint is "offices", and offices passed through is "1".
+Place in the menu: 200.
+Plays: "foyer revisited".
+
+Action: foyer revisited
+Spoken as: "head back".
+Offered when waypoint is "open cell".
+Place in the menu: 200.
+Plays: "foyer revisited".
+
+Action: go back (clearing)
+Spoken as: "go back".
+Offered when waypoint is "clearing".
+Place in the menu: 200.
+Plays: "go back (clearing)".
+
+Action: hallway
+Spoken as: "keep walking".
+Offered when waypoint is "examination room".
+Place in the menu: 200.
+Plays: "hallway".
+
+Action: landline (dropped call)
+Spoken as: "landline".
+Offered when waypoint is "dropped call".
+Place in the menu: 200.
+It goes away once chosen.
+Plays: "landline (dropped call)".
+
+Action: records room (move on)
+Spoken as: "head back".
+Offered when waypoint is "records room", and researched Kaufer is "1".
+Place in the menu: 200.
+Plays: "records room (move on)".
+
+Action: self-opened door
+Spoken as: "keep walking".
+Offered when waypoint is "self-opened door".
+Place in the menu: 200.
+Plays: "self-opened door".
+
+Action: spiel 2
+Spoken as: "keep recording".
+Offered when waypoint is "spiel 2".
+Place in the menu: 200.
+Plays: "spiel 2".
+
+Action: spiel 3
+Spoken as: "start recording".
+Offered when waypoint is "reconnected".
+Place in the menu: 200.
+Plays: "spiel 3 (start)".
+
+Action: I fear spiders
+Spoken as: "spiders".
+Offered when waypoint is "what do you fear?".
+Place in the menu: 201.
+Plays: "I fear spiders".
+
+Action: cellphone (dropped call)
+Spoken as: "cellphone".
+Offered when waypoint is "dropped call".
+Place in the menu: 201.
+It goes away once chosen.
+Plays: "cellphone (dropped call)".
+
+Action: cells (from foyer)
+Spoken as: "cells".
+Offered when waypoint is "foyer", and cells done is "0".
+Place in the menu: 201.
+Plays: "cells".
+
+Action: cells (from foyer, denied)
+Spoken as: "cells".
+Offered when waypoint is "foyer", and cells done is "1".
+Place in the menu: 201.
+Plays: "can't revisit 1".
+
+Action: cells (from typewriter room)
+Spoken as: "cells".
+Offered when waypoint is "typewriter room".
+Place in the menu: 201.
+Plays: "cells".
+
+Action: keep going (clearing)
+Spoken as: "keep going".
+Offered when waypoint is "clearing".
+Place in the menu: 201.
+Plays: "keep going (clearing)".
+
+Action: offices and cells
+Spoken as: "offices and cells".
+Offered when waypoint is "inside entrance".
+Place in the menu: 201.
+Plays: "spiel 1".
+
+Action: open cell
+Spoken as: "open cell".
+Offered when waypoint is "open door".
+Place in the menu: 201.
+Plays: "open cell".
+
+Action: I fear darkness
+Spoken as: "darkness".
+Offered when waypoint is "what do you fear?".
+Place in the menu: 202.
+Plays: "I fear darkness".
+
+Action: offices (from foyer, 1st visit)
+Spoken as: "offices".
+Offered when waypoint is "foyer", and examined painting is "0", and offices passed through is "0".
+Place in the menu: 202.
+Plays: "offices".
+
+Action: offices (from foyer, 2nd visit)
+Spoken as: "offices".
+Offered when waypoint is "foyer", and examined painting is "0", and offices passed through is "1".
+Place in the menu: 202.
+Plays: "offices revisit".
+
+Action: offices (from foyer, denied)
+Spoken as: "offices".
+Offered when waypoint is "foyer", and examined painting is "1".
+Place in the menu: 202.
+Plays: "can't revisit 2".
+
+Action: offices (from typewriter room)
+Spoken as: "offices".
+Offered when waypoint is "typewriter room".
+Place in the menu: 202.
+Plays: "offices".
+
+Action: Crazy Ralph (cold)
+Spoken as: "Crazy Ralph".
+Offered when Crazy Ralph is "1", and Crazy Ralph recency is "cold".
+Place in the menu: 300.
+Plays: "Crazy Ralph (cold)".
+
+Action: rats
+Spoken as: "rats".
+Offered when waypoint is "inside entrance".
+Place in the menu: 301.
+It goes away once chosen.
+Plays: "rats".
+
+Action: fear of the dark
+Spoken as: "afraid of the dark".
+Offered when fear of the dark is "1".
+Place in the menu: 302.
+It goes away once chosen.
+Plays: "fear of the dark".
+
+Action: cellphone (2 bars)
+Spoken as: "cellphone".
+Offered when cellphone is "2 bars".
+Place in the menu: 400.
+Plays: "cellphone (2 bars)".
+
+Action: cellphone (25% battery)
+Spoken as: "cellphone".
+Offered when cellphone is "25% battery".
+Place in the menu: 400.
+Plays: "cellphone (25% battery)".
+
+Action: cellphone (3 bars)
+Spoken as: "cellphone".
+Offered when cellphone is "3 bars".
+Place in the menu: 400.
+Plays: "cellphone (3 bars)".
+
+Action: cellphone (50% battery)
+Spoken as: "cellphone".
+Offered when cellphone is "50% battery".
+Place in the menu: 400.
+Plays: "cellphone (50% battery)".
+
+Action: cellphone (rotation 1)
+Spoken as: "cellphone".
+Offered when cellphone is "rotation 1".
+Place in the menu: 400.
+Plays: "cellphone (rotation 1)".
+
+Action: cellphone (rotation 2)
+Spoken as: "cellphone".
+Offered when cellphone is "rotation 2".
+Place in the menu: 400.
+Plays: "cellphone (rotation 2)".
+
+Action: repeat question (fear)
+Spoken as: "what was the question?".
+Offered when waypoint is "what do you fear?".
+Place in the menu: 999.
+Plays: "repeat question (fear)".
+
+Action: what's going on? (Judith 1)
+Spoken as: "what’s going on?".
+Offered when waypoint is "Judith 1".
+Place in the menu: 999.
+Plays: "Judith 1".
+
+Action: what's happening? (escape 1)
+Spoken as: "what’s happening?".
+Offered when waypoint is "escape 1".
+Place in the menu: 999.
+Plays: "escape 1".
+
+Action: what's happening? (fallen)
+Spoken as: "what’s happening?".
+Offered when waypoint is "fallen".
+Place in the menu: 999.
+Plays: "fallen".
+
+Action: where you at? (cell block C, not windy)
+Spoken as: "where are you?".
+Offered when where you at? is "cell block C, not windy".
+Place in the menu: 999.
+Plays: "where you at? (cell block C - not windy)".
+
+Action: where you at? (cell block C, windy)
+Spoken as: "where are you?".
+Offered when where you at? is "cell block C, windy".
+Place in the menu: 999.
+Plays: "where you at? (cell block C - windy)".
+
+Action: where you at? (doctor's office)
+Spoken as: "where are you?".
+Offered when where you at? is "doctor's office".
+Place in the menu: 999.
+Plays: "where you at? (doctor's office)".
+
+Action: where you at? (during spiel)
+Spoken as: "where are you?".
+Offered when where you at? is "foyer during spiel".
+Place in the menu: 999.
+Plays: "where you at? (during spiel)".
+
+Action: where you at? (entering east wing)
+Spoken as: "where are you?".
+Offered when where you at? is "entering east wing".
+Place in the menu: 999.
+Plays: "start recording (passage to east wing)".
+
+Action: where you at? (examination room)
+Spoken as: "where are you?".
+Offered when where you at? is "examination room".
+Place in the menu: 999.
+Plays: "where you at? (examination room)".
+
+Action: where you at? (foyer)
+Spoken as: "where are you?".
+Offered when where you at? is "foyer".
+Place in the menu: 999.
+Plays: "where you at? (foyer)".
+
+Action: where you at? (inside entrance)
+Spoken as: "where are you?".
+Offered when where you at? is "inside entrance".
+Place in the menu: 999.
+Plays: "where you at? (inside entrance)".
+
+Action: where you at? (offices 1)
+Spoken as: "where are you?".
+Offered when where you at? is "offices 1".
+Place in the menu: 999.
+Plays: "where you at? (offices 1)".
+
+Action: where you at? (outside entrance)
+Spoken as: "where are you?".
+Offered when where you at? is "outside entrance".
+Place in the menu: 999.
+Plays: "where you at? (outside entrance)".
+
+Action: where you at? (passage to east wing)
+Spoken as: "where are you?".
+Offered when where you at? is "passage to east wing".
+Place in the menu: 999.
+Plays: "where you at? (passage to east wing)".
+
+Action: where you at? (path)
+Spoken as: "where are you?".
+Offered when where you at? is "path".
+Place in the menu: 999.
+Plays: "where you at? (path)".
+
+Action: where you at? (records room, light)
+Spoken as: "where are you?".
+Offered when where you at? is "records room, light".
+Place in the menu: 999.
+Plays: "where you at? (records room - light)".
+
+Action: where you at? (records room, no light)
+Spoken as: "where are you?".
+Offered when where you at? is "records room, no light".
+Place in the menu: 999.
+Plays: "where you at? (records room, no light)".
+
+Action: where you at? (typewriter room)
+Spoken as: "where are you?".
+Offered when where you at? is "typewriter room".
+Place in the menu: 999.
+Plays: "where you at? (typewriter room)".
