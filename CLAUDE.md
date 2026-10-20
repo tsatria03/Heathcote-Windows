@@ -41,7 +41,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 ## Working here
 
 - **The dev runs and builds, not Claude.** Ask before running the game or anything that plays sound or speaks ([[feedback_dont_run_or_build]]).
-- **After each plan,** bring every developer doc, `aidocks/` included, and every player doc up to date, then push ([[feedback_docs_after_each_plan]]).
+- **After each plan,** bring every developer doc, `aidocks/` included, and every player doc up to date, give a brief summary of the overall progress ([[feedback_progress_summary]]), then push ([[feedback_docs_after_each_plan]]).
 - **Before each plan,** review it section by section with the dev, and build only on their word ([[feedback_review_plan_sections]]).
 - **Before each section,** list what the dev will test by ear, sound or speech, each test marked optional or mandatory, and remind them of a mandatory test they haven't reported on ([[feedback_say_ear_tests_ahead]]).
 - **Plans first:** an agreed plan goes into its own note in `aidocks/plans/` before any code, and is marked finished only once the dev says it works ([[feedback_record_plans_first]], [[feedback_completed_projects]]).

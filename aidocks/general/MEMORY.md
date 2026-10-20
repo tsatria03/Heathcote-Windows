@@ -40,6 +40,7 @@
 - [Back first](feedback_back_first.md): Back is the first row of every menu with a way back, and it opens on it.
 - [Say ear tests ahead](feedback_say_ear_tests_ahead.md): before each section, list the by-ear tests (sound and speech), each optional or mandatory; remind the dev of a mandatory one not reported on.
 - [Docs after each plan](feedback_docs_after_each_plan.md): when a plan is finished, bring every developer doc (aidocks included) and player doc up to date, then push.
+- [Progress summary](feedback_progress_summary.md): after each plan, a brief overall percentage, by agreed weights per plan; about 30 percent after plan 2.
 - [Review plan sections](feedback_review_plan_sections.md): before building any plan, review it section by section with the dev; never start the next plan alone.
 - [Test tools in interact](feedback_test_tools_in_interact.md): by-ear tools go in tests/interact/, never in the game's menus.
 
