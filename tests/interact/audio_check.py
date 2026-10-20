@@ -11,7 +11,8 @@ rewind and fast-forward. The keys:
     Up and Down          choose the ambience; a playing loop changes to it at once
     [ and ]              choose an interface sound, saying its name
     Space                play the interface sound chosen
-    Comma and Full stop  choose a spiel, saying its label; with Shift, 10 at a time
+    Comma and Full stop  choose a spiel, saying its label; with Shift, 10 at a time; a spiel
+                         that is playing changes to the one chosen at once
     3                    play the spiel chosen from its start, or stop it
     Left                 rewind, as the original: back 1 second every 7 ticks for 0.75 seconds
     Right                fast-forward, as the original: 1.75 times for 1.5 seconds, voices kept at pitch
@@ -119,9 +120,16 @@ class Check:
 
     # ---- the spiel ---------------------------------------------------------
     def choose_spiel(self, step):
+        """Choose another spiel; one that is playing changes to it at once (the dev,
+        2026-10-20: "make it so pressing comma/period plays the next spiel while it's
+        playing.")."""
         self.spiel_index = (self.spiel_index + step) % len(self.spiels)
         self.say('%s, %d of %d.' % (self.spiels[self.spiel_index][0], self.spiel_index + 1,
                                     len(self.spiels)))
+        if self.audio.spiel.playing:
+            if self.audio.story_paused:
+                self.audio.resume_story()
+            self.audio.spiel.play(self.spiels[self.spiel_index][1])
 
     def toggle_spiel(self):
         spiel = self.audio.spiel

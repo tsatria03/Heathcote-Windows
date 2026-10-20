@@ -27,6 +27,7 @@ metadata:
   - **`Audio.pause_story()` and `resume_story()`** pause the story group, the spiel with the background lanes, and leave the system group, so the pause sounds can play. Whether pausing should instead hush the backgrounds and leave them playing, as the original did, is a question for the dev.
   - **`audio_check.py` gains the spiel:**
     - Comma and Full stop choose among the 103 recorded spiels, 10 at a time with Shift, and 3 plays or stops it.
+    - **While a spiel plays, Comma and Full stop change straight to the next one,** resuming a paused story (the dev, 2026-10-20: "Please make it so pressing comma/period plays the next spiel while it's playing.").
     - Left rewinds and Right fast-forwards.
     - P pauses and resumes, with the pause sounds, and Tab says the position.
     - Choosing an interface sound moves to the bracket keys.
