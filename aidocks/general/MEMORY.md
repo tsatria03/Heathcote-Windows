@@ -17,7 +17,7 @@
 - [Audio](../plans/audio_plan.md): plan 3, planned, all questions answered.
 - [Story engine](../plans/story_engine_plan.md): plan 4, planned, all questions answered.
 - [Menus](../plans/menus_plan.md): plan 5, planned, all questions answered.
-- [Saves](../plans/saves_plan.md): plan 6, being written. The progress and settings files in %APPDATA%\Heathcote, Continue story, Restart story and the end's reset. The opening, title, main menu, Settings, pause menu, the end and the credits, read from the original's credit cards. The variables, timed sets, next, idle loops, lockout, the actions menu, the end, the keys during play and debug mode. The spiel, the four background lanes and their crossfades, the idle loop, system sounds, rewind, fast-forward, the hush and the volumes.
+- [Saves](../plans/saves_plan.md): plan 6, planned, all questions answered. The progress and settings files in %APPDATA%\Heathcote, Continue story, Restart story and the end's reset. The opening, title, main menu, Settings, pause menu, the end and the credits, read from the original's credit cards. The variables, timed sets, next, idle loops, lockout, the actions menu, the end, the keys during play and debug mode. The spiel, the four background lanes and their crossfades, the idle loop, system sounds, rewind, fast-forward, the hush and the volumes.
 
 ## Completed projects
 - [Reading the original](../plans/reading_original_plan.md): plan 1, FINISHED 2026-10-19. tools/macho64.py, dis64.py, story.py and script_text.py; analysis/script/Heathcote.txt; and [Original behaviour](project_original_behaviour.md).

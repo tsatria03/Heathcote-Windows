@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned. Being written; open questions below are still being answered.
+**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
 
 Plan 6 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]]'s paths and safe JSON files, and keeps what [[story_engine_plan]] and [[menus_plan]] hold in memory. What the original saved comes from [[project_original_behaviour]].
 
@@ -36,8 +36,10 @@ Each section is confirmed by the dev before the next starts.
 - **Saved by softRef id, not by label,** since the ids never change while a label could be shared or edited.
 - **Restart story and the end reset** the variables, the heard spiels and the actions' counts, and go back to `start`, leaving the settings and the first-run notice alone, as the original did.
 - **Continue story picks up at the start of the spiel the player was in** (the dev, 2026-10-19: "I like the option 2 method."), whether a choice or a next led there, unlike the original, which only ever saved the spiel a choice opened. The save keeps that spiel's softRef and a snapshot taken as it began: the story's variables, the heard spiels, the actions' counts and the four lanes playing. Continue restores the snapshot and plays the spiel from its beginning, so its timed sets apply once, not twice, and its fades line up as they did. Closing the game mid-spiel replays at most that one spiel.
+- **When progress is written** (the dev, 2026-10-19: "agreed"): as each spiel begins, when its snapshot is taken, and when a spiel is marked heard. Timed sets are not written as they fire, as the original's were, since Continue replays the spiel from its snapshot anyway. Settings are written whenever one changes.
 - **No import of a save from the original app.**
 - **Tests use a throwaway save folder** and never touch the real one ([[feedback_dont_run_or_build]]).
 
 ## Open questions
-1. When is progress written? Proposed: as each spiel begins, when its snapshot is taken, and when a spiel is marked heard. Writing each timed set as it fires, as the original did, gains nothing now, since Continue replays the spiel from its snapshot anyway. Settings are written whenever one changes.
+
+None.
