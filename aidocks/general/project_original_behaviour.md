@@ -101,10 +101,16 @@ The original's run-time behaviour, read from `game/Heathcote` on 2026-10-19 with
 - **Story group fades**: `+[Sound fadeOutStoryChannelGroup]` (0x1000225d4) goes from 1 to 0 over 2 seconds; `+[Sound fadeInStoryChannelGroup]` (0x100022690) goes from 0 to 1 over 1 second.
 - **Hushing** (`+[Sound hushBackgrounds]`, 0x1000223b8; `+[Sound unhushBackgrounds]`, 0x100022434): a counter, so nested hushes need as many unhushes. The first hush calls `hush` on `bgm`, `ambience1`, `ambience2` and `ambience3`; the idle loop and the spiel are not hushed.
 - **What `hush` does** (`-[SoundChannel hush]`, 0x10002f4e0): it adds an FMOD effect of type 12 (parametric EQ) with centre 1250 Hz, bandwidth 5 and gain 0, and stores -12 as a target. So the backgrounds are muffled around 1250 Hz, by up to 12 dB.
+- **The hush's ramp** (confirmed 2026-10-20). `hush` stores a step of -0.796875 dB (0x10002f600) and its target of -12 (0x10002f618); `unhush` stores a step of +0.5 (0x10002f6bc) and a target of 0. Each tick, `-[SoundChannel tick]` (0x10002f6e0) works the ramp:
+  - it adds the step to the gain (0x10002f750)
+  - when the gain passes the target, it sets the gain to the target and the step to 0 (0x10002f794)
+  - when that target is 0, it removes the EQ (0x10002f7d4)
+  - it sets the EQ's gain, parameter 2 (0x10002f800)
+  
+  So hushing takes 16 ticks, about a quarter of a second, and unhushing 24 ticks, 0.4 seconds.
 - **System sounds** play from `systemSounds` by label; a missing one logs "Missing systemSound": `+[Sound playSystemSound:onChannel:]` (0x10002219c).
 
 ### Not yet confirmed
-- The hush ramp's speed: `hush` also stores -0.797, and `unhush` stores 0.5 (0x10002f6bc), probably read by `-[SoundChannel tick]`.
 - The channel volumes: no volume settings were found.
 
 ## Rewind and fast-forward

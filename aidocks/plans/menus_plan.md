@@ -68,7 +68,7 @@ Each section is confirmed by the dev before the next starts.
   - It starts again whenever the main menu comes back: from Return to menu in the pause menu, and after leaving the end credits.
   - It has a volume of its own, the title volume, which Page Up and Page Down set while it plays ([[audio_plan]]).
 
-- **The pause menu** (the dev, 2026-10-19: "I like this, but what about the restart button?", then "Yes."). Escape during the story pauses every channel and opens it:
+- **The pause menu** (the dev, 2026-10-19: "I like this, but what about the restart button?", then "Yes."). Escape during the story pauses as the original did, the spiel stopping and the backgrounds playing on under the hush ([[audio_plan]]), and opens it:
   1. **Resume,** first and opened on; Escape does the same.
   2. **Restart story:** "Restart the story? Your progress will be lost.", with No first. Yes resets the story's variables, the heard spiels and the actions' counts, and starts again at `start`, as the original's restart did (`-[ViewController resetGameState]`, 0x100011068). Settings and the first-run notice stay as they were. The original had no restart in its pause screen, only on its title menu.
   3. **Settings,** the same screen as the main menu's.

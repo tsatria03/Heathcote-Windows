@@ -24,7 +24,14 @@ metadata:
       - it carries into a spiel started during it, and stops where a spiel ends, with one frame's grace so the story engine can start the next spiel first
     - Both hold their time through a pause. `stop_effects()` ends either and plays on, as the original's tap did.
   - **Two pitch shift findings,** checked against the DLL. pyfmodex numbers the effect's settings wrongly for 2.02: it puts Max channels at 4, but the DLL has it at 3. And every setting is a float in 2.02. So the game finds settings by name, and sets the channel count as a float.
-  - **`Audio.pause_story()` and `resume_story()`** pause the story group, the spiel with the background lanes, and leave the system group, so the pause sounds can play. Whether pausing should instead hush the backgrounds and leave them playing, as the original did, is a question for the dev.
+  - **`Audio.pause_story()` and `resume_story()` pause as the original did,** at the dev's word: they hush the backgrounds, which play on muffled, and stop only the spiel.
+  - **The hush is built now, brought forward from section 3:**
+    - `Audio.hush_backgrounds()` and `unhush_backgrounds()` keep a counter.
+    - Each background slot carries a parametric EQ at 1250 Hz over 5 octaves, ramped once a tick by the original's steps, and removed at 0 dB.
+    - A lane started while hushed is muffled at once.
+    - A fading channel keeps its EQ until it is freed.
+  - In `audio_check.py`, P now pauses this way: the spiel stops, and the ambience plays on, muffled.
+  - **Three hush tests join `test_audio.py`:** the EQ's settings and both ramps tick by tick, nesting with a lane started while hushed, and no hush on a silent channel. The pause test now checks the original's way. The suite passes, 90 tests.
   - **`audio_check.py` gains the spiel:**
     - Comma and Full stop choose among the 103 recorded spiels, 10 at a time with Shift, and 3 plays or stops it.
     - **While a spiel plays, Comma and Full stop change straight to the next one,** resuming a paused story (the dev, 2026-10-20: "Please make it so pressing comma/period plays the next spiel while it's playing.").
@@ -36,7 +43,7 @@ metadata:
     - **Mandatory:**
       - fast-forward keeps voices at pitch
       - rewind sounds right, including at the beginning
-      - pause and resume stop and bring back the spiel and the ambience together
+      - pause stops the spiel and muffles the ambience, which plays on; resume unmuffles it and the spiel plays on
     - **Optional:** a second fast-forward press restarts its time.
 - **The data folder was renamed** by the dev on 2026-10-20, from `game/data/` to `game/documents/`. The game follows it through `DATA_FOLDER` in `heathcote/paths.py`.
 
@@ -109,7 +116,7 @@ Reviewed section by section with the dev on 2026-10-19 ([[feedback_review_plan_s
   - So 100 percent is full, 90 percent is half the signal, 50 percent is -30 dB, and 10 percent is -54 dB.
   - 0 percent is silence, set outright rather than as -60 dB.
   - The level each channel gets is its own volume times the master, worked out in decibels.
-- **Still to check before section 3:** how fast the hush ramps to -12 dB, in the original's code.
+- **The hush's ramp, checked 2026-10-20** ([[project_original_behaviour]]): down by 0.796875 dB a tick to -12 dB, 16 ticks, and back up by 0.5 dB a tick to 0, 24 ticks, when the EQ comes off.
 
 ## Decided
 
@@ -141,11 +148,17 @@ Reviewed section by section with the dev on 2026-10-19 ([[feedback_review_plan_s
   - FMOD's pitch shift effect is attached while it runs, with its pitch at 1/1.75, so voices keep their pitch.
   - The timed sets and lane events it passes fire on the way, as in normal play.
   - If the spiel ends during it, it stops there; if a next spiel starts during it, that spiel fast-forwards too.
-- **The hush, as the original** (`-[SoundChannel hush]`, 0x10002f4e0): FMOD's parametric EQ on the music and the three ambiences, centred on 1250 Hz with a bandwidth of 5, going to -12 dB. It is a counter, so nested hushes need as many unhushes, and it never touches the spiel or the idle loop. The speed of its ramp is checked in the code before it is built.
+- **The hush, as the original** (`-[SoundChannel hush]`, 0x10002f4e0): FMOD's parametric EQ on the music and the three ambiences, centred on 1250 Hz with a bandwidth of 5, going to -12 dB. It is a counter, so nested hushes need as many unhushes, and it never touches the spiel or the idle loop. It ramps by 0.796875 dB a tick down and 0.5 dB a tick back up, and only a channel playing when the hush begins is hushed; a lane that starts while hushed is muffled from its first sample. Built in section 2, ahead of plan, because pausing needs it.
 - **Other fades, as the original has them:**
   - The title music fades out over 3 seconds when the story starts.
   - The story group fades out over 2 seconds and in over 1 second (`+[Sound fadeOutStoryChannelGroup]`, 0x1000225d4; `fadeInStoryChannelGroup`, 0x100022690).
-- **Pausing pauses every channel together**, and resumes them together.
+- **Pausing is the original's** (`+[StoryView pause]`, 0x1000252cc; the dev, 2026-10-20: "It should match the original, including in the audio checker."):
+  - the backgrounds are hushed and play on, muffled
+  - only the spiel stops
+  - the idle loop plays on, unhushed
+  - unpausing unhushes, and the spiel plays on
+  
+  This replaces the earlier "pausing pauses every channel together".
 - **Lengths and positions come from FMOD**, which knows a stream's length and position exactly.
 - **Four volumes** (the dev, 2026-10-19: "I like that.", then the title volume: "Since the title music plays in a lot of places, there should be a volume for it, called title volume. Page up/down can adjust this, but only when the music plays there. Also, the other volume keys should only work when you are in the actual game."):
   - **Master,** Shift+Home louder and Shift+End quieter: everything together ([[foundation_plan]]). The spiel follows only this one, so the story's voices are never quieter than its backgrounds.
