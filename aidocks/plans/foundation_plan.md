@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-19: "I'm ready for section 1 of plan 2."). Section 1 is confirmed ("it looks good."), section 2 ("Section 2 is good.") and section 3 ("Section 3 is good."). Section 4 is next.
+**Status:** being built (the dev, 2026-10-19: "I'm ready for section 1 of plan 2."). Section 1 is confirmed ("it looks good."), section 2 ("Section 2 is good.") and section 3 ("Section 3 is good."). Section 4, the last, is built and waits for the dev's word; the plan is finished once the dev says it works.
 
 Plan 2 ([[reading_original_plan]] lists the order). Everything else stands on it: the audio, the story engine, the menus and the saves all use its paths, speech, timers and screen loop.
 
@@ -21,6 +21,33 @@ Each section is confirmed by the dev before the next starts.
 Until the menus plan is built, the game opens on a small stand-in menu, Settings and Quit, so its speech, keys and window can be tried by ear.
 
 ## Progress
+
+- **Section 4, built 2026-10-19, waiting for the dev's word** (the dev: "Start the final section for plan 2."). Nothing in it is tested by ear ([[feedback_say_ear_tests_ahead]]).
+  - **`tests/case/_quiet.py`:**
+    - Points `HEATHCOTE_USER_DIR` at a throwaway folder, deleted when the run ends.
+    - Sets `HEATHCOTE_SILENT`, and gives SDL a dummy audio driver and display.
+    - Sends the game's log nowhere.
+    - Gives every test file `run_tests(globals())`.
+    - FMOD's no-sound output joins it when the audio plan is built.
+  - **`tests/suite.py`:**
+    - Runs each file as its own process, eight at once.
+    - Runs a failed file again alone.
+    - Writes `tests/results/results-<date>-<n>.txt`, and exits 1 on a failure.
+    - Takes names with or without `test_`, such as `python tests/suite.py keymap menus`.
+  - **Seven test files, 65 tests,** turning the checks made by hand in sections 1 to 3 into lasting ones:
+    - `test_paths`: the throwaway save, the data found by its bundle, the missing-data message, and that every test file imports `_quiet` first.
+    - `test_entry`: the options, `log.old.txt`, `crash.txt`, an error returning 1, `--spiel`, and a silent run.
+    - `test_runloop`: order, repeats, cancelling, errors, and hold and resume, including calls made during a hold.
+    - `test_speech`: silent speech; NVDA first and Prism never loaded; another screen reader, a voice, and Narrator only when it runs; no Prism. All of it uses stand-ins.
+    - `test_settings`: the first start, backups, damaged files with and without a backup, bad values, the volume steps, and key order.
+    - `test_keymap`: every agreed default; exact modifiers; debug keys; no default clashes; which groups clash; rebinding, adding, clearing; the file; old files; and spoken key names.
+    - `test_menus`:
+      - the spoken menu's keys and wrapping, Quit, Settings, and debug mode
+      - F1 holding the timers, and keeping its own keys when the menu keys are unbound
+      - the F1 screen's clashes, refusals and reset
+      - each volume key where it works and where it does not, and held keys
+      - the window's lines
+  - All 65 passed on the first run.
 
 - **The title volume, added after section 3 was confirmed (2026-10-19), and confirmed by the dev the same day ("My tests past.")** ([[audio_plan]]):
   - `title_volume` is in the settings.

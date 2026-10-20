@@ -14,7 +14,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 - **No downloads.** Every recording ships with the game ([[project_no_downloads]]).
 - **Developer tasks**, open and finished, are in [[project_dev_tasks]].
 - **The game is data-driven.** The story is JSON exported from the original's authoring tool: choices with conditions, recordings ("spiels") that set variables at timed points and chain on, and ambience and music lanes with timed fades. What the data, the binary and the original's behaviour say is in [[project_original_findings]].
-- **Status:** plan 1, reading the original, is finished ([[reading_original_plan]]): the tools, the readable script and [[project_original_behaviour]]. Plan 2 is being built: sections 1 to 3 are confirmed, and section 4, the silent test setup, is next. Plans 2 to 7 are written with every question answered: [[foundation_plan]], [[audio_plan]], [[story_engine_plan]], [[menus_plan]], [[saves_plan]] and [[build_release_plan]].
+- **Status:** plan 1, reading the original, is finished ([[reading_original_plan]]): the tools, the readable script and [[project_original_behaviour]]. Plan 2 is being built: sections 1 to 3 are confirmed, and section 4, the silent tests, is built and waits for the dev's word. Plans 2 to 7 are written with every question answered: [[foundation_plan]], [[audio_plan]], [[story_engine_plan]], [[menus_plan]], [[saves_plan]] and [[build_release_plan]].
 
 ## Layout
 
@@ -27,7 +27,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
   - `ui/`: the screen stack, the spoken menu, the F1 screen and Settings.
   - `game/`: the stand-in main menu so far.
 - **`tests/interact/`**: tools played by ear, not tests, run by the dev. `speech_check.py` tries the speech and the timer loop. Each tool keeps its own save under `%APPDATA%\Heathcote\interact\`. A tool for testing goes here, never into the game's menus ([[feedback_test_tools_in_interact]]).
-- **`tests/case/`**: silent test scripts, to come; results go in the gitignored `tests/results/`. Run only the files covering what changed, in the background, and the full suite only when the dev asks ([[feedback_dont_run_or_build]]).
+- **`tests/case/`**: silent test scripts, each importing `_quiet.py` first, which keeps it silent and off the real save. `tests/suite.py` runs them all, or some by name, into the gitignored `tests/results/`. Run only the files covering what changed, in the background, and the full suite only when the dev asks ([[feedback_dont_run_or_build]]).
 - **`vendor/nvda/`**: `nvdaControllerClient64.dll` (x64) and its license.
 - **`vendor/fmod/`**: `fmod.dll` (FMOD Engine 2.02.35, x64), gitignored and copied in by hand from the FMOD install, and its licence, which is tracked ([[project_fmod]]).
 - **`docks/`**: the documents a player reads: `readme.txt`, `changelog.txt` and `todo list.txt` ([[feedback_changelog]], [[feedback_todo_list_format]]).

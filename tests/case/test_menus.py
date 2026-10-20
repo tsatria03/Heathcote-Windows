@@ -1,0 +1,238 @@
+"""The main loop's keys (heathcote/app.py), the spoken menu, the F1 screen, the stand-in
+Settings and main menu, and where each volume key works, driven by key name."""
+import _quiet  # noqa: F401  (first, before the game)
+
+import os
+import types
+
+from heathcote.app import App
+from heathcote.game.menus import MainMenu
+from heathcote.platform.keymap import STORY_VOLUMES, KeyMap
+from heathcote.platform.runloop import RunLoop
+from heathcote.platform.settings import Settings
+from heathcote.platform.speech import Speech
+from heathcote.ui.keybind_screen import KeyBindScreen
+from heathcote.ui.menu import Menu, Row
+from heathcote.ui.settings_screen import SettingsScreen
+
+N = [0]
+
+
+class Listening(Speech):
+    """Silent speech that keeps every line, and whether it interrupted."""
+    def __init__(self):
+        super().__init__()
+        self.lines = []
+
+    def speak(self, text, interrupt=True):
+        self.lines.append((text, interrupt))
+        return super().speak(text, interrupt)
+
+
+class StoryStandIn(Menu):
+    """Takes the story's volume keys, as the story's screens will."""
+    name = 'story stand-in'
+
+    def rows(self):
+        return [Row('Story')]
+
+    def volume_group(self):
+        return STORY_VOLUMES
+
+
+def make(debug=False):
+    N[0] += 1
+    folder = os.path.join(_quiet.FOLDER, 'app%d' % N[0])
+    app = App(types.SimpleNamespace(debug=debug, exit_after=None), speech=Listening(),
+              settings=Settings(os.path.join(folder, 'settings.json')),
+              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
+    return app
+
+
+def press(app, key, mods=()):
+    app.speech.lines.clear()
+    app.key_down(key, list(mods))
+    return [text for text, _interrupt in app.speech.lines]
+
+
+def with_main_menu(debug=False):
+    app = make(debug)
+    app.stack.push(MainMenu(app))
+    return app
+
+
+def test_opening_says_the_title_then_the_row_without_cutting_it_off():
+    app = make()
+    app.stack.push(MainMenu(app))
+    assert app.speech.lines == [('Heathcote.', True), ('Settings', False)]
+
+
+def test_all_four_arrows_move_and_wrap():
+    app = with_main_menu()
+    assert press(app, 'down') == ['Quit']
+    assert press(app, 'down') == ['Settings']          # wraps
+    assert press(app, 'left') == ['Quit']              # wraps back
+    assert press(app, 'right') == ['Settings']
+    assert press(app, 'up') == ['Quit']
+
+
+def test_home_and_end():
+    app = with_main_menu()
+    assert press(app, 'end') == ['Quit']
+    assert press(app, 'home') == ['Settings']
+
+
+def test_a_key_with_no_use_says_the_row_again():
+    app = with_main_menu()
+    assert press(app, 'x') == ['Settings']
+    assert press(app, 'escape') == ['Settings']        # nothing under the main menu
+
+
+def test_quit():
+    app = with_main_menu()
+    press(app, 'end')
+    press(app, 'return')
+    assert not app.running
+
+
+def test_settings_opens_on_back_and_back_returns():
+    app = with_main_menu()
+    assert press(app, 'return') == ['Settings.', 'Back']
+    assert isinstance(app.stack.top, SettingsScreen)
+    assert press(app, 'return') == ['Heathcote.', 'Settings']
+    assert isinstance(app.stack.top, MainMenu)
+
+
+def test_debug_mode_turns_on_at_once_and_is_remembered():
+    app = with_main_menu()
+    press(app, 'return')
+    press(app, 'down')
+    assert press(app, 'return') == ['Debug mode, currently on']
+    assert app.debug and app.keymap.debug and app.settings.get('debug') is True
+    assert app.window_title() == 'Heathcote (debug)'
+    press(app, 'return')
+    assert not app.debug and app.window_title() == 'Heathcote'
+
+
+def test_debug_from_the_command_line_is_not_remembered():
+    app = make(debug=True)
+    assert app.debug and app.settings.get('debug') is False
+
+
+def test_f1_holds_the_timers_and_resumes_them():
+    app = with_main_menu()
+    assert press(app, 'f1') == ['Key bindings.', 'Back']
+    assert isinstance(app.stack.top, KeyBindScreen) and app.loop.held
+    assert press(app, 'f1') == ['Heathcote.', 'Settings']
+    assert not app.loop.held
+
+
+def test_the_f1_screen_keeps_its_own_keys_when_the_menu_keys_are_unbound():
+    app = with_main_menu()
+    for action in ('menu_previous', 'menu_next', 'menu_choose', 'menu_back'):
+        app.keymap.clear(action)
+    press(app, 'f1')
+    assert press(app, 'down') == ['Menus: previous: nothing']
+    assert press(app, 'return') == ['Press the key for Menus: previous.']
+    assert press(app, 'up') == ['Menus: previous is now Up Arrow.']
+
+
+def test_rebinding_says_what_it_took_from():
+    app = with_main_menu()
+    press(app, 'f1')
+    screen = app.stack.top
+    screen.index = 1 + app.keymap.actions.index('menu_first')
+    press(app, 'return')
+    said = press(app, 'home', ['shift'])
+    assert said == ['Menus: first is now Shift plus Home. Taken from Master volume up.'], said
+
+
+def test_escape_and_f1_cannot_be_bound():
+    app = with_main_menu()
+    press(app, 'f1')
+    press(app, 'down')
+    press(app, 'return')
+    assert press(app, 'escape')[0].startswith('Escape cannot be rebound.')
+    assert isinstance(app.stack.top, KeyBindScreen)
+
+
+def test_reset_asks_first():
+    app = with_main_menu()
+    app.keymap.clear('pause')
+    press(app, 'f1')
+    press(app, 'r')
+    assert press(app, 'x')[0].startswith('Your bindings are kept.')
+    assert app.keymap.bindings['pause'] == []
+    press(app, 'r')
+    press(app, 'r')
+    assert app.keymap.bindings['pause'] == ['escape']
+
+
+def test_title_volume_and_master_in_the_main_menu():
+    app = with_main_menu()
+    assert press(app, 'page down') == ['Title volume, 90 percent.']
+    assert press(app, 'end', ['shift']) == ['Master volume, 90 percent.']
+    assert press(app, 'page down', ['shift']) == ['Settings']   # interface: story only
+    assert app.settings.get('interface_volume') == 100
+
+
+def test_title_volume_in_settings_opened_from_the_main_menu():
+    app = with_main_menu()
+    press(app, 'return')
+    assert press(app, 'page down') == ['Title volume, 90 percent.']
+
+
+def test_only_the_master_where_the_title_music_is_silent():
+    app = make()
+    app.stack.push(Menu(app))                  # such as the pause menu
+    assert press(app, 'home', ['shift']) == ['Master volume, 100 percent.']
+    assert press(app, 'page down') == ['Nothing here.']
+    assert app.settings.get('title_volume') == 100 and app.settings.get('backgrounds_volume') == 100
+
+
+def test_the_story_volumes_in_the_story():
+    app = make()
+    app.stack.push(StoryStandIn(app))
+    assert press(app, 'page down') == ['Background volume, 90 percent.']
+    assert press(app, 'page down', ['shift']) == ['Interface volume, 90 percent.']
+    assert press(app, 'end', ['shift']) == ['Master volume, 90 percent.']
+    assert app.settings.get('title_volume') == 100
+
+
+def test_no_volume_keys_on_the_f1_screen():
+    app = with_main_menu()
+    press(app, 'f1')
+    press(app, 'page down')
+    assert app.settings.get('title_volume') == 100
+
+
+def test_a_held_volume_key_repeats_and_stops():
+    app = with_main_menu()
+    app.key_down('page down', [], now=0.0)
+    app.repeat_keys(now=0.3)
+    assert app.settings.get('title_volume') == 90       # not yet
+    app.repeat_keys(now=0.4)
+    app.repeat_keys(now=0.5)
+    assert app.settings.get('title_volume') == 70
+    app.key_up('page down')
+    app.repeat_keys(now=0.6)
+    assert app.settings.get('title_volume') == 70
+
+
+def test_a_held_volume_key_stops_when_the_screen_changes():
+    app = with_main_menu()
+    app.key_down('page down', [], now=0.0)
+    app.title_music = False
+    app.stack.push(Menu(app))
+    app.repeat_keys(now=0.5)
+    assert app.settings.get('title_volume') == 90 and app.held is None
+
+
+def test_the_window_shows_the_rows_and_the_last_line():
+    app = with_main_menu()
+    assert app.stack.top.lines() == ['Heathcote.', '', '> Settings', '  Quit']
+    assert app.speech.last == 'Settings'
+
+
+if __name__ == '__main__':
+    _quiet.run_tests(globals())
