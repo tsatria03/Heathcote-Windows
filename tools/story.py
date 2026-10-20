@@ -11,8 +11,9 @@ The data is the export of the original's authoring tool, in game/data/text/:
 Every reference inside a record is a softRef, except `file`, which is the id
 of the record describing the audio or image file. A recording is found
 through that file record's `original.name`, with `.mp3` in place of its
-extension and any character Windows does not allow dropped, in the folder for
-the referring record's category (aidocks/general/project_audio_names.md).
+extension and any character Windows does not allow dropped, in the folders
+for the referring record's category (FOLDERS below, and
+aidocks/general/project_audio_names.md).
 
 This module only reads; it writes nothing. The game's own loader follows the
 same rules, so what these checks report is what the game would meet.
@@ -27,17 +28,18 @@ DATA = os.path.join(ROOT, "game", "data")
 TEXT = os.path.join(DATA, "text")
 INDEX = os.path.join(TEXT, "system", "Heathcote v1.01.bundle.json")
 RECORDS = os.path.join(TEXT, "story")
-AUDIO = os.path.join(DATA, "Audio", "story")
+AUDIO = os.path.join(DATA, "Audio")
 IMAGES = os.path.join(DATA, "image", "story")
 
-# The folder under game/data/Audio/story/ for each category that has audio.
+# The folders under game/data/Audio/ that hold each category's recordings,
+# as the dev laid them out. A recording is looked for in each, in order.
 FOLDERS = {
-    "actionSpiels": "scene",
-    "systemVoice": "speech",
-    "ambience": "ambience",
-    "idleLoops": "idle",
-    "bgm": "music",
-    "systemSounds": "interface",
+    "actionSpiels": ("story/scene",),
+    "systemVoice": ("story/speech",),
+    "ambience": ("story/ambience",),
+    "idleLoops": ("story/idle",),
+    "bgm": ("story/music",),
+    "systemSounds": ("System/menu", "System/misc"),
 }
 
 # Every story variable starts as this string (+[Vars createStoryDefaults], 0x1000321e4).
@@ -48,6 +50,10 @@ START_LABEL = "start"
 
 # The audio lanes a spiel can carry, besides its own recording.
 LANES = ("bgm", "ambience", "ambience1", "ambience2", "ambience3")
+
+# The plain "ambience" lane is in the data but the original never reads it
+# (+[Sound tick], 0x100020dd4 to 0x100020e30), so its fades never played.
+UNPLAYED_LANES = ("ambience",)
 
 # Categories in the index that the original never reads; a broken record in one is only a note.
 UNUSED = ("recaps", "describes", "describeSpiels", "recapSpiels", "orphanSpiels")
@@ -105,7 +111,11 @@ class Story:
         return found[0] if found else None
 
     def audio_path(self, soft):
-        """The path a softRef's recording should be at, or None if it has no file."""
+        """The path of a softRef's recording, or None if it has no file.
+
+        It is the first of the category's folders that holds the file; when
+        none does, it is where the file would be in the first folder.
+        """
         rec = self.record(soft)
         cat = self.category.get(soft)
         if not rec or not rec.get("file") or cat not in FOLDERS:
@@ -113,7 +123,9 @@ class Story:
         frec = self.records.get(rec["file"])
         if not frec or "original" not in frec:
             return None
-        return os.path.join(AUDIO, FOLDERS[cat], disk_name(frec["original"]["name"]))
+        name = disk_name(frec["original"]["name"])
+        paths = [os.path.join(AUDIO, *folder.split("/"), name) for folder in FOLDERS[cat]]
+        return next((p for p in paths if os.path.exists(p)), paths[0])
 
     def graphic_path(self, soft):
         rec = self.record(soft)
@@ -257,15 +269,25 @@ class Story:
                 notes.append('The spiel "%s" is never reached from the start, by a next or an action that can be offered.'
                              % self.label(soft))
 
-        # Two next entries that can both be true at the moment a spiel ends.
+        # Two next entries that can both be true when a spiel ends. The first
+        # listed wins (+[Sound tick], 0x100020930), so this is precedence, not
+        # a fault; it is noted so the order is never changed by accident.
         for soft in self.refs("actionSpiels"):
             nexts = (self.record(soft) or {}).get("next", [])
             for i in range(len(nexts)):
                 for j in range(i + 1, len(nexts)):
                     a, b = nexts[i].get("if", {}), nexts[j].get("if", {})
                     if not any(k in b and b[k] != v for k, v in a.items()):
-                        notes.append('The spiel "%s" has two next entries that can both be true, "%s" and "%s".'
-                                     % (self.label(soft), self.label(nexts[i]["softRef"]), self.label(nexts[j]["softRef"])))
+                        notes.append('The spiel "%s" has next entries "%s" and "%s" that can both be true; the first, "%s", wins.'
+                                     % (self.label(soft), self.label(nexts[i]["softRef"]),
+                                        self.label(nexts[j]["softRef"]), self.label(nexts[i]["softRef"])))
+
+        # Fades on a lane the original never plays.
+        for soft in self.refs("actionSpiels"):
+            for lane in UNPLAYED_LANES:
+                if (self.record(soft) or {}).get(lane):
+                    notes.append('The spiel "%s" has fades on the plain %s lane, which the original never played.'
+                                 % (self.label(soft), lane))
 
         # Labels that more than one softRef in a category share.
         for cat in ("actionSpiels", "actions"):
