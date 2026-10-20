@@ -22,6 +22,8 @@ metadata:
 
 **Rewriting published history needs an explicit go-ahead every time.** That covers force pushes, amending or rebasing pushed commits, and changing authors. When approved, push with `--force-with-lease`, and keep a backup until the dev is happy.
 
+**The first rewrite** was on 2026-10-19, before any push: `fmod.dll` was taken out of every commit on `main` with `git filter-branch`, after the dev asked for a backup branch first ([[project_fmod]]). **Push only `main`, never `backup/before-fmod-rewrite`,** and never `git push --all` or `--mirror`: that backup branch still holds the DLL, which FMOD's licence does not allow in a public repo. Delete it only when the dev says so.
+
 **Why:** The dev's standing rules, adopted for this project on 2026-10-19. The dev approves what goes into a commit, and history rewrites can lose work.
 
 **How to apply:**
