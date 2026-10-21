@@ -8,6 +8,9 @@ included. Its keys are the menu group's in platform/keymap.py, rebindable on the
     Escape          go back
     any other key   say the row again
 
+Moving, choosing and going back play the original's click-good, while the Click sounds
+setting is on (aidocks/plans/menu_sounds_plan.md).
+
 Each row is spoken by its text alone, such as "Settings", never with its place, such as
 "1 of 2". Each move cuts off what was being said, so fast arrowing never builds a backlog.
 Opening the menu says its title, then its row without cutting the title off
@@ -89,9 +92,16 @@ class Menu(Screen):
         row again."""
         self.say(self.row_text())
 
+    #: The original's click on choosing and on going back (aidocks/plans/menu_sounds_plan.md);
+    #: the actions menu turns them off, as it has sounds of its own for those.
+    click_on_choose = True
+    click_on_back = True
+
     def handle_key(self, key, mods):
         action = self.app.keymap.action_for(key, mods, MENU)
         count = len(self.rows())
+        if action in ('menu_previous', 'menu_next', 'menu_first', 'menu_last'):
+            self.app.click()
         if action == 'menu_previous':
             self.move_to(self.index - 1)
         elif action == 'menu_next':
@@ -101,11 +111,15 @@ class Menu(Screen):
         elif action == 'menu_last':
             self.move_to(count - 1)
         elif action == 'menu_choose':
+            if self.click_on_choose:
+                self.app.click()
             self.choose()
         elif action == 'menu_back':
+            if self.click_on_back:
+                self.app.click()
             self.back()
         else:
-            self.other_key(action, key, mods)
+            self.other_key(action, key, mods)       # says the row again, with no click
         return True
 
     def lines(self):

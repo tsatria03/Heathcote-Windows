@@ -43,6 +43,7 @@ Once a story is under way, Start story becomes Continue story, said with the sto
 
 In every menu, Up and Down move, as do Left and Right, Home and End go to the first and last row, Enter chooses, and Escape goes back.
 Moving past either end of a menu wraps round to the other.
+Moving, choosing and going back play the original's click, unless Click sounds is off in Settings.
 Back is always the first row of a menu that has one, and the menu opens on it.
 Rows are read without their place in the menu.
 
@@ -80,6 +81,7 @@ Settings
 Settings opens from the main menu or the pause menu, with these rows:
 Back.
 Skip opening screens. Enter turns it on or off. When it is on, the game starts straight at the main menu, without the police radio or the first-run advice.
+Click sounds. Enter turns the original's clicks on or off: the click as you move, choose and go back in every menu, and the clicks for the story's keys, such as rewind and fast-forward. They are on at first.
 Master volume, Background volume, Interface volume and Title volume, each said with its level. Enter opens a list of its levels, from 100 percent down to 0, with Back first; Enter on a level sets it at once, and Escape keeps it as it was. Every volume can be set here, wherever you are.
 Volume speed, how quickly a volume key repeats while you hold it, from 50 milliseconds, the fastest, to 500, the slowest, in a list of its own.
 Key bindings.

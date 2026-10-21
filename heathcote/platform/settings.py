@@ -26,6 +26,7 @@ DEFAULTS = {
     'volume_speed': 100,
     'debug': False,                     # aidocks/plans/foundation_plan.md: source runs only
     'skip_opening': False,              # aidocks/plans/skip_opening_plan.md: start at the main menu
+    'click_sounds': True,               # aidocks/plans/menu_sounds_plan.md: click-good and click-bad
     'first_run_notice_shown': False,    # aidocks/plans/menus_plan.md: the first start only
 }
 VOLUMES = ('master_volume', 'backgrounds_volume', 'interface_volume', 'title_volume')

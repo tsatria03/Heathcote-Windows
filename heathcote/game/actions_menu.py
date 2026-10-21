@@ -32,6 +32,10 @@ REPEAT_AFTER = 7.0
 
 class ActionsMenu(Menu):
     name = 'actions menu'
+    # Moving clicks, under each choice's clip, as the original's dial did; accepting and
+    # closing keep their own sounds, menu-accepted and menu-close.
+    click_on_choose = False
+    click_on_back = False
 
     def __init__(self, app, player, choices, clock=time.perf_counter):
         super().__init__(app)

@@ -131,7 +131,7 @@ def test_settings_has_its_rows_in_order():
     app = open_settings()
     assert [r.text for r in app.stack.top.rows()] == [
         'Back', 'Debug mode, currently off', 'Skip opening screens, currently off',
-        'Master volume, 100 percent',
+        'Click sounds, currently on', 'Master volume, 100 percent',
         'Background volume, 100 percent', 'Interface volume, 100 percent',
         'Title volume, 100 percent', 'Volume speed, 100 milliseconds', 'Key bindings']
 
@@ -149,6 +149,55 @@ def test_skip_opening_screens_starts_at_the_main_menu_and_counts_the_notice_show
     app.stack.reset(first_screen(app))
     app.stack.top.update()                                          # (no sound here: it moves on)
     assert isinstance(app.stack.top, MainMenu)                      # ...and no notice
+
+
+def clicks_heard(app):
+    """Every interface sound the app asks for from now on, by label."""
+    asked = []
+    app.play_sound = asked.append                   # App.click() goes through it too
+    return asked
+
+
+def test_menus_click_as_you_move_choose_and_go_back_but_not_on_other_keys():
+    app = with_main_menu()
+    asked = clicks_heard(app)
+    press(app, 'down')
+    press(app, 'end')
+    press(app, 'up')
+    assert asked == ['click-good'] * 3
+    press(app, 'x')                                                 # says the row, no click
+    assert asked == ['click-good'] * 3
+    press(app, 'home')
+    press(app, 'down')
+    press(app, 'return')                                            # Settings
+    press(app, 'escape')                                            # back
+    assert asked == ['click-good'] * 7
+    press(app, 'f1')
+    press(app, 'down')
+    press(app, 'return')                                            # capture a key...
+    asked.clear()
+    press(app, 'f9')                                                # ...which is never clicked
+    assert asked == []
+
+
+def test_click_sounds_off_silences_every_click_and_nothing_else():
+    app = open_settings()
+    played = []
+    app.audio.play_oneshot = lambda path: played.append(os.path.basename(path)) or True
+    on_row(app, 'Click sounds')
+    assert press(app, 'return') == ['Click sounds, currently off']
+    assert app.settings.get('click_sounds') is False
+    played.clear()
+    press(app, 'down')
+    app.play_sound('click-bad')                                     # as the story's keys play it
+    assert played == []
+    app.play_sound('menu-open')                                     # the story's own sounds stay
+    assert played == ['menu-open-try3.mp3']
+    press(app, 'up')
+    press(app, 'return')                                            # back on, after its click
+    assert app.settings.get('click_sounds') is True and played[-1] == 'menu-open-try3.mp3'
+    press(app, 'down')                                              # the next move clicks
+    assert played[-1] == 'click.mp3'
 
 
 def test_a_volume_row_opens_its_levels_on_back_and_enter_picks_one():

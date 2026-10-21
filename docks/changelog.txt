@@ -1,4 +1,5 @@
 unrelease:
+Every menu plays the original's click as you move, choose and go back, and Click sounds in Settings turns every click in the game on or off.
 Settings has Skip opening screens, which starts the game straight at the main menu.
 In the actions menu, your screen reader speaks each choice's words after its recording, in place of pressing Space.
 Settings has Volume speed, for how quickly a held volume key repeats.

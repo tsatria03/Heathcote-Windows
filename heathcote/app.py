@@ -42,6 +42,9 @@ MAX_LINES = 22
 #: Seconds a volume key is held before it starts repeating. The time between repeats is the
 #: Volume speed setting (aidocks/plans/settings_plan.md).
 REPEAT_DELAY = 0.4
+#: The original's clicks for a gesture taken and one refused, which the Click sounds setting
+#: turns off (aidocks/plans/menu_sounds_plan.md).
+CLICKS = ('click-good', 'click-bad')
 #: The volume keys' actions: (setting, steps per press).
 VOLUME_ACTIONS = {
     'master_up': ('master_volume', 1), 'master_down': ('master_volume', -1),
@@ -121,13 +124,21 @@ class App:
     # ---- interface sounds -------------------------------------------------
     def play_sound(self, label):
         """One of the original's interface sounds by its label, such as 'click-good', on a
-        channel of its own, so two can sound together."""
+        channel of its own, so two can sound together. The clicks play only while the Click
+        sounds setting is on (aidocks/plans/menu_sounds_plan.md): in the menus, for the
+        story's keys, and at the opening alike."""
+        if label in CLICKS and not self.settings.get('click_sounds'):
+            return
         from .game.storydata import StoryData
         path = StoryData.shared().sound_path('systemSounds', label)
         if path is None:
             log.warning('there is no interface sound labelled %s', label)
             return
         self.audio.play_oneshot(path)
+
+    def click(self):
+        """The original's click for a move or choice it took, as every menu plays it."""
+        self.play_sound('click-good')
 
     # ---- the title music ----------------------------------------------------
     def start_title_music(self):

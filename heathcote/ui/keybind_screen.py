@@ -103,6 +103,10 @@ class KeyBindScreen(Screen):
         if mods:
             self.say(self.current_text())
             return True
+        # The original's click as you move, choose and go back, as in every menu; never on
+        # the key being bound, handled above (aidocks/plans/menu_sounds_plan.md).
+        if key in ('escape', 'f1', 'up', 'left', 'down', 'right', 'home', 'end', 'return', 'enter'):
+            self.app.click()
         if key in ('escape', 'f1'):
             self.close()
         elif key in ('up', 'left'):

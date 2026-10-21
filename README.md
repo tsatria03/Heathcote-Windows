@@ -125,7 +125,8 @@ through your screen reader, with the title music under it:
   approaching Heathcote.", and plays the spiel you were in again from its start, with the
   story's state and background sounds as they were as it began.
 - **Settings** has Back, Debug mode (from source only), Skip opening screens, which starts
-  the game at the main menu, a row for each of the four volumes,
+  the game at the main menu, Click sounds, which turns every click in the game on or off,
+  a row for each of the four volumes,
   each opening a list of its levels, Volume speed, how often a held volume key repeats,
   and Key bindings.
 - **Credits** reads the original's credits a row each, Back first, with the port's row and
