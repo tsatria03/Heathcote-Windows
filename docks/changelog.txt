@@ -1,4 +1,6 @@
 unrelease:
+Settings has Volume speed, for how quickly a held volume key repeats.
+Settings has a row for each volume, which opens a list of its levels, so every volume can be set from anywhere.
 
 26.10.21-1:
 The game comes as one zip to extract and play with Heathcote.exe, with nothing else to install.

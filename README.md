@@ -71,6 +71,9 @@ was split into seven plans, in `aidocks/plans/`:
      uploads a release, asking before each step
    - 212 silent tests in all
 
+Since then, plan 8, the Settings screen: a row for each volume, opening a list of its
+levels, and Volume speed, for how often a held volume key repeats. 218 silent tests.
+
 What was found in the original:
 
 - The game is driven almost entirely by data. The story is JSON exported from the
@@ -117,7 +120,9 @@ through your screen reader, with the title music under it:
   it is **Continue story** instead, said with the story's chapter, such as "Continue story:
   approaching Heathcote.", and plays the spiel you were in again from its start, with the
   story's state and background sounds as they were as it began.
-- **Settings** has Back, Debug mode (from source only) and Key bindings.
+- **Settings** has Back, Debug mode (from source only), a row for each of the four volumes,
+  each opening a list of its levels, Volume speed, how often a held volume key repeats,
+  and Key bindings.
 - **Credits** reads the original's credits a row each, Back first, with the port's row and
   FMOD's credit line.
 - **Quit**, or Escape, closes the game.

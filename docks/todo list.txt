@@ -4,6 +4,7 @@ Nothing is waiting here right now. New bugs, planned changes and anything still 
 
 ##Finished.
 
+Settings can set every volume and how quickly a held volume key repeats.
 The game can be downloaded as one zip and played with Heathcote.exe, with nothing else to install.
 Your progress is saved as you play, and Continue story takes you back to the start of the part you were in.
 Tab says the chapter you are in.

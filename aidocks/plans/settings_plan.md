@@ -6,7 +6,14 @@ metadata:
   type: project
 ---
 
-**Status:** planned, 2026-10-21, waiting for the dev's word to build.
+**Status:** FINISHED 2026-10-21. Built on the dev's word and marked finished at once, with nothing to test by ear (the dev: "Yes please. After you do, mark it as complete. I already know these settings work on the other port.").
+
+## What was built
+
+- **`heathcote/ui/settings_screen.py`:** the rows as decided; `LevelsMenu`, a setting's levels, Back first, Enter setting and saving at once and going back, Escape keeping the value; `speed_text()` naming the ends "fastest" and "slowest". Back from a list, Settings says just the row with its new value.
+- **`heathcote/platform/settings.py`:** `volume_speed`, default 100, kept to `VOLUME_SPEEDS`, 50 to 500 in steps of 50.
+- **`heathcote/app.py`:** a held volume key repeats every `volume_speed` milliseconds, after the fixed 0.4 seconds.
+- **Tests:** six new, in `test_menus.py` and `test_settings.py`. On the way, the releaser's changelog test was made to check every entry, since it failed once the first release left `unrelease:` empty. 218 in all, the whole suite passing.
 
 Plan 8, after the first release. Asked for by the dev, 2026-10-21: "I found that the settings screen barely has anything in it besides key bindings. Can you look at the other port to see what settings it had?" Adapted from the reference material's Settings screen, never naming it ([[feedback_no_other_games]]). It stands on [[foundation_plan]]'s settings and menus and [[audio_plan]]'s four volumes.
 

@@ -77,13 +77,17 @@ Back or Escape leaves them, and the main menu offers a fresh story.
 
 Settings
 
-Settings has Back and Key bindings, from the main menu or the pause menu.
+Settings opens from the main menu or the pause menu, with these rows:
+Back.
+Master volume, Background volume, Interface volume and Title volume, each said with its level. Enter opens a list of its levels, from 100 percent down to 0, with Back first; Enter on a level sets it at once, and Escape keeps it as it was. Every volume can be set here, wherever you are.
+Volume speed, how quickly a volume key repeats while you hold it, from 50 milliseconds, the fastest, to 500, the slowest, in a list of its own.
+Key bindings.
 Your settings are saved as you change them.
 
 Volumes
 
 The game has four volumes.
-Each press of a volume key moves a volume by 10 percent and says where it is now, and holding the key keeps moving it.
+Each press of a volume key moves a volume by 10 percent and says where it is now, and holding the key keeps moving it, as quickly as Volume speed in Settings says.
 Shift with Home and Shift with End turn the master volume up and down, from anywhere in the game.
 The master volume sets how loud everything is together.
 Page Up and Page Down turn the title volume up and down, wherever the title music plays: the main menu, and Settings and Credits opened from it.
@@ -91,7 +95,7 @@ During the story, and in the end credits, Page Up and Page Down turn the backgro
 During the story, Shift with Page Up and Shift with Page Down turn the interface volume up and down: the game's own sounds. The recorded choices follow only the master volume, as the story's voices do.
 The game remembers every volume.
 Every step sounds like the same change, and 0 percent is silent.
-In the pause menu, only the master volume works.
+In the pause menu, only the master volume's keys work, but Settings there can set any volume.
 
 Key bindings
 

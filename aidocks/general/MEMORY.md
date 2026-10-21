@@ -13,9 +13,10 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Settings](../plans/settings_plan.md): plan 8, planned, waiting for the dev's word. A row for each of the four volumes opening a list of levels, and Volume speed for the held volume keys.
+- None open.
 
 ## Completed projects
+- [Settings](../plans/settings_plan.md): plan 8, FINISHED 2026-10-21. A row for each of the four volumes, opening a list of levels, and Volume speed for the held volume keys; 218 silent tests.
 - [Build and release](../plans/build_release_plan.md): plan 7, FINISHED 2026-10-21. compiler.py, a folder build or a single exe with a silent --test; releaser.py, the release from this machine with gh; the story's recordings in an encrypted data\story.dat beside the exe (platform/pack.py, AES-256-GCM, played from memory, its bytes kept while FMOD streams them); tools/build_pack.py; 212 silent tests.
 - [Saves](../plans/saves_plan.md): plan 6, FINISHED 2026-10-21. progress.py, saves\progress.json with the spiel's snapshot and the chapter apart; Continue story from the save at the start of the spiel the player was in, after Return to menu or quitting; Restart story and the end clearing it; debug jumps writing nothing; Tab saying the chapter; menu_check.py's Control+D; 182 silent tests.
 - [Menus](../plans/menus_plan.md): plan 5, FINISHED 2026-10-20. opening.py, the police radio and the first-run notice; the title music with the original's story fades; the main menu with Start story or Continue story, Settings, Credits and Quit; credits.py; the pause menu with Restart story and Return to menu (since plan 6, ending the story for Continue story from the save); the end credits over the story's last moments; menus_check.py, now menu_check.py; 166 silent tests.
