@@ -27,6 +27,16 @@ The audio plan, finished 2026-10-20 ([[audio_plan]]), left these ready for the s
 - **Restoring them:** `Lanes.restore(held)` starts them again with the original's 0.5-second fade-in when the story opens.
 - **The settings:** the title volume is the fourth volume in `config\settings.json`.
 
+## What plan 4 built for it
+
+The story engine, finished 2026-10-20 ([[story_engine_plan]]), left these ready for the saves:
+- **The state:** `StoryState` in `heathcote/game/state.py` holds the variables, heard spiels and action counts by softRef.
+  - `snapshot()` copies all three as one dict.
+  - `restore()` puts one back, dropping what the story does not know, so an old save still loads.
+  - `reset()` is Restart story's.
+- **The spiel's start:** `StoryPlayer.on_spiel(soft)` is called as each spiel begins, the moment to take Continue story's snapshot, with `player.lanes.opening` for the lanes. A scene's end marks its spiel heard, the other moment to write.
+- **Continue story:** a story screen made with `state=` the restored state and `start_at=` the saved spiel begins there.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.

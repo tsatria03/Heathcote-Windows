@@ -47,6 +47,21 @@ The audio plan, finished 2026-10-20 ([[audio_plan]]), left these ready for the m
 - **The pause menu** uses `audio.pause_story()` and `resume_story()`, the original's pause, with `pause-pause` and `pause-unpause` played by `app.play_sound()`.
 - **The ending music** is `StoryData.sound_path('bgm', 'ending')`.
 
+## What plan 4 built for it
+
+The story engine, finished 2026-10-20 ([[story_engine_plan]]), left these for the menus plan to replace or use:
+- **Stand-ins to replace:**
+  - the stand-in main menu's Start story row, in `heathcote/game/menus.py`
+  - the stand-in `PauseMenu` (Resume, Return to menu) in `heathcote/game/story_screen.py`
+  - the end, which says "The story has ended." and returns to the main menu, in `StoryScreen.story_ended()`
+- **The story screen:**
+  - `StoryScreen(app, state=None, start_at=None)` plays the story; `start_at` begins at a spiel.
+  - Its player's `on_story_end` is the place for the end credits.
+  - `player.pause()` and `resume()` pause as the original, the idle loop muffled too, and play `pause-pause` and `pause-unpause`. Pausing is refused in the grace after a refused menu.
+  - `player.stop()` leaves the story.
+- **Restart story** can use `state.reset()` and `player.start()`.
+- **`--spiel`:** `app.start_spiel` holds its spiel, which Start story takes the first time.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.

@@ -58,6 +58,7 @@ Paths below that say `game/Documents/` now mean the folders above.
   - `actionSpiels`: exactly one spiel in every action.
   - `burnAfterReading`: bool, the choice goes away once used.
   - `set`: always empty on actions.
+  - Every action's `systemVoice` has a recording. The two `systemVoice` records with no file, "next room" and "just stop", are used by no action (found 2026-10-20).
 - A spiel has:
   - `file` and `transcript`.
   - `set`: a list of {at: seconds, set: {variable: value}}, applied as playback passes each time.
