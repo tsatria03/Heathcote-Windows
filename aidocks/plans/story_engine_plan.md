@@ -6,11 +6,11 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is confirmed too, after the dev's ear tests ("Also all 4 tests past"). Section 5 is built and waits for the dev's word (the dev: "ready for section5.").
+**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is confirmed too, after the dev's ear tests ("Also all 4 tests past"). Section 5 is confirmed too, after the dev's ear tests ("all 3 tests past."). Section 6 is next.
 
 ## Progress
 
-- **Section 5, built 2026-10-20, waiting for the dev's word:**
+- **Section 5, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 3 tests past."): F3's jump, F4's variables, and F2 keeping the story consistent. **A correction:** the reply to the dev said the search was now shared with `audio_check.py`. It is not: `audio_check.py` keeps its own copy, since it does not run on the game's screens. The two behave alike.
   - **The player gains debug mode's actions:**
     - **`skip()`, F2:** it fires the spiel's waiting timed sets and lane events up to its end, then seeks to the end, so the spiel ends as any spiel does. Never under the menu, while paused, or on a silent spiel.
     - **`jump(soft)`, F3 and `--spiel`:** it plays any spiel, the state kept, closing the menu or pause first.
