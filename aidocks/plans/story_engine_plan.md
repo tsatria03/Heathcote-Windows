@@ -6,11 +6,11 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is confirmed too, after the dev's ear tests ("Also all 4 tests past"). Section 5 is confirmed too, after the dev's ear tests ("all 3 tests past."). Section 6, the last, is built and waits for the dev's ear tests. The dev asked for the plan to be marked complete and the docs updated once they pass ("After I say the tests have past, mark the plan complete, and update the docks.").
+**Status:** finished, 2026-10-20. The dev asked for it to be marked complete once section 6's ear tests passed ("After I say the tests have past, mark the plan complete, and update the docks."), and they did ("the C, a, and H keys past the hering tests."). Built the same day, one section at a time, each confirmed after the dev's ear tests.
 
 ## Progress
 
-- **Section 6, built 2026-10-20, waiting for the dev's ear tests:** `story_check.py` is the whole tool, now saying the story's state as it goes:
+- **Section 6, confirmed by the dev 2026-10-20, whose ear tests passed:** `story_check.py` is the whole tool, now saying the story's state as it goes:
   - **C** turns on or off saying each variable as it changes, such as "lockout is now 1.", through the player's `on_changed`. It is off at first.
   - **H** says whether the spiel playing has been heard before, and how many spiels have been heard.
   - **A** says the actions the menu would offer now, without opening it.

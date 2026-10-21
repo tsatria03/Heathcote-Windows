@@ -13,13 +13,12 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Story engine](../plans/story_engine_plan.md): plan 4, planned, all questions answered; next, to be reviewed section by section. The variables, timed sets, next, idle loops, lockout, the actions menu, the end, the keys during play and debug mode.
-- [Menus](../plans/menus_plan.md): plan 5, planned, all questions answered. The opening, title, main menu, Settings, pause menu, the end and the credits, read from the original's credit cards.
+- [Menus](../plans/menus_plan.md): plan 5, planned, all questions answered; next, to be reviewed section by section. The opening, title, main menu, Settings, pause menu, the end and the credits, read from the original's credit cards.
 - [Saves](../plans/saves_plan.md): plan 6, planned, all questions answered. The progress and settings files in %APPDATA%\Heathcote, Continue story, Restart story and the end's reset.
 - [Build and release](../plans/build_release_plan.md): plan 7, planned, all questions answered. compiler.py and releaser.py, Windows only, carrying the audio, story data, FMOD and NVDA.
 
 ## Completed projects
-- [Audio](../plans/audio_plan.md): plan 3, FINISHED 2026-10-20. FMOD through pyfmodex; the original's channels; even 6 dB volume steps; the spiel with rewind and fast-forward at pitch; the hush and the original's pause; the four lanes with crossfades, rebuilt after a rewind; the idle loop; the story fades; audio_check.py; 101 silent tests.
+- [Story engine](../plans/story_engine_plan.md): plan 4, FINISHED 2026-10-20. state.py, the variables, heard spiels and action counts; player.py, the original's rules; the story screen; lockout and the actions menu with its clips; the keys during play with a stand-in pause; debug mode's F2 to F4 and --spiel; story_check.py; 153 silent tests.- [Audio](../plans/audio_plan.md): plan 3, FINISHED 2026-10-20. FMOD through pyfmodex; the original's channels; even 6 dB volume steps; the spiel with rewind and fast-forward at pitch; the hush and the original's pause; the four lanes with crossfades, rebuilt after a rewind; the idle loop; the story fades; audio_check.py; 101 silent tests.
 - [Foundation](../plans/foundation_plan.md): plan 2, FINISHED 2026-10-19. Heathcote.py, paths, logs and crash file; speech and the timer loop; settings, the grouped key map, the screens, the spoken menu and the F1 screen; the four volumes; and 65 silent tests.
 - [Reading the original](../plans/reading_original_plan.md): plan 1, FINISHED 2026-10-19. tools/macho64.py, dis64.py, story.py and script_text.py; analysis/script/Heathcote.txt; and [Original behaviour](project_original_behaviour.md).
 
@@ -40,7 +39,7 @@
 - [Back first](feedback_back_first.md): Back is the first row of every menu with a way back, and it opens on it.
 - [Say ear tests ahead](feedback_say_ear_tests_ahead.md): before each section, list the by-ear tests (sound and speech), each optional or mandatory; remind the dev of a mandatory one not reported on.
 - [Docs after each plan](feedback_docs_after_each_plan.md): when a plan is finished, bring every developer doc (aidocks included) and player doc up to date, then push.
-- [Progress summary](feedback_progress_summary.md): after each plan, a brief overall percentage, by agreed weights per plan; about 50 percent after plan 3.
+- [Progress summary](feedback_progress_summary.md): after each plan, a brief overall percentage, by agreed weights per plan; about 70 percent after plan 4.
 - [Review plan sections](feedback_review_plan_sections.md): before building any plan, review it section by section with the dev; never start the next plan alone.
 - [Grow check tools](feedback_grow_check_tools.md): a plan's by-ear tool starts in its first audible section and grows with each section.
 - [Test tools in interact](feedback_test_tools_in_interact.md): by-ear tools go in tests/interact/, never in the game's menus.
