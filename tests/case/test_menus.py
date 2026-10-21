@@ -114,6 +114,77 @@ def test_settings_opens_on_back_and_back_returns():
     assert isinstance(app.stack.top, MainMenu)
 
 
+def open_settings():
+    app = with_main_menu()
+    press(app, 'down')
+    press(app, 'return')
+    return app
+
+
+def test_settings_has_its_rows_in_order():
+    app = open_settings()
+    assert [r.text for r in app.stack.top.rows()] == [
+        'Back', 'Debug mode, currently off', 'Master volume, 100 percent',
+        'Background volume, 100 percent', 'Interface volume, 100 percent',
+        'Title volume, 100 percent', 'Volume speed, 100 milliseconds', 'Key bindings']
+
+
+def test_a_volume_row_opens_its_levels_on_back_and_enter_picks_one():
+    from heathcote.ui.settings_screen import LevelsMenu
+    app = open_settings()
+    app.stack.top.index = 2
+    assert press(app, 'return') == ['Master volume.', 'Back']
+    assert isinstance(app.stack.top, LevelsMenu)
+    assert [r.text for r in app.stack.top.rows()][:3] == ['Back', '100 percent', '90 percent']
+    assert app.stack.top.rows()[-1].text == '0 percent'
+    press(app, 'down')
+    assert press(app, 'down') == ['90 percent']
+    assert press(app, 'return') == ['Master volume, 90 percent']     # back in Settings
+    assert isinstance(app.stack.top, SettingsScreen)
+    assert app.settings.get('master_volume') == 90
+
+
+def test_escape_or_back_in_the_levels_keeps_the_volume():
+    app = open_settings()
+    app.stack.top.index = 4
+    press(app, 'return')                                            # Interface volume
+    press(app, 'end')
+    assert press(app, 'escape') == ['Interface volume, 100 percent']
+    press(app, 'return')
+    assert press(app, 'return') == ['Interface volume, 100 percent']   # Enter on Back
+    assert app.settings.get('interface_volume') == 100
+
+
+def test_every_volume_can_be_set_from_the_pause_menus_settings_too():
+    app = make()
+    app.stack.push(SettingsScreen(app))                            # no title music here
+    app.stack.top.index = 5
+    press(app, 'return')                                            # Title volume
+    press(app, 'end')
+    press(app, 'return')
+    assert app.settings.get('title_volume') == 0
+
+
+def test_volume_speed_names_its_ends_and_sets_the_repeat():
+    app = open_settings()
+    app.stack.top.index = 6
+    assert press(app, 'return') == ['Volume speed.', 'Back']
+    texts = [r.text for r in app.stack.top.rows()]
+    assert texts[1] == '50 milliseconds, fastest' and texts[-1] == '500 milliseconds, slowest'
+    assert '250 milliseconds' in texts
+    app.stack.top.index = texts.index('200 milliseconds')
+    assert press(app, 'return') == ['Volume speed, 200 milliseconds']
+    assert app.settings.get('volume_speed') == 200
+    press(app, 'home')
+    press(app, 'escape')                                            # back to the main menu
+    app.key_down('page down', [], now=0.0)                          # the title volume
+    app.repeat_keys(now=0.4)
+    app.repeat_keys(now=0.5)                                        # not yet: 0.2 apart now
+    assert app.settings.get('title_volume') == 80
+    app.repeat_keys(now=0.61)                                       # 0.2 after the last
+    assert app.settings.get('title_volume') == 70
+
+
 def test_debug_mode_turns_on_at_once_and_is_remembered():
     app = with_main_menu()
     press(app, 'down')

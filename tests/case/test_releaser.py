@@ -36,8 +36,11 @@ def test_every_entry_must_end_in_a_full_stop():
 
 
 def test_the_changelog_as_it_is_now_has_every_full_stop():
-    waiting = releaser.unreleased_lines(releaser.read_changelog())
-    assert waiting and releaser.without_full_stop(waiting) == []
+    """Every entry in the file, released or waiting; unrelease: may be empty, as just after a
+    release."""
+    entries = [line for _heading, lines in releaser.parse_changelog(releaser.read_changelog())
+               for line in lines]
+    assert entries and releaser.without_full_stop(entries) == []
 
 
 def test_the_changelogs_problems_are_named():

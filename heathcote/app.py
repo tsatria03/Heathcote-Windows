@@ -39,9 +39,9 @@ WINDOW_SIZE = (800, 500)
 FPS = 60
 #: The window's text, in lines from the top; the rest is cut.
 MAX_LINES = 22
-#: Seconds a volume key is held before it starts repeating, and between repeats.
+#: Seconds a volume key is held before it starts repeating. The time between repeats is the
+#: Volume speed setting (aidocks/plans/settings_plan.md).
 REPEAT_DELAY = 0.4
-REPEAT_EVERY = 0.1
 #: The volume keys' actions: (setting, steps per press).
 VOLUME_ACTIONS = {
     'master_up': ('master_volume', 1), 'master_down': ('master_volume', -1),
@@ -222,7 +222,7 @@ class App:
         if self.volume_action(self.held[0], self.held[1]) != self.held[2]:
             self.held = None                # the screen changed under the held key
             return
-        self.held[3] = now + REPEAT_EVERY
+        self.held[3] = now + self.settings.get('volume_speed') / 1000.0
         self.step_volume(self.held[2])
 
     def run(self, first_screen, pygame):

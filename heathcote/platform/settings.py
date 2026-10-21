@@ -22,6 +22,8 @@ DEFAULTS = {
     'backgrounds_volume': 100,
     'interface_volume': 100,
     'title_volume': 100,
+    # aidocks/plans/settings_plan.md: milliseconds between the repeats of a held volume key.
+    'volume_speed': 100,
     'debug': False,                     # aidocks/plans/foundation_plan.md: source runs only
     'first_run_notice_shown': False,    # aidocks/plans/menus_plan.md: the first start only
 }
@@ -34,6 +36,8 @@ VOLUME_LABELS = {'master_volume': 'Master volume',
 #: How far one press of a volume key moves a volume, in percent. Every volume is a
 #: multiple of it, so 0 and 100 are always reached.
 VOLUME_STEP = 10
+#: Volume speed's levels, in milliseconds, fastest first (aidocks/plans/settings_plan.md).
+VOLUME_SPEEDS = tuple(range(50, 501, 50))
 
 
 def _valid(key, value):
@@ -44,6 +48,8 @@ def _valid(key, value):
         return False
     if key in VOLUMES:
         return 0 <= value <= 100 and value % VOLUME_STEP == 0
+    if key == 'volume_speed':
+        return value in VOLUME_SPEEDS
     return True
 
 

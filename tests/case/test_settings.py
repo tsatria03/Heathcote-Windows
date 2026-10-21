@@ -107,5 +107,23 @@ def test_json_file_writes_keys_in_order():
     assert list(read(path)) == ['b', 'a', 'z']
 
 
+def test_volume_speed_keeps_only_its_levels():
+    from heathcote.platform.settings import VOLUME_SPEEDS
+    path = os.path.join(_quiet.FOLDER, 'speed', 'settings.json')
+    s = Settings(path)
+    assert s.get('volume_speed') == 100 and VOLUME_SPEEDS[0] == 50 and VOLUME_SPEEDS[-1] == 500
+    s.set('volume_speed', 300)
+    assert Settings(path).get('volume_speed') == 300
+    try:
+        s.set('volume_speed', 75)
+    except ValueError:
+        pass
+    else:
+        raise AssertionError('75 milliseconds was taken')
+    s.file.data['volume_speed'] = 75
+    s.file.write()
+    assert Settings(path).get('volume_speed') == 100              # put back
+
+
 if __name__ == '__main__':
     _quiet.run_tests(globals())
