@@ -23,12 +23,31 @@ The rules:
 * **The end:** once the variable labelled ``end`` is not "0", the story is over
   (-[Vars setString:to:], 0x100030f48), and ``on_story_end`` is called.
 
+Lockout and the actions menu (section 3; +[StoryView raiseActionsDial], 0x100024204):
+
+* **The menu opens** when ``lockout`` is "0", or when the spiel playing has been heard
+  before. Then ``click-good`` plays, the backgrounds hush, the spiel pauses, and
+  ``menu-open`` plays.
+* **Otherwise it is refused:** ``click-bad`` and ``menu-unavailable`` play, and a 1.5-second
+  grace starts, during which pausing is refused too.
+* **The choices** are the actions on offer (game/state.py). Each plays its recorded clip
+  from ``speech/``; a choice with none is spoken by the screen reader.
+* **Accepting** (+[StoryView acceptFromActionsDial], 0x10002477c): ``menu-accepted`` plays,
+  the backgrounds unhush, the action is chosen, and its spiel starts 0.25 seconds later.
+* **Closing** (+[StoryView lowerActionsDial], 0x10002462c): ``menu-close`` plays, the
+  backgrounds unhush, and the spiel plays on.
+* **A timed set that turns lockout to "0"** plays ``menu-lockout-ended``
+  (+[StoryView spielJustSetVariables:], 0x1000256f4).
+* **After a scene ends,** ``menu-reminder`` plays every 7 seconds until something happens
+  (-[PlayState tick_played], 0x100033194); ``poke()`` says something did.
+
 The hooks a screen can set: ``on_spiel(soft)`` as each spiel begins, ``on_scene_end(soft)``
 when a scene is over, ``on_story_end()``, and ``on_changed(changes)`` after variables change.
 """
 from __future__ import annotations
 
 import logging
+import time
 
 from .state import LOCKOUT
 
@@ -36,6 +55,12 @@ log = logging.getLogger('player')
 
 #: The phases of play.
 PLAYING, SCENE_END, STORY_END = 'playing', 'scene end', 'story end'
+#: Seconds of the grace after the menu is refused (0x100024560).
+GRACE = 1.5
+#: Seconds between reminders after a scene ends: 420 ticks.
+REMINDER_EVERY = 7.0
+#: Seconds from accepting a choice to its spiel starting (WaitState).
+ACCEPT_DELAY = 0.25
 
 
 def timed_sets(record):
@@ -53,12 +78,20 @@ def timed_sets(record):
 
 
 class StoryPlayer:
-    def __init__(self, audio, story, state, play_sound=None):
+    def __init__(self, audio, story, state, play_sound=None, after=None, clock=time.perf_counter):
+        """``after(delay, fn)`` runs ``fn`` later, as the timer loop does; without it, at
+        once. ``clock`` is there for the tests."""
         from ..platform.lanes import Lanes
         self.audio = audio
         self.story = story
         self.state = state
         self.play_sound = play_sound or (lambda label: None)
+        self.after = after or (lambda delay, fn: fn())
+        self.clock = clock
+        self.menu_open = False
+        self.grace_until = 0.0          # pausing is refused until then, after a refused menu
+        self.reminder_at = None         # when the next menu-reminder plays, after a scene ends
+        self.pending = None             # an accepted choice's spiel, waiting its 0.25 seconds
         self.lanes = Lanes(audio, story)
         self.current = None             # the spiel playing, or the last one played
         self.phase = None
@@ -87,6 +120,7 @@ class StoryPlayer:
             return
         self.current = soft
         self.phase = PLAYING
+        self.reminder_at = None
         self.sets = timed_sets(record)
         self.last = -1.0
         self.lanes.begin_spiel(record)
@@ -106,11 +140,15 @@ class StoryPlayer:
         return 0.0 if self.silent else self.audio.spiel.position
 
     def update(self):
-        """Follow the spiel: the timed sets and lanes up to its position, then its end."""
+        """Follow the spiel: the timed sets and lanes up to its position, then its end; and
+        after a scene's end, the reminders."""
         if self.phase != PLAYING:
             if self.phase == SCENE_END:
                 self.lanes.update(self.position)
+                self._remind()
             return
+        if self.menu_open:
+            return                          # the spiel waits under the menu
         position = self.position
         self._timed_sets(position)
         if self.phase != PLAYING:
@@ -126,6 +164,9 @@ class StoryPlayer:
                 changes += self.state.apply(sets)
         self.last = position                # even after a jump back, as the original
         if changes:
+            lockout = self.state.variable(LOCKOUT)
+            if any(var == lockout and new == '0' for var, _old, new in changes):
+                self.play_sound('menu-lockout-ended')
             self.changed(changes)
 
     def changed(self, changes):
@@ -150,11 +191,102 @@ class StoryPlayer:
         changes = self.state.set_by_label(LOCKOUT, '0')
         self.state.mark_heard(self.current)
         self.play_sound('menu-available')
+        self.reminder_at = self.clock() + REMINDER_EVERY
         log.info('end of scene: %s', self.story.label(self.current))
         if self.on_scene_end:
             self.on_scene_end(self.current)
         if changes:
             self.changed(changes)
+
+    # ---- the reminder ------------------------------------------------------------------
+    def _remind(self):
+        if self.reminder_at is None or self.menu_open:
+            return
+        now = self.clock()
+        if now >= self.reminder_at:
+            self.play_sound('menu-reminder')
+            self.reminder_at = now + REMINDER_EVERY
+
+    def poke(self):
+        """Something happened, such as a key: the reminders count their 7 seconds again."""
+        if self.reminder_at is not None:
+            self.reminder_at = self.clock() + REMINDER_EVERY
+
+    # ---- lockout and the actions menu ----------------------------------------------------
+    def can_open_menu(self):
+        """``lockout`` is "0", or the spiel playing has been heard before."""
+        return not self.state.locked_out or (self.current is not None and self.state.is_heard(self.current))
+
+    @property
+    def in_grace(self):
+        """Within the 1.5 seconds after a refused menu, when pausing is refused too."""
+        return self.clock() < self.grace_until
+
+    def open_menu(self):
+        """Open the actions menu, or refuse it; the choices on offer, or None when refused."""
+        if self.phase not in (PLAYING, SCENE_END) or self.menu_open or self.pending:
+            return None
+        self.poke()
+        if not self.can_open_menu():
+            self.play_sound('click-bad')
+            self.play_sound('menu-unavailable')
+            self.grace_until = self.clock() + GRACE
+            return None
+        self.play_sound('click-good')
+        self.audio.hush_backgrounds()
+        self.audio.spiel.pause()
+        self.play_sound('menu-open')
+        self.menu_open = True
+        return self.state.offered()
+
+    def close_menu(self):
+        """Close the menu without choosing: the backgrounds unhush and the spiel plays on."""
+        if not self.menu_open:
+            return
+        self.menu_open = False
+        self.play_sound('menu-close')
+        self.audio.unhush_backgrounds()
+        self.audio.spiel.resume()
+        self.poke()
+
+    def accept(self, action):
+        """Accept a choice: its spiel starts 0.25 seconds later."""
+        if not self.menu_open:
+            return
+        self.menu_open = False
+        self.play_sound('menu-accepted')
+        self.audio.unhush_backgrounds()
+        self.audio.spiel.stop()
+        self.audio.slot('systemVoice').stop()
+        self.reminder_at = None
+        spiel, changes = self.state.choose(action)
+        log.info('chose: %s', self.story.label(action))
+        if changes:
+            self.changed(changes)
+        if spiel is None or self.phase == STORY_END:
+            return
+        self.pending = spiel
+
+        def begin():
+            if self.pending == spiel:
+                self.pending = None
+                self.play(spiel)
+        self.after(ACCEPT_DELAY, begin)
+
+    def choice_clip(self, action):
+        """The recorded clip of a choice, from ``speech/``, or None when it has none, as
+        "next room" and "just stop" have none."""
+        voice = (self.story.record(action) or {}).get('systemVoice')
+        rec = self.story.record(voice) if voice else None
+        if not rec or not rec.get('file'):
+            return None
+        return self.story.audio_path(voice)
+
+    def choice_text(self, action):
+        """What a choice says: its recording's transcript, or its label."""
+        voice = (self.story.record(action) or {}).get('systemVoice')
+        text = ((self.story.record(voice) or {}).get('transcript') or '').strip() if voice else ''
+        return text or (self.story.label(voice) if voice else '') or self.story.label(action)
 
     # ---- what the window shows ------------------------------------------------------
     def transcript(self):
@@ -162,6 +294,12 @@ class StoryPlayer:
 
     def stop(self):
         """Leave the story: the spiel and the idle loop stop, and the lanes fade out."""
+        if self.menu_open:
+            self.menu_open = False
+            self.audio.unhush_backgrounds()
+        self.pending = None
+        self.reminder_at = None
         self.audio.spiel.stop()
+        self.audio.slot('systemVoice').stop()
         self.lanes.stop_all(fade_out=1.0)
         self.phase = None
