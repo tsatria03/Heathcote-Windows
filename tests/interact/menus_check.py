@@ -15,7 +15,8 @@ plan. For now, section 1:
 The tool's own keys:
 
     Control+N    forget the notice, and start again from the police radio
-    Control+T    say whether the title music is playing, its volume, and the story's level
+    Control+T    say whether the title music is playing and at what volume, and whether the
+                 story's sound is faded in, faded out, or fading
     Control+Q    quit
 
 It keeps its own save under %APPDATA%\\Heathcote\\interact\\menus_check, so nothing here
@@ -61,9 +62,18 @@ class CheckApp(App):
 
     def title_report(self):
         playing = self.audio.ok and self.audio.slot('titleBgm').playing
-        self.speech.speak('Title music %s, title volume %d percent. The story is at %d percent.' % (
-            'playing' if playing else 'silent', self.settings.get('title_volume'),
-            round(self.audio.story_level() * 100)))
+        if playing:
+            title = 'The title music is playing, at a title volume of %d percent.' % self.settings.get('title_volume')
+        else:
+            title = 'The title music is silent.'
+        # The story's sound, spiel and backgrounds together, fades out under the title music
+        # and back in with the story, as the original's did.
+        level, target = self.audio.story_level(), self.audio.story_target
+        if abs(level - target) < 0.005:
+            story = "The story's sound is faded %s." % ('in' if target else 'out')
+        else:
+            story = "The story's sound is fading %s." % ('in' if target else 'out')
+        self.speech.speak('%s %s' % (title, story))
 
 
 def main():

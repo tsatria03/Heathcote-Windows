@@ -77,7 +77,7 @@ Built 2026-10-20, waiting for the dev's ear tests:
   - `NoticeScreen` speaks the notice, then "Press Enter to continue.", naming the first key bound to Menus: choose. Enter sets `first_run_notice_shown`; any other key says it again.
   - `Heathcote.py` opens on `OpeningScreen`.
 - **`App.start_title_music()` and `stop_title_music()`** in `heathcote/app.py`, with the original's story group fades, and `app.title_music` now true only while the music is meant to play. The stand-in main menu starts it as it opens; the story screen stops it.
-- **`tests/interact/menus_check.py`** runs the game from its opening, with its own save and three keys of its own: Control+N forgets the notice and starts again, Control+T says the title music and the story's level, and Control+Q quits.
+- **`tests/interact/menus_check.py`** runs the game from its opening, with its own save and three keys of its own: Control+N forgets the notice and starts again, Control+T says whether the title music is playing and at what volume, and whether the story's sound is faded in, faded out or fading (reworded at the dev's word: "SOmething clearer."), and Control+Q quits.
 - **Tests:** four new ones, and the main menu's story test now checks the title music too. 158 in all.
 - **The dev's ear tests,** to come:
   1. Mandatory: the police radio, with "Heathcote." spoken.
