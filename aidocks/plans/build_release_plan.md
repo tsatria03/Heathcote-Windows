@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is built and waiting for the dev's first build with `--test`.
+**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is finished, and section 2, `releaser.py`, is being built.
 
 Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
 
@@ -34,6 +34,8 @@ Built 2026-10-21, adapted from the reference material's compiler without naming 
 - **A missing `fmod.dll`** stops the build with where to get it.
 - **`--test`** runs the build on a throwaway save with `HEATHCOTE_SILENT`, `HEATHCOTE_NOSOUND` and SDL's dummy drivers for 6 seconds, within 180, and needs the log's "game data:" line, an "FMOD" line, "Heathcote closed", no `crash.txt` and exit code 0.
 - **Checked without building:** `--dry-run --test` lists the command and everything above, with the changelog's `unrelease:` warning. `tests/case/test_compiler.py` has nine tests; 191 in all. Claude never builds; the dev runs the first build.
+- **The menu** says itself again on Enter with nothing typed (the dev, 2026-10-21: "Please make it so pressing enter repeats the menu if you do not type a number").
+- **The dev's builds passed `--test`,** both kinds, 2026-10-21: the single exe, menu choice 4 ("The compiler tests past."), 159 MB with `fmod.dll` inside it and none loose beside it, and the folder build, choice 2 ("Option 2 also past as well."). **Section 1 is finished.**
 - **Found on the way:** the README's counts were stale. The folders hold 206 story recordings and 16 interface sounds, and `tools/story.py` finds every recording the story names.
 
 ## Built in sections
