@@ -35,4 +35,5 @@ metadata:
   - plan 6 finished: about 90 percent (2026-10-21). It came in at its weight. Plan 5's Continue story within a run lightened it, and the dev's change to always continue from the save simplified it further; the Tab chapter was a small addition.
   - plan 7 finished: 100 percent (2026-10-21), every plan done. It grew past its weight with the story pack, asked for during it, but with nothing left the total is complete. What remains is the dev's first release, and any fixes playtesting brings, which no plan counts.
   - plan 8 finished (2026-10-21): the Settings screen, after the first release. The port was already at 100 percent of what was planned, so later plans are reported as additions, not as a percentage.
+  - plan 9 finished (2026-10-21): each choice's text after its clip, in place of Space.
 - Playtesting the whole story, once it plays, may add work none of the plans counts; say so when it does.

@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** built 2026-10-21 on the dev's word ("yes"), waiting for the dev's ear tests.
+**Status:** FINISHED 2026-10-21. Built on the dev's word ("yes"); all four ear tests passed (the dev: "every test past.").
 
 ## What was built
 
