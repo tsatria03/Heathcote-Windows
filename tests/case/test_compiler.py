@@ -56,7 +56,9 @@ def test_the_compiler_makes_a_pack_that_reads_back_and_its_fingerprint():
     assert info['files'] == 2 and len(pack.Pack(dest).files) == 2
     game = os.path.join(_quiet.FOLDER, 'compiler build', 'game')
     compiler.write_fingerprint(game, info)
-    with open(os.path.join(game, compiler.FINGERPRINT), encoding='utf-8') as fh:
+    assert not os.path.exists(os.path.join(game, compiler.FINGERPRINT))   # never at game\'s top
+    with open(os.path.join(game, 'documents', 'text', 'system', compiler.FINGERPRINT),
+              encoding='utf-8') as fh:
         assert json.load(fh) == {'size': info['size'], 'sha256': info['sha256']}
 
 

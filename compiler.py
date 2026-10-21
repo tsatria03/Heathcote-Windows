@@ -30,8 +30,8 @@ What a build carries:
   file to be too big if embedded.");
 * the rest of the game's data, beside the exe in game\\, or inside it with --embed: only
   what the game reads, the interface sounds in game\\documents\\Audio\\System and the story
-  in game\\documents\\text, with story_pack.json, story.dat's size and SHA-256, so the game
-  knows its own pack. Nothing else of the original's app bundle: not its binary, its
+  in game\\documents\\text, with story_pack.json in its system\\ folder, story.dat's size and
+  SHA-256, so the game knows its own pack. Nothing else of the original's app bundle: not its binary, its
   images or its certificates;
 * beside the exe, always: docks\\ (the readme, the changelog and the todo list), VERSION,
   and the port's licence as license.txt.
@@ -77,8 +77,10 @@ GAME_DATA = ('documents/Audio', 'documents/text')
 #: The folder story.dat packs (heathcote/platform/pack.py), left out of game\.
 PACKED = 'documents/Audio/story'
 PACK = 'story.dat'
-#: The pack's fingerprint, inside the build's game\ (heathcote/paths.py).
+#: The pack's fingerprint, inside the build's game\documents\text\system\, beside the story's
+#: index (heathcote/paths.py).
 FINGERPRINT = 'story_pack.json'
+FINGERPRINT_FOLDER = os.path.join('documents', 'text', 'system')
 #: The file that tells the game its data is there (heathcote/paths.py).
 BUNDLE = 'documents/text/system/Heathcote v1.01.bundle.json'
 
@@ -307,10 +309,12 @@ def make_pack(src: str, dest: str) -> dict:
 
 
 def write_fingerprint(game_dest: str, info: dict) -> None:
-    """The pack's size and SHA-256, in the build's game\\, so the game knows its own pack."""
+    """The pack's size and SHA-256, in the build's game\\documents\\text\\system\\, so the
+    game knows its own pack."""
     import json
-    os.makedirs(game_dest, exist_ok=True)
-    with open(os.path.join(game_dest, FINGERPRINT), 'w', encoding='utf-8', newline='\n') as fh:
+    folder = os.path.join(game_dest, FINGERPRINT_FOLDER)
+    os.makedirs(folder, exist_ok=True)
+    with open(os.path.join(folder, FINGERPRINT), 'w', encoding='utf-8', newline='\n') as fh:
         json.dump({'size': info['size'], 'sha256': info['sha256']}, fh, indent=1)
         fh.write('\n')
 

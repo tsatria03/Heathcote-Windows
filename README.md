@@ -234,7 +234,8 @@ A build carries:
   FMOD from memory. The compiler makes it fresh each build and reads every recording back.
   The key ships with the game, so it keeps out casual copying, not a determined person.
 - the rest of what the game reads, the interface sounds and `game\documents\text`, in
-  `game\` or inside the exe with `--embed`, with `story_pack.json`, `story.dat`'s size, so
+  `game\` or inside the exe with `--embed`, with `story_pack.json` in
+  `game\documents\text\system`, `story.dat`'s size, so
   the game knows its own pack
 - both DLLs, Prism, pyfmodex and cryptography, the third-party licences in `licenses\`,
   and beside the exe `docks\`, `VERSION` and the port's licence as `license.txt`

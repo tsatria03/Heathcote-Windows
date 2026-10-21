@@ -64,13 +64,13 @@ WRONG_PACK = ("Heathcote's story.dat does not belong to this copy of the game: %
 
 
 def open_pack(game_folder):
-    """story.dat, opened and checked against the fingerprint a build carries in its game
-    folder; SystemExit with a message for the player when it is missing, damaged or from
-    another build."""
+    """story.dat, opened and checked against the fingerprint a build carries in its
+    game/documents/text/system/; SystemExit with a message for the player when it is
+    missing, damaged or from another build."""
     where = paths.story_pack()
     if not os.path.isfile(where):
         raise SystemExit(MISSING_PACK % where)
-    expected = os.path.join(game_folder, paths.PACK_FINGERPRINT)
+    expected = os.path.join(game_folder, *paths.PACK_FINGERPRINT_FOLDER, paths.PACK_FINGERPRINT)
     if os.path.isfile(expected):
         try:
             with open(expected, encoding='utf-8') as f:

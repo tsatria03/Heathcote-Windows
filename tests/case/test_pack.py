@@ -154,6 +154,11 @@ def story_without_its_folder():
     return game
 
 
+def fingerprint_path(game):
+    """Where a build carries story_pack.json: game\\documents\\text\\system\\."""
+    return os.path.join(game, 'documents', 'text', 'system', paths.PACK_FINGERPRINT)
+
+
 def with_pack_at(where, fn):
     saved = paths.story_pack
     paths.story_pack = lambda: where
@@ -167,7 +172,7 @@ def with_pack_at(where, fn):
 def test_without_the_folder_the_story_plays_from_the_pack():
     _root, dest, info, start, _title = small_story()
     game = story_without_its_folder()
-    with open(os.path.join(game, paths.PACK_FINGERPRINT), 'w', encoding='utf-8') as fh:
+    with open(fingerprint_path(game), 'w', encoding='utf-8') as fh:
         json.dump({'size': info['size'], 'sha256': info['sha256']}, fh)
 
     def check():
@@ -186,7 +191,7 @@ def test_a_missing_pack_or_one_from_another_build_stops_with_a_message():
     for where, fingerprint, words in ((os.path.join(game, 'nowhere.dat'), None, 'were not found'),
                                       (dest, info['size'] + 1, 'does not belong')):
         if fingerprint is not None:
-            with open(os.path.join(game, paths.PACK_FINGERPRINT), 'w', encoding='utf-8') as fh:
+            with open(fingerprint_path(game), 'w', encoding='utf-8') as fh:
                 json.dump({'size': fingerprint, 'sha256': 'x'}, fh)
         try:
             with_pack_at(where, lambda: StoryData(text=text))

@@ -84,8 +84,11 @@ def audio() -> str:
 
 #: The story's recordings, packed (platform/pack.py, aidocks/plans/build_release_plan.md).
 STORY_PACK = 'story.dat'
-#: The pack's size and SHA-256, which compiler.py puts in a build's game folder.
+#: The pack's size and SHA-256, which compiler.py puts in a build's
+#: game/documents/text/system/, beside the story's index (the dev, 2026-10-21: "Can you please
+#: put the story_pack.json file in documents/text/system?").
 PACK_FINGERPRINT = 'story_pack.json'
+PACK_FINGERPRINT_FOLDER = (DATA_FOLDER, 'text', 'system')
 
 
 def story_pack() -> str:
