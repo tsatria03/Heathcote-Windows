@@ -13,7 +13,7 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Build and release](../plans/build_release_plan.md): plan 7, planned, all questions answered; next, to be reviewed section by section. compiler.py and releaser.py, Windows only, carrying the audio, story data, FMOD and NVDA.
+- [Build and release](../plans/build_release_plan.md): plan 7, planned, all questions answered; next, with no section review needed, on the dev's word. compiler.py and releaser.py, Windows only, carrying the audio, story data, FMOD and NVDA.
 
 ## Completed projects
 - [Saves](../plans/saves_plan.md): plan 6, FINISHED 2026-10-21. progress.py, saves\progress.json with the spiel's snapshot and the chapter apart; Continue story from the save at the start of the spiel the player was in, after Return to menu or quitting; Restart story and the end clearing it; debug jumps writing nothing; Tab saying the chapter; menu_check.py's Control+D; 182 silent tests.

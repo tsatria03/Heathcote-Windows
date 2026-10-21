@@ -19,3 +19,4 @@ metadata:
   - what the dev will test by ear, and whether each test is optional or mandatory ([[feedback_say_ear_tests_ahead]])
 - Ask one question at a time about anything the review turns up ([[feedback_one_question_at_a_time]]). Changes go into the plan and are committed before building.
 - Building starts only when the dev says so after the review.
+- **The exception: plan 7 needs no section review** (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). It still starts only on the dev's word, never by itself after plan 6.

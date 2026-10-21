@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
+**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Waiting for the go-ahead to build.
 
 Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
 
