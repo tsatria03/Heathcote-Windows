@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Section 1 is being built.
+**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Section 1 is finished; section 2 is next.
 
 Plan 5 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]], [[audio_plan]] and [[story_engine_plan]]. What the original did comes from [[project_original_behaviour]].
 
@@ -79,12 +79,15 @@ Built 2026-10-20, waiting for the dev's ear tests:
 - **`App.start_title_music()` and `stop_title_music()`** in `heathcote/app.py`, with the original's story group fades, and `app.title_music` now true only while the music is meant to play. The stand-in main menu starts it as it opens; the story screen stops it.
 - **`tests/interact/menus_check.py`** runs the game from its opening, with its own save and three keys of its own: Control+N forgets the notice and starts again, Control+T says whether the title music is playing and at what volume, and whether the story's sound is faded in, faded out or fading (reworded at the dev's word: "SOmething clearer."), and Control+Q quits.
 - **Tests:** four new ones, and the main menu's story test now checks the title music too. 158 in all.
-- **The dev's ear tests,** to come:
+- **The dev's ear tests passed,** all five, 2026-10-20 ("all 5 tests past, including the optional ones."):
   1. Mandatory: the police radio, with "Heathcote." spoken.
   2. Mandatory: the notice the first time, Enter continuing, and not shown again.
   3. Mandatory: the title music under the main menu, with Page Up and Page Down.
   4. Mandatory: Start story fading the title music out, and Return to menu bringing it back.
   5. Optional: Enter skipping the police radio.
+- **Also during section 1,** at the dev's word: the recorded choices in `speech/` follow only the master volume, no longer the interface volume ([[audio_plan]]). Its ear test, mandatory, is still to come: in the actions menu, Shift+Page Down makes the clicks quieter while the recorded choices stay as loud.
+
+**Section 1 is finished,** on the dev's word.
 
 ## Built in sections
 
