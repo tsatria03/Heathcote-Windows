@@ -459,10 +459,16 @@ class Audio:
         """Pause as the original paused (+[StoryView pause], 0x1000252cc): the backgrounds
         are hushed and play on, muffled, and only the spiel stops (the dev, 2026-10-20: "It
         should match the original, including in the audio checker."). The pause sound is
-        the caller's to play."""
+        the caller's to play.
+
+        The idle loop is muffled too, unlike the original, which never hushed it (the dev,
+        2026-10-20: "Please make the idle ambiences also muffle if you pause the game.").
+        Only the pause does this; the actions menu's hush leaves the idle loop clear, as
+        the original's did."""
         if not self.ok or self.story_paused:
             return
         self.hush_backgrounds()
+        self.slots['idleLoop'].hush()
         self.spiel.pause()
         self.story_paused = True
 
@@ -471,6 +477,7 @@ class Audio:
         if not self.ok or not self.story_paused:
             return
         self.unhush_backgrounds()
+        self.slots['idleLoop'].unhush()
         self.spiel.resume()
         self.story_paused = False
 
@@ -505,7 +512,7 @@ class Audio:
         self._last_update = now
         while self._tick_time >= TICK:
             self._tick_time -= TICK
-            for name in HUSHED:
+            for name in HUSHED + ('idleLoop',):     # the idle loop, muffled by a pause
                 self.slots[name].tick()
 
     @staticmethod

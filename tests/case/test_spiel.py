@@ -77,6 +77,27 @@ def test_pause_stops_the_spiel_and_hushes_the_backgrounds_as_the_original():
         a.close()
 
 
+def test_pause_muffles_the_idle_loop_too_but_the_menus_hush_does_not():
+    # A change from the original, at the dev's word: the idle loop is muffled on pause.
+    a = fresh()
+    try:
+        idle = a.slot('idleLoop')
+        idle.play(STORY.audio_path(STORY.refs('idleLoops')[0]))
+        a.hush_backgrounds()                                # as the actions menu does
+        assert idle.eq is None
+        a.unhush_backgrounds()
+        a.spiel.play(LONG)
+        a.pause_story()
+        assert idle.eq is not None and idle.eq_step < 0     # muffling
+        a.resume_story()
+        assert idle.eq_step > 0                             # and back
+        a.update(now=0.0)
+        a.update(now=1.0)                                   # the unhush ramp runs its 24 ticks
+        assert idle.eq is None
+    finally:
+        a.close()
+
+
 def test_rewind_jumps_back_a_second_every_7_ticks_for_45():
     a = fresh()
     try:

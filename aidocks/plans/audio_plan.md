@@ -200,7 +200,7 @@ Reviewed section by section with the dev on 2026-10-19 ([[feedback_review_plan_s
 - **Pausing is the original's** (`+[StoryView pause]`, 0x1000252cc; the dev, 2026-10-20: "It should match the original, including in the audio checker."):
   - the backgrounds are hushed and play on, muffled
   - only the spiel stops
-  - the idle loop plays on, unhushed
+  - the idle loop is muffled too: **a change from the original**, which never hushed it, at the dev's word on 2026-10-20 ("Please make the idle ambiences also muffle if you pause the game."). Only the pause muffles it. The actions menu's hush leaves it clear, as the original's did.
   - unpausing unhushes, and the spiel plays on
   
   This replaces the earlier "pausing pauses every channel together".

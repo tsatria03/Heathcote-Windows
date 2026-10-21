@@ -18,6 +18,8 @@ metadata:
   - **To test by ear:**
     - **Mandatory:** C speaks the variable changes in "call opening".
     - **Optional:** H after a scene ends, and A matching the menu.
+  - **The dev's ear tests passed** (2026-10-20: "the C, a, and H keys past the hering tests.").
+  - **The idle loop is muffled on pause,** at the dev's word ("Please make the idle ambiences also muffle if you pause the game."). This is a change from the original, which hushed only the music and three ambiences ([[audio_plan]]). `Audio.pause_story()` hushes the idle loop's slot as well, and the hush ticks it. The actions menu's hush leaves it clear. A test checks both. The suite passes, 153 tests.
 
 - **Section 5, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 3 tests past."): F3's jump, F4's variables, and F2 keeping the story consistent. **A correction:** the reply to the dev said the search was now shared with `audio_check.py`. It is not: `audio_check.py` keeps its own copy, since it does not run on the game's screens. The two behave alike.
   - **The player gains debug mode's actions:**
