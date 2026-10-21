@@ -37,4 +37,5 @@ metadata:
   - plan 8 finished (2026-10-21): the Settings screen, after the first release. The port was already at 100 percent of what was planned, so later plans are reported as additions, not as a percentage.
   - plan 9 finished (2026-10-21): each choice's text after its clip, in place of Space.
   - plan 10 finished (2026-10-21): Skip opening screens.
+  - plan 11 finished (2026-10-21): menu clicks and the Click sounds setting.
 - Playtesting the whole story, once it plays, may add work none of the plans counts; say so when it does.

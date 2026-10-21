@@ -76,7 +76,8 @@ Since then, plan 8, the Settings screen: a row for each volume, opening a list o
 levels, and Volume speed, for how often a held volume key repeats. Then plan 9: in the
 actions menu, each choice's text is spoken after its recording, the first time only, in
 place of Space. Then plan 10: Skip opening screens, in Settings, which starts the game at
-the main menu. 221 silent tests.
+the main menu. Then plan 11: the original's click in every menu, and Click sounds, which
+turns every click in the game on or off. 223 silent tests.
 
 What was found in the original:
 

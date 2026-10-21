@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, 2026-10-21, on the dev's word, with one change ("Yes. Also, rename the setting to click sounds because when you press left/right arrow in the story, it plays for seaking, witch by the way should be effected if the sounds are disabled. As in the click sounds will not play there."):
+**Status:** FINISHED 2026-10-21; its ear tests passed (the dev: "Tests past."). Built on the dev's word, with one change ("Yes. Also, rename the setting to click sounds because when you press left/right arrow in the story, it plays for seaking, witch by the way should be effected if the sounds are disabled. As in the click sounds will not play there."):
 - **The setting is "Click sounds"**, saved as `click_sounds`, and it governs every `click-good` and `click-bad` in the game, not only the menus': rewind and fast-forward, opening the actions menu or hearing it refused, pausing refused in the grace, and Enter or a wrong key at the opening and the first-run notice. Off, none of them plays; the story's other sounds, such as `menu-open`, `menu-unavailable` and the pause sounds, stay.
 - It is checked in one place, `App.play_sound()`, which every click goes through.
 
@@ -33,7 +33,7 @@ Every gesture the original accepted played `click-good` (`click.mp3`), and one i
 
 ## What was built
 
-Built 2026-10-21, waiting for the dev's ear tests:
+Built 2026-10-21:
 - **`App.play_sound()`** plays `click-good` and `click-bad` only while `click_sounds` is on; `App.click()` plays `click-good`.
 - **`ui/menu.py`:** moving clicks, and choosing and going back too, unless a menu sets `click_on_choose` or `click_on_back` off, as the actions menu does. A key the menu has no use for plays nothing.
 - **`ui/keybind_screen.py`:** clicks on moving, Enter, Escape and F1, never on the key being bound.
