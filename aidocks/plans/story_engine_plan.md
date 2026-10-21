@@ -6,11 +6,49 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is next.
+**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is built and waits for the dev's word (the dev: "yes").
 
 ## Progress
 
-- **Section 2, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 3 hering tests past."): a chain playing by itself, backgrounds in context, and a scene's end.
+- **Section 3, built 2026-10-20, waiting for the dev's word:**
+  - **`heathcote/game/player.py` gains lockout and the menu:**
+    - **`open_menu()`** opens when `lockout` is "0" or the spiel was heard before: `click-good`, the hush, the spiel paused, and `menu-open`. Otherwise it is refused, with `click-bad`, `menu-unavailable` and a 1.5-second grace (`in_grace`).
+    - **`close_menu()`** plays `menu-close`, unhushes, and the spiel plays on.
+    - **`accept(action)`** plays `menu-accepted`, unhushes, stops the old spiel, and chooses the action. Its spiel starts 0.25 seconds later through the timer loop, and nothing opens while it waits.
+    - **`choice_clip()` and `choice_text()`:** a choice's clip, and its text, the recording's transcript.
+    - **`menu-lockout-ended`** plays when a timed set turns `lockout` to "0".
+    - **`menu-reminder`** plays every 7 seconds after a scene ends. `poke()` restarts the count on any key.
+  - **`heathcote/platform/audio.py` gains `play_oneshot(path)`:** each interface sound on its own channel at the interface volume, freed when it ends, so `click-good` and `menu-open` sound together. `app.play_sound()` uses it.
+  - **`heathcote/game/actions_menu.py`, `ActionsMenu`,** is plan 2's spoken menu:
+    - it opens on the first choice, playing its clip
+    - each move plays the clip, or the screen reader says a choice with none
+    - after 7 seconds without a move, the clip plays again
+    - Space speaks the choice's text, Enter accepts, and Escape closes
+    - it takes the story's volume keys
+  - **`StoryScreen`:**
+    - Its actions menu key, Up or Enter, opens the menu.
+    - Any key pokes the reminder.
+    - The menu, not the screen, pauses and resumes the spiel under it.
+  - **`story_check.py` now runs the game's own App and story screen,** with the tool's keys added in a `CheckScreen` subclass, so F1, the volumes and the menu are the game's own.
+    - Starting again moves from Enter to R, as Enter opens the menu.
+    - Tab says when the spiel is locked out, and when the menu is open.
+  - **For the lockout test, the story's own path works:** `start`'s only choice is "landline", whose spiel, "call opening", locks the menu from 0.1 to 44.7 seconds, then plays `menu-lockout-ended`. 40 spiels lock the menu at 0.1 seconds.
+  - **`tests/case/test_actions.py`, 10 tests:**
+    - refusing with the grace, opening a heard spiel, opening, closing, and accepting with its delay
+    - `menu-lockout-ended`, and the reminder with a poke
+    - every choice having a clip
+    - the menu screen's clips, wrapping, Space and accepting, and the screen reader for a made-up clipless choice, with Escape
+    
+    One interface sound test follows `play_oneshot`. The suite passes, 134 tests.
+  - **To test by ear:**
+    - **Mandatory:**
+      - each move plays the right recorded choice
+      - "call opening" refuses the menu before 44.7 seconds
+      - accepting plays the chosen spiel
+      - Space speaks the choice's text
+    - **Optional:** the 7-second repeat, the reminder, and `menu-lockout-ended` at 44.7 seconds.
+
+- **Section 2, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 3 hering tests past."): a chain playing by itself, backgrounds in context, and a scene's end. (Section 3 later turned `story_check.py` into a layer over the game's own screen.)
   - **`heathcote/game/player.py`, `StoryPlayer(audio, story, state, play_sound)`,** the one place the story's rules are played. The game's story screen and `story_check.py` both drive it.
     - **Starting:** `start()` plays `start`, and `play(soft)` plays any spiel.
     - **Each frame, `update()`:**
@@ -117,7 +155,7 @@ Reviewed section by section with the dev on 2026-10-20 ([[feedback_review_plan_s
 - **The actions menu's choices** (`+[Story actionsMenu]`, 0x10001aaa8):
   - Every action whose conditions all hold, minus those that burn after reading once chosen as often as they have spiels.
   - In `order`, lowest first. It opens on the first and wraps round.
-  - Each move plays the choice's recorded clip from `speech/`. A choice with no clip, such as "next room" or "just stop", is spoken by the screen reader, since the original's stub said nothing.
+  - Each move plays the choice's recorded clip from `speech/`. A choice with no clip is spoken by the screen reader, since the original's stub said nothing. **Found while building, 2026-10-20:** "next room" and "just stop", the two recordings with no file, are used by no action, so every choice in the story has its clip. The screen reader's part is kept as a safety net.
   - After 7 seconds with no move, the current choice is played again.
 - **Choosing an action** (`+[Story respondToDecision:]`, 0x10001b2e8): `menu-accepted` plays, the backgrounds unhush, the action's count goes up by 1, its `set` applies, and its spiel starts 0.25 seconds later.
 - **Closing the menu** without choosing: the backgrounds unhush and the spiel plays on.
