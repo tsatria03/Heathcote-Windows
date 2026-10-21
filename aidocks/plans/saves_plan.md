@@ -82,7 +82,7 @@ Built 2026-10-21, waiting for the dev's ear tests:
   6. Optional: your volumes and the first-run notice are still remembered.
 
 **Section 2 is finished,** on the dev's word.
-- **Also with section 2's report,** at the dev's word ("It doesn't actually say where I'm at in the story, like the chapter for example."): Tab, in the story and in the actions menu, follows its words with the chapter, such as "Story is playing. Chapter: approaching Heathcote.", once a scene has set `location` (`StoryPlayer.where()`). Its ear test, mandatory, is to come: Tab says the chapter during the story and in the actions menu.
+- **Also with section 2's report,** at the dev's word ("It doesn't actually say where I'm at in the story, like the chapter for example."): Tab, in the story and in the actions menu, follows its words with the chapter, once a scene has set `location` (`StoryPlayer.where()`), in the dev's form ("Pressing tab should look something like this. "Story is playing: working late.". Change that for the other 2 tab messages as well."): "Story is playing: working late.", and the same for the actions menu, the pause, the end of a scene and the end. It first said "Story is playing. Chapter: …". Its ear test, mandatory, is to come: Tab says the chapter during the story and in the actions menu.
 
 ## Built in sections
 

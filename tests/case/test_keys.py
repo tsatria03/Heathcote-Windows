@@ -237,11 +237,14 @@ def test_tab_says_the_chapter_once_a_scene_has_set_it():
         story.state.set_by_label('location', 'approaching Heathcote')
         app.speech.lines.clear()
         app.key_down('tab', [])
-        assert app.speech.lines == ['Story is playing. Chapter: approaching Heathcote.']
+        assert app.speech.lines == ['Story is playing: approaching Heathcote.']
         app.key_down('up', [])                                        # the actions menu too
         app.speech.lines.clear()
         app.key_down('tab', [])
-        assert app.speech.lines == ['Actions menu is open. Chapter: approaching Heathcote.']
+        assert app.speech.lines == ['Actions menu is open: approaching Heathcote.']
+        app.key_down('escape', [])
+        app.key_down('escape', [])                                    # paused
+        assert story.player.where() == 'Story is paused: approaching Heathcote.'
     finally:
         app.stack.clear()
         app.audio.close()

@@ -349,22 +349,22 @@ class StoryPlayer:
         """What Tab says, as the original's two-finger tap (-[PlayState voiceover],
         0x100033de8), followed by the chapter, the story variable ``location``, once a
         scene has set it (the dev, 2026-10-21: "It doesn't actually say where I'm at in the
-        story, like the chapter for example."), such as "Story is playing. Chapter:
-        approaching Heathcote."."""
+        story, like the chapter for example."), in the dev's form (2026-10-21: "Story is
+        playing: working late."), such as "Story is at end of scene: offices."."""
         if self.menu_open:
-            state = 'Actions menu is open.'
+            state = 'Actions menu is open'
         elif self.paused:
-            state = 'Story is paused.'
+            state = 'Story is paused'
         elif self.phase == SCENE_END:
-            state = 'Story is at end of scene.'
+            state = 'Story is at end of scene'
         elif self.phase == STORY_END:
-            state = 'Story has ended.'
+            state = 'Story has ended'
         else:
-            state = 'Story is playing.'
+            state = 'Story is playing'
         chapter = self.state.get_by_label(LOCATION)
         if chapter == VARIABLE_DEFAULT:
-            return state
-        return '%s Chapter: %s.' % (state, chapter)
+            return state + '.'
+        return '%s: %s.' % (state, chapter)
 
     # ---- debug mode (section 5) ----------------------------------------------------------
     def skip(self):
