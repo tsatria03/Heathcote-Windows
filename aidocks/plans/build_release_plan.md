@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is finished; section 2, `releaser.py`, is built; and section 3, the story pack, asked for after it, passed the dev's mandatory tests in the single exe.
+**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). FINISHED 2026-10-21, on the dev's word ("Now you can mark this entire plan complete, and update the docks."). Built from 2026-10-21 ("For plan 7, make the compiler script first."): section 1, `compiler.py`; section 2, `releaser.py`, whose first real run is the dev's first release; and section 3, the story pack, asked for after it, with `story.dat` finally in a `data` folder beside the exe. With it, all seven plans are finished.
 
 Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
 

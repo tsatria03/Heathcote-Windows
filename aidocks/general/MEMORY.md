@@ -13,9 +13,10 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Build and release](../plans/build_release_plan.md): plan 7, planned, all questions answered; next, with no section review needed, on the dev's word. compiler.py and releaser.py, Windows only, carrying the audio, story data, FMOD and NVDA.
+- None open: all seven are finished.
 
 ## Completed projects
+- [Build and release](../plans/build_release_plan.md): plan 7, FINISHED 2026-10-21. compiler.py, a folder build or a single exe with a silent --test; releaser.py, the release from this machine with gh; the story's recordings in an encrypted data\story.dat beside the exe (platform/pack.py, AES-256-GCM, played from memory, its bytes kept while FMOD streams them); tools/build_pack.py; 212 silent tests.
 - [Saves](../plans/saves_plan.md): plan 6, FINISHED 2026-10-21. progress.py, saves\progress.json with the spiel's snapshot and the chapter apart; Continue story from the save at the start of the spiel the player was in, after Return to menu or quitting; Restart story and the end clearing it; debug jumps writing nothing; Tab saying the chapter; menu_check.py's Control+D; 182 silent tests.
 - [Menus](../plans/menus_plan.md): plan 5, FINISHED 2026-10-20. opening.py, the police radio and the first-run notice; the title music with the original's story fades; the main menu with Start story or Continue story, Settings, Credits and Quit; credits.py; the pause menu with Restart story and Return to menu (since plan 6, ending the story for Continue story from the save); the end credits over the story's last moments; menus_check.py, now menu_check.py; 166 silent tests.
 - [Story engine](../plans/story_engine_plan.md): plan 4, FINISHED 2026-10-20. state.py, the variables, heard spiels and action counts; player.py, the original's rules; the story screen; lockout and the actions menu with its clips; the keys during play with a stand-in pause; debug mode's F2 to F4 and --spiel; story_check.py; 154 silent tests.
@@ -40,7 +41,7 @@
 - [Back first](feedback_back_first.md): Back is the first row of every menu with a way back, and it opens on it.
 - [Say ear tests ahead](feedback_say_ear_tests_ahead.md): before each section, list the by-ear tests (sound and speech), each optional or mandatory; remind the dev of a mandatory one not reported on.
 - [Docs after each plan](feedback_docs_after_each_plan.md): when a plan is finished, bring every developer doc (aidocks included) and player doc up to date, then push.
-- [Progress summary](feedback_progress_summary.md): after each plan, a brief overall percentage, by agreed weights per plan; about 90 percent after plan 6.
+- [Progress summary](feedback_progress_summary.md): after each plan, a brief overall percentage, by agreed weights per plan; 100 percent after plan 7.
 - [Review plan sections](feedback_review_plan_sections.md): before building any plan, review it section by section with the dev; never start the next plan alone.
 - [Next section on a pass](feedback_next_section_on_pass.md): when the dev says a section's tests passed, mark and commit it, then build the next section without asking; not across plans.
 - [Grow check tools](feedback_grow_check_tools.md): a plan's by-ear tool starts in its first audible section and grows with each section.

@@ -1,6 +1,6 @@
 ---
 name: feedback_progress_summary
-description: "After each plan is finished, give the dev a brief summary of the whole port's progress as a percentage, using the agreed weights per plan; about 90 percent after plan 6."
+description: "After each plan is finished, give the dev a brief summary of the whole port's progress as a percentage, using the agreed weights per plan; 100 percent after plan 7."
 metadata:
   node_type: memory
   type: feedback
@@ -33,4 +33,5 @@ metadata:
   - plan 4 finished: about 70 percent (2026-10-20). It came in at its weight, with plan 3's audio doing much of the sound work. The stand-ins it left (the pause menu, the end, Start story) are plan 5's to replace, within that plan's weight.
   - plan 5 finished: about 85 percent (2026-10-20). It came in at its weight. It grew a little with the dev's changes on the way (the recorded choices off the interface volume, the Continue wording, Escape quitting the main menu) and with keeping the lanes moving after the end, but it also brought Continue story within a run, which lightens plan 6.
   - plan 6 finished: about 90 percent (2026-10-21). It came in at its weight. Plan 5's Continue story within a run lightened it, and the dev's change to always continue from the save simplified it further; the Tab chapter was a small addition.
+  - plan 7 finished: 100 percent (2026-10-21), every plan done. It grew past its weight with the story pack, asked for during it, but with nothing left the total is complete. What remains is the dev's first release, and any fixes playtesting brings, which no plan counts.
 - Playtesting the whole story, once it plays, may add work none of the plans counts; say so when it does.

@@ -5,11 +5,17 @@ You follow a presenter exploring an abandoned asylum, Heathcote, while he is on 
 The original was played by swiping on the screen.
 This is a port of it for Windows, played with the keyboard and your screen reader.
 
-What works so far
+What it has
 
-The port is still being built, but the whole game can now be played, from its opening and main menu, through the story, to its end credits, with the original's voices, music and ambience.
+The whole game can be played, from its opening and main menu, through the story, to its end credits, with the original's voices, music and ambience.
 Your progress is saved as you play, so you can quit at any time and carry on later.
 Every recording ships with the game, so nothing needs downloading.
+
+Installing
+
+Extract the whole Heathcote-Windows folder from the zip, and keep everything in it together.
+Start the game with Heathcote.exe. Nothing else needs installing.
+The story's recordings are in story.dat, in the data folder beside Heathcote.exe. The game cannot play without it, and says so if it is missing.
 
 Headphones
 

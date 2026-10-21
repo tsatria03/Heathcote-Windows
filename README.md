@@ -13,10 +13,10 @@ story told through sound. Headphones are strongly recommended."
 
 ## Status
 
-**The port is being built. The whole game can now be played,** from its opening and main
+**All seven plans are finished. The whole game can be played,** from its opening and main
 menu, through the story by the original's rules, to its end credits, with the progress kept
-between runs. The built game is still to come. The work is split into seven plans, in
-`aidocks/plans/`:
+between runs, from source or as a Windows build that `releaser.py` puts on GitHub. The work
+was split into seven plans, in `aidocks/plans/`:
 
 1. **Reading the original: finished.** Tools that read the original's binary and story
    data, a readable script of the whole story, and a note of how the original behaves,
@@ -62,7 +62,14 @@ between runs. The built game is still to come. The work is split into seven plan
      write it
    - Tab says the chapter, such as "Story is playing: working late."
    - `menu_check.py`'s Control+D to clear its progress, and 182 silent tests in all
-7. **Building and releasing:** next.
+7. **Building and releasing: finished.** The game as a download:
+   - `compiler.py`, which builds a folder or a single exe with PyInstaller, and tests the
+     build silently
+   - the story's recordings packed into `data\story.dat` beside the exe, encrypted and
+     played from memory, so the single exe is about 22 MB
+   - `releaser.py`, which versions, files the changelog, builds, zips, commits, tags and
+     uploads a release, asking before each step
+   - 212 silent tests in all
 
 What was found in the original:
 
