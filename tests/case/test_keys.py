@@ -241,5 +241,25 @@ def test_losing_the_window_pauses_and_closes_the_actions_menu():
         app.audio.close()
 
 
+def test_getting_the_window_back_resumes_a_pause_it_made_but_not_one_made_with_escape():
+    from heathcote.game.story_screen import PauseMenu, StoryScreen
+    app = make_app()
+    try:
+        story = StoryScreen(app)
+        app.stack.push(story)
+        story.focus_lost()
+        assert story.player.paused
+        app.stack.top.focus_gained()                        # back in the window
+        assert app.stack.top is story and not story.player.paused
+        assert app.audio.spiel.playing and not app.audio.spiel.paused
+        app.key_down('escape', [])                          # paused by hand
+        story.focus_lost()                                  # already paused: nothing more
+        app.stack.top.focus_gained()
+        assert isinstance(app.stack.top, PauseMenu) and story.player.paused
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
 if __name__ == '__main__':
     _quiet.run_tests(globals())

@@ -19,7 +19,11 @@ metadata:
     - **Mandatory:** C speaks the variable changes in "call opening".
     - **Optional:** H after a scene ends, and A matching the menu.
   - **The dev's ear tests passed** (2026-10-20: "the C, a, and H keys past the hering tests.").
-  - **The idle loop is muffled on pause,** at the dev's word ("Please make the idle ambiences also muffle if you pause the game."). This is a change from the original, which hushed only the music and three ambiences ([[audio_plan]]). `Audio.pause_story()` hushes the idle loop's slot as well, and the hush ticks it. The actions menu's hush leaves it clear. A test checks both. The suite passes, 153 tests.
+  - **The idle loop is muffled on pause,** at the dev's word ("Please make the idle ambiences also muffle if you pause the game."). This is a change from the original, which hushed only the music and three ambiences ([[audio_plan]]). `Audio.pause_story()` hushes the idle loop's slot as well, and the hush ticks it. The actions menu's hush leaves it clear. A test checks both. The suite passes, 153 tests. The dev's ear test passed ("the idal ambience test past.").
+- **After the plan was finished, getting the window back resumes by itself** (the dev, 2026-10-20: "Coming back out of the game's window should auto resume the game. RIght now I have to manually resume it if I go back to the game."). This is a change from the original, which stayed paused.
+  - A pause made by losing the window opens the pause menu with `by_focus`, and that menu's `focus_gained()` resumes, with `pause-unpause`.
+  - A pause made with Escape stays when the window comes back.
+  - A test checks both. The suite passes, 154 tests.
 
 - **Section 5, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 3 tests past."): F3's jump, F4's variables, and F2 keeping the story consistent. **A correction:** the reply to the dev said the search was now shared with `audio_check.py`. It is not: `audio_check.py` keeps its own copy, since it does not run on the game's screens. The two behave alike.
   - **The player gains debug mode's actions:**

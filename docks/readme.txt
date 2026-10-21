@@ -53,7 +53,7 @@ While the story plays:
 Left rewinds a few seconds, and Right fast-forwards for a moment, with the voices kept at their normal pitch.
 Escape pauses: the voice stops, the background sounds play on muffled, and a small menu offers Resume and Return to menu.
 Tab says where you are: whether the story is playing, waiting at the end of a scene, or in the actions menu.
-Switching to another window pauses the story, and you come back to the pause menu.
+Switching to another window pauses the story, and coming back to the game carries it on by itself; a pause you made with Escape stays until you resume.
 When the story ends, the game says so and returns to the main menu.
 
 Settings

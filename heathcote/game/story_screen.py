@@ -19,7 +19,8 @@ and lane events firing on the way; F3 finds a spiel by part of its label and jum
 the variables kept as they are; and F4 speaks every variable that is not "0".
 
 Losing the window plays ``lost focus`` and pauses, closing the actions menu if it is open
-(-[PlayState blur], 0x100033d98; -[ActionsDialState blur]).
+(-[PlayState blur], 0x100033d98; -[ActionsDialState blur]). Getting the window back resumes
+by itself, unlike the original, which stayed paused; a pause made with Escape stays.
 
 Until the menus plan (aidocks/plans/menus_plan.md), the pause menu is a stand-in with
 Resume and Return to menu, and the end of the story says so and returns to the main menu.
@@ -53,9 +54,19 @@ class PauseMenu(Menu):
     name = 'pause menu'
     title = 'Paused.'
 
-    def __init__(self, app, story_screen):
+    def __init__(self, app, story_screen, by_focus=False):
+        """``by_focus``: opened because the window lost the keyboard, so getting it back
+        resumes by itself."""
         super().__init__(app)
         self.story_screen = story_screen
+        self.by_focus = by_focus
+
+    def focus_gained(self):
+        """Back in the game's window: a pause that losing the window made ends by itself
+        (the dev, 2026-10-20: "Coming back out of the game's window should auto resume the
+        game."), unlike the original, which stayed paused. A pause made with Escape stays."""
+        if self.by_focus and self.stack.top is self:
+            self.resume()
 
     def rows(self):
         return [Row('Resume', self.resume), Row('Return to menu', self.return_to_menu)]
@@ -177,12 +188,13 @@ class StoryScreen(Screen):
             self.stack.push(PauseMenu(self.app, self))
 
     def focus_lost(self):
-        """The window lost the keyboard: lost focus, and the story pauses."""
+        """The window lost the keyboard: lost focus, and the story pauses until the window
+        has the keyboard again."""
         if self.player.phase is None or self.player.paused:
             return
         self.app.play_sound('lost focus')
         if self.player.pause():
-            self.stack.push(PauseMenu(self.app, self))
+            self.stack.push(PauseMenu(self.app, self, by_focus=True))
 
     def update(self):
         self.player.update()

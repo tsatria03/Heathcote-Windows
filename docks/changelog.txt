@@ -1,6 +1,6 @@
 unrelease:
 When the story ends, the game says so and returns to the main menu.
-Switching to another window plays the original's lost focus sound and pauses the story.
+Switching to another window plays the original's lost focus sound and pauses the story, and coming back carries it on by itself.
 Tab says where you are: playing, at the end of a scene, or in the actions menu.
 Escape pauses the story as the original did, the background sounds playing on muffled, with a pause menu offering Resume and Return to menu.
 Left rewinds and Right fast-forwards, as in the original, with the voices kept at their normal pitch.
