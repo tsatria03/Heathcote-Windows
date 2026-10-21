@@ -75,7 +75,8 @@ was split into seven plans, in `aidocks/plans/`:
 Since then, plan 8, the Settings screen: a row for each volume, opening a list of its
 levels, and Volume speed, for how often a held volume key repeats. Then plan 9: in the
 actions menu, each choice's text is spoken after its recording, the first time only, in
-place of Space. 220 silent tests.
+place of Space. Then plan 10: Skip opening screens, in Settings, which starts the game at
+the main menu. 221 silent tests.
 
 What was found in the original:
 

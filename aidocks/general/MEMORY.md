@@ -13,9 +13,10 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Skip opening](../plans/skip_opening_plan.md): plan 10, built, waiting for the dev's ear test. A Skip opening screens setting after Debug mode; when on, the game starts at the main menu.
+- None open.
 
 ## Completed projects
+- [Skip opening](../plans/skip_opening_plan.md): plan 10, FINISHED 2026-10-21. A Skip opening screens setting after Debug mode; when on, the game starts at the main menu, the notice counted as shown; 221 silent tests.
 - [Choice text](../plans/choice_text_plan.md): plan 9, FINISHED 2026-10-21. In the actions menu, a choice's text is spoken after its clip, the first time only, never on the 7-second repeat; Space's choice_text action removed, and stale saved actions dropped from keys.json; 220 silent tests.
 - [Settings](../plans/settings_plan.md): plan 8, FINISHED 2026-10-21. A row for each of the four volumes, opening a list of levels, and Volume speed for the held volume keys; 218 silent tests.
 - [Build and release](../plans/build_release_plan.md): plan 7, FINISHED 2026-10-21. compiler.py, a folder build or a single exe with a silent --test; releaser.py, the release from this machine with gh; the story's recordings in an encrypted data\story.dat beside the exe (platform/pack.py, AES-256-GCM, played from memory, its bytes kept while FMOD streams them); tools/build_pack.py; 212 silent tests.

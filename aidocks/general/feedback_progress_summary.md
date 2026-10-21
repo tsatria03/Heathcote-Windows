@@ -36,4 +36,5 @@ metadata:
   - plan 7 finished: 100 percent (2026-10-21), every plan done. It grew past its weight with the story pack, asked for during it, but with nothing left the total is complete. What remains is the dev's first release, and any fixes playtesting brings, which no plan counts.
   - plan 8 finished (2026-10-21): the Settings screen, after the first release. The port was already at 100 percent of what was planned, so later plans are reported as additions, not as a percentage.
   - plan 9 finished (2026-10-21): each choice's text after its clip, in place of Space.
+  - plan 10 finished (2026-10-21): Skip opening screens.
 - Playtesting the whole story, once it plays, may add work none of the plans counts; say so when it does.

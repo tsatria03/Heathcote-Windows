@@ -4,6 +4,7 @@ Nothing is waiting here right now. New bugs, planned changes and anything still 
 
 ##Finished.
 
+Settings can skip the opening screens, so the game starts at the main menu.
 In the actions menu, each choice's words are spoken after its recording, the first time you land on it.
 Settings can set every volume and how quickly a held volume key repeats.
 The game can be downloaded as one zip and played with Heathcote.exe, with nothing else to install.
