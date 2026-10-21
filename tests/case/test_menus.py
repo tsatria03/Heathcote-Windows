@@ -121,18 +121,40 @@ def open_settings():
     return app
 
 
+def on_row(app, start):
+    """Put the top menu on the row whose words begin with ``start``."""
+    texts = [r.text for r in app.stack.top.rows()]
+    app.stack.top.index = next(i for i, t in enumerate(texts) if t.startswith(start))
+
+
 def test_settings_has_its_rows_in_order():
     app = open_settings()
     assert [r.text for r in app.stack.top.rows()] == [
-        'Back', 'Debug mode, currently off', 'Master volume, 100 percent',
+        'Back', 'Debug mode, currently off', 'Skip opening screens, currently off',
+        'Master volume, 100 percent',
         'Background volume, 100 percent', 'Interface volume, 100 percent',
         'Title volume, 100 percent', 'Volume speed, 100 milliseconds', 'Key bindings']
+
+
+def test_skip_opening_screens_starts_at_the_main_menu_and_counts_the_notice_shown():
+    from heathcote.game.opening import OpeningScreen, first_screen
+    app = open_settings()
+    on_row(app, 'Skip opening screens')
+    assert press(app, 'return') == ['Skip opening screens, currently on']
+    assert app.settings.get('skip_opening') is True
+    assert isinstance(first_screen(app), MainMenu)                  # the next start
+    assert app.settings.get('first_run_notice_shown') is True
+    assert press(app, 'return') == ['Skip opening screens, currently off']
+    assert isinstance(first_screen(app), OpeningScreen)             # the police radio again...
+    app.stack.reset(first_screen(app))
+    app.stack.top.update()                                          # (no sound here: it moves on)
+    assert isinstance(app.stack.top, MainMenu)                      # ...and no notice
 
 
 def test_a_volume_row_opens_its_levels_on_back_and_enter_picks_one():
     from heathcote.ui.settings_screen import LevelsMenu
     app = open_settings()
-    app.stack.top.index = 2
+    on_row(app, 'Master volume')
     assert press(app, 'return') == ['Master volume.', 'Back']
     assert isinstance(app.stack.top, LevelsMenu)
     assert [r.text for r in app.stack.top.rows()][:3] == ['Back', '100 percent', '90 percent']
@@ -146,8 +168,8 @@ def test_a_volume_row_opens_its_levels_on_back_and_enter_picks_one():
 
 def test_escape_or_back_in_the_levels_keeps_the_volume():
     app = open_settings()
-    app.stack.top.index = 4
-    press(app, 'return')                                            # Interface volume
+    on_row(app, 'Interface volume')
+    press(app, 'return')
     press(app, 'end')
     assert press(app, 'escape') == ['Interface volume, 100 percent']
     press(app, 'return')
@@ -158,8 +180,8 @@ def test_escape_or_back_in_the_levels_keeps_the_volume():
 def test_every_volume_can_be_set_from_the_pause_menus_settings_too():
     app = make()
     app.stack.push(SettingsScreen(app))                            # no title music here
-    app.stack.top.index = 5
-    press(app, 'return')                                            # Title volume
+    on_row(app, 'Title volume')
+    press(app, 'return')
     press(app, 'end')
     press(app, 'return')
     assert app.settings.get('title_volume') == 0
@@ -167,7 +189,7 @@ def test_every_volume_can_be_set_from_the_pause_menus_settings_too():
 
 def test_volume_speed_names_its_ends_and_sets_the_repeat():
     app = open_settings()
-    app.stack.top.index = 6
+    on_row(app, 'Volume speed')
     assert press(app, 'return') == ['Volume speed.', 'Back']
     texts = [r.text for r in app.stack.top.rows()]
     assert texts[1] == '50 milliseconds, fastest' and texts[-1] == '500 milliseconds, slowest'

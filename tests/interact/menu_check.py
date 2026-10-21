@@ -26,7 +26,8 @@ Restart story begins the save afresh, and the end credits clear it.
 
 The tool's own keys:
 
-    Control+N    forget the notice, and start again from the police radio
+    Control+N    forget the notice, and start again from the police radio, even with Skip
+                 opening screens on, which the tool's own start follows
     Control+T    say whether the title music is playing and at what volume, and whether the
                  story's sound is faded in, faded out, or fading
     Control+S    say whether a story is playing, paused, or in the save to continue, with
@@ -54,7 +55,7 @@ os.environ.setdefault('HEATHCOTE_USER_DIR', os.path.join(
 
 import Heathcote  # noqa: E402  (the game's own options, log and crash file)
 from heathcote.app import App  # noqa: E402
-from heathcote.game.opening import OpeningScreen  # noqa: E402
+from heathcote.game.opening import OpeningScreen, first_screen  # noqa: E402
 
 INTRO = ('Menus check. Control N starts again with the notice, Control T says the title music, '
          'Control S the story, Control E jumps near its end, Control D clears the progress, '
@@ -168,7 +169,7 @@ def main():
     app = CheckApp(options)
     app.speech.speak(INTRO)
     try:
-        app.run(OpeningScreen(app), pygame)
+        app.run(first_screen(app), pygame)      # Skip opening screens is followed here
     except SystemExit as stop:
         if isinstance(stop.code, str):
             app.speech.speak(stop.code)

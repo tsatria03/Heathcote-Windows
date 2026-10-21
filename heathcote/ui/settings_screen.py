@@ -3,6 +3,8 @@
 
     Back                            first, as in every menu
     Debug mode, currently off       source runs only; Enter turns it on or off at once
+    Skip opening screens, currently off   Enter turns it on or off; when on, the game
+                                    starts at the main menu
     Master volume, 100 percent      each volume opens a list of its levels
     Background volume, 100 percent
     Interface volume, 100 percent
@@ -69,6 +71,9 @@ class SettingsScreen(Menu):
         if not paths.FROZEN:
             rows.append(Row(lambda: 'Debug mode, currently %s' % ('on' if self.app.debug else 'off'),
                             self.toggle_debug))
+        rows.append(Row(lambda: 'Skip opening screens, currently %s'
+                        % ('on' if self.app.settings.get('skip_opening') else 'off'),
+                        self.toggle_skip_opening))
         for key in VOLUMES:
             rows.append(Row(self.volume_text(key), self.opener(key)))
         rows.append(Row(lambda: 'Volume speed, %s' % speed_text(self.app.settings.get('volume_speed')),
@@ -101,4 +106,10 @@ class SettingsScreen(Menu):
 
     def toggle_debug(self):
         self.app.set_debug(not self.app.debug)
+        self.say(self.row_text())
+
+    def toggle_skip_opening(self):
+        """From the next start, the game opens on the main menu, or on the opening again
+        (aidocks/plans/skip_opening_plan.md)."""
+        self.app.settings.toggle('skip_opening')
         self.say(self.row_text())

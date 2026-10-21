@@ -123,7 +123,8 @@ through your screen reader, with the title music under it:
   it is **Continue story** instead, said with the story's chapter, such as "Continue story:
   approaching Heathcote.", and plays the spiel you were in again from its start, with the
   story's state and background sounds as they were as it began.
-- **Settings** has Back, Debug mode (from source only), a row for each of the four volumes,
+- **Settings** has Back, Debug mode (from source only), Skip opening screens, which starts
+  the game at the main menu, a row for each of the four volumes,
   each opening a list of its levels, Volume speed, how often a held volume key repeats,
   and Key bindings.
 - **Credits** reads the original's credits a row each, Back first, with the port's row and

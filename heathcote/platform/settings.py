@@ -25,6 +25,7 @@ DEFAULTS = {
     # aidocks/plans/settings_plan.md: milliseconds between the repeats of a held volume key.
     'volume_speed': 100,
     'debug': False,                     # aidocks/plans/foundation_plan.md: source runs only
+    'skip_opening': False,              # aidocks/plans/skip_opening_plan.md: start at the main menu
     'first_run_notice_shown': False,    # aidocks/plans/menus_plan.md: the first start only
 }
 VOLUMES = ('master_volume', 'backgrounds_volume', 'interface_volume', 'title_volume')

@@ -1,4 +1,5 @@
 unrelease:
+Settings has Skip opening screens, which starts the game straight at the main menu.
 In the actions menu, your screen reader speaks each choice's words after its recording, in place of pressing Space.
 Settings has Volume speed, for how quickly a held volume key repeats.
 Settings has a row for each volume, which opens a list of its levels, so every volume can be set from anywhere.

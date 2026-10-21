@@ -27,6 +27,18 @@ def main_menu(app):
     return MainMenu(app)
 
 
+def first_screen(app):
+    """The screen the game starts on: the opening, or, with Skip opening screens on, the
+    main menu, the police radio and the first-run notice left out
+    (aidocks/plans/skip_opening_plan.md). Skipping counts as having shown the notice, so
+    turning the setting off later never brings it back."""
+    if not app.settings.get('skip_opening'):
+        return OpeningScreen(app)
+    if not app.settings.get('first_run_notice_shown'):
+        app.settings.set('first_run_notice_shown', True)
+    return main_menu(app)
+
+
 class OpeningScreen(Screen):
     """The splash: the police radio, then the notice or the main menu."""
 

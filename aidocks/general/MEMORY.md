@@ -13,7 +13,7 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Skip opening](../plans/skip_opening_plan.md): plan 10, planned, waiting for the dev's word. A Skip opening screens setting after Debug mode; when on, the game starts at the main menu.
+- [Skip opening](../plans/skip_opening_plan.md): plan 10, built, waiting for the dev's ear test. A Skip opening screens setting after Debug mode; when on, the game starts at the main menu.
 
 ## Completed projects
 - [Choice text](../plans/choice_text_plan.md): plan 9, FINISHED 2026-10-21. In the actions menu, a choice's text is spoken after its clip, the first time only, never on the 7-second repeat; Space's choice_text action removed, and stale saved actions dropped from keys.json; 220 silent tests.

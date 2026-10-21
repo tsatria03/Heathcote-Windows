@@ -79,6 +79,7 @@ Settings
 
 Settings opens from the main menu or the pause menu, with these rows:
 Back.
+Skip opening screens. Enter turns it on or off. When it is on, the game starts straight at the main menu, without the police radio or the first-run advice.
 Master volume, Background volume, Interface volume and Title volume, each said with its level. Enter opens a list of its levels, from 100 percent down to 0, with Back first; Enter on a level sets it at once, and Escape keeps it as it was. Every volume can be set here, wherever you are.
 Volume speed, how quickly a volume key repeats while you hold it, from 50 milliseconds, the fastest, to 500, the slowest, in a list of its own.
 Key bindings.

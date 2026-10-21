@@ -6,7 +6,14 @@ metadata:
   type: project
 ---
 
-**Status:** planned, 2026-10-21, waiting for the dev's word to build.
+**Status:** built 2026-10-21 on the dev's word ("Exactly right, and yes."), waiting for the dev's ear test.
+
+## What was built
+
+- **`heathcote/game/opening.py`:** `first_screen(app)` gives the opening, or with `skip_opening` on the main menu, setting `first_run_notice_shown` as it skips. `Heathcote.py` and `menu_check.py`'s own start use it; the tool's Control+N still resets to the opening.
+- **`heathcote/ui/settings_screen.py`:** the row after Debug mode, toggled by `toggle_skip_opening()`.
+- **`heathcote/platform/settings.py`:** `skip_opening`, off by default.
+- **Tests:** one new; the Settings tests now find their rows by their words, not their places, so a new row no longer moves them. 221 in all, the whole suite passing. Started silently both ways: the opening by default, the main menu with the setting on.
 
 Plan 10. Asked for by the dev, 2026-10-21: "Please add a setting called skip opening screens. Put it after the debug setting. You can probbably guess what that will do." It changes [[menus_plan]]'s opening and [[settings_plan]]'s Settings screen.
 
