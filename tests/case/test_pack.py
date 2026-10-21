@@ -116,6 +116,35 @@ def test_fmod_plays_a_packed_recording_from_memory_as_a_sample_and_as_a_stream()
         pack.use(None)
 
 
+def test_a_packed_stream_keeps_its_bytes_while_fmod_reads_them():
+    """Freed too soon, FMOD's stream thread read memory that was gone, and the built game
+    closed at the main menu with an access violation (2026-10-21)."""
+    import gc
+    import time
+    _root, dest, _info, _start, title = small_story()
+    pack.use(pack.Pack(dest))
+    audio = Audio(Settings(os.path.join(folder('settings'), 'settings.json')))
+    audio.open()
+    try:
+        bgm = audio.slot('bgm')
+        assert bgm.play(pack.PREFIX + 'music/' + title)
+        assert isinstance(bgm.memory, bytes) and len(bgm.memory) > 100000
+        gc.collect()
+        end = time.perf_counter() + 2.0
+        while time.perf_counter() < end:                # FMOD streams on its own thread
+            audio.update()
+            time.sleep(0.01)
+        assert bgm.playing
+        bgm.stop(fade_out=0.3)                          # fading, it keeps its bytes too
+        assert bgm.memory is None and any(len(item) == 4 and item[3] for item in audio.fading_out)
+        file_slot = audio.slot('ambience1')
+        file_slot.play(STORY.audio_path(STORY.refs('ambience')[0]))
+        assert file_slot.memory is None                 # a file on disk needs none
+    finally:
+        audio.close()
+        pack.use(None)
+
+
 def story_without_its_folder():
     """A copy of the story's text, with an Audio folder holding no story folder."""
     game = folder('game')

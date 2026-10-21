@@ -108,6 +108,8 @@ class Slot:
         self.channel = None
         self.sound = None
         self.path = None
+        # A packed recording's bytes, while its sound lives: FMOD streams from them.
+        self.memory = None
         # The fade level last aimed for, and the fade towards it: (from, to, start, seconds).
         self._fade = (1.0, 1.0, 0.0, 0.0)
         # The hush's EQ on this channel, its gain in dB, and where that gain is heading.
@@ -152,6 +154,10 @@ class Slot:
             log.exception('%s could not play %s', self.name, path)
             return False
         self.sound, self.channel, self.path = sound, channel, path
+        # FMOD reads a stream opened from memory straight from these bytes as it plays, so
+        # they are kept for as long as the sound is, and freed only with it. Freed sooner,
+        # FMOD's stream thread reads memory that is gone and the game crashes.
+        self.memory = source if exinfo is not None else None
         self._fade = (1.0, 1.0, 0.0, 0.0)
         self.apply_volume()
         if self.name in HUSHED and self.audio.hush_count > 0:
@@ -197,9 +203,10 @@ class Slot:
                 try:
                     # Stopped by FMOD itself, to the sample, once the fade has ended.
                     self.channel.delay = types.SimpleNamespace(dsp_start=0, dsp_end=end, stop_channels=True)
-                    # The hush, if any, stays on the fading channel and is freed with it.
-                    self.audio.fading_out.append((self.channel, self.sound, self.eq))
-                    self.channel = self.sound = self.path = self.eq = None
+                    # The hush, if any, stays on the fading channel and is freed with it,
+                    # and so do a packed recording's bytes.
+                    self.audio.fading_out.append((self.channel, self.sound, self.eq, self.memory))
+                    self.channel = self.sound = self.path = self.eq = self.memory = None
                     self.eq_gain = self.eq_target = self.eq_step = 0.0
                     return
                 except Exception:
@@ -277,7 +284,7 @@ class Slot:
                 self.sound.release()
         except Exception:
             pass
-        self.channel = self.sound = self.path = None
+        self.channel = self.sound = self.path = self.memory = None    # the bytes last
 
     def _fade_points(self, start_level, end_level, seconds):
         """Put the channel's fade points from ``start_level`` now to ``end_level`` in
@@ -326,7 +333,8 @@ class Audio:
         self.slots = {}
         self.rate = 48000
         self.silent = False             # running FMOD's no-sound output
-        self.fading_out = []            # (channel, sound, eq or None) fading out, freed once stopped
+        # (channel, sound, eq or None[, a packed recording's bytes]) fading out, freed once stopped
+        self.fading_out = []
         self.hush_count = 0             # nested hushes; the backgrounds are muffled while above 0
         self._story_fade = (1.0, 1.0, 0.0, 0.0)   # the story group's fade: from, to, start, seconds
         self._tick_time = 0.0           # time towards the next hush tick
@@ -384,8 +392,9 @@ class Audio:
     def source(self, path):
         """What FMOD opens for ``path``: (the path, None) for a file on disk, or, for a
         recording in story.dat (platform/pack.py), (its bytes, decrypted in memory, and the
-        extra information FMOD's OPENMEMORY needs). FMOD copies the bytes, so nothing
-        decrypted is kept here or written to disk."""
+        extra information FMOD's OPENMEMORY needs). A stream reads from those bytes as it
+        plays, so the slot keeps them while its sound lives; nothing decrypted is ever
+        written to disk."""
         from . import pack
         if not path.startswith(pack.PREFIX):
             return path, None
@@ -537,13 +546,16 @@ class Audio:
                 self.slots[name].tick()
 
     @staticmethod
-    def _free(channel, sound, eq):
+    def _free(channel, sound, eq, memory=None):
+        """Stop and release a finished channel; a packed recording's ``memory`` is held by
+        this call until FMOD has released the sound reading from it."""
         for release in (lambda: channel.stop(), lambda: sound.release(),
                         lambda: eq.release() if eq is not None else None):
             try:
                 release()
             except Exception:
                 pass
+        del memory
 
     def close(self):
         if not self.ok:
