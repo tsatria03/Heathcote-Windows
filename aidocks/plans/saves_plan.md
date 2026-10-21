@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, from 2026-10-20, after its review (the dev: "I like your recommendations. Let's start section 1."). Both sections are finished; the plan waits on the Tab change's ear test before its docs pass and push.
+**Status:** being built, from 2026-10-20, after its review (the dev: "I like your recommendations. Let's start section 1."). FINISHED 2026-10-21. Both sections passed the dev's ear tests, and the Tab change's too ("The tab tests past.").
 
 Plan 6 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]]'s paths and safe JSON files, and keeps what [[story_engine_plan]] and [[menus_plan]] hold in memory. What the original saved comes from [[project_original_behaviour]].
 
@@ -82,7 +82,7 @@ Built 2026-10-21, waiting for the dev's ear tests:
   6. Optional: your volumes and the first-run notice are still remembered.
 
 **Section 2 is finished,** on the dev's word.
-- **Also with section 2's report,** at the dev's word ("It doesn't actually say where I'm at in the story, like the chapter for example."): Tab, in the story and in the actions menu, follows its words with the chapter, once a scene has set `location` (`StoryPlayer.where()`), in the dev's form ("Pressing tab should look something like this. "Story is playing: working late.". Change that for the other 2 tab messages as well."): "Story is playing: working late.", and the same for the actions menu, the pause, the end of a scene and the end. It first said "Story is playing. Chapter: …". Its ear test, mandatory, is to come: Tab says the chapter during the story and in the actions menu.
+- **Also with section 2's report,** at the dev's word ("It doesn't actually say where I'm at in the story, like the chapter for example."): Tab, in the story and in the actions menu, follows its words with the chapter, once a scene has set `location` (`StoryPlayer.where()`), in the dev's form ("Pressing tab should look something like this. "Story is playing: working late.". Change that for the other 2 tab messages as well."): "Story is playing: working late.", and the same for the actions menu, the pause, the end of a scene and the end. It first said "Story is playing. Chapter: …". Its ear test, mandatory, passed (the dev, 2026-10-21: "The tab tests past."): Tab says the chapter during the story, in the actions menu and in the pause menu.
 
 ## Built in sections
 

@@ -18,6 +18,13 @@ The audio plan, finished 2026-10-20 ([[audio_plan]]), means a build must carry:
 
 Without the DLL, the game stops with a message saying where to copy it from, so `compiler.py --test` will show a missing DLL at once.
 
+## What plans 4 to 6 built for it
+
+The story engine, the menus and the saves, finished 2026-10-20 and 21 ([[story_engine_plan]], [[menus_plan]], [[saves_plan]]), add nothing a build must carry beyond `game/documents/`, and leave these for `--test` to rely on:
+- **The game opens on its opening,** the police radio, and with `--exit-after` closes on its own; the log's "game data:" line and "progress: no story is under way" show a build found its data and its save on a fresh throwaway save.
+- **Everything the game writes** is in the save folder: `config\settings.json`, `config\keys.json`, `saves\progress.json` and `logs\`, each under `HEATHCOTE_USER_DIR` when set, so `--test` never touches the dev's own save.
+- **The by-ear tools in `tests/interact/`** are for the repository, never the build.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.

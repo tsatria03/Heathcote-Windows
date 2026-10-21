@@ -14,8 +14,8 @@ story told through sound. Headphones are strongly recommended."
 ## Status
 
 **The port is being built. The whole game can now be played,** from its opening and main
-menu, through the story by the original's rules, to its end credits. Saving across runs
-and the built game are still to come. The work is split into seven plans, in
+menu, through the story by the original's rules, to its end credits, with the progress kept
+between runs. The built game is still to come. The work is split into seven plans, in
 `aidocks/plans/`:
 
 1. **Reading the original: finished.** Tools that read the original's binary and story
@@ -53,8 +53,16 @@ and the built game are still to come. The work is split into seven plans, in
      the story paused for Continue story
    - the end credits over the story's last moments, the original's credit cards as text
    - `tests\interact\menu_check.py` to hear it all, and 166 silent tests in all
-6. **Saving:** next. Progress kept across runs, so Continue story survives quitting.
-7. **Building and releasing.**
+6. **Saving: finished.** The story's progress between runs:
+   - `saves\progress.json`, written safely as each spiel begins, with a snapshot of the
+     story and its background sounds then, and the chapter kept apart
+   - Continue story, from the save, plays the spiel you were in again from its start,
+     whether you left by Return to menu or by quitting
+   - Restart story starts the save afresh, the end clears it, and debug mode's jumps never
+     write it
+   - Tab says the chapter, such as "Story is playing: working late."
+   - `menu_check.py`'s Control+D to clear its progress, and 182 silent tests in all
+7. **Building and releasing:** next.
 
 What was found in the original:
 
@@ -143,6 +151,7 @@ Everything the game keeps is in `%APPDATA%\Heathcote`:
 
 - `config\settings.json` and `config\keys.json`: the settings and the key bindings, each
   written safely with a backup;
+- `saves\progress.json`: the story's progress, written the same way;
 - `logs\log.txt`, with the run before as `log.old.txt`, and `logs\crash.txt` when an error
   stops the game, which is spoken too.
 

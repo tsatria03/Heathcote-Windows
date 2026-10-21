@@ -105,7 +105,7 @@ F1 and Escape can never be rebound, and the key bindings screen always uses its 
 
 Your files
 
-Your settings and key bindings are kept in the Heathcote folder in your AppData folder, never in the game's own folder, so an update keeps them.
+Your settings, key bindings and story progress are kept in the Heathcote folder in your AppData folder, never in the game's own folder, so an update keeps them.
 Every run writes a log there, in the logs folder.
 If an error stops the game, it says so aloud and writes what happened to crash.txt in that logs folder.
 
