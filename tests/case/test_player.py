@@ -192,11 +192,114 @@ def test_the_main_menu_starts_the_story_screen_and_return_to_menu_leaves_it():
         app.key_down('page down', [])                   # the story's background volume
         assert settings.get('backgrounds_volume') == 90
         app.key_down('escape', [])                      # pause, then the pause menu
-        app.key_down('down', [])
+        app.key_down('end', [])
         app.key_down('return', [])                      # Return to menu
         assert isinstance(app.stack.top, MainMenu) and app.title_music
-        assert not app.audio.spiel.playing
         assert title.playing                            # again, as the menu comes back
+        # The story is kept, paused, its backgrounds fading out under the title music.
+        assert app.paused_story is screen and app.audio.story_paused
+        assert app.audio.spiel.paused and app.audio.story_target == 0.0
+        assert screen.player.current == STORY.start()
+        assert app.stack.top.row_text().startswith('Continue story')
+        app.key_down('return', [])                      # Continue story
+        assert app.stack.top is screen and app.paused_story is None
+        assert not app.audio.story_paused and not app.audio.spiel.paused
+        assert title.channel is None and app.audio.story_target == 1.0
+        assert screen.player.current == STORY.start()   # picked up exactly there
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
+def story_app(name):
+    from heathcote.app import App
+    from heathcote.game.menus import MainMenu
+    from heathcote.platform.keymap import KeyMap
+    from heathcote.platform.runloop import RunLoop
+    from heathcote.platform.speech import Speech
+
+    class Listening(Speech):
+        def __init__(self):
+            super().__init__()
+            self.lines = []
+
+        def speak(self, text, interrupt=True):
+            self.lines.append(text)
+            return super().speak(text, interrupt)
+
+    folder = os.path.join(_quiet.FOLDER, name)
+    app = App(types.SimpleNamespace(debug=False, exit_after=None), speech=Listening(),
+              settings=Settings(os.path.join(folder, 'settings.json')),
+              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
+    app.audio.open()
+    app.stack.push(MainMenu(app))
+    app.key_down('return', [])                          # Start story
+    return app, app.stack.top
+
+
+def test_the_pause_menus_rows_and_settings_from_it():
+    from heathcote.game.story_screen import PauseMenu
+    from heathcote.ui.settings_screen import SettingsScreen
+    app, screen = story_app('pause rows')
+    try:
+        app.key_down('escape', [])
+        assert [r.text for r in app.stack.top.rows()] == ['Resume', 'Restart story', 'Settings',
+                                                          'Return to menu']
+        app.key_down('down', [])
+        app.key_down('down', [])
+        app.key_down('return', [])
+        assert isinstance(app.stack.top, SettingsScreen) and screen.player.paused
+        assert not app.title_music                      # silent while paused
+        app.key_down('escape', [])
+        assert isinstance(app.stack.top, PauseMenu) and screen.player.paused
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
+def test_restart_story_asks_with_no_first_and_yes_starts_again():
+    from heathcote.game.story_screen import RESTART_QUESTION, PauseMenu, StoryScreen
+    app, screen = story_app('restart')
+    try:
+        state = screen.state
+        location = state.variable('location')
+        state.apply({location: 'offices'})
+        state.mark_heard(STORY.start())
+        app.key_down('escape', [])
+        app.key_down('down', [])
+        app.speech.lines.clear()
+        app.key_down('return', [])                      # Restart story
+        assert app.speech.lines == [RESTART_QUESTION, 'No']
+        app.key_down('return', [])                      # No
+        assert isinstance(app.stack.top, PauseMenu) and state.get(location) == 'offices'
+        app.key_down('return', [])                      # still on Restart story
+        app.key_down('escape', [])                      # Escape is No too
+        assert isinstance(app.stack.top, PauseMenu)
+        app.key_down('return', [])                      # Restart story, at the row it was on
+        app.key_down('down', [])
+        app.key_down('return', [])                      # Yes
+        assert isinstance(app.stack.top, StoryScreen) and app.stack.top is screen
+        assert state.get(location) == '0' and not state.heard
+        assert screen.player.current == STORY.start() and not screen.player.paused
+        assert app.audio.spiel.playing and not app.audio.spiel.paused and app.audio.hush_count == 0
+        assert app.speech.lines[-1] == 'The story starts again.'
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
+def test_continue_story_says_its_chapter():
+    from heathcote.game.menus import MainMenu
+    app, screen = story_app('chapter')
+    try:
+        screen.state.set_by_label('location', 'cell block C')
+        app.key_down('escape', [])
+        app.key_down('end', [])
+        app.key_down('return', [])                      # Return to menu
+        menu = app.stack.top
+        assert isinstance(menu, MainMenu)
+        assert menu.row_text() == 'Continue story, from chapter: cell block C.'
+        assert [r.text for r in menu.rows()][1:] == ['Settings', 'Credits', 'Quit']
     finally:
         app.stack.clear()
         app.audio.close()

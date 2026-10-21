@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Sections 1 and 2 are finished; section 3 is being built.
+**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Sections 1 and 2 are finished; section 3 is built and waiting for the dev's tests.
 
 Plan 5 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]], [[audio_plan]] and [[story_engine_plan]]. What the original did comes from [[project_original_behaviour]].
 
@@ -105,6 +105,24 @@ Built 2026-10-20, straight after section 1 passed ([[feedback_next_section_on_pa
   4. Optional: the title music playing on through Settings.
 
 **Section 2 is finished,** on the dev's word.
+
+## What section 3 built
+
+Built 2026-10-20, straight after section 2 passed, waiting for the dev's ear tests:
+- **The pause menu** (`PauseMenu` in `heathcote/game/story_screen.py`) has Resume, Restart story, Settings and Return to menu. Resume is first and opened on, and Escape does the same. It has no Back row, Resume being its way back. Losing the window still opens it and coming back still resumes ([[story_engine_plan]]).
+- **Restart story** opens `RestartMenu`, "Restart the story? Your progress will be lost.", with No first and opened on, and Escape as No. Yes says "The story starts again.", stops the story, resets its state and plays `start` (`StoryScreen.restart()`).
+- **Settings** from the pause menu is the same screen. The title music is silent there, so only the master volume's keys work, as in the pause menu.
+- **Return to menu** (`StoryScreen.return_to_menu()`) takes the story screen off the stack without stopping it, still paused, and keeps it as `app.paused_story`. The main menu's title music starts, and the story group fades out under it over 2 seconds, so the muffled backgrounds go quiet.
+- **Continue story** takes Start story's place in the main menu while a story is paused: "Continue story, from chapter: <location>.", or "Continue story" before `location` is set. It puts the same screen back (`continue_story()`): the title music fades out, the story fades in, and it unpauses with `pause-unpause`, exactly where it stopped.
+- **`story_check.py`'s** Return to menu still quits the tool, now through `return_to_menu()`.
+- **`menus_check.py`** gains Control+S, which says whether a story is playing, paused, or paused under the main menu, with its spiel and chapter. Control+N ends a story paused under the menu.
+- **Tests:** three new ones, and the main menu's story test now goes through Continue story. 163 in all.
+- **The dev's ear tests,** to come:
+  1. Mandatory: Escape in the story opens the pause menu, with Resume, Restart story, Settings and Return to menu; Resume and Escape both play on.
+  2. Mandatory: Restart story asks first, No and Escape keep the story, and Yes plays it again from its start.
+  3. Mandatory: Return to menu brings the title music back, the story's muffled backgrounds fading away under it.
+  4. Mandatory: the main menu then offers Continue story, with its chapter, and it carries on exactly where the story stopped, the title music fading out.
+  5. Optional: Settings from the pause menu, and back.
 
 ## Built in sections
 

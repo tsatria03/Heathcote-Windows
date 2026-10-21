@@ -16,7 +16,8 @@ The game's keys:
     In the actions menu: the arrows move, Home and End jump, Enter accepts, Escape closes,
                          Space speaks the choice's text, and Tab says the menu is open
     Left and Right       rewind and fast-forward
-    Escape               pause, with the stand-in pause menu: Resume, or Return to menu, which quits
+    Escape               pause, with the pause menu: Resume, Restart story, Settings, or
+                         Return to menu, which quits the tool
     Tab                  say where you are, as the game does
     Shift+Home, Shift+End        the master volume
     Page Up, Page Down           the background volume
@@ -92,7 +93,7 @@ class CheckScreen(StoryScreen):
     def story_ended(self):
         self.say('The story has ended. Press R to start again.')
 
-    def leave(self):
+    def return_to_menu(self):
         """Return to menu, from the pause menu: in the tool, there is no menu, so it quits."""
         self.app.quit()
 

@@ -22,8 +22,10 @@ Losing the window plays ``lost focus`` and pauses, closing the actions menu if i
 (-[PlayState blur], 0x100033d98; -[ActionsDialState blur]). Getting the window back resumes
 by itself, unlike the original, which stayed paused; a pause made with Escape stays.
 
-Until the menus plan (aidocks/plans/menus_plan.md), the pause menu is a stand-in with
-Resume and Return to menu, and the end of the story says so and returns to the main menu.
+The pause menu has Resume, Restart story, Settings and Return to menu
+(aidocks/plans/menus_plan.md, section 3). Return to menu takes the story off the stack
+still paused, kept as ``app.paused_story``, and the main menu's Continue story puts it back.
+Until section 4, the end of the story says so and returns to the main menu.
 
 While another screen is on top of it, such as the F1 screen, the spiel waits, and plays on
 when it is back on top. The actions menu and the pause pause and resume it themselves.
@@ -47,9 +49,39 @@ STORY_ENDED = 'The story has ended.'
 TRANSCRIPT_LINES = 16
 
 
+RESTART_QUESTION = 'Restart the story? Your progress will be lost.'
+
+
+class RestartMenu(Menu):
+    """Restart story asks first, as the original's restart did, with No first and opened
+    on; Escape is No too."""
+
+    name = 'restart question'
+    title = RESTART_QUESTION
+
+    def __init__(self, app, story_screen):
+        super().__init__(app)
+        self.story_screen = story_screen
+
+    def rows(self):
+        return [Row('No', self.back), Row('Yes', self.restart)]
+
+    def restart(self):
+        self.stack.pop()                    # this question
+        self.stack.pop()                    # the pause menu, back to the story
+        self.story_screen.restart()
+
+
 class PauseMenu(Menu):
-    """The stand-in pause menu, until the menus plan's: Resume, first and opened on, as
-    Escape is too, and Return to menu, which leaves the story."""
+    """The pause menu (aidocks/plans/menus_plan.md, section 3). Escape during the story
+    pauses as the original did, and opens it:
+
+        Resume          first and opened on; Escape does the same
+        Restart story   asks first, then plays the story again from its start
+        Settings        the same screen as the main menu's
+        Return to menu  leaves the story paused, so Continue story picks it up exactly
+                        there, as the original did; it does not ask, since nothing is lost
+    """
 
     name = 'pause menu'
     title = 'Paused.'
@@ -69,7 +101,11 @@ class PauseMenu(Menu):
             self.resume()
 
     def rows(self):
-        return [Row('Resume', self.resume), Row('Return to menu', self.return_to_menu)]
+        from ..ui.settings_screen import SettingsScreen
+        return [Row('Resume', self.resume),
+                Row('Restart story', lambda: self.stack.push(RestartMenu(self.app, self.story_screen))),
+                Row('Settings', lambda: self.stack.push(SettingsScreen(self.app))),
+                Row('Return to menu', self.return_to_menu)]
 
     def resume(self):
         self.stack.pop()
@@ -80,7 +116,7 @@ class PauseMenu(Menu):
 
     def return_to_menu(self):
         self.stack.pop()
-        self.story_screen.leave()
+        self.story_screen.return_to_menu()
 
 
 class StoryScreen(Screen):
@@ -101,6 +137,7 @@ class StoryScreen(Screen):
         self.started = False
         self.covered_now = False
         self.covered_by_story = False
+        self.kept = False               # taken off the stack, paused, for Continue story
 
     def volume_group(self):
         return STORY_VOLUMES
@@ -130,7 +167,36 @@ class StoryScreen(Screen):
             self.app.audio.spiel.pause()
 
     def closed(self):
+        if not self.kept:
+            self.player.stop()
+
+    # ---- the pause menu's rows ------------------------------------------------------
+    def return_to_menu(self):
+        """Back to the main menu, the story left paused under it, its backgrounds muffled and
+        fading out under the title music, so Continue story picks it up exactly here
+        (+[StoryView returnToTitle], 0x100025614)."""
+        self.kept = True
+        self.app.paused_story = self
+        self.leave()
+
+    def continue_story(self):
+        """Continue story, from the main menu: back on the stack, the title music fading out
+        and the story fading in, and unpaused (+[StoryView go], 0x100025ce8)."""
+        self.kept = False
+        if self.app.paused_story is self:
+            self.app.paused_story = None
+        self.stack.push(self)
+        self.player.resume()
+
+    def restart(self):
+        """Restart story, said yes to: the variables, the heard spiels and the actions'
+        counts back to a story never played, and the story again from ``start``, as the
+        original's restart (-[ViewController resetGameState], 0x100011068). The settings
+        and the first-run notice stay as they are."""
+        self.say('The story starts again.')     # cutting off the pause menu, reopened on the way
         self.player.stop()
+        self.state.reset()
+        self.player.start()
 
     def story_ended(self):
         self.say(STORY_ENDED)
