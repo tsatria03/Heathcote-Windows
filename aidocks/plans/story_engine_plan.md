@@ -24,6 +24,7 @@ metadata:
   - A pause made by losing the window opens the pause menu with `by_focus`, and that menu's `focus_gained()` resumes, with `pause-unpause`.
   - A pause made with Escape stays when the window comes back.
   - A test checks both. The suite passes, 154 tests.
+  - The dev's ear test passed (2026-10-20: "The window test past.").
 
 - **Section 5, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 3 tests past."): F3's jump, F4's variables, and F2 keeping the story consistent. **A correction:** the reply to the dev said the search was now shared with `audio_check.py`. It is not: `audio_check.py` keeps its own copy, since it does not run on the game's screens. The two behave alike.
   - **The player gains debug mode's actions:**
