@@ -230,7 +230,10 @@ def test_the_app_plays_interface_sounds_and_passes_volumes_on():
     app.audio.open()
     try:
         app.play_sound('click-good')
-        assert app.audio.slot('sfx').playing
+        app.play_sound('menu-open')                         # two at once, each on its own channel
+        playing = [item for item in app.audio.fading_out if item[0].is_playing]
+        assert len(playing) == 2
+        assert abs(playing[0][0].volume - gain(settings.get('interface_volume'))) < 1e-4
         app.play_sound('no such sound')                     # logged, nothing breaks
         settings.set('master_volume', 60)
         app.volumes_changed()

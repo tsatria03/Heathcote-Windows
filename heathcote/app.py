@@ -106,15 +106,14 @@ class App:
 
     # ---- interface sounds -------------------------------------------------
     def play_sound(self, label):
-        """One of the original's interface sounds by its label, such as 'click-good', on
-        the sfx channel."""
+        """One of the original's interface sounds by its label, such as 'click-good', on a
+        channel of its own, so two can sound together."""
         from .game.storydata import StoryData
         path = StoryData.shared().sound_path('systemSounds', label)
         if path is None:
             log.warning('there is no interface sound labelled %s', label)
             return
-        if self.audio.ok:
-            self.audio.slot('sfx').play(path)
+        self.audio.play_oneshot(path)
 
     # ---- running --------------------------------------------------------
     def quit(self):

@@ -374,6 +374,25 @@ class Audio:
     def slot(self, name):
         return self.slots[name]
 
+    def play_oneshot(self, path):
+        """An interface sound on a channel of its own, at the interface volume, so two can
+        sound together, as click-good and menu-open do; freed once it ends. True when it
+        started."""
+        if not self.ok or not path:
+            return False
+        fmod = self.fmod
+        try:
+            sound = self.system.create_sound(path, mode=fmod.flags.MODE.TWOD | fmod.flags.MODE.CREATESAMPLE
+                                             | fmod.flags.MODE.LOOP_OFF)
+            channel = self.system.play_sound(sound, channel_group=self.groups['system'], paused=True)
+            channel.volume = gain(self.settings.get('interface_volume'))
+            channel.paused = False
+        except Exception:
+            log.exception('could not play %s', path)
+            return False
+        self.fading_out.append((channel, sound, None))     # freed by update() once it ends
+        return True
+
     def apply_volumes(self):
         """Every volume, as the settings now have them, at once."""
         if not self.ok:
