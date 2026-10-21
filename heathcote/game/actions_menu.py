@@ -19,7 +19,7 @@ from __future__ import annotations
 
 import time
 
-from ..platform.keymap import STORY_VOLUMES
+from ..platform.keymap import STORY, STORY_VOLUMES
 from ..ui.menu import Menu, Row
 
 #: Seconds with no move before the choice plays again: 420 ticks.
@@ -75,8 +75,22 @@ class ActionsMenu(Menu):
         if action == 'choice_text' and self.action is not None:
             self.moved_at = self.clock()
             self.say(self.player.choice_text(self.action))
+        elif self.app.keymap.action_for(key, mods, STORY) == 'where':
+            self.say(self.player.where())   # "Actions menu is open."
         else:
             self.announce()
+
+    def focus_lost(self):
+        """Losing the window closes the menu, then the story pauses (-[ActionsDialState
+        blur])."""
+        if self.done:
+            return
+        self.done = True
+        self.app.audio.slot('systemVoice').stop()
+        self.stack.pop()
+        self.player.close_menu(quietly=True)
+        if self.stack.top is not None:
+            self.stack.top.focus_lost()
 
     # ---- choosing and closing ------------------------------------------------------
     def accept(self, action):

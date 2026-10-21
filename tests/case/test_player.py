@@ -164,7 +164,7 @@ def test_setting_end_ends_the_story():
         audio.close()
 
 
-def test_the_main_menu_starts_the_story_screen_and_escape_leaves_it():
+def test_the_main_menu_starts_the_story_screen_and_return_to_menu_leaves_it():
     from heathcote.app import App
     from heathcote.game.menus import MainMenu
     from heathcote.game.story_screen import StoryScreen
@@ -186,7 +186,9 @@ def test_the_main_menu_starts_the_story_screen_and_escape_leaves_it():
         assert screen.lines()[0] == 'start' and len(screen.lines()) > 2
         app.key_down('page down', [])                   # the story's background volume
         assert settings.get('backgrounds_volume') == 90
-        app.key_down('escape', [])
+        app.key_down('escape', [])                      # pause, then the pause menu
+        app.key_down('down', [])
+        app.key_down('return', [])                      # Return to menu
         assert isinstance(app.stack.top, MainMenu) and app.title_music
         assert not app.audio.spiel.playing
     finally:

@@ -200,7 +200,7 @@ class StoryPlayer:
 
     # ---- the reminder ------------------------------------------------------------------
     def _remind(self):
-        if self.reminder_at is None or self.menu_open:
+        if self.reminder_at is None or self.menu_open or self.paused:
             return
         now = self.clock()
         if now >= self.reminder_at:
@@ -239,12 +239,14 @@ class StoryPlayer:
         self.menu_open = True
         return self.state.offered()
 
-    def close_menu(self):
-        """Close the menu without choosing: the backgrounds unhush and the spiel plays on."""
+    def close_menu(self, quietly=False):
+        """Close the menu without choosing: the backgrounds unhush and the spiel plays on.
+        ``quietly`` leaves out menu-close, as when losing the window closes it."""
         if not self.menu_open:
             return
         self.menu_open = False
-        self.play_sound('menu-close')
+        if not quietly:
+            self.play_sound('menu-close')
         self.audio.unhush_backgrounds()
         self.audio.spiel.resume()
         self.poke()
@@ -288,6 +290,67 @@ class StoryPlayer:
         text = ((self.story.record(voice) or {}).get('transcript') or '').strip() if voice else ''
         return text or (self.story.label(voice) if voice else '') or self.story.label(action)
 
+    # ---- the keys during play (section 4) ---------------------------------------------
+    def rewind(self):
+        """Left: the original's rewind, with click-good (-[PlayState right], swipe right). A
+        scene that has ended plays again from 1 second before its end, and its idle loop
+        stops (+[Sound spotRewind:], 0x1000222cc). True when it rewound."""
+        if self.menu_open or self.pending or self.phase not in (PLAYING, SCENE_END) or self.silent:
+            return False
+        self.play_sound('click-good')
+        if self.phase == SCENE_END:
+            self.lanes.stop_idle()
+            self.phase = PLAYING
+            self.reminder_at = None
+        return self.audio.spiel.rewind()
+
+    def fast_forward(self):
+        """Right: the original's fast-forward, with click-good. True when it runs."""
+        if self.menu_open or self.pending or self.phase != PLAYING or self.silent:
+            return False
+        self.play_sound('click-good')
+        return self.audio.spiel.fast_forward()
+
+    @property
+    def paused(self):
+        return self.audio.story_paused
+
+    def pause(self):
+        """Escape: pause as the original (+[StoryView pause], 0x1000252cc), the backgrounds
+        hushed and playing on, the spiel stopped, and pause-pause played. Refused with
+        click-bad during the grace after a refused menu (-[PlayState down], 0x100033a40).
+        True when it paused."""
+        if self.paused:
+            return False
+        if self.in_grace:
+            self.play_sound('click-bad')
+            return False
+        self.audio.pause_story()
+        self.play_sound('pause-pause')
+        return True
+
+    def resume(self):
+        """Unpause (+[StoryView unpause], 0x100025484): unhushed, pause-unpause, and the spiel
+        plays on."""
+        if not self.paused:
+            return
+        self.audio.resume_story()
+        self.play_sound('pause-unpause')
+        self.poke()
+
+    def where(self):
+        """What Tab says, as the original's two-finger tap (-[PlayState voiceover],
+        0x100033de8)."""
+        if self.menu_open:
+            return 'Actions menu is open.'
+        if self.paused:
+            return 'Story is paused.'
+        if self.phase == SCENE_END:
+            return 'Story is at end of scene.'
+        if self.phase == STORY_END:
+            return 'Story has ended.'
+        return 'Story is playing.'
+
     # ---- what the window shows ------------------------------------------------------
     def transcript(self):
         return ((self.story.record(self.current) or {}).get('transcript') or '').strip()
@@ -297,6 +360,8 @@ class StoryPlayer:
         if self.menu_open:
             self.menu_open = False
             self.audio.unhush_backgrounds()
+        if self.paused:
+            self.audio.resume_story()       # silently: the story is being left
         self.pending = None
         self.reminder_at = None
         self.audio.spiel.stop()
