@@ -64,28 +64,28 @@ def with_main_menu(debug=False):
 def test_opening_says_the_title_then_the_row_without_cutting_it_off():
     app = make()
     app.stack.push(MainMenu(app))
-    assert app.speech.lines == [('Heathcote.', True), ('Settings', False)]
+    assert app.speech.lines == [('Heathcote.', True), ('Start story', False)]
 
 
 def test_all_four_arrows_move_and_wrap():
     app = with_main_menu()
-    assert press(app, 'down') == ['Quit']
-    assert press(app, 'down') == ['Settings']          # wraps
+    assert press(app, 'down') == ['Settings']
+    assert press(app, 'right') == ['Quit']
+    assert press(app, 'down') == ['Start story']       # wraps
     assert press(app, 'left') == ['Quit']              # wraps back
-    assert press(app, 'right') == ['Settings']
-    assert press(app, 'up') == ['Quit']
+    assert press(app, 'up') == ['Settings']
 
 
 def test_home_and_end():
     app = with_main_menu()
     assert press(app, 'end') == ['Quit']
-    assert press(app, 'home') == ['Settings']
+    assert press(app, 'home') == ['Start story']
 
 
 def test_a_key_with_no_use_says_the_row_again():
     app = with_main_menu()
-    assert press(app, 'x') == ['Settings']
-    assert press(app, 'escape') == ['Settings']        # nothing under the main menu
+    assert press(app, 'x') == ['Start story']
+    assert press(app, 'escape') == ['Start story']     # nothing under the main menu
 
 
 def test_quit():
@@ -97,6 +97,7 @@ def test_quit():
 
 def test_settings_opens_on_back_and_back_returns():
     app = with_main_menu()
+    press(app, 'down')
     assert press(app, 'return') == ['Settings.', 'Back']
     assert isinstance(app.stack.top, SettingsScreen)
     assert press(app, 'return') == ['Heathcote.', 'Settings']
@@ -105,6 +106,7 @@ def test_settings_opens_on_back_and_back_returns():
 
 def test_debug_mode_turns_on_at_once_and_is_remembered():
     app = with_main_menu()
+    press(app, 'down')
     press(app, 'return')
     press(app, 'down')
     assert press(app, 'return') == ['Debug mode, currently on']
@@ -123,7 +125,7 @@ def test_f1_holds_the_timers_and_resumes_them():
     app = with_main_menu()
     assert press(app, 'f1') == ['Key bindings.', 'Back']
     assert isinstance(app.stack.top, KeyBindScreen) and app.loop.held
-    assert press(app, 'f1') == ['Heathcote.', 'Settings']
+    assert press(app, 'f1') == ['Heathcote.', 'Start story']
     assert not app.loop.held
 
 
@@ -172,12 +174,13 @@ def test_title_volume_and_master_in_the_main_menu():
     app = with_main_menu()
     assert press(app, 'page down') == ['Title volume, 90 percent.']
     assert press(app, 'end', ['shift']) == ['Master volume, 90 percent.']
-    assert press(app, 'page down', ['shift']) == ['Settings']   # interface: story only
+    assert press(app, 'page down', ['shift']) == ['Start story']   # interface: story only
     assert app.settings.get('interface_volume') == 100
 
 
 def test_title_volume_in_settings_opened_from_the_main_menu():
     app = with_main_menu()
+    press(app, 'down')
     press(app, 'return')
     assert press(app, 'page down') == ['Title volume, 90 percent.']
 
@@ -230,8 +233,8 @@ def test_a_held_volume_key_stops_when_the_screen_changes():
 
 def test_the_window_shows_the_rows_and_the_last_line():
     app = with_main_menu()
-    assert app.stack.top.lines() == ['Heathcote.', '', '> Settings', '  Quit']
-    assert app.speech.last == 'Settings'
+    assert app.stack.top.lines() == ['Heathcote.', '', '> Start story', '  Settings', '  Quit']
+    assert app.speech.last == 'Start story'
 
 
 if __name__ == '__main__':
