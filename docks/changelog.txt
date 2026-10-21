@@ -1,4 +1,6 @@
 unrelease:
+
+26.10.21-1:
 The game comes as one zip to extract and play with Heathcote.exe, with nothing else to install.
 Tab also says the chapter you are in.
 The game remembers your story when you quit, and Continue story in the main menu carries on from the start of the part you were in, with its music and ambience as they were.
