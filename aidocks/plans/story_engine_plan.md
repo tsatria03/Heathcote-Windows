@@ -6,11 +6,11 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is built and waits for the dev's word (the dev: "Ready for section 4.").
+**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is confirmed too, after the dev's ear tests ("Also all 4 tests past"). Section 5 is next.
 
 ## Progress
 
-- **Section 4, built 2026-10-20, waiting for the dev's word:**
+- **Section 4, confirmed by the dev 2026-10-20, whose ear tests passed** ("Also all 4 tests past"): Left and Right, Escape's pause and Resume, Tab, and losing the window.
   - **The player gains the keys during play:**
     - **`rewind()` and `fast_forward()`,** each with `click-good`, never under the menu or while a choice waits. A rewind of an ended scene stops its idle loop and plays it again from 1 second before its end.
     - **`pause()`,** as the original: `pause-pause`, the backgrounds hushed and playing on, and the spiel stopped. It is refused with `click-bad` in the grace after a refused menu.
