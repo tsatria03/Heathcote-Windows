@@ -1,6 +1,6 @@
 ---
 name: feedback_progress_summary
-description: "After each plan is finished, give the dev a brief summary of the whole port's progress as a percentage, using the agreed weights per plan."
+description: "After each plan is finished, give the dev a brief summary of the whole port's progress as a percentage, using the agreed weights per plan; about 85 percent after plan 5."
 metadata:
   node_type: memory
   type: feedback
@@ -31,4 +31,5 @@ metadata:
   - plans 1 and 2 finished: about 30 percent (2026-10-19)
   - plan 3 finished: about 50 percent (2026-10-20). Plan 3 came in at its weight: it grew a little, with the hush brought forward and two pyfmodex workarounds, but nothing that changes the scale.
   - plan 4 finished: about 70 percent (2026-10-20). It came in at its weight, with plan 3's audio doing much of the sound work. The stand-ins it left (the pause menu, the end, Start story) are plan 5's to replace, within that plan's weight.
+  - plan 5 finished: about 85 percent (2026-10-20). It came in at its weight. It grew a little with the dev's changes on the way (the recorded choices off the interface volume, the Continue wording, Escape quitting the main menu) and with keeping the lanes moving after the end, but it also brought Continue story within a run, which lightens plan 6.
 - Playtesting the whole story, once it plays, may add work none of the plans counts; say so when it does.

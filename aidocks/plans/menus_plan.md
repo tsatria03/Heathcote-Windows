@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Sections 1 to 3 are finished; section 4, the last, is built and waiting for the dev's tests.
+**Status:** FINISHED 2026-10-20. Built from 2026-10-20 on the dev's word ("you can jump to starting section 1."); all four sections passed the dev's ear tests, the last with "All 3 tests past.".
 
 Plan 5 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]], [[audio_plan]] and [[story_engine_plan]]. What the original did comes from [[project_original_behaviour]].
 
@@ -137,10 +137,12 @@ Built 2026-10-20, straight after section 3 passed, waiting for the dev's ear tes
 - The stand-in "The story has ended." line and its return to the menu are gone. `story_check.py` keeps its own ending, saying so and staying in the story.
 - **`menus_check.py`** gains Control+E, which jumps the story to "ending (commercial)" at 52 seconds, 7.5 before it sets `end`. Control+S says when the story is over under the end credits.
 - **Tests:** two new ones, on the real last spiel; 166 in all.
-- **The dev's ear tests,** to come:
+- **The dev's ear tests passed,** all three, 2026-10-20 ("All 3 tests past."):
   1. Mandatory: at the end, "The story has ended. Credits." and Back, with the story still playing beneath, and the ending music coming in about 8 seconds later.
   2. Mandatory: Back or Escape leaves the credits with the pause sound, and the main menu comes back with the title music and Start story, not Continue story.
   3. Optional: Page Up and Page Down set the background volume while the end credits are up.
+
+**Section 4 is finished,** on the dev's word, and with it plan 5. At the dev's word too, `tools/script_text.py` was run again, so `analysis/script/Heathcote.txt` names `game/documents/` after their rename.
 
 ## Built in sections
 

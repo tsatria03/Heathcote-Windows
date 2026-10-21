@@ -14,4 +14,4 @@ Ideas the dev has raised that belong to a plan not yet written. When that plan i
 
 ## For the menus plan
 
-- Taken into [[menus_plan]]'s Decided: **FMOD's credit line in the credits.** FMOD's licence requires an in-game credit containing "FMOD" and "Firelight Technologies Pty Ltd." ([[project_fmod]]; examples at www.fmod.com/attribution). The player readme's credits and licences sections name it too, and `vendor/fmod/license.txt` ships beside the game.
+- Taken into [[menus_plan]]'s Decided, and built there (2026-10-20, "Made with FMOD Engine, by Firelight Technologies Pty Ltd.", the credits' last row): **FMOD's credit line in the credits.** FMOD's licence requires an in-game credit containing "FMOD" and "Firelight Technologies Pty Ltd." ([[project_fmod]]; examples at www.fmod.com/attribution). The player readme's credits and licences sections name it too, and `vendor/fmod/license.txt` ships beside the game.

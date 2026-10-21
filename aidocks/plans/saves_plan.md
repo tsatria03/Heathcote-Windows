@@ -37,6 +37,14 @@ The story engine, finished 2026-10-20 ([[story_engine_plan]]), left these ready 
 - **The spiel's start:** `StoryPlayer.on_spiel(soft)` is called as each spiel begins, the moment to take Continue story's snapshot, with `player.lanes.opening` for the lanes. A scene's end marks its spiel heard, the other moment to write.
 - **Continue story:** a story screen made with `state=` the restored state and `start_at=` the saved spiel begins there.
 
+## What plan 5 built for it
+
+The menus plan, finished 2026-10-20 ([[menus_plan]]), left these for the saves:
+- **Continue story within a run:** Return to menu keeps the paused story screen as `app.paused_story`, and the main menu's first row is "Continue story: <location>." while it is set (`MainMenu.rows()` and `continue_text()` in `heathcote/game/menus.py`). The saves plan makes the row appear at start too, when `progress.json` has a story under way, and Continue then builds a story screen from the save instead of putting a kept one back.
+- **Restart story** is `StoryScreen.restart()`, and **the end's reset** is `StoryScreen.end_story()`, both calling `state.reset()`. Each is the moment to write the reset progress.
+- **The first-run notice** sets `first_run_notice_shown` in `config\settings.json` already, through `Settings`, which writes on every change.
+- **`on_spiel`** is free on the game's story screen (only `story_check.py` sets it), so it can take the snapshot.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.
