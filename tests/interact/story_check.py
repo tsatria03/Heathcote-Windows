@@ -3,12 +3,12 @@
     python tests/interact/story_check.py
 
 It runs the game's own main loop and story screen, with the tool's keys added, so what is
-heard here is what the game does, F1 and the volume keys included. It grows with each
-section of the story engine plan. For now, sections 2 to 5: the story plays from its start,
+heard here is what the game does, F1 and the volume keys included. It grew with each
+section of the story engine plan, and now has all of it: the story plays from its start,
 moving on by itself wherever a spiel leads straight into the next, with its music and
 ambience in context; the actions menu chooses what happens next; the game's own keys work
-during play; and debug mode, which the tool turns on for itself without remembering it,
-gives F2 to F4.
+during play; debug mode, which the tool turns on for itself without remembering it, gives
+F2 to F4; and the tool can say the story's state as it goes.
 
 The game's keys:
 
@@ -36,6 +36,11 @@ The tool's own keys:
     3                    play the spiel chosen, with the story's state as it is
     S                    say the spiel, how far in, and whether it is locked out or has ended
     V                    turn saying each spiel's label as it begins on or off; on at first
+    C                    turn saying each variable as it changes on or off, such as "lockout is
+                         now 1."; off at first
+    H                    say whether the spiel playing has been heard, which lets the menu open
+                         through its lockout, and how many spiels have been heard in all
+    A                    say the actions the menu would offer now, without opening it
     Q                    quit
 
 It keeps its own save under %APPDATA%\\Heathcote\\interact\\story_check, so nothing here
@@ -58,7 +63,8 @@ from heathcote.game.story_screen import StoryScreen  # noqa: E402
 
 INTRO = ('Story check, in debug mode. The story starts now, with the game\'s own keys, and F2 '
          'to F4. R starts again, Comma and Full stop choose a spiel and 3 plays it, S says where '
-         'the story is, and V turns the spiel labels on or off. Q quits.')
+         'the story is, V turns the spiel labels on or off, C the variable changes, H says what '
+         'is heard, and A the actions on offer. Q quits.')
 
 
 class CheckScreen(StoryScreen):
@@ -71,8 +77,10 @@ class CheckScreen(StoryScreen):
         self.spiels = [s for s in self.story.refs('actionSpiels') if self.story.record(s)]
         self.spiel_index = 0
         self.announce = True
+        self.changes = False            # saying each variable change, with C
         self.player.on_spiel = self.spiel_began
         self.player.on_scene_end = self.scene_ended
+        self.player.on_changed = self.variables_changed
         self.introduced = False
 
     def opened(self):
@@ -96,6 +104,28 @@ class CheckScreen(StoryScreen):
     def scene_ended(self, soft):
         if self.announce:
             self.say('End of scene: %s.' % self.story.label(soft), interrupt=False)
+
+    def variables_changed(self, changes):
+        if self.changes:
+            self.say(' '.join('%s is now %s.' % (self.story.label(var), new)
+                              for var, _old, new in changes), interrupt=False)
+
+    def heard(self):
+        p = self.player
+        count = len(self.state.heard)
+        total = 'heard: %d spiel%s in all' % (count, '' if count == 1 else 's')
+        if p.current is None:
+            self.say('Nothing is playing; %s.' % total)
+            return
+        state = 'heard before' if self.state.is_heard(p.current) else 'not heard yet'
+        self.say('%s is %s; %s.' % (self.story.label(p.current), state, total))
+
+    def offered(self):
+        choices = [self.player.choice_text(a) for a in self.state.offered()]
+        if not choices:
+            self.say('The menu would offer nothing.')
+        else:
+            self.say('%d on offer: %s.' % (len(choices), ', '.join(choices)))
 
     def where(self):
         p = self.player
@@ -147,6 +177,13 @@ class CheckScreen(StoryScreen):
         elif key == 'v':
             self.announce = not self.announce
             self.say('Spiel labels %s.' % ('on' if self.announce else 'off'))
+        elif key == 'c':
+            self.changes = not self.changes
+            self.say('Variable changes %s.' % ('on' if self.changes else 'off'))
+        elif key == 'h':
+            self.heard()
+        elif key == 'a':
+            self.offered()
         elif key == 'q':
             self.app.quit()
         else:

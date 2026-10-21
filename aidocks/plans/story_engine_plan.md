@@ -6,9 +6,18 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is confirmed too, after the dev's ear tests ("Also all 4 tests past"). Section 5 is confirmed too, after the dev's ear tests ("all 3 tests past."). Section 6 is next.
+**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is confirmed too, after the dev's ear tests ("Also all 4 tests past"). Section 5 is confirmed too, after the dev's ear tests ("all 3 tests past."). Section 6, the last, is built and waits for the dev's ear tests. The dev asked for the plan to be marked complete and the docs updated once they pass ("After I say the tests have past, mark the plan complete, and update the docks.").
 
 ## Progress
+
+- **Section 6, built 2026-10-20, waiting for the dev's ear tests:** `story_check.py` is the whole tool, now saying the story's state as it goes:
+  - **C** turns on or off saying each variable as it changes, such as "lockout is now 1.", through the player's `on_changed`. It is off at first.
+  - **H** says whether the spiel playing has been heard before, and how many spiels have been heard.
+  - **A** says the actions the menu would offer now, without opening it.
+  - **Checked:** driven silently on "call opening", it said "waypoint is now approaching building. where you at? is now path. lockout is now 1.", then, after F2, "location is now approaching Heathcote. lockout is now 0.". The tool, started silently through its own entry point, ran for 4 seconds. The suite passes, 152 tests.
+  - **To test by ear:**
+    - **Mandatory:** C speaks the variable changes in "call opening".
+    - **Optional:** H after a scene ends, and A matching the menu.
 
 - **Section 5, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 3 tests past."): F3's jump, F4's variables, and F2 keeping the story consistent. **A correction:** the reply to the dev said the search was now shared with `audio_check.py`. It is not: `audio_check.py` keeps its own copy, since it does not run on the game's screens. The two behave alike.
   - **The player gains debug mode's actions:**
