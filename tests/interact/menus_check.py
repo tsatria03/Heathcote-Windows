@@ -4,7 +4,7 @@
 
 It runs the game itself, from its opening, with a few keys of the tool's own added, each
 with Control so it never takes one of the game's. It grows with each section of the menus
-plan. For now, sections 1 to 3:
+plan, and now has all four sections:
 
     the police radio, with "Heathcote." spoken; Enter skips it
     the first time, the first-run notice; Enter continues, and it is not shown again
@@ -17,6 +17,8 @@ plan. For now, sections 1 to 3:
     Return to menu leaves the story paused, its muffled backgrounds fading out under the
     title music, and the main menu's first row becomes Continue story, with its chapter,
     which picks the story up exactly there
+    the end: the end credits open over the story, which plays on beneath them, its ending
+    music coming in; leaving them returns to the main menu, the story reset
 
 The tool's own keys:
 
@@ -25,6 +27,8 @@ The tool's own keys:
                  story's sound is faded in, faded out, or fading
     Control+S    say whether a story is under way, playing, paused, or paused under the
                  main menu, with its spiel and chapter
+    Control+E    during the story, jump to its last spiel, "ending (commercial)", 7.5
+                 seconds before it ends the story, to hear the end credits
     Control+Q    quit
 
 It keeps its own save under %APPDATA%\\Heathcote\\interact\\menus_check, so nothing here
@@ -46,16 +50,20 @@ from heathcote.app import App  # noqa: E402
 from heathcote.game.opening import OpeningScreen  # noqa: E402
 
 INTRO = ('Menus check. Control N starts again with the notice, Control T says the title music, '
-         'Control S the story, and Control Q quits.')
+         'Control S the story, Control E jumps near its end, and Control Q quits.')
+#: Seconds into "ending (commercial)" that Control+E jumps to: 7.5 before end is set.
+NEAR_THE_END = 52.0
 
 
 class CheckApp(App):
     """The game's main loop, with the tool's Control keys first."""
 
     def key_down(self, key, mods, now=None, char=''):
-        if mods == ['ctrl'] and key in ('n', 't', 's', 'q'):
+        if mods == ['ctrl'] and key in ('n', 't', 's', 'e', 'q'):
             if key == 'n':
                 self.start_again()
+            elif key == 'e':
+                self.near_the_end()
             elif key == 't':
                 self.title_report()
             elif key == 's':
@@ -74,6 +82,22 @@ class CheckApp(App):
         self.speech.speak('The notice is forgotten. Starting again.')
         self.stack.reset(OpeningScreen(self))
 
+    def near_the_end(self):
+        """Jump the story playing to "ending (commercial)", a few seconds before it sets end
+        at 59.5 seconds, so the end credits can be heard without playing it all."""
+        from heathcote.game.story_screen import StoryScreen
+        screen = self.stack.top
+        if not isinstance(screen, StoryScreen):
+            self.speech.speak('Start the story first, then press Control E during it.')
+            return
+        found = screen.story.find('actionSpiels', 'ending (commercial)')
+        if not found:
+            self.speech.speak('The last spiel was not found.')
+            return
+        screen.player.jump(found[0])
+        self.audio.spiel.seek(NEAR_THE_END)
+        self.speech.speak('Near the end.')
+
     def story_report(self):
         from heathcote.game.state import LOCATION
         from heathcote.game.story_screen import StoryScreen
@@ -82,8 +106,12 @@ class CheckApp(App):
         if screen is None or screen.player.current is None:
             self.speech.speak('There is no story under way.')
             return
-        where = 'paused under the main menu' if screen is self.paused_story else (
-            'paused' if screen.player.paused else 'playing')
+        if screen is self.paused_story:
+            where = 'paused under the main menu'
+        elif screen.ending:
+            where = 'over, playing on under the end credits'
+        else:
+            where = 'paused' if screen.player.paused else 'playing'
         chapter = screen.state.get_by_label(LOCATION)
         self.speech.speak('The story is %s, at the spiel %s%s.' % (
             where, screen.story.label(screen.player.current),

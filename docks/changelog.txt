@@ -1,4 +1,5 @@
 unrelease:
+When the story ends, the credits open over its last moments, which play on with the ending music, and leaving them returns to the main menu with a fresh story.
 Escape in the main menu quits the game, as Quit does.
 Continue story in the main menu, with the story's chapter, picks a paused story up exactly where it stopped.
 Return to menu in the pause menu leaves the story paused, as the original did, so nothing is lost.
@@ -8,7 +9,6 @@ The interface volume no longer turns the recorded choices down; they follow only
 The title music plays under the main menu, fades out as the story starts, and comes back with the main menu.
 The first time the game starts, it gives the original's advice to wear headphones, and Enter continues.
 The game opens with the original's police radio, and Enter skips it.
-When the story ends, the game says so and returns to the main menu.
 Switching to another window plays the original's lost focus sound and pauses the story, and coming back carries it on by itself.
 Tab says where you are: playing, at the end of a scene, or in the actions menu.
 Escape pauses the story as the original did, the background sounds playing on muffled, with a pause menu offering Resume and Return to menu.

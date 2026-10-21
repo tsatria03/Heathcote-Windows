@@ -25,7 +25,8 @@ by itself, unlike the original, which stayed paused; a pause made with Escape st
 The pause menu has Resume, Restart story, Settings and Return to menu
 (aidocks/plans/menus_plan.md, section 3). Return to menu takes the story off the stack
 still paused, kept as ``app.paused_story``, and the main menu's Continue story puts it back.
-Until section 4, the end of the story says so and returns to the main menu.
+When the story ends, the end credits open over it (game/credits.py, section 4), and it
+plays on beneath them until they are left.
 
 While another screen is on top of it, such as the F1 screen, the spiel waits, and plays on
 when it is back on top. The actions menu and the pause pause and resume it themselves.
@@ -44,7 +45,6 @@ from .storydata import StoryData
 
 log = logging.getLogger('story')
 
-STORY_ENDED = 'The story has ended.'
 #: Lines of transcript the window shows.
 TRANSCRIPT_LINES = 16
 
@@ -138,6 +138,7 @@ class StoryScreen(Screen):
         self.covered_now = False
         self.covered_by_story = False
         self.kept = False               # taken off the stack, paused, for Continue story
+        self.ending = False             # the end credits are up, the story playing on beneath
 
     def volume_group(self):
         return STORY_VOLUMES
@@ -161,8 +162,9 @@ class StoryScreen(Screen):
 
     def covered(self):
         self.covered_now = True
-        # The actions menu and the pause pause and resume the spiel themselves.
-        self.covered_by_story = self.player.menu_open or self.player.paused
+        # The actions menu and the pause pause and resume the spiel themselves, and the end
+        # credits leave it playing.
+        self.covered_by_story = self.player.menu_open or self.player.paused or self.ending
         if not self.covered_by_story:
             self.app.audio.spiel.pause()
 
@@ -199,9 +201,16 @@ class StoryScreen(Screen):
         self.player.start()
 
     def story_ended(self):
-        self.say(STORY_ENDED)
-        # Back to the main menu once the line is said: until the menus plan's credits.
-        self.app.loop.after(2.0, self.leave)
+        """The story set ``end``: the end credits open over it, and it plays on beneath."""
+        from .credits import EndCredits
+        self.ending = True
+        self.stack.push(EndCredits(self.app, self))
+
+    def end_story(self):
+        """Leaving the end credits: ``pause-pause``, the story reset, and the main menu."""
+        self.app.play_sound('pause-pause')
+        self.state.reset()
+        self.leave()
 
     def leave(self):
         if self.stack.top is self:

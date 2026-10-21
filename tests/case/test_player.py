@@ -305,6 +305,51 @@ def test_continue_story_says_its_chapter():
         app.audio.close()
 
 
+def test_the_end_credits_open_over_the_story_which_plays_on_with_its_ending_music():
+    from heathcote.game.credits import EndCredits
+    from heathcote.game.menus import MainMenu
+    from heathcote.platform.keymap import STORY_VOLUMES
+    app, screen = story_app('the end')
+    try:
+        screen.player.play(spiel('ending (commercial)'))
+        app.audio.spiel.seek(59.6)                      # just past "end becomes 1"
+        app.speech.lines.clear()
+        screen.update()
+        credits = app.stack.top
+        assert isinstance(credits, EndCredits) and screen.state.ended
+        assert app.speech.lines == ['The story has ended. Credits.', 'Back']
+        assert app.audio.spiel.playing and not app.audio.spiel.paused   # it plays on beneath
+        assert credits.volume_group() == STORY_VOLUMES and not app.title_music
+        app.audio.spiel.seek(68.5)                      # past the music's fade to "ending"
+        credits.update()
+        assert 'ending' in os.path.basename(app.audio.slot('bgm').path).lower()
+        app.key_down('escape', [])                      # leaving the credits
+        menu = app.stack.top
+        assert isinstance(menu, MainMenu) and app.title_music
+        assert menu.row_text() == 'Start story' and app.paused_story is None
+        assert not screen.state.ended and screen.state.get_by_label('location') == '0'
+        assert not app.audio.spiel.playing
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
+def test_back_in_the_end_credits_leaves_them_too():
+    from heathcote.game.credits import EndCredits
+    from heathcote.game.menus import MainMenu
+    app, screen = story_app('the end, back')
+    try:
+        screen.player.play(spiel('ending (commercial)'))
+        app.audio.spiel.seek(59.6)
+        screen.update()
+        assert isinstance(app.stack.top, EndCredits)
+        app.key_down('return', [])                      # Back, the row it opens on
+        assert isinstance(app.stack.top, MainMenu) and not screen.state.ended
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
 def test_the_opening_plays_the_police_radio_on_sfx_and_enter_stops_it():
     from heathcote.app import App
     from heathcote.game.menus import MainMenu

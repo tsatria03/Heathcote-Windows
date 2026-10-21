@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Sections 1 to 3 are finished; section 4 is being built.
+**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Sections 1 to 3 are finished; section 4, the last, is built and waiting for the dev's tests.
 
 Plan 5 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]], [[audio_plan]] and [[story_engine_plan]]. What the original did comes from [[project_original_behaviour]].
 
@@ -126,6 +126,21 @@ Built 2026-10-20, straight after section 2 passed, waiting for the dev's ear tes
   5. Optional: Settings from the pause menu, and back.
 
 **Section 3 is finished,** on the dev's word.
+
+## What section 4 built
+
+Built 2026-10-20, straight after section 3 passed, waiting for the dev's ear tests:
+- **Read from the binary first:** `+[StoryView raiseEndCredits]` (0x100025b10) changes no sound: it shows the credits and enters `EndState`, and the story plays on. `+[StoryView lowerCredits]` (0x1000264a8) sets the carousel to the title menu, so the title music starts and the story group fades out; plays `pause-pause`; pauses the spiel; and resets the game.
+- **The story plays on after `end`:** `StoryPlayer.update()` now moves the lanes on in the story-end phase too. Without it the ending music would never play, since "ending (commercial)" sets `end` at 59.5 seconds and fades its music to "ending" only at 68.
+- **`EndCredits`** in `heathcote/game/credits.py`, the credits menu titled "The story has ended. Credits.", opens over the story screen (`StoryScreen.story_ended()`), which keeps playing beneath it (`ending`, so covering it leaves the spiel playing). It updates the story each frame, and the story's volume keys work in it.
+- **Leaving it,** by Back or Escape (`StoryScreen.end_story()`): `pause-pause`, the story's state reset, and the main menu, with the title music and Start story.
+- The stand-in "The story has ended." line and its return to the menu are gone. `story_check.py` keeps its own ending, saying so and staying in the story.
+- **`menus_check.py`** gains Control+E, which jumps the story to "ending (commercial)" at 52 seconds, 7.5 before it sets `end`. Control+S says when the story is over under the end credits.
+- **Tests:** two new ones, on the real last spiel; 166 in all.
+- **The dev's ear tests,** to come:
+  1. Mandatory: at the end, "The story has ended. Credits." and Back, with the story still playing beneath, and the ending music coming in about 8 seconds later.
+  2. Mandatory: Back or Escape leaves the credits with the pause sound, and the main menu comes back with the title music and Start story, not Continue story.
+  3. Optional: Page Up and Page Down set the background volume while the end credits are up.
 
 ## Built in sections
 

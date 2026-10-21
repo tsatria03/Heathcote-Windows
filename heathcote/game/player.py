@@ -21,7 +21,8 @@ The rules:
 * **A spiel with no recording,** such as "east wing dispatch", makes no sound and ends at
   once, as the original's stub synthesizer did (+[Sound playSpiel:], 0x100021d4c).
 * **The end:** once the variable labelled ``end`` is not "0", the story is over
-  (-[Vars setString:to:], 0x100030f48), and ``on_story_end`` is called.
+  (-[Vars setString:to:], 0x100030f48), and ``on_story_end`` is called. The spiel and its
+  lanes play on, so the ending music still comes in.
 
 Lockout and the actions menu (section 3; +[StoryView raiseActionsDial], 0x100024204):
 
@@ -146,6 +147,11 @@ class StoryPlayer:
             if self.phase == SCENE_END:
                 self.lanes.update(self.position)
                 self._remind()
+            elif self.phase == STORY_END:
+                # The last spiel plays on under the credits, and its lanes with it, as the
+                # original's +[Sound tick] went on: "ending (commercial)" sets end at 59.5
+                # seconds, but its music fades to "ending" only at 68.
+                self.lanes.update(self.position)
             return
         if self.menu_open:
             return                          # the spiel waits under the menu

@@ -6,7 +6,7 @@ reader never read; their words are here as text, one row each, read from the pic
 requires, naming "FMOD" and "Firelight Technologies Pty Ltd." (aidocks/general/project_fmod.md).
 
 Back is the first row, and the menu opens on it. Enter on a credit says it again. The
-main menu's Credits row opens it; the end of the story will open it too (section 4).
+main menu's Credits row opens it, and the end of the story opens it as ``EndCredits``.
 """
 from __future__ import annotations
 
@@ -41,3 +41,29 @@ class CreditsMenu(Menu):
 
     def say_again(self):
         self.say(self.row_text())
+
+
+class EndCredits(CreditsMenu):
+    """The credits at the end of the story (section 4; +[StoryView raiseEndCredits],
+    0x100025b10). They open over the story, which plays on beneath them, its last spiel
+    and its ending music, so the story's volume keys work here. Leaving them, by Back or
+    Escape, plays ``pause-pause``, resets the story, as Restart story does, and returns to
+    the main menu, which offers Start story again (+[StoryView lowerCredits], 0x1000264a8).
+    The original's "Want more?" prompt, which opened its developer's website, is left out."""
+
+    name = 'end credits'
+    title = 'The story has ended. Credits.'
+
+    def __init__(self, app, story_screen):
+        super().__init__(app)
+        self.story_screen = story_screen
+
+    def volume_group(self):
+        return self.story_screen.volume_group()
+
+    def update(self):
+        self.story_screen.update()          # the story plays on beneath
+
+    def back(self):
+        self.stack.pop()
+        self.story_screen.end_story()
