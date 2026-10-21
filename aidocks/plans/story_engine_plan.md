@@ -6,7 +6,22 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
+**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is built and waits for the dev's word.
+
+## Progress
+
+- **Section 1, built 2026-10-20, waiting for the dev's word:**
+  - **`heathcote/game/state.py`, `StoryState(story)`:**
+    - **The variables,** by softRef, each starting as "0". `apply()` takes a set and reports what changed. `holds()` matches a condition exactly, as text.
+    - **By label:** `ended`, `locked_out` and `set_by_label()` go through the variables' labels.
+    - **For F4:** `non_default()` gives the variables that are not "0", by label.
+    - **Heard spiels** and **action counts.** `burnt()` is burn after reading, and `offered()` gives the actions on offer by `order`, with the index's order breaking ties.
+    - **`choose()`** returns the action's spiel, `actionSpiels[count]` capped at the last, adds 1 to the count, and applies its set.
+    - **`next_spiel()`** gives the first `next` entry whose condition holds, or None.
+    - **`snapshot()`, `restore()` and `reset()`.** Restore drops what the story does not know, so an old save still loads.
+  - **`tests/case/test_state.py`, 14 tests,** on the real story data. The suite passes, 115 tests.
+  - The first run of the tests showed that no action in the story sets anything; every variable changes through spiels' timed sets, as [[project_original_findings]] already said. The rule still applies an action's set, as the original does, and a test checks it with a made-up action.
+  - **Nothing to test by ear.**
 
 Plan 4 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]] and [[audio_plan]], and reads the story data directly as `tools/story.py` does. Every rule below comes from [[project_original_behaviour]], which cites the original's code.
 
