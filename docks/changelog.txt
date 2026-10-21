@@ -1,4 +1,5 @@
 unrelease:
+Tab also says the chapter you are in.
 The game remembers your story when you quit, and Continue story in the main menu carries on from the start of the part you were in, with its music and ambience as they were.
 When the story ends, the credits open over its last moments, which play on with the ending music, and leaving them returns to the main menu with a fresh story.
 Escape in the main menu quits the game, as Quit does.

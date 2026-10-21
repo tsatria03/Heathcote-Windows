@@ -56,7 +56,7 @@ A part you have heard to its end before can always be interrupted.
 While the story plays:
 Left rewinds a few seconds, and Right fast-forwards for a moment, with the voices kept at their normal pitch.
 Escape pauses: the voice stops, the background sounds play on muffled, and the pause menu opens.
-Tab says where you are: whether the story is playing, waiting at the end of a scene, or in the actions menu.
+Tab says where you are: whether the story is playing, waiting at the end of a scene, or in the actions menu, then the chapter you are in, such as "Story is playing. Chapter: approaching Heathcote.".
 Switching to another window pauses the story, and coming back to the game carries it on by itself; a pause you made with Escape stays until you resume.
 
 The pause menu:

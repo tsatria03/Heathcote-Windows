@@ -224,6 +224,29 @@ def test_the_keys_reach_the_player_and_tab_speaks():
         app.audio.close()
 
 
+def test_tab_says_the_chapter_once_a_scene_has_set_it():
+    from heathcote.game.story_screen import StoryScreen
+    app = make_app()
+    try:
+        story = StoryScreen(app)
+        app.stack.push(story)
+        story.state.set_by_label('location', '0')
+        app.speech.lines.clear()
+        app.key_down('tab', [])
+        assert app.speech.lines == ['Story is playing.']             # none set yet
+        story.state.set_by_label('location', 'approaching Heathcote')
+        app.speech.lines.clear()
+        app.key_down('tab', [])
+        assert app.speech.lines == ['Story is playing. Chapter: approaching Heathcote.']
+        app.key_down('up', [])                                        # the actions menu too
+        app.speech.lines.clear()
+        app.key_down('tab', [])
+        assert app.speech.lines == ['Actions menu is open. Chapter: approaching Heathcote.']
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
 def test_losing_the_window_pauses_and_closes_the_actions_menu():
     from heathcote.game.story_screen import PauseMenu, StoryScreen
     app = make_app()

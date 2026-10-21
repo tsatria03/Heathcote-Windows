@@ -76,7 +76,7 @@ class ActionsMenu(Menu):
             self.moved_at = self.clock()
             self.say(self.player.choice_text(self.action))
         elif self.app.keymap.action_for(key, mods, STORY) == 'where':
-            self.say(self.player.where())   # "Actions menu is open."
+            self.say(self.player.where())   # "Actions menu is open.", and the chapter
         else:
             self.announce()
 

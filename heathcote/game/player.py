@@ -50,7 +50,8 @@ from __future__ import annotations
 import logging
 import time
 
-from .state import LOCKOUT
+from .state import LOCATION, LOCKOUT
+from .storydata import VARIABLE_DEFAULT
 
 log = logging.getLogger('player')
 
@@ -346,16 +347,24 @@ class StoryPlayer:
 
     def where(self):
         """What Tab says, as the original's two-finger tap (-[PlayState voiceover],
-        0x100033de8)."""
+        0x100033de8), followed by the chapter, the story variable ``location``, once a
+        scene has set it (the dev, 2026-10-21: "It doesn't actually say where I'm at in the
+        story, like the chapter for example."), such as "Story is playing. Chapter:
+        approaching Heathcote."."""
         if self.menu_open:
-            return 'Actions menu is open.'
-        if self.paused:
-            return 'Story is paused.'
-        if self.phase == SCENE_END:
-            return 'Story is at end of scene.'
-        if self.phase == STORY_END:
-            return 'Story has ended.'
-        return 'Story is playing.'
+            state = 'Actions menu is open.'
+        elif self.paused:
+            state = 'Story is paused.'
+        elif self.phase == SCENE_END:
+            state = 'Story is at end of scene.'
+        elif self.phase == STORY_END:
+            state = 'Story has ended.'
+        else:
+            state = 'Story is playing.'
+        chapter = self.state.get_by_label(LOCATION)
+        if chapter == VARIABLE_DEFAULT:
+            return state
+        return '%s Chapter: %s.' % (state, chapter)
 
     # ---- debug mode (section 5) ----------------------------------------------------------
     def skip(self):

@@ -115,7 +115,8 @@ During the story, each key rebindable with F1:
 - **Escape** pauses, the backgrounds and the idle loop playing on muffled, with the pause
   menu: Resume; Restart story, which asks first; Settings; and Return to menu, which ends
   the story, its progress saved for Continue story.
-- **Tab** says where you are: playing, at the end of a scene, or in the actions menu.
+- **Tab** says where you are: playing, at the end of a scene, or in the actions menu, then
+  the chapter, the story variable `location`, once a scene has set it.
 - Switching to another window pauses, and coming back resumes by itself, unlike the
   original; a pause made with Escape stays.
 - In debug mode, **F2** skips to the end of the spiel, **F3** jumps to any spiel by part

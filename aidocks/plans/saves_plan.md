@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, from 2026-10-20, after its review (the dev: "I like your recommendations. Let's start section 1."). Section 1 is finished; section 2, the last, is built and waiting for the dev's tests.
+**Status:** being built, from 2026-10-20, after its review (the dev: "I like your recommendations. Let's start section 1."). Both sections are finished; the plan waits on the Tab change's ear test before its docs pass and push.
 
 Plan 6 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]]'s paths and safe JSON files, and keeps what [[story_engine_plan]] and [[menus_plan]] hold in memory. What the original saved comes from [[project_original_behaviour]].
 
@@ -73,13 +73,16 @@ Built 2026-10-21, waiting for the dev's ear tests:
 - **`menus_check.py`** gains Control+D, which clears the tool's progress file. The dev then renamed it `menu_check.py` (2026-10-21); its save folder stays `interact\menus_check`, so their test progress is kept.
 - **Return to menu now ends the story, and Continue story always comes from the save** (the dev, 2026-10-21, after hearing Continue resume "in the middle of the guys talking" after Return to menu, then asking how their other port did it: "Yes please."). Plan 5 had kept the story paused under the main menu, as the original did, and unpaused it exactly where it stopped; now Return to menu closes the story screen, which stops it, and Continue story builds a new one from the save, at the start of the spiel the player was in, the same whether they left by Return to menu or by quitting. `app.paused_story` and `StoryScreen.continue_story()` are gone. After a debug mode jump, which writes nothing, Continue story comes back from the last progress written before it.
 - **Tests:** five new ones in `test_player.py`, including the next run's Continue story, with the state and the lanes back. Every test app now has its own progress file. 181 in all.
-- **The dev's ear tests,** to come:
+- **The dev's ear tests passed,** all seven, 2026-10-21 ("Also all 7 tests past."), the fifth added with the Return to menu change: partway through a spiel, Escape, Return to menu and Continue story start that spiel again from its beginning:
   1. Mandatory: quit mid-story, start again, and the main menu says "Continue story:" with the chapter you were in.
   2. Mandatory: Enter carries on from the start of the spiel you were in, with its music and ambience fading in as they were.
   3. Mandatory: after leaving the end credits, or quitting during them, the next start offers Start story.
   4. Mandatory: after Restart story, the next start offers Continue story from the story's beginning.
   5. Optional: Control+D in `menu_check.py` clears the progress, and the main menu says Start story.
   6. Optional: your volumes and the first-run notice are still remembered.
+
+**Section 2 is finished,** on the dev's word.
+- **Also with section 2's report,** at the dev's word ("It doesn't actually say where I'm at in the story, like the chapter for example."): Tab, in the story and in the actions menu, follows its words with the chapter, such as "Story is playing. Chapter: approaching Heathcote.", once a scene has set `location` (`StoryPlayer.where()`). Its ear test, mandatory, is to come: Tab says the chapter during the story and in the actions menu.
 
 ## Built in sections
 
