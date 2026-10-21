@@ -351,6 +351,41 @@ class StoryPlayer:
             return 'Story has ended.'
         return 'Story is playing.'
 
+    # ---- debug mode (section 5) ----------------------------------------------------------
+    def skip(self):
+        """F2: to the end of the spiel at once. Its timed sets and lane events still waiting
+        fire on the way, so the story stays as it would have been, then it ends as any spiel
+        does. True when it skipped."""
+        if self.phase != PLAYING or self.menu_open or self.pending or self.paused or self.silent:
+            return False
+        self.audio.spiel.stop_effects()
+        length = self.audio.spiel.length
+        self._timed_sets(length)
+        if self.phase != PLAYING:
+            return True                     # a set on the way ended the story
+        self.lanes.update(length)
+        self.audio.spiel.seek(length)       # it runs out in a moment and ends as usual
+        return True
+
+    def jump(self, soft):
+        """F3, and --spiel: play any spiel from its start, the story's state kept as it is,
+        so a branch can be set up and then leapt to."""
+        if self.menu_open:
+            self.menu_open = False
+            self.audio.unhush_backgrounds()
+        if self.paused:
+            self.audio.resume_story()
+        self.pending = None
+        self.audio.slot('systemVoice').stop()
+        self.play(soft)
+
+    def variables_text(self):
+        """F4: every variable that is not "0", by label, such as "fear is clowns."."""
+        held = self.state.non_default()
+        if not held:
+            return 'Every variable is 0.'
+        return ', '.join('%s is %s' % (label, value) for label, value in held) + '.'
+
     # ---- what the window shows ------------------------------------------------------
     def transcript(self):
         return ((self.story.record(self.current) or {}).get('transcript') or '').strip()

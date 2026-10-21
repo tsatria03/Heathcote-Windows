@@ -64,6 +64,9 @@ class App:
         self.running = True
         self.held = None            # [key, mods, action, when it next repeats] for a volume key
         self.pygame = None          # pygame, once run() has opened the window
+        self.last_char = ''         # the character the key being handled typed, for text entry
+        # The spiel --spiel named, in debug mode: Start story begins there.
+        self.start_spiel = None
         self.debug = False
         # Whether the title music is playing, so the title volume's keys work. The menus
         # set it; the audio plan makes it so.
@@ -137,9 +140,13 @@ class App:
             action = self.keymap.action_for(key, mods, group) if group else None
         return action if action in VOLUME_ACTIONS else None
 
-    def key_down(self, key, mods, now=None):
+    def key_down(self, key, mods, now=None, char=''):
+        """A key pressed: pygame's name for it, the modifiers held, and the character it
+        typed, which a screen taking text, such as debug mode's spiel search, reads from
+        ``last_char``."""
         if key in MODIFIER_KEYS:
             return                          # Shift and the rest only go with another key
+        self.last_char = char or ''
         self.held = None
         top = self.stack.top
         if isinstance(top, KeyBindScreen):
@@ -219,7 +226,8 @@ class App:
             if self.stack.top is not None:
                 self.stack.top.focus_gained()
         elif event.type == pygame.KEYDOWN:
-            self.key_down(pygame.key.name(event.key), mods_from_pygame(event.mod, pygame))
+            self.key_down(pygame.key.name(event.key), mods_from_pygame(event.mod, pygame),
+                          char=getattr(event, 'unicode', ''))
         elif event.type == pygame.KEYUP:
             self.key_up(pygame.key.name(event.key))
 

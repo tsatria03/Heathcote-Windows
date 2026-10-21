@@ -14,6 +14,10 @@ The keys during play, each an action in the key map's story group, rebindable on
                    on muffled, and the pause menu opens
     Tab            say where you are, as the original's two-finger tap
 
+In debug mode only (section 5): F2 skips to the end of the spiel, its waiting timed sets
+and lane events firing on the way; F3 finds a spiel by part of its label and jumps to it,
+the variables kept as they are; and F4 speaks every variable that is not "0".
+
 Losing the window plays ``lost focus`` and pauses, closing the actions menu if it is open
 (-[PlayState blur], 0x100033d98; -[ActionsDialState blur]).
 
@@ -71,10 +75,15 @@ class PauseMenu(Menu):
 class StoryScreen(Screen):
     name = 'story'
 
-    def __init__(self, app, state=None, story=None):
+    def __init__(self, app, state=None, story=None, start_at=None):
+        """``start_at``, a spiel's softRef, starts the story there instead of at ``start``,
+        as --spiel does in debug mode."""
         super().__init__(app)
         self.story = story or StoryData.shared()
         self.state = state or StoryState(self.story)
+        self.start_at = start_at
+        self.search = None
+        self.last_search = None
         self.player = StoryPlayer(app.audio, self.story, self.state, app.play_sound,
                                   after=app.loop.after)
         self.player.on_story_end = self.story_ended
@@ -93,7 +102,10 @@ class StoryScreen(Screen):
             # Only now: a screen can be made before the main loop starts FMOD, as
             # story_check.py makes its own.
             self.app.audio.spiel.rewind_sound = self.story.sound_path('systemSounds', 'rewind')
-            self.player.start()
+            if self.start_at:
+                self.player.play(self.start_at)
+            else:
+                self.player.start()
         elif self.covered_now:
             self.covered_now = False
             if not self.covered_by_story:
@@ -132,7 +144,28 @@ class StoryScreen(Screen):
             self.pause()
         elif action == 'where':
             self.say(self.player.where())
+        elif action == 'debug_skip':
+            if not self.player.skip():
+                self.say('Nothing to skip.')
+        elif action == 'debug_jump':
+            self.find_spiel()
+        elif action == 'debug_variables':
+            self.say(self.player.variables_text())
         return True
+
+    # ---- debug mode's jump --------------------------------------------------------
+    def find_spiel(self):
+        """F3: find a spiel by part of its label, and jump there."""
+        from ..ui.search import SearchScreen
+        names = [(self.story.label(s), s) for s in self.story.refs('actionSpiels') if self.story.record(s)]
+        self.search = SearchScreen(self.app, 'Jump to a spiel: type part of its label, then Enter. '
+                                   'Escape cancels.', names, self.jump_to, last=self.last_search)
+        self.stack.push(self.search)
+
+    def jump_to(self, soft, label, number, count):
+        self.last_search = self.search.result
+        self.say('%s, %d of %d matches.' % (label, number, count))
+        self.player.jump(soft)
 
     def open_actions_menu(self):
         choices = self.player.open_menu()
