@@ -31,13 +31,29 @@ The audio plan, finished 2026-10-20 ([[audio_plan]]), left these ready for the s
 
 ## Built in sections
 
-Each section is confirmed by the dev before the next starts.
-1. The story's state: the variables, heard spiels and how many times each action was chosen, kept in memory for now (the saves plan writes them to disk).
-2. Playing spiels: starting at `start`, the timed sets, the lane events, the first matching next, the idle loop, the silent spiels, and the end.
-3. Lockout and the actions menu, with its recorded choices.
-4. The keys during play: rewind, fast-forward, pause, the menu and the description of where you are.
-5. Debug mode's keys, and `--spiel`.
-6. `tests/interact/story_check.py`, a tool to play the story from any spiel by ear, with its own save.
+Each section is confirmed by the dev before the next starts. **`tests/interact/story_check.py` starts in section 2 and grows with every section,** with its own save ([[feedback_grow_check_tools]]; the dev, 2026-10-20: "Yes. It should."):
+1. The story's state: the variables, heard spiels and how many times each action was chosen, kept in memory for now (the saves plan writes them to disk). Nothing to hear.
+2. Playing spiels: starting at `start`, the timed sets, the lane events, the first matching next, the idle loop, the silent spiels, and the end. `story_check.py` starts here, playing the story from `start`.
+3. Lockout and the actions menu, with its recorded choices. `story_check.py` gains the menu.
+4. The keys during play: rewind, fast-forward, pause, the menu and the description of where you are. `story_check.py` uses the game's own keys.
+5. Debug mode's keys, and `--spiel`. `story_check.py` gains F2 to F4 and starting at any spiel.
+6. `story_check.py` is rounded off as the whole tool.
+
+## Reviewed
+
+Reviewed section by section with the dev on 2026-10-20 ([[feedback_review_plan_sections]]). Section 1 was approved on its own ("Yes"), then sections 2 to 6 were reviewed together ("review all of the sections in 1 chat"). What the review found:
+- **Both checks were settled first** from the code (see Decided).
+- **`heathcote/game/state.py`** holds the state, by softRef, built on `storydata.py`. It snapshots and restores as one, for the saves. What the lanes hold stays in plan 3's `Lanes`.
+- **The story screen is `heathcote/game/story_screen.py`,** built on plan 3's `audio.spiel`, `Lanes`, pause and hush.
+- **Until plan 5:**
+  - the end says "The story has ended." and returns to the main menu
+  - the stand-in main menu gains a "Start story" row
+  - a stand-in pause has Resume and Return to menu
+  
+  Plan 5 replaces all three.
+- **The 7-second repeat in the actions menu plays only the clip.** The original's swipe hint does not fit a keyboard.
+- **The actions menu is plan 2's spoken menu,** with `moved()` playing the clip.
+- **F3 reuses `audio_check.py`'s spoken search.** A jump keeps the variables as they are.
 
 ## Decided
 
