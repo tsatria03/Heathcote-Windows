@@ -1,15 +1,19 @@
-"""The menus around the story.
+"""The main menu (aidocks/plans/menus_plan.md, section 2), opened after the opening
+(game/opening.py) with the title music under it:
 
-For now this is the stand-in main menu of aidocks/plans/foundation_plan.md: Start story,
-added for the story engine (aidocks/plans/story_engine_plan.md), Settings and Quit, opened
-after the opening (game/opening.py) with the title music under it. The menus plan
-(aidocks/plans/menus_plan.md) puts the real one here, with Start story or Continue story,
-Settings, Credits and Quit.
+    Start story     first, so one Enter gets into the story
+    Settings        the Settings screen
+    Credits         the credits (game/credits.py)
+    Quit            its way out, so it has no Back row
+
+Every menu moves with all four arrows, wrapping, and Home and End. Section 3 makes the
+first row Continue story while a story is paused under the menu.
 """
 from __future__ import annotations
 
 from ..ui.menu import Menu, Row
 from ..ui.settings_screen import SettingsScreen
+from .credits import CreditsMenu
 
 
 class MainMenu(Menu):
@@ -26,6 +30,7 @@ class MainMenu(Menu):
         # Quit is its way out, so it has no Back row (aidocks/general/feedback_back_first.md).
         return [Row('Start story', self.start_story),
                 Row('Settings', lambda: self.stack.push(SettingsScreen(self.app))),
+                Row('Credits', lambda: self.stack.push(CreditsMenu(self.app))),
                 Row('Quit', self.app.quit)]
 
     def start_story(self):

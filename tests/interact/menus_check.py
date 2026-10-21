@@ -4,11 +4,13 @@
 
 It runs the game itself, from its opening, with a few keys of the tool's own added, each
 with Control so it never takes one of the game's. It grows with each section of the menus
-plan. For now, section 1:
+plan. For now, sections 1 and 2:
 
     the police radio, with "Heathcote." spoken; Enter skips it
     the first time, the first-run notice; Enter continues, and it is not shown again
     the main menu, with the title music under it; Page Up and Page Down set its volume
+    the main menu's rows: Start story, Settings, Credits and Quit
+    Credits: Back first, then a row for each credit, with the title music playing on
     Start story fades the title music out over 3 seconds, as the story fades in;
     Escape, then Return to menu, brings it back
 

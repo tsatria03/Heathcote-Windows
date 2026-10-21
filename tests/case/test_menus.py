@@ -70,10 +70,11 @@ def test_opening_says_the_title_then_the_row_without_cutting_it_off():
 def test_all_four_arrows_move_and_wrap():
     app = with_main_menu()
     assert press(app, 'down') == ['Settings']
-    assert press(app, 'right') == ['Quit']
+    assert press(app, 'right') == ['Credits']
+    assert press(app, 'down') == ['Quit']
     assert press(app, 'down') == ['Start story']       # wraps
     assert press(app, 'left') == ['Quit']              # wraps back
-    assert press(app, 'up') == ['Settings']
+    assert press(app, 'up') == ['Credits']
 
 
 def test_home_and_end():
@@ -270,9 +271,35 @@ def test_the_notice_names_the_key_that_continues():
     assert screen.continue_text() == 'Press Space to continue.'
 
 
+def test_credits_open_on_back_with_a_row_each_and_fmods_line_last():
+    from heathcote.game.credits import CREDITS, CreditsMenu
+    app = with_main_menu()
+    press(app, 'down')
+    press(app, 'down')
+    assert press(app, 'return') == ['Credits.', 'Back']
+    assert isinstance(app.stack.top, CreditsMenu)
+    assert press(app, 'down') == ['Heathcote, version 1.01, by Fabulae Obscurae']
+    assert press(app, 'down') == ['Story: Christian Francis, Ben Meares']
+    assert press(app, 'return') == ['Story: Christian Francis, Ben Meares']   # said again
+    said = press(app, 'end')[0]
+    assert 'FMOD' in said and 'Firelight Technologies Pty Ltd.' in said     # its licence's words
+    assert 'Windows port: tsatria03' in CREDITS
+    assert press(app, 'page down') == ['Title volume, 90 percent.']        # the music plays on
+    assert press(app, 'escape') == ['Heathcote.', 'Credits']
+    assert isinstance(app.stack.top, MainMenu) and app.title_music
+
+
+def test_back_in_the_credits_returns_to_the_main_menu():
+    from heathcote.game.credits import CreditsMenu
+    app = with_main_menu()
+    app.stack.push(CreditsMenu(app))
+    assert press(app, 'return') == ['Heathcote.', 'Start story']
+    assert isinstance(app.stack.top, MainMenu)
+
+
 def test_the_window_shows_the_rows_and_the_last_line():
     app = with_main_menu()
-    assert app.stack.top.lines() == ['Heathcote.', '', '> Start story', '  Settings', '  Quit']
+    assert app.stack.top.lines() == ['Heathcote.', '', '> Start story', '  Settings', '  Credits', '  Quit']
     assert app.speech.last == 'Start story'
 
 

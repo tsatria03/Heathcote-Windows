@@ -1,4 +1,5 @@
 unrelease:
+The main menu has Credits, with the original's credits read one at a time, which its pictures never let a screen reader do.
 The interface volume no longer turns the recorded choices down; they follow only the master volume.
 The title music plays under the main menu, fades out as the story starts, and comes back with the main menu.
 The first time the game starts, it gives the original's advice to wear headphones, and Enter continues.

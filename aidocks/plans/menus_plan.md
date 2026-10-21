@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Section 1 is finished; section 2 is next.
+**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Section 1 is finished; section 2 is built and waiting for the dev's tests.
 
 Plan 5 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]], [[audio_plan]] and [[story_engine_plan]]. What the original did comes from [[project_original_behaviour]].
 
@@ -88,6 +88,22 @@ Built 2026-10-20, waiting for the dev's ear tests:
 - **Also during section 1,** at the dev's word: the recorded choices in `speech/` follow only the master volume, no longer the interface volume ([[audio_plan]]). Its ear test, mandatory, is still to come: in the actions menu, Shift+Page Down makes the clicks quieter while the recorded choices stay as loud.
 
 **Section 1 is finished,** on the dev's word.
+
+## What section 2 built
+
+Built 2026-10-20, straight after section 1 passed ([[feedback_next_section_on_pass]]), waiting for the dev's ear tests:
+- **`heathcote/game/credits.py`:** `CreditsMenu`, titled "Credits.", Back first and opened on, then a row for each of the original's credits in its cards' order (`ORIGINAL`), the port's row, "Windows port: tsatria03", and FMOD's line, "Made with FMOD Engine, by Firelight Technologies Pty Ltd.". Enter on a credit says it again. Section 4's end credits will open the same menu.
+- **The main menu** (`heathcote/game/menus.py`) has its four rows: Start story, Settings, Credits and Quit. Start story still starts afresh each time; section 3 brings Continue story.
+- **Settings** is unchanged: Back, Debug mode from source, and Key bindings. Nothing new was decided for it; section 3 opens it from the pause menu too.
+- **The title music plays on** through Settings and Credits, with Page Up and Page Down, since both cover the main menu without stopping it.
+- **`menus_check.py`** needs no new keys for this section; its description now lists it.
+- **Tests:** two new ones for the credits, and the main menu's tests now have four rows. 160 in all.
+- **The dev's ear tests,** to come:
+  1. Mandatory: the main menu's four rows, all four arrows moving and wrapping, Home and End.
+  2. Mandatory: Credits opening on Back, each credit its own row, and Back or Escape returning.
+  3. Mandatory: the title music playing on through Credits, with Page Up and Page Down.
+  4. Optional: the title music playing on through Settings.
+  5. Mandatory, still from section 1's volume change: in the actions menu, Shift+Page Down makes the clicks quieter while the recorded choices stay as loud.
 
 ## Built in sections
 

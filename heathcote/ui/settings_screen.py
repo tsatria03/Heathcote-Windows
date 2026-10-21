@@ -1,5 +1,5 @@
-"""The Settings screen. The menus plan (aidocks/plans/menus_plan.md, section 2) finishes
-it; for now it has what the foundation needs:
+"""The Settings screen, opened from the main menu and, in section 3 of the menus plan
+(aidocks/plans/menus_plan.md), from the pause menu:
 
     Back                        first, as in every menu
     Debug mode, currently off   source runs only; Enter turns it on or off at once
