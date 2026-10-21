@@ -6,14 +6,17 @@
     Credits         the credits (game/credits.py)
     Quit            its way out, so it has no Back row; Escape quits too
 
-Every menu moves with all four arrows, wrapping, and Home and End. While a story is paused
-under the menu (section 3), the first row is Continue story instead, said with its chapter.
+Every menu moves with all four arrows, wrapping, and Home and End. While a story is under
+way, paused under the menu or kept in the save from an earlier run
+(aidocks/plans/saves_plan.md), the first row is Continue story instead, said with its
+chapter.
 """
 from __future__ import annotations
 
 from ..ui.menu import Menu, Row
 from ..ui.settings_screen import SettingsScreen
 from .credits import CreditsMenu
+from .storydata import StoryData
 
 
 class MainMenu(Menu):
@@ -30,7 +33,7 @@ class MainMenu(Menu):
         # Quit is its way out, so it has no Back row (aidocks/general/feedback_back_first.md).
         # One row whose name changes, so Start story and Continue story are never offered
         # together.
-        if self.app.paused_story is not None:
+        if self.app.paused_story is not None or self.app.progress.under_way:
             first = Row(self.continue_text, self.continue_story)
         else:
             first = Row('Start story', self.start_story)
@@ -41,25 +44,40 @@ class MainMenu(Menu):
 
     def start_story(self):
         """A new story from its start; the first time, at the spiel --spiel named, in debug
-        mode. Offered whenever no story is paused under the menu; the saves plan will
-        offer Continue story across runs too."""
+        mode, which writes no progress. Offered when no story is under way, paused under
+        the menu or in the save."""
         from .story_screen import StoryScreen
         start_at, self.app.start_spiel = self.app.start_spiel, None
-        self.stack.push(StoryScreen(self.app, start_at=start_at))
+        self.stack.push(StoryScreen(self.app, start_at=start_at, saving=start_at is None))
 
     def continue_text(self):
         """Said with its chapter, the story variable ``location``, as the original's
         CONTINUE was, in the dev's words (2026-10-20: "Continue story: approaching
-        Heathcote.")."""
+        Heathcote."): the paused story's own, or the one the save keeps
+        (aidocks/plans/saves_plan.md)."""
         from .state import LOCATION, VARIABLE_DEFAULT
-        location = self.app.paused_story.state.get_by_label(LOCATION)
+        if self.app.paused_story is not None:
+            location = self.app.paused_story.state.get_by_label(LOCATION)
+        else:
+            location = self.app.progress.chapter
         if location == VARIABLE_DEFAULT:
             return 'Continue story'
         return 'Continue story: %s.' % location
 
     def continue_story(self):
-        """The paused story, picked up exactly where Return to menu left it."""
-        self.app.paused_story.continue_story()
+        """The paused story, picked up exactly where Return to menu left it; or, from the
+        save, the spiel the player was in, played again from its start with the story's
+        state and the lanes as they were as it began."""
+        if self.app.paused_story is not None:
+            self.app.paused_story.continue_story()
+            return
+        from .state import StoryState
+        from .story_screen import StoryScreen
+        progress = self.app.progress
+        state = StoryState(StoryData.shared())
+        state.restore(progress.state)
+        self.stack.push(StoryScreen(self.app, state=state, start_at=progress.spiel,
+                                    lanes=progress.lanes))
 
     def back(self):
         """Escape quits, as the Quit row does (the dev, 2026-10-20: "Pressing escape in the

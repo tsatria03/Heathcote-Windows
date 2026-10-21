@@ -20,6 +20,11 @@ plan, and now has all four sections:
     the end: the end credits open over the story, which plays on beneath them, its ending
     music coming in; leaving them returns to the main menu, the story reset
 
+From the saves plan (aidocks/plans/saves_plan.md), section 2: the progress is kept between
+runs, so quitting mid-story and starting the tool again offers Continue story, with the
+chapter, which plays the spiel you were in again from its start; Restart story begins the
+save afresh, and the end credits clear it.
+
 The tool's own keys:
 
     Control+N    forget the notice, and start again from the police radio
@@ -29,10 +34,12 @@ The tool's own keys:
                  main menu, with its spiel and chapter
     Control+E    during the story, jump to its last spiel, "ending (commercial)", 7.5
                  seconds before it ends the story, to hear the end credits
+    Control+D    clear the tool's progress file, as if no story had been played
     Control+Q    quit
 
 It keeps its own save under %APPDATA%\\Heathcote\\interact\\menus_check, so nothing here
-ever changes the game's own volumes, keys or progress; the notice shows on its first start.
+ever changes the game's own volumes, keys or progress; the notice shows on its first start,
+and its progress is saves\\progress.json there.
 """
 from __future__ import annotations
 
@@ -50,7 +57,8 @@ from heathcote.app import App  # noqa: E402
 from heathcote.game.opening import OpeningScreen  # noqa: E402
 
 INTRO = ('Menus check. Control N starts again with the notice, Control T says the title music, '
-         'Control S the story, Control E jumps near its end, and Control Q quits.')
+         'Control S the story, Control E jumps near its end, Control D clears the progress, '
+         'and Control Q quits.')
 #: Seconds into "ending (commercial)" that Control+E jumps to: 7.5 before end is set.
 NEAR_THE_END = 52.0
 
@@ -59,9 +67,11 @@ class CheckApp(App):
     """The game's main loop, with the tool's Control keys first."""
 
     def key_down(self, key, mods, now=None, char=''):
-        if mods == ['ctrl'] and key in ('n', 't', 's', 'e', 'q'):
+        if mods == ['ctrl'] and key in ('n', 't', 's', 'e', 'd', 'q'):
             if key == 'n':
                 self.start_again()
+            elif key == 'd':
+                self.forget_progress()
             elif key == 'e':
                 self.near_the_end()
             elif key == 't':
@@ -81,6 +91,17 @@ class CheckApp(App):
         self.stop_title_music()
         self.speech.speak('The notice is forgotten. Starting again.')
         self.stack.reset(OpeningScreen(self))
+
+    def forget_progress(self):
+        """Clear the tool's progress file, as if no story had been played; at the main menu,
+        its first row says Start story again."""
+        from heathcote.game.menus import MainMenu
+        self.progress.clear()
+        top = self.stack.top
+        if isinstance(top, MainMenu) and self.paused_story is None:
+            self.speech.speak('The progress is cleared. %s' % top.row_text())
+        else:
+            self.speech.speak('The progress is cleared; a story still under way writes it again.')
 
     def near_the_end(self):
         """Jump the story playing to "ending (commercial)", a few seconds before it sets end

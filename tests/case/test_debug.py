@@ -2,6 +2,8 @@
 --spiel's start, on the real story data and FMOD's no-sound output."""
 import _quiet  # noqa: F401  (first, before the game)
 
+from heathcote.game.progress import Progress  # noqa: E402
+
 import os
 import types
 
@@ -35,7 +37,8 @@ def make_app(debug=True):
     folder = os.path.join(_quiet.FOLDER, 'debug%d' % N[0])
     app = App(types.SimpleNamespace(debug=debug, exit_after=None), speech=Listening(),
               settings=Settings(os.path.join(folder, 'settings.json')),
-              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
+              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop(),
+              progress=Progress(os.path.join(folder, 'progress.json')))
     app.audio.open()
     return app
 

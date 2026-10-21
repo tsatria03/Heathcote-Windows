@@ -40,7 +40,7 @@ from ..ui.menu import Menu, Row
 from ..ui.screens import Screen
 from .actions_menu import ActionsMenu
 from .player import StoryPlayer
-from .state import StoryState
+from .state import LOCATION, StoryState
 from .storydata import StoryData
 
 log = logging.getLogger('story')
@@ -122,18 +122,26 @@ class PauseMenu(Menu):
 class StoryScreen(Screen):
     name = 'story'
 
-    def __init__(self, app, state=None, story=None, start_at=None):
-        """``start_at``, a spiel's softRef, starts the story there instead of at ``start``,
-        as --spiel does in debug mode."""
+    def __init__(self, app, state=None, story=None, start_at=None, lanes=None, saving=True):
+        """``start_at``, a spiel's softRef, starts the story there instead of at ``start``:
+        Continue story's saved spiel, with ``lanes``, what the four lanes held as it began,
+        or --spiel's in debug mode. ``saving`` False writes no progress, as after a debug
+        mode jump (aidocks/plans/saves_plan.md)."""
         super().__init__(app)
         self.story = story or StoryData.shared()
         self.state = state or StoryState(self.story)
         self.start_at = start_at
+        self.start_lanes = lanes
+        self.saving = saving
         self.search = None
         self.last_search = None
         self.player = StoryPlayer(app.audio, self.story, self.state, app.play_sound,
                                   after=app.loop.after)
         self.player.on_story_end = self.story_ended
+        # The progress, written as the original wrote every change (aidocks/plans/saves_plan.md).
+        self.player.on_spiel = self.save_spiel
+        self.player.on_scene_end = self.save_heard
+        self.player.on_changed = self.save_chapter
         self.started = False
         self.covered_now = False
         self.covered_by_story = False
@@ -151,6 +159,10 @@ class StoryScreen(Screen):
             # Only now: a screen can be made before the main loop starts FMOD, as
             # story_check.py makes its own.
             self.app.audio.spiel.rewind_sound = self.story.sound_path('systemSounds', 'rewind')
+            if self.start_lanes is not None:
+                # Continue story: the lanes held as the saved spiel began, fading in over
+                # 0.5 seconds, as the original's story opened (+[StoryView go], 0x100025ce8).
+                self.player.lanes.restore(self.start_lanes)
             if self.start_at:
                 self.player.play(self.start_at)
             else:
@@ -198,12 +210,46 @@ class StoryScreen(Screen):
         self.say('The story starts again.')     # cutting off the pause menu, reopened on the way
         self.player.stop()
         self.state.reset()
-        self.player.start()
+        self.saving = True                  # a fresh story, even after a debug mode jump
+        self.app.progress.clear()
+        self.player.start()                 # which writes its start as the new progress
+
+    # ---- the progress --------------------------------------------------------------
+    def save_spiel(self, soft):
+        """A spiel begins: where Continue story will pick up, with the state and the lanes
+        as they are now."""
+        if self.saving:
+            self.app.progress.begin(soft, self.state, self.player.lanes.opening)
+
+    def save_heard(self, soft):
+        if self.saving:
+            self.app.progress.mark_heard(soft)
+
+    def save_chapter(self, changes):
+        """The chapter Continue story names, kept apart from the spiel's snapshot."""
+        if not self.saving:
+            return
+        location = self.state.variable(LOCATION)
+        for var, _old, new in changes:
+            if var == location:
+                self.app.progress.set_chapter(new)
+
+    def stop_saving(self):
+        """Debug mode jumped: this story writes no more progress, so testing never
+        overwrites the real one."""
+        if self.saving:
+            self.saving = False
+            log.info('a debug mode jump: this story writes no progress from here')
 
     def story_ended(self):
         """The story set ``end``: the end credits open over it, and it plays on beneath."""
         from .credits import EndCredits
         self.ending = True
+        # The story is over, so quitting now offers Start story next time; nothing more is
+        # written while its last moments play on.
+        if self.saving:
+            self.app.progress.clear()
+            self.saving = False
         self.stack.push(EndCredits(self.app, self))
 
     def end_story(self):
@@ -251,6 +297,7 @@ class StoryScreen(Screen):
     def jump_to(self, soft, label, number, count):
         self.last_search = self.search.result
         self.say('%s, %d of %d matches.' % (label, number, count))
+        self.stop_saving()
         self.player.jump(soft)
 
     def open_actions_menu(self):

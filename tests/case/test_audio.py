@@ -2,6 +2,8 @@
 (heathcote/game/storydata.py), on FMOD's no-sound output: nothing here is ever heard."""
 import _quiet  # noqa: F401  (first, before the game)
 
+from heathcote.game.progress import Progress  # noqa: E402
+
 import os
 import sys
 import time
@@ -230,7 +232,8 @@ def test_the_app_plays_interface_sounds_and_passes_volumes_on():
     folder = os.path.join(_quiet.FOLDER, 'app')
     settings = Settings(os.path.join(folder, 'settings.json'))
     app = App(types.SimpleNamespace(debug=False, exit_after=None), speech=Speech(), settings=settings,
-              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
+              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop(),
+              progress=Progress(os.path.join(folder, 'progress.json')))
     app.audio.open()
     try:
         app.play_sound('click-good')

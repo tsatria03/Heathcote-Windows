@@ -2,6 +2,8 @@
 (heathcote/game/story_screen.py), on the real story data and FMOD's no-sound output."""
 import _quiet  # noqa: F401  (first, before the game)
 
+from heathcote.game.progress import Progress  # noqa: E402
+
 import os
 import time
 import types
@@ -174,7 +176,8 @@ def test_the_main_menu_starts_the_story_screen_and_return_to_menu_leaves_it():
     folder = os.path.join(_quiet.FOLDER, 'screen')
     settings = Settings(os.path.join(folder, 'settings.json'))
     app = App(types.SimpleNamespace(debug=False, exit_after=None), speech=Speech(), settings=settings,
-              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
+              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop(),
+              progress=Progress(os.path.join(folder, 'progress.json')))
     app.audio.open()
     title = app.audio.slot('titleBgm')
     try:
@@ -211,7 +214,10 @@ def test_the_main_menu_starts_the_story_screen_and_return_to_menu_leaves_it():
         app.audio.close()
 
 
-def story_app(name):
+def story_app(name, start=True, start_spiel=None):
+    """An app on FMOD's no-sound output, with its own save in a folder named ``name``, at
+    the main menu; with ``start``, Enter is pressed on its first row. Made again with the
+    same name, it is the next run, reading the progress the last one wrote."""
     from heathcote.app import App
     from heathcote.game.menus import MainMenu
     from heathcote.platform.keymap import KeyMap
@@ -230,11 +236,110 @@ def story_app(name):
     folder = os.path.join(_quiet.FOLDER, name)
     app = App(types.SimpleNamespace(debug=False, exit_after=None), speech=Listening(),
               settings=Settings(os.path.join(folder, 'settings.json')),
-              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
+              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop(),
+              progress=Progress(os.path.join(folder, 'progress.json')))
     app.audio.open()
+    app.start_spiel = start_spiel
     app.stack.push(MainMenu(app))
-    app.key_down('return', [])                          # Start story
+    if start:
+        app.key_down('return', [])                      # Start story, or Continue story
     return app, app.stack.top
+
+
+def quit_app(app):
+    app.stack.clear()
+    app.audio.close()
+
+
+def test_progress_is_written_as_spiels_begin_and_continue_story_picks_it_up_next_run():
+    from heathcote.game.story_screen import StoryScreen
+    app, screen = story_app('next run')
+    try:
+        assert app.progress.under_way and app.progress.spiel == STORY.start()
+        app.audio.spiel.seek(0.3)                       # past start's sets and its first fade
+        screen.update()
+        assert app.progress.chapter == 'working late'
+        held = screen.player.lanes.holding['ambience1']
+        assert held is not None
+        screen.state.set_by_label('fear', 'clowns')
+        screen.player.play(spiel('cells'))              # as a choice or a next would
+        assert app.progress.spiel == spiel('cells') and app.progress.lanes['ambience1'] == held
+    finally:
+        quit_app(app)
+    app, menu = story_app('next run', start=False)      # the game started again
+    try:
+        assert menu.row_text() == 'Continue story: working late.'
+        app.key_down('return', [])
+        story = app.stack.top
+        assert isinstance(story, StoryScreen) and story.player.current == spiel('cells')
+        assert story.state.get_by_label('fear') == 'clowns'
+        assert story.player.lanes.holding['ambience1'] == held
+        assert app.audio.slot('ambience1').playing and app.audio.spiel.playing
+        assert story.saving
+    finally:
+        quit_app(app)
+
+
+def test_a_scene_heard_to_its_end_is_kept_heard_in_the_save():
+    app, screen = story_app('heard')
+    try:
+        run_to_end(app.audio, screen.player)
+        assert screen.player.phase == SCENE_END
+        assert STORY.start() in app.progress.state['heard']
+    finally:
+        quit_app(app)
+
+
+def test_restart_story_begins_the_save_afresh():
+    app, screen = story_app('restart save')
+    try:
+        screen.state.set_by_label('fear', 'clowns')
+        screen.player.play(spiel('cells'))
+        app.key_down('escape', [])
+        app.key_down('down', [])
+        app.key_down('return', [])                      # Restart story
+        app.key_down('down', [])
+        app.key_down('return', [])                      # Yes
+        assert app.progress.under_way and app.progress.spiel == STORY.start()
+        assert app.progress.state['heard'] == []
+        assert app.progress.state['variables'][screen.state.variable('fear')] == '0'
+    finally:
+        quit_app(app)
+
+
+def test_the_end_clears_the_save_so_the_next_run_offers_start_story():
+    app, screen = story_app('end save')
+    try:
+        screen.player.play(spiel('ending (commercial)'))
+        assert app.progress.under_way
+        app.audio.spiel.seek(59.6)
+        screen.update()
+        assert not app.progress.under_way               # quitting in the credits: a new story
+        app.key_down('escape', [])
+        assert not app.progress.under_way
+    finally:
+        quit_app(app)
+    app, menu = story_app('end save', start=False)
+    try:
+        assert menu.row_text() == 'Start story'
+    finally:
+        quit_app(app)
+
+
+def test_spiel_and_a_debug_jump_write_no_progress():
+    app, screen = story_app('debug save', start_spiel=spiel('cells'))
+    try:
+        assert screen.player.current == spiel('cells') and not app.progress.under_way
+    finally:
+        quit_app(app)
+    app, screen = story_app('debug jump')
+    try:
+        assert app.progress.spiel == STORY.start()
+        screen.stop_saving()                            # as F3's jump does
+        screen.player.jump(spiel('cells'))
+        assert app.progress.spiel == STORY.start()      # the real progress is kept
+    finally:
+        quit_app(app)
 
 
 def test_the_pause_menus_rows_and_settings_from_it():
@@ -360,7 +465,8 @@ def test_the_opening_plays_the_police_radio_on_sfx_and_enter_stops_it():
     folder = os.path.join(_quiet.FOLDER, 'opening')
     settings = Settings(os.path.join(folder, 'settings.json'))
     app = App(types.SimpleNamespace(debug=False, exit_after=None), speech=Speech(), settings=settings,
-              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
+              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop(),
+              progress=Progress(os.path.join(folder, 'progress.json')))
     app.audio.open()
     sfx = app.audio.slot('sfx')
     try:

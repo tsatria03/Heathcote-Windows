@@ -2,6 +2,8 @@
 pause with the pause menu, Tab, and losing the window, on FMOD's no-sound output."""
 import _quiet  # noqa: F401  (first, before the game)
 
+from heathcote.game.progress import Progress  # noqa: E402
+
 import os
 import types
 
@@ -154,7 +156,8 @@ def make_app():
     folder = os.path.join(_quiet.FOLDER, 'app%d' % N[0])
     app = App(types.SimpleNamespace(debug=False, exit_after=None), speech=Listening(),
               settings=Settings(os.path.join(folder, 'settings.json')),
-              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
+              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop(),
+              progress=Progress(os.path.join(folder, 'progress.json')))
     app.audio.open()
     return app
 
