@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is finished; section 2, `releaser.py`, is built; and section 3, the story pack, asked for after it, is built and waiting for the dev's builds.
+**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is finished; section 2, `releaser.py`, is built; and section 3, the story pack, asked for after it, passed the dev's mandatory tests in the single exe.
 
 Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
 
@@ -49,7 +49,7 @@ Built 2026-10-21, adapted from the reference material's releaser without naming 
 
 ## Section 3, the story pack
 
-**Built 2026-10-21, waiting for the dev's builds:**
+**Built 2026-10-21; its mandatory tests passed:**
 - **`heathcote/platform/pack.py`** holds the format as below, with a random 256-bit key, `write_pack()`, `Pack` and `fingerprint()`. `PREFIX`, `story.dat:`, names a packed recording where a path would be, such as `story.dat:scene/start.mp3`.
 - **`StoryData`** opens `paths.story_pack()` when `game/documents/Audio/story/` is not there (`open_pack()`), checks its size against `game\story_pack.json` when a build carries one, and gives packed paths for the story's categories; the interface sounds stay files. It logs "story recordings: <path>". A missing pack, a damaged one or one of the wrong size stops the game with a message saying to extract the whole folder again.
 - **`Audio.source()`** turns a packed path into its decrypted bytes and a `CREATESOUNDEXINFO` with their length, and `Slot.play()` opens them with `OPENMEMORY`, as a sample or a looping stream, so the spiel, the lanes and the title music all play from memory.
@@ -63,7 +63,7 @@ Built 2026-10-21, adapted from the reference material's releaser without naming 
   2. Mandatory: play a little of the built game: the opening, the title music, the start of the story and a choice, sounding as from source.
      - **First try, 2026-10-21: it failed.** The dev: "when it goes to the main menu, it quits after a few seconds. No title music plays." The log stopped at "opened main menu", with no crash file. Reproduced silently from source with the build's `story.dat`: a Windows access violation on FMOD's stream thread. FMOD streams a sound opened with `OPENMEMORY` straight from the bytes it is given, but `Slot.play()` let Python free them once the sound was made. Short sounds survived, being decoded at once, so the title music, the first long stream, was the first to crash. The pack's test had passed by luck, ending before the memory was reused.
      - **The fix:** `Slot.memory` keeps a packed recording's bytes while its sound lives; a fading-out sound carries them in `fading_out` until `_free()` releases it; `_release()` drops them only after the sound is released. A new test plays a packed stream for 2 seconds after a garbage collection. The silent reproduction then ran the title music and 30 seconds of the story cleanly.
-     - **Second try, a fresh build:** no crash (the dev, 2026-10-21: "That's a lot better. It no longer crashes.").
+     - **Second try, a fresh build:** no crash (the dev, 2026-10-21: "That's a lot better. It no longer crashes."). **Passed:** the title music, the story and a choice, from the single exe (the dev: "step 2 past. From the compiled embedded build."). Section 3's mandatory tests are done.
   3. Optional: the folder build with `--test`, choice 2.
   4. Optional: move `story.dat` away from a build and start it: the game says the recordings were not found.
 
