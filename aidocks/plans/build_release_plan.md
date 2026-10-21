@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Waiting for the go-ahead to build.
+**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is built and waiting for the dev's first build with `--test`.
 
 Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
 
@@ -24,6 +24,17 @@ The story engine, the menus and the saves, finished 2026-10-20 and 21 ([[story_e
 - **The game opens on its opening,** the police radio, and with `--exit-after` closes on its own; the log's "game data:" line and "progress: no story is under way" show a build found its data and its save on a fresh throwaway save.
 - **Everything the game writes** is in the save folder: `config\settings.json`, `config\keys.json`, `saves\progress.json` and `logs\`, each under `HEATHCOTE_USER_DIR` when set, so `--test` never touches the dev's own save.
 - **The by-ear tools in `tests/interact/`** are for the repository, never the build.
+
+## What section 1 built
+
+Built 2026-10-21, adapted from the reference material's compiler without naming it ([[feedback_no_other_games]]):
+- **`compiler.py`** at the root, with the numbered menu and the same command lines: the folder build, `--embed`, `--test`, `--clean`, `--console`, `--onefile`, `--no-game` and `--dry-run`.
+- **What it carries:** `vendor/nvda/nvdaControllerClient64.dll` and `vendor/fmod/fmod.dll` as binaries into the same folders inside the build, which `heathcote/paths.py` finds under `sys._MEIPASS`; Prism with `--collect-all` and its `_native` module; pyfmodex with `--collect-submodules`, since `platform/audio.py` imports it only once the DLL is found; and `game/documents/Audio` and `game/documents/text` whole, 830 files and 159 MB on 2026-10-21, beside the exe or inside it with `--embed`.
+- **The licences,** 18 files in `licenses\`: FMOD's and the NVDA client's from `vendor\`, Prism's and cffi's from their dist-info `licenses\` folders, pyfmodex's from the `LICENSE` at the top of its dist-info, and pygame's LGPL.
+- **A missing `fmod.dll`** stops the build with where to get it.
+- **`--test`** runs the build on a throwaway save with `HEATHCOTE_SILENT`, `HEATHCOTE_NOSOUND` and SDL's dummy drivers for 6 seconds, within 180, and needs the log's "game data:" line, an "FMOD" line, "Heathcote closed", no `crash.txt` and exit code 0.
+- **Checked without building:** `--dry-run --test` lists the command and everything above, with the changelog's `unrelease:` warning. `tests/case/test_compiler.py` has nine tests; 191 in all. Claude never builds; the dev runs the first build.
+- **Found on the way:** the README's counts were stale. The folders hold 206 story recordings and 16 interface sounds, and `tools/story.py` finds every recording the story names.
 
 ## Built in sections
 

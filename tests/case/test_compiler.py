@@ -1,0 +1,96 @@
+"""compiler.py's own rules, without building anything: the changelog, what a build carries,
+the PyInstaller command line, and how --test judges a run."""
+import _quiet  # noqa: F401  (first, before the game)
+
+import os
+import types
+
+import compiler
+
+FLAGS = dict(embed=False, onefile=False, console=False, clean=False)
+
+
+def args(**changed):
+    return types.SimpleNamespace(**dict(FLAGS, **changed))
+
+
+def test_an_empty_unrelease_is_taken_out_of_the_shipped_changelog():
+    text = 'unrelease:\n\n26.10.21-1:\nThe game opens.\n'
+    assert compiler.without_unrelease(text) == '26.10.21-1:\nThe game opens.\n'
+    kept = 'unrelease:\nA new thing.\n\n26.10.21-1:\nThe game opens.\n'
+    assert compiler.without_unrelease(kept) == kept                 # lines under it are kept
+    assert compiler.unreleased_lines(kept) == ['A new thing.']
+
+
+def test_a_sentence_ending_in_a_colon_is_never_a_heading():
+    blocks = compiler.parse_changelog('unrelease:\nThe pause menu has: Resume.\nTab says:\n')
+    assert blocks == [['unrelease:', ['The pause menu has: Resume.', 'Tab says:']]]
+
+
+def test_the_build_carries_every_recording_and_the_story_and_nothing_else_of_game():
+    src = compiler.game_source()
+    assert src is not None
+    names = compiler.game_files(src)
+    assert names and all(n.startswith(os.path.join('documents', 'Audio')) or
+                         n.startswith(os.path.join('documents', 'text')) for n in names)
+    audio = os.path.join(src, 'documents', 'Audio')
+    on_disk = sum(len(files) for _root, _dirs, files in os.walk(audio))
+    assert sum(1 for n in names if n.startswith(os.path.join('documents', 'Audio'))) == on_disk
+    assert compiler.BUNDLE.replace('/', os.sep) in names
+    assert compiler.missing_game_files(src) == []
+
+
+def test_the_command_carries_both_dlls_prism_and_pyfmodex():
+    cmd = compiler.command(args())
+    joined = ' '.join(cmd)
+    assert 'vendor/fmod/fmod.dll' + os.pathsep + 'vendor/fmod' in joined
+    assert 'vendor/nvda/nvdaControllerClient64.dll' + os.pathsep + 'vendor/nvda' in joined
+    assert '--collect-all prism' in joined and '--collect-submodules pyfmodex' in joined
+    assert '--windowed' in cmd and '--onefile' not in cmd and cmd[-1] == 'Heathcote.py'
+    embedded = compiler.command(args(embed=True), embed_game=True)
+    assert '--onefile' in embedded and compiler.GAME_STAGE + os.pathsep + 'game' in embedded
+    assert '--windowed' not in compiler.command(args(console=True))
+
+
+def test_the_licences_include_fmods_and_pyfmodexs():
+    rels = [rel for rel, _src in compiler.license_files()]
+    assert os.path.join('fmod', 'license.txt') in rels
+    assert any(r.startswith('pyfmodex' + os.sep) for r in rels)
+    assert any(r.startswith('prism' + os.sep) for r in rels)
+
+
+def test_a_missing_fmod_dll_says_where_to_get_it():
+    saved = compiler.HERE
+    compiler.HERE = os.path.join(_quiet.FOLDER, 'no repo here')
+    try:
+        found = ' '.join(compiler.problems_now())
+    finally:
+        compiler.HERE = saved
+    assert 'fmod.dll is missing' in found and 'api\\core\\lib\\x64\\fmod.dll' in found
+
+
+def test_a_good_run_passes_and_each_bad_one_says_why():
+    good = '00:00:01 INFO game data: x\n00:00:01 INFO audio FMOD 2.02.35 started\nHeathcote closed\n'
+    assert compiler.judge_test(0, good, '') == []
+    assert any('crash report' in p for p in compiler.judge_test(1, good, 'Traceback'))
+    assert any('no "game data:"' in p for p in compiler.judge_test(0, 'FMOD x\nHeathcote closed', ''))
+    assert any('FMOD started' in p for p in compiler.judge_test(0, 'game data: x\nHeathcote closed', ''))
+    assert any('did not close' in p for p in compiler.judge_test(0, 'game data: x\nFMOD x\n', ''))
+    assert any('still running' in p for p in compiler.judge_test(None, good, ''))
+    assert compiler.judge_test(0, '', '') and 'no log at all' in compiler.judge_test(0, '', '')[0]
+
+
+def test_the_test_runs_quiet_and_off_the_real_save():
+    assert compiler.TEST_QUIET['HEATHCOTE_SILENT'] == '1'
+    assert compiler.TEST_QUIET['HEATHCOTE_NOSOUND'] == '1'
+    assert compiler.TEST_QUIET['SDL_VIDEODRIVER'] == 'dummy'
+
+
+def test_every_menu_choice_is_a_command_line_the_parser_takes():
+    for _text, flags in compiler.MENU:
+        assert set(flags) <= {'--test', '--embed', '--clean', '--console', '--onefile',
+                              '--no-game', '--dry-run'}
+
+
+if __name__ == '__main__':
+    _quiet.run_tests(globals())

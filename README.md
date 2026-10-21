@@ -209,6 +209,27 @@ none changes your settings or keys.
   - Control+D clears the tool's progress file
   - Control+Q quits
 
+## Building
+
+`compiler.py` builds the game with PyInstaller (`pip install pyinstaller`) into
+`dist\Heathcote-Windows\`, around `Heathcote.exe`. It only builds: it never zips and never
+changes the repository. First copy `fmod.dll` into `vendor\fmod\`, as for running from
+source; without it the compiler stops and says where to get it.
+
+Run `python compiler.py` with nothing after it, or double-click it, for a numbered menu, or
+give the choice on the command line:
+
+- `python compiler.py`: the folder build, the exe with its files and `game\` beside it
+- `python compiler.py --embed`: a single exe, the game's data inside it
+- `--test` with either: start the finished build silently for a few seconds, on a
+  throwaway save, and check its log found the game data, started FMOD and closed cleanly
+- `--clean`, `--console`, `--onefile`, `--no-game` and `--dry-run`, which says what a
+  build would do and builds nothing
+
+A build carries `game\documents\Audio` and `game\documents\text` and nothing else of
+`game\`, both DLLs, Prism and pyfmodex, the third-party licences in `licenses\`, and
+beside the exe `docks\`, `VERSION` and the port's licence as `license.txt`.
+
 ## Layout
 
 ```
@@ -216,6 +237,7 @@ game/                    the original app bundle, reorganised (see below)
 vendor/nvda/             NVDA's controller client, with its license
 vendor/fmod/             FMOD's licence, and fmod.dll, which you copy in yourself
 Heathcote.py             the entry script
+compiler.py              builds the game with PyInstaller
 heathcote/               the port's Python package
 docks/                   readme.txt, changelog.txt and todo list.txt, for players
 aidocks/general/         the notes for AI-assisted work (see CLAUDE.md)
@@ -237,10 +259,10 @@ it.
 - `game/documents/text/system/Heathcote v1.01.bundle.json` is the story's master index: every
   record's label, and each kind's records.
 - `game/documents/text/story/` holds the story's records, one JSON file each, named by its id.
-- `game/documents/Audio/story/` holds the story's 220 recordings, one folder per kind, each
+- `game/documents/Audio/story/` holds the story's 206 recordings, one folder per kind, each
   under its English name. The original named them by id;
   `aidocks/general/project_audio_names.md` maps each name back.
-- `game/documents/Audio/System/` holds the 14 interface sounds, in `menu/` and `misc/`.
+- `game/documents/Audio/System/` holds the 16 interface sounds, in `menu/` and `misc/`.
 - Every recording is MP3, converted from the original's files.
 - `game/Heathcote` is the original's binary, read by the tools and never shipped.
 
