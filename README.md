@@ -52,7 +52,7 @@ and the built game are still to come. The work is split into seven plans, in
    - the pause menu, with Resume, Restart story, Settings and Return to menu, which leaves
      the story paused for Continue story
    - the end credits over the story's last moments, the original's credit cards as text
-   - `tests\interact\menus_check.py` to hear it all, and 166 silent tests in all
+   - `tests\interact\menu_check.py` to hear it all, and 166 silent tests in all
 6. **Saving:** next. Progress kept across runs, so Continue story survives quitting.
 7. **Building and releasing.**
 
@@ -97,9 +97,10 @@ It opens with the original's police radio, which Enter skips, then, the first ti
 the original's advice to wear headphones, which Enter passes. Then the main menu, spoken
 through your screen reader, with the title music under it:
 
-- **Start story** plays the story from its start. While a story is paused under the menu,
+- **Start story** plays the story from its start. While the save has a story under way,
   it is **Continue story** instead, said with the story's chapter, such as "Continue story:
-  approaching Heathcote.", and carries on exactly there.
+  approaching Heathcote.", and plays the spiel you were in again from its start, with the
+  story's state and background sounds as they were as it began.
 - **Settings** has Back, Debug mode (from source only) and Key bindings.
 - **Credits** reads the original's credits a row each, Back first, with the port's row and
   FMOD's credit line.
@@ -112,8 +113,8 @@ During the story, each key rebindable with F1:
   choice's text. While a spiel is locked out, the menu is refused.
 - **Left and Right** rewind and fast-forward.
 - **Escape** pauses, the backgrounds and the idle loop playing on muffled, with the pause
-  menu: Resume; Restart story, which asks first; Settings; and Return to menu, which leaves
-  the story paused, its sound fading out under the title music.
+  menu: Resume; Restart story, which asks first; Settings; and Return to menu, which ends
+  the story, its progress saved for Continue story.
 - **Tab** says where you are: playing, at the end of a scene, or in the actions menu.
 - Switching to another window pauses, and coming back resumes by itself, unlike the
   original; a pause made with Escape stays.
@@ -187,14 +188,15 @@ none changes your settings or keys.
   - Q to quit
   
   If it stops on an error, it writes `crash.txt` in its logs folder and says so.
-- `python tests\interact\menus_check.py` runs the game itself from its opening, with keys of
+- `python tests\interact\menu_check.py` runs the game itself from its opening, with keys of
   its own, each with Control:
   - Control+N forgets the first-run notice and starts again from the police radio
   - Control+T says whether the title music is playing, and whether the story's sound is
     faded in or out
-  - Control+S says where the story is: playing, paused, paused under the main menu, or
-    over under the end credits
+  - Control+S says where the story is: playing, paused, over under the end credits, or in
+    the save to continue
   - Control+E jumps the story to 7.5 seconds before its end, to hear the end credits
+  - Control+D clears the tool's progress file
   - Control+Q quits
 
 ## Layout

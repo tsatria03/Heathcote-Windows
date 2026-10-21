@@ -70,8 +70,6 @@ class App:
         self.last_char = ''         # the character the key being handled typed, for text entry
         # The spiel --spiel named, in debug mode: Start story begins there.
         self.start_spiel = None
-        # The story screen Return to menu left paused, for the main menu's Continue story.
-        self.paused_story = None
         self.debug = False
         # Whether the title music is playing, so the title volume's keys work: set by
         # start_title_music() and stop_title_music().

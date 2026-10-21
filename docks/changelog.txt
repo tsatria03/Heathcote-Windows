@@ -2,8 +2,8 @@ unrelease:
 The game remembers your story when you quit, and Continue story in the main menu carries on from the start of the part you were in, with its music and ambience as they were.
 When the story ends, the credits open over its last moments, which play on with the ending music, and leaving them returns to the main menu with a fresh story.
 Escape in the main menu quits the game, as Quit does.
-Continue story in the main menu, with the story's chapter, picks a paused story up exactly where it stopped.
-Return to menu in the pause menu leaves the story paused, as the original did, so nothing is lost.
+Continue story in the main menu, with the story's chapter, takes you back to the start of the part you were in.
+Return to menu in the pause menu keeps your progress, so nothing is lost.
 The pause menu has Restart story, which asks first, and Settings.
 The main menu has Credits, with the original's credits read one at a time, which its pictures never let a screen reader do.
 The interface volume no longer turns the recorded choices down; they follow only the master volume.

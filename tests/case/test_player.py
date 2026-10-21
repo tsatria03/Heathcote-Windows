@@ -194,21 +194,22 @@ def test_the_main_menu_starts_the_story_screen_and_return_to_menu_leaves_it():
         assert screen.lines()[0] == 'start' and len(screen.lines()) > 2
         app.key_down('page down', [])                   # the story's background volume
         assert settings.get('backgrounds_volume') == 90
+        app.audio.spiel.seek(5.0)                       # some way into the spiel
         app.key_down('escape', [])                      # pause, then the pause menu
         app.key_down('end', [])
         app.key_down('return', [])                      # Return to menu
         assert isinstance(app.stack.top, MainMenu) and app.title_music
         assert title.playing                            # again, as the menu comes back
-        # The story is kept, paused, its backgrounds fading out under the title music.
-        assert app.paused_story is screen and app.audio.story_paused
-        assert app.audio.spiel.paused and app.audio.story_target == 0.0
-        assert screen.player.current == STORY.start()
+        # The story has ended; its progress is in the save.
+        assert not app.audio.spiel.playing and not app.audio.story_paused
+        assert app.audio.hush_count == 0 and app.audio.story_target == 0.0
         assert app.stack.top.row_text().startswith('Continue story')
         app.key_down('return', [])                      # Continue story
-        assert app.stack.top is screen and app.paused_story is None
-        assert not app.audio.story_paused and not app.audio.spiel.paused
+        story = app.stack.top
+        assert isinstance(story, StoryScreen) and story is not screen
+        assert story.player.current == STORY.start()    # the spiel it was in, from its start
+        assert app.audio.spiel.playing and app.audio.spiel.position < 1.0
         assert title.channel is None and app.audio.story_target == 1.0
-        assert screen.player.current == STORY.start()   # picked up exactly there
     finally:
         app.stack.clear()
         app.audio.close()
@@ -397,7 +398,8 @@ def test_continue_story_says_its_chapter():
     from heathcote.game.menus import MainMenu
     app, screen = story_app('chapter')
     try:
-        screen.state.set_by_label('location', 'cell block C')
+        # As a timed set changes it, through the player, so the save hears of it.
+        screen.player.changed(screen.state.set_by_label('location', 'cell block C'))
         app.key_down('escape', [])
         app.key_down('end', [])
         app.key_down('return', [])                      # Return to menu
@@ -431,7 +433,7 @@ def test_the_end_credits_open_over_the_story_which_plays_on_with_its_ending_musi
         app.key_down('escape', [])                      # leaving the credits
         menu = app.stack.top
         assert isinstance(menu, MainMenu) and app.title_music
-        assert menu.row_text() == 'Start story' and app.paused_story is None
+        assert menu.row_text() == 'Start story'
         assert not screen.state.ended and screen.state.get_by_label('location') == '0'
         assert not app.audio.spiel.playing
     finally:

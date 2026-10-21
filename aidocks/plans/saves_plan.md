@@ -66,18 +66,19 @@ Built 2026-10-20 and 21:
 
 Built 2026-10-21, waiting for the dev's ear tests:
 - **The story screen writes the progress** (`heathcote/game/story_screen.py`): `save_spiel` as each spiel begins (`on_spiel`), with `player.lanes.opening`; `save_heard` at a scene's end (`on_scene_end`); and `save_chapter` when `location` changes (`on_changed`).
-- **Continue story at start:** the main menu's first row is Continue story when a story is paused under it or `app.progress.under_way`, said with the save's chapter. From the save, it restores the snapshot into a new `StoryState` and opens a `StoryScreen` with `start_at` the saved spiel and `lanes` the saved lanes, which `Lanes.restore()` fades in over 0.5 seconds before the spiel plays from its start.
+- **Continue story at start:** the main menu's first row is Continue story when `app.progress.under_way`, said with the save's chapter. From the save, it restores the snapshot into a new `StoryState` and opens a `StoryScreen` with `start_at` the saved spiel and `lanes` the saved lanes, which `Lanes.restore()` fades in over 0.5 seconds before the spiel plays from its start.
 - **Restart story** clears the save and starts again, so the save begins afresh at `start`: quitting after it offers Continue story from the beginning.
 - **The end clears the save** as the end credits open, not when they are left, so quitting during the credits offers Start story next time.
 - **Debug mode:** `--spiel`'s Start story is made with `saving=False`, and F3's jump calls `stop_saving()`, so neither writes; Restart story turns saving back on.
-- **`menus_check.py`** gains Control+D, which clears the tool's progress file.
+- **`menus_check.py`** gains Control+D, which clears the tool's progress file. The dev then renamed it `menu_check.py` (2026-10-21); its save folder stays `interact\menus_check`, so their test progress is kept.
+- **Return to menu now ends the story, and Continue story always comes from the save** (the dev, 2026-10-21, after hearing Continue resume "in the middle of the guys talking" after Return to menu, then asking how their other port did it: "Yes please."). Plan 5 had kept the story paused under the main menu, as the original did, and unpaused it exactly where it stopped; now Return to menu closes the story screen, which stops it, and Continue story builds a new one from the save, at the start of the spiel the player was in, the same whether they left by Return to menu or by quitting. `app.paused_story` and `StoryScreen.continue_story()` are gone. After a debug mode jump, which writes nothing, Continue story comes back from the last progress written before it.
 - **Tests:** five new ones in `test_player.py`, including the next run's Continue story, with the state and the lanes back. Every test app now has its own progress file. 181 in all.
 - **The dev's ear tests,** to come:
   1. Mandatory: quit mid-story, start again, and the main menu says "Continue story:" with the chapter you were in.
   2. Mandatory: Enter carries on from the start of the spiel you were in, with its music and ambience fading in as they were.
   3. Mandatory: after leaving the end credits, or quitting during them, the next start offers Start story.
   4. Mandatory: after Restart story, the next start offers Continue story from the story's beginning.
-  5. Optional: Control+D in `menus_check.py` clears the progress, and the main menu says Start story.
+  5. Optional: Control+D in `menu_check.py` clears the progress, and the main menu says Start story.
   6. Optional: your volumes and the first-run notice are still remembered.
 
 ## Built in sections
@@ -99,7 +100,7 @@ Each section is confirmed by the dev before the next starts.
 - **When progress is written** (the dev, 2026-10-19: "agreed"): as each spiel begins, when its snapshot is taken, and when a spiel is marked heard. Timed sets are not written as they fire, as the original's were, since Continue replays the spiel from its snapshot anyway. Settings are written whenever one changes.
 - **The chapter is saved apart from the snapshot** (agreed at the review, 2026-10-20). Each scene sets `location` 0.1 seconds in, after the snapshot is taken as its spiel begins, so the snapshot holds the chapter before. The save keeps the current chapter as `chapter` too, written whenever `location` changes, and Continue story's row names it: "Continue story: <chapter>.".
 - **Debug mode's jumps never write the save** (agreed at the review). After F3 or `--spiel`, that story writes no progress for the rest of the run, until Restart story or a new Start story, so testing never overwrites real progress.
-- **The by-ear tool** for section 2 is `menus_check.py`, which already keeps its own save, grown with a key to clear the progress file ([[feedback_grow_check_tools]]).
+- **The by-ear tool** for section 2 is `menus_check.py`, renamed by the dev to `menu_check.py`, which already keeps its own save, grown with a key to clear the progress file ([[feedback_grow_check_tools]]).
 - **No import of a save from the original app.**
 - **Tests use a throwaway save folder** and never touch the real one ([[feedback_dont_run_or_build]]).
 

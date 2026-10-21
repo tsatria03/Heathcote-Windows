@@ -23,8 +23,9 @@ Losing the window plays ``lost focus`` and pauses, closing the actions menu if i
 by itself, unlike the original, which stayed paused; a pause made with Escape stays.
 
 The pause menu has Resume, Restart story, Settings and Return to menu
-(aidocks/plans/menus_plan.md, section 3). Return to menu takes the story off the stack
-still paused, kept as ``app.paused_story``, and the main menu's Continue story puts it back.
+(aidocks/plans/menus_plan.md, section 3). Return to menu ends the story screen, and the
+main menu's Continue story builds a new one from the save, at the start of the spiel the
+player was in (aidocks/plans/saves_plan.md).
 When the story ends, the end credits open over it (game/credits.py, section 4), and it
 plays on beneath them until they are left.
 
@@ -79,8 +80,9 @@ class PauseMenu(Menu):
         Resume          first and opened on; Escape does the same
         Restart story   asks first, then plays the story again from its start
         Settings        the same screen as the main menu's
-        Return to menu  leaves the story paused, so Continue story picks it up exactly
-                        there, as the original did; it does not ask, since nothing is lost
+        Return to menu  ends the story, its progress saved, so Continue story picks it up
+                        at the start of the spiel the player was in; it does not ask,
+                        since nothing is lost
     """
 
     name = 'pause menu'
@@ -145,7 +147,6 @@ class StoryScreen(Screen):
         self.started = False
         self.covered_now = False
         self.covered_by_story = False
-        self.kept = False               # taken off the stack, paused, for Continue story
         self.ending = False             # the end credits are up, the story playing on beneath
 
     def volume_group(self):
@@ -181,26 +182,16 @@ class StoryScreen(Screen):
             self.app.audio.spiel.pause()
 
     def closed(self):
-        if not self.kept:
-            self.player.stop()
+        self.player.stop()
 
     # ---- the pause menu's rows ------------------------------------------------------
     def return_to_menu(self):
-        """Back to the main menu, the story left paused under it, its backgrounds muffled and
-        fading out under the title music, so Continue story picks it up exactly here
+        """Back to the main menu, ending the story screen. Its progress was saved as its
+        spiel began, so Continue story plays that spiel again from its start, as after
+        quitting the game (the dev, 2026-10-21: "Yes please."). The original kept the
+        story paused under its title menu and unpaused it exactly there
         (+[StoryView returnToTitle], 0x100025614)."""
-        self.kept = True
-        self.app.paused_story = self
         self.leave()
-
-    def continue_story(self):
-        """Continue story, from the main menu: back on the stack, the title music fading out
-        and the story fading in, and unpaused (+[StoryView go], 0x100025ce8)."""
-        self.kept = False
-        if self.app.paused_story is self:
-            self.app.paused_story = None
-        self.stack.push(self)
-        self.player.resume()
 
     def restart(self):
         """Restart story, said yes to: the variables, the heard spiels and the actions'

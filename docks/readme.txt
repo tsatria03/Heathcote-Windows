@@ -8,7 +8,7 @@ This is a port of it for Windows, played with the keyboard and your screen reade
 What works so far
 
 The port is still being built, but the whole game can now be played, from its opening and main menu, through the story, to its end credits, with the original's voices, music and ambience.
-Your progress is not saved when you quit yet, so each time you start the game, the story starts from the beginning.
+Your progress is saved as you play, so you can quit at any time and carry on later.
 Every recording ships with the game, so nothing needs downloading.
 
 Headphones
@@ -33,7 +33,7 @@ Start story plays the story from its beginning.
 Settings opens the settings.
 Credits reads the original's credits, one at a time, with Back first.
 Quit closes the game, as do Escape and closing the window.
-While a story is paused under the main menu, Start story becomes Continue story, said with the story's chapter, such as "Continue story: approaching Heathcote.", and it carries on exactly where you left it.
+Once a story is under way, Start story becomes Continue story, said with the story's chapter, such as "Continue story: approaching Heathcote.". It takes you back to the start of the part you were in, with its music and ambience as they were, whether you left by Return to menu or by quitting the game.
 
 In every menu, Up and Down move, as do Left and Right, Home and End go to the first and last row, Enter chooses, and Escape goes back.
 Moving past either end of a menu wraps round to the other.
@@ -63,7 +63,7 @@ The pause menu:
 Resume carries the story on, as Escape does.
 Restart story asks first, with No first; Yes plays the story again from its beginning, and your progress in it is lost.
 Settings opens the settings.
-Return to menu goes back to the main menu, leaving the story paused, so nothing is lost; the title music comes back, and Continue story picks the story up again.
+Return to menu goes back to the main menu with the title music; your progress is saved, so nothing is lost, and Continue story picks the story up again from the start of the part you were in.
 
 The end:
 When the story ends, the credits open while its last moments play on, with the ending music.

@@ -127,6 +127,8 @@ Built 2026-10-20, straight after section 2 passed, waiting for the dev's ear tes
 
 **Section 3 is finished,** on the dev's word.
 
+**Changed by plan 6** (2026-10-21, [[saves_plan]]): Return to menu no longer keeps the story paused under the main menu. It ends the story screen, and Continue story always builds the story again from the save, at the start of the spiel the player was in, as it does after quitting. `app.paused_story` and `StoryScreen.continue_story()` are gone, and with them the paused backgrounds fading out under the title music.
+
 ## What section 4 built
 
 Built 2026-10-20, straight after section 3 passed, waiting for the dev's ear tests:
