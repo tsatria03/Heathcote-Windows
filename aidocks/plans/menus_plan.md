@@ -85,7 +85,7 @@ Built 2026-10-20, waiting for the dev's ear tests:
   3. Mandatory: the title music under the main menu, with Page Up and Page Down.
   4. Mandatory: Start story fading the title music out, and Return to menu bringing it back.
   5. Optional: Enter skipping the police radio.
-- **Also during section 1,** at the dev's word: the recorded choices in `speech/` follow only the master volume, no longer the interface volume ([[audio_plan]]). Its ear test, mandatory, is still to come: in the actions menu, Shift+Page Down makes the clicks quieter while the recorded choices stay as loud.
+- **Also during section 1,** at the dev's word: the recorded choices in `speech/` follow only the master volume, no longer the interface volume ([[audio_plan]]). Its ear test, mandatory, passed with section 1's (the dev, 2026-10-20: "I already reported this as past"): in the actions menu, Shift+Page Down makes the clicks quieter while the recorded choices stay as loud.
 
 **Section 1 is finished,** on the dev's word.
 
@@ -103,7 +103,6 @@ Built 2026-10-20, straight after section 1 passed ([[feedback_next_section_on_pa
   2. Mandatory: Credits opening on Back, each credit its own row, and Back or Escape returning.
   3. Mandatory: the title music playing on through Credits, with Page Up and Page Down.
   4. Optional: the title music playing on through Settings.
-  5. Mandatory, still from section 1's volume change: in the actions menu, Shift+Page Down makes the clicks quieter while the recorded choices stay as loud.
 
 ## Built in sections
 

@@ -24,5 +24,6 @@ metadata:
 - Or say plainly "Nothing to test by ear", and why: for example, the section is silent tests, or its parts cannot be heard until a later plan.
 - Name what cannot be heard yet, so the dev doesn't look for it.
 - When the section is finished, repeat the same list, still labelled, as the steps to try, and say if anything changed from what was promised.
+- **Every test goes in the one numbered list,** including one added mid-section by a change the dev asked for. Then "all N passed" plainly covers it. When the dev reports a pass, take it as covering every test listed for that section; never ask again about one listed outside the numbers (the dev, 2026-10-20: "I already reported this as past, unless you mishurd me.", after a volume test listed apart from the five was asked about again).
 - **Hold the dev to the mandatory ones.** If the dev confirms a section or asks to move on without reporting on a mandatory test, remind them which one before going on. Don't remind them about optional ones.
 - This goes with [[feedback_dont_run_or_build]]: the dev runs anything that makes sound or speaks, never Claude.
