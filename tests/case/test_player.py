@@ -176,12 +176,17 @@ def test_the_main_menu_starts_the_story_screen_and_return_to_menu_leaves_it():
     app = App(types.SimpleNamespace(debug=False, exit_after=None), speech=Speech(), settings=settings,
               keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
     app.audio.open()
+    title = app.audio.slot('titleBgm')
     try:
         app.stack.push(MainMenu(app))
-        assert app.title_music
+        assert app.title_music and title.playing and title.path.endswith('Title.mp3')
+        assert app.audio.story_target == 0.0           # the story group fades out under it
         app.key_down('return', [])                      # Start story
         screen = app.stack.top
         assert isinstance(screen, StoryScreen) and not app.title_music
+        # Fading out over 3 seconds, handed to FMOD, while the story group fades in.
+        assert title.channel is None and len(app.audio.fading_out) >= 1
+        assert app.audio.story_target == 1.0
         assert screen.player.current == STORY.start() and app.audio.spiel.playing
         assert screen.lines()[0] == 'start' and len(screen.lines()) > 2
         app.key_down('page down', [])                   # the story's background volume
@@ -191,6 +196,35 @@ def test_the_main_menu_starts_the_story_screen_and_return_to_menu_leaves_it():
         app.key_down('return', [])                      # Return to menu
         assert isinstance(app.stack.top, MainMenu) and app.title_music
         assert not app.audio.spiel.playing
+        assert title.playing                            # again, as the menu comes back
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
+def test_the_opening_plays_the_police_radio_on_sfx_and_enter_stops_it():
+    from heathcote.app import App
+    from heathcote.game.menus import MainMenu
+    from heathcote.game.opening import NoticeScreen, OpeningScreen
+    from heathcote.platform.keymap import KeyMap
+    from heathcote.platform.runloop import RunLoop
+    from heathcote.platform.speech import Speech
+    folder = os.path.join(_quiet.FOLDER, 'opening')
+    settings = Settings(os.path.join(folder, 'settings.json'))
+    app = App(types.SimpleNamespace(debug=False, exit_after=None), speech=Speech(), settings=settings,
+              keymap=KeyMap(os.path.join(folder, 'keys.json')), loop=RunLoop())
+    app.audio.open()
+    sfx = app.audio.slot('sfx')
+    try:
+        app.stack.push(OpeningScreen(app))
+        assert sfx.playing and 'ident' in os.path.basename(sfx.path)
+        assert not app.title_music                      # not until the main menu
+        app.stack.top.update()
+        assert isinstance(app.stack.top, OpeningScreen)  # still playing
+        app.key_down('return', [])
+        assert not sfx.playing and isinstance(app.stack.top, NoticeScreen)
+        app.key_down('return', [])
+        assert isinstance(app.stack.top, MainMenu) and app.audio.slot('titleBgm').playing
     finally:
         app.stack.clear()
         app.audio.close()

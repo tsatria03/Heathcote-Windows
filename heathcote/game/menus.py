@@ -1,8 +1,8 @@
 """The menus around the story.
 
 For now this is the stand-in main menu of aidocks/plans/foundation_plan.md: Start story,
-added for the story engine (aidocks/plans/story_engine_plan.md), Settings and Quit. The
-menus plan
+added for the story engine (aidocks/plans/story_engine_plan.md), Settings and Quit, opened
+after the opening (game/opening.py) with the title music under it. The menus plan
 (aidocks/plans/menus_plan.md) puts the real one here, with Start story or Continue story,
 Settings, Credits and Quit.
 """
@@ -17,9 +17,9 @@ class MainMenu(Menu):
     title = 'Heathcote.'
 
     def opened(self):
-        # The title music plays under the main menu (aidocks/plans/menus_plan.md). Until the
-        # audio plan plays it, this only lets the title volume's keys work here.
-        self.app.title_music = True
+        # The title music plays under the main menu, and starts again whenever the menu
+        # comes back from the story (aidocks/plans/menus_plan.md).
+        self.app.start_title_music()
         super().opened()
 
     def rows(self):

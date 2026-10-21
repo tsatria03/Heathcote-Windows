@@ -231,6 +231,45 @@ def test_a_held_volume_key_stops_when_the_screen_changes():
     assert app.settings.get('title_volume') == 90 and app.held is None
 
 
+def test_the_opening_gives_the_notice_the_first_time_then_never_again():
+    from heathcote.game.opening import NOTICE, NoticeScreen, OpeningScreen
+    app = make()
+    app.stack.push(OpeningScreen(app))
+    assert app.speech.lines == [('Heathcote.', False)]
+    app.stack.top.update()                     # no sound here, so the splash is over at once
+    assert isinstance(app.stack.top, NoticeScreen)
+    assert [t for t, _i in app.speech.lines[1:]] == [NOTICE, 'Press Enter to continue.']
+    assert press(app, 'x') == [NOTICE, 'Press Enter to continue.']
+    assert app.settings.get('first_run_notice_shown') is False
+    assert press(app, 'return') == ['Heathcote.', 'Start story']
+    assert isinstance(app.stack.top, MainMenu) and app.title_music
+    assert app.settings.get('first_run_notice_shown') is True
+    app.stack.reset(OpeningScreen(app))        # the next start
+    app.stack.top.update()
+    assert isinstance(app.stack.top, MainMenu)
+
+
+def test_enter_skips_the_splash_and_other_keys_do_not():
+    from heathcote.game.opening import NoticeScreen, OpeningScreen
+    app = make()
+    app.stack.push(OpeningScreen(app))
+    app.stack.top.playing = True               # as if the police radio were playing
+    app.audio.slot = lambda name: types.SimpleNamespace(playing=True, stop=lambda: None)
+    press(app, 'x')
+    app.stack.top.update()
+    assert isinstance(app.stack.top, OpeningScreen)
+    press(app, 'return')
+    assert isinstance(app.stack.top, NoticeScreen)
+
+
+def test_the_notice_names_the_key_that_continues():
+    from heathcote.game.opening import NoticeScreen
+    app = make()
+    app.keymap.bindings['menu_choose'] = ['space']
+    screen = NoticeScreen(app)
+    assert screen.continue_text() == 'Press Space to continue.'
+
+
 def test_the_window_shows_the_rows_and_the_last_line():
     app = with_main_menu()
     assert app.stack.top.lines() == ['Heathcote.', '', '> Start story', '  Settings', '  Quit']

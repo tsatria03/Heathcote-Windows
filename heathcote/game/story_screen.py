@@ -107,7 +107,7 @@ class StoryScreen(Screen):
 
     # ---- coming and going ------------------------------------------------------
     def opened(self):
-        self.app.title_music = False
+        self.app.stop_title_music()         # fading out over 3 seconds as the story starts
         if not self.started:
             self.started = True
             # Only now: a screen can be made before the main loop starts FMOD, as

@@ -135,12 +135,12 @@ def main(argv=None):
             log.warning('--debug works only when running from source, so it is ignored')
         import pygame
         from heathcote.app import App
-        from heathcote.game.menus import MainMenu
+        from heathcote.game.opening import OpeningScreen
         app = App(options, speech=speech)
         app.start_spiel = spiel_from_options(options, app.debug)
         if app.start_spiel is not None:
             log.info('Start story will begin at "%s"', options.spiel)
-        app.run(MainMenu(app), pygame)
+        app.run(OpeningScreen(app), pygame)
         log.info('Heathcote closed')
         return 0
     except SystemExit as stop:

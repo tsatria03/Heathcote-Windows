@@ -1,4 +1,7 @@
 unrelease:
+The title music plays under the main menu, fades out as the story starts, and comes back with the main menu.
+The first time the game starts, it gives the original's advice to wear headphones, and Enter continues.
+The game opens with the original's police radio, and Enter skips it.
 When the story ends, the game says so and returns to the main menu.
 Switching to another window plays the original's lost focus sound and pauses the story, and coming back carries it on by itself.
 Tab says where you are: playing, at the end of a scene, or in the actions menu.

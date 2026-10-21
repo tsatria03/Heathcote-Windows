@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
+**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Section 1 is being built.
 
 Plan 5 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]], [[audio_plan]] and [[story_engine_plan]]. What the original did comes from [[project_original_behaviour]].
 
@@ -61,6 +61,30 @@ The story engine, finished 2026-10-20 ([[story_engine_plan]]), left these for th
   - `player.stop()` leaves the story.
 - **Restart story** can use `state.reset()` and `player.start()`.
 - **`--spiel`:** `app.start_spiel` holds its spiel, which Start story takes the first time.
+
+## Read from the binary for section 1
+
+Found 2026-10-20, with `tools/dis64.py`:
+- **The splash** (`-[IdentState tick]`, 0x10003e6bc) plays `ident` on the `sfx` channel (`playSystemSound:onChannel:`, the channel made after "sfx" in `+[Sound initEngine]`, 0x10002073c). It moves on when that channel stops playing (`isPlaying`, 0x10003e790), not after a set time.
+- **Skipping it** (`-[IdentState up]`, 0x10003e974) plays `click-good`, stops the `sfx` channel and moves on at once.
+- **Starting the title music** (`-[GameView titleMusicShouldBePlaying]`, 0x100019594) plays it at once, with no fade, looping, and fades the story group out over 2 seconds (`fadeOutStoryChannelGroup`). A flag keeps it from starting twice. Stopping it fades it out over 3 seconds and fades the story group in over 1 second. So after Return to menu, a paused story's muffled backgrounds fade out under the title music, and they fade back in when the story is entered again.
+
+## What section 1 built
+
+Built 2026-10-20, waiting for the dev's ear tests:
+- **`heathcote/game/opening.py`:**
+  - `OpeningScreen` plays `ident` on `sfx` with "Heathcote." spoken, and moves on when it ends, about 11 seconds. Enter skips it with `click-good`; any other key gives `click-bad`.
+  - `NoticeScreen` speaks the notice, then "Press Enter to continue.", naming the first key bound to Menus: choose. Enter sets `first_run_notice_shown`; any other key says it again.
+  - `Heathcote.py` opens on `OpeningScreen`.
+- **`App.start_title_music()` and `stop_title_music()`** in `heathcote/app.py`, with the original's story group fades, and `app.title_music` now true only while the music is meant to play. The stand-in main menu starts it as it opens; the story screen stops it.
+- **`tests/interact/menus_check.py`** runs the game from its opening, with its own save and three keys of its own: Control+N forgets the notice and starts again, Control+T says the title music and the story's level, and Control+Q quits.
+- **Tests:** four new ones, and the main menu's story test now checks the title music too. 158 in all.
+- **The dev's ear tests,** to come:
+  1. Mandatory: the police radio, with "Heathcote." spoken.
+  2. Mandatory: the notice the first time, Enter continuing, and not shown again.
+  3. Mandatory: the title music under the main menu, with Page Up and Page Down.
+  4. Mandatory: Start story fading the title music out, and Return to menu bringing it back.
+  5. Optional: Enter skipping the police radio.
 
 ## Built in sections
 

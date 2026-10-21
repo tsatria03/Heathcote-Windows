@@ -68,8 +68,8 @@ class App:
         # The spiel --spiel named, in debug mode: Start story begins there.
         self.start_spiel = None
         self.debug = False
-        # Whether the title music is playing, so the title volume's keys work. The menus
-        # set it; the audio plan makes it so.
+        # Whether the title music is playing, so the title volume's keys work: set by
+        # start_title_music() and stop_title_music().
         self.title_music = False
         # Debug mode is for source runs only: --debug turns it on for one run, and the
         # Settings row turns it on or off for good.
@@ -117,6 +117,36 @@ class App:
             log.warning('there is no interface sound labelled %s', label)
             return
         self.audio.play_oneshot(path)
+
+    # ---- the title music ----------------------------------------------------
+    def start_title_music(self):
+        """The title music, under the main menu (aidocks/plans/menus_plan.md): at once,
+        looping, at the title volume, while the story group fades out over 2 seconds, as
+        the original's did (-[GameView titleMusicShouldBePlaying], 0x100019594). Never
+        started twice."""
+        if self.title_music:
+            return
+        self.title_music = True
+        if not self.audio.ok:
+            return
+        from .game.storydata import StoryData
+        path = StoryData.shared().sound_path('bgm', 'title')
+        if path is None:
+            log.warning('there is no title music')
+        else:
+            self.audio.slot('titleBgm').play(path)
+        self.audio.fade_story(0.0, 2.0)
+
+    def stop_title_music(self):
+        """Fade the title music out over 3 seconds, and the story group in over 1, as the
+        story is entered (-[GameView titleMusicShouldNotBePlaying], 0x1000196dc)."""
+        if not self.title_music:
+            return
+        self.title_music = False
+        if not self.audio.ok:
+            return
+        self.audio.slot('titleBgm').stop(fade_out=3.0)
+        self.audio.fade_story(1.0, 1.0)
 
     # ---- running --------------------------------------------------------
     def quit(self):
