@@ -30,4 +30,5 @@ metadata:
 - **Progress so far:**
   - plans 1 and 2 finished: about 30 percent (2026-10-19)
   - plan 3 finished: about 50 percent (2026-10-20). Plan 3 came in at its weight: it grew a little, with the hush brought forward and two pyfmodex workarounds, but nothing that changes the scale.
+  - plan 4 finished: about 70 percent (2026-10-20). It came in at its weight, with plan 3's audio doing much of the sound work. The stand-ins it left (the pause menu, the end, Start story) are plan 5's to replace, within that plan's weight.
 - Playtesting the whole story, once it plays, may add work none of the plans counts; say so when it does.
