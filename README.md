@@ -230,6 +230,24 @@ A build carries `game\documents\Audio` and `game\documents\text` and nothing els
 `game\`, both DLLs, Prism and pyfmodex, the third-party licences in `licenses\`, and
 beside the exe `docks\`, `VERSION` and the port's licence as `license.txt`.
 
+`releaser.py` makes a release from this machine, through `git` and the GitHub CLI, `gh`,
+signed in. Run it for a numbered menu: the whole release, or any one step, each asking Y or
+N first:
+
+1. full release, steps 2 to 8 in order
+2. check: everything committed and pushed, `gh` signed in, and 5 to 100 changes under
+   `unrelease:` in the changelog, each ending in a full stop
+3. prepare: `VERSION` becomes today's date and number, such as `26.10.21-1`, and the
+   changelog's `unrelease:` lines are filed under it
+4. build, through `compiler.py`; a failed build puts `VERSION` and the changelog back
+5. zip: `dist\Heathcote-Win-<version>.zip`, which extracts to a `Heathcote-Windows` folder
+6. commit `VERSION` and the changelog as "Release <version>", and push
+7. tag `V<version>`, and push the tag
+8. upload the release "Heathcote V<version>" with the zip, its notes that version's
+   changelog lines
+
+It never moves or deletes a tag or a release, or replaces a file already on one.
+
 ## Layout
 
 ```
@@ -238,6 +256,7 @@ vendor/nvda/             NVDA's controller client, with its license
 vendor/fmod/             FMOD's licence, and fmod.dll, which you copy in yourself
 Heathcote.py             the entry script
 compiler.py              builds the game with PyInstaller
+releaser.py              makes a release on GitHub
 heathcote/               the port's Python package
 docks/                   readme.txt, changelog.txt and todo list.txt, for players
 aidocks/general/         the notes for AI-assisted work (see CLAUDE.md)

@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is finished, and section 2, `releaser.py`, is being built.
+**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is finished, and section 2, `releaser.py`, is built and waiting for the dev's word.
 
 Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
 
@@ -37,6 +37,15 @@ Built 2026-10-21, adapted from the reference material's compiler without naming 
 - **The menu** says itself again on Enter with nothing typed (the dev, 2026-10-21: "Please make it so pressing enter repeats the menu if you do not type a number").
 - **The dev's builds passed `--test`,** both kinds, 2026-10-21: the single exe, menu choice 4 ("The compiler tests past."), 159 MB with `fmod.dll` inside it and none loose beside it, and the folder build, choice 2 ("Option 2 also past as well."). **Section 1 is finished.**
 - **Found on the way:** the README's counts were stale. The folders hold 206 story recordings and 16 interface sounds, and `tools/story.py` finds every recording the story names.
+
+## What section 2 built
+
+Built 2026-10-21, adapted from the reference material's releaser without naming it:
+- **`releaser.py`** at the root, with a numbered menu of the full release and its seven steps, each asking Y or N: check, prepare, build, zip, commit, tag and upload. The reference's separate upload of a recordings pack is left out, since every recording ships in the zip ([[project_no_downloads]]).
+- **The check** adds Heathcote's own changelog rule: every entry under `unrelease:` must end in a full stop, a full stop inside a closing quote counting ([[feedback_changelog]]). With 1 to 4 entries it asks whether to release anyway, only when nothing else is in the way.
+- **The zip** stores the MP3s as they are, since they barely shrink, and compresses the rest; it is written as `.part` and renamed once whole, and holds one `Heathcote-Windows` folder.
+- **Enter with nothing typed** says its menu again, and the build choice's too, as the compiler's does.
+- **Checked without releasing:** `tests/case/test_releaser.py` has nine tests, one of them checking the changelog as it is now. Step 2 alone was run against the real repository on 2026-10-21: it found the GitHub CLI signed in and 34 changes waiting, all with full stops. 201 tests in all. Claude never releases; the dev runs it.
 
 ## Built in sections
 

@@ -20,7 +20,7 @@ A Windows port of **Heathcote** (`com.fabulaeobscurae.heathcote` 1.01, Fabulae O
 
 - **`game/`**: the original app bundle, reorganized by the dev, and never written to by Claude. The layout is in [[project_original_findings]]. The story records are in `game/documents/text/story/`, with the master index `game/documents/text/system/Heathcote v1.01.bundle.json`. The recordings are all MP3, in `game/documents/Audio/story/` in one folder per kind, each under its English name; the story data names them by id, and [[project_audio_names]] maps each name back to its id. Don't move, rename, convert or delete sound files unless the dev asks.
 - **`Heathcote.py`**: the entry script, with the options, the logs and the crash file ([[foundation_plan]]).
-- **`compiler.py`**: builds `dist\Heathcote-Windows` around `Heathcote.exe` with PyInstaller, a folder build or a single exe, with `--test` and `--dry-run`; it never zips or changes the repository. The dev runs it ([[build_release_plan]]).
+- **`compiler.py`**: builds `dist\Heathcote-Windows` around `Heathcote.exe` with PyInstaller, a folder build or a single exe, with `--test` and `--dry-run`; it never zips or changes the repository. **`releaser.py`** checks, versions, files the changelog, builds through the compiler, zips, commits, tags and uploads a release with `gh`, asking Y or N before each step. The dev runs both ([[build_release_plan]]).
 - **`heathcote/`**: the port's Python package.
   - `paths.py`: the game data, the vendored DLLs, `VERSION` and the save folder.
   - `app.py`: the main loop, with F1, the volume keys and debug mode.
