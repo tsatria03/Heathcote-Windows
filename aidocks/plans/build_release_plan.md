@@ -47,6 +47,31 @@ Built 2026-10-21, adapted from the reference material's releaser without naming 
 - **Enter with nothing typed** says its menu again, and the build choice's too, as the compiler's does.
 - **Checked without releasing:** `tests/case/test_releaser.py` has nine tests, one of them checking the changelog as it is now. Step 2 alone was run against the real repository on 2026-10-21: it found the GitHub CLI signed in and 34 changes waiting, all with full stops. 201 tests in all. Claude never releases; the dev runs it.
 
+## Proposed: section 3, the story pack
+
+Asked for by the dev, 2026-10-21: "Can you please bring the pack encription feature from the other port into this game? ... I wanted the sounds found in the audio/story folder to be packed into story.dat. The entire story folder. Everything else can be embedded as normal. The story.dat file will be located outside the game folder when compiled. I chose this option because I did not want the exe file to be too big if embedded." Adapted from the reference material's pack, never naming it ([[feedback_no_other_games]]).
+
+- **`heathcote/game/pack.py`:** the format and its reader and writer.
+  - The file is a magic `HEATHPK1`, the index's length, the index, then each recording.
+  - Everything is encrypted with AES-256-GCM, through the `cryptography` package: the index, and each recording on its own, with a fresh nonce each and its own name as associated data, so one part cannot pass for another.
+  - The index maps each recording's path inside `game/documents/Audio/story/`, such as `scene/start.mp3`, to its place.
+  - No compression, since MP3s barely shrink.
+  - The key ships inside the game, so this keeps out casual copying, not a determined person, as the reference's notes say too.
+- **Every file of `game/documents/Audio/story/` goes in,** 206 recordings, about 150 MB. The interface sounds in `Audio/System/` and the story's text stay as they are, embedded as normal.
+- **Playing from it:** the game reads one recording at a time, decrypts it in memory, and hands the bytes to FMOD with `OPENMEMORY`, which copies them. Nothing decrypted is ever written to disk. `StoryData` names a packed recording by its path in the pack, so the lanes, the spiel and the rewind work as now.
+- **Where the game looks:**
+  - From source, the loose `Audio/story/` folder wins.
+  - Without it, `dist\story.dat` from source, or `story.dat` beside `Heathcote.exe` in a build.
+  - A build with no `story.dat`, or a damaged one, stops with a spoken message and `crash.txt`, saying what is missing.
+- **`compiler.py` makes the pack** as part of each build, into the build's folder beside the exe, and checks every recording reads back. It leaves `Audio/story/` out of the build's `game\`. The repository is never changed. The fingerprint, the pack's size and SHA-256, goes inside the build, so a `story.dat` from another build is caught at once.
+- **`tools/build_pack.py`** makes `dist\story.dat` on its own, for a source run without the loose folder.
+- **`--test`** also needs the log to say the story's recordings came from `story.dat`.
+- **The release zip** carries `story.dat` beside the exe, stored, not compressed, so nothing is downloaded ([[project_no_downloads]]).
+- **`requirements.txt`** gains `cryptography`; its licence goes into `licenses\`, and the compiler names its cipher module outright.
+- **Tests** for the format, damaged and foreign packs, reading from memory, the fallback order, the compiler leaving the folder out, and the zip.
+- **Nothing to test by ear beyond a build:** the dev builds with `--test` and plays a little of the built game, the story sounding as it does from source.
+- **Open question:** where exactly `story.dat` sits in a build. The proposal is beside `Heathcote.exe`, inside the release zip.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.
