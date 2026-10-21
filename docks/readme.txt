@@ -7,9 +7,8 @@ This is a port of it for Windows, played with the keyboard and your screen reade
 
 What works so far
 
-The port is still being built, but the whole story can now be played from start to end, with the original's voices, music and ambience.
-The original's own menus, its opening and its end credits come in a later version.
-Your progress is not saved yet, so each time you start the story, it starts from the beginning.
+The port is still being built, but the whole game can now be played, from its opening and main menu, through the story, to its end credits, with the original's voices, music and ambience.
+Your progress is not saved when you quit yet, so each time you start the game, the story starts from the beginning.
 Every recording ships with the game, so nothing needs downloading.
 
 Headphones
@@ -27,9 +26,14 @@ The window also shows what is said, for anyone helping you who can see the scree
 
 Starting the game
 
-For now the game opens on a small main menu, with Start story, Settings and Quit.
+The game opens as the original did, with its police radio and the word Heathcote; Enter skips it.
+The first time you start the game, it gives the original's advice: wear headphones, and try playing with your eyes closed. Enter continues, and the advice is not given again.
+Then the main menu opens, with the original's title music playing under it:
 Start story plays the story from its beginning.
-Quit closes the game, as does closing its window.
+Settings opens the settings.
+Credits reads the original's credits, one at a time, with Back first.
+Quit closes the game, as do Escape and closing the window.
+While a story is paused under the main menu, Start story becomes Continue story, said with the story's chapter, such as "Continue story: approaching Heathcote.", and it carries on exactly where you left it.
 
 In every menu, Up and Down move, as do Left and Right, Home and End go to the first and last row, Enter chooses, and Escape goes back.
 Moving past either end of a menu wraps round to the other.
@@ -51,14 +55,23 @@ A part you have heard to its end before can always be interrupted.
 
 While the story plays:
 Left rewinds a few seconds, and Right fast-forwards for a moment, with the voices kept at their normal pitch.
-Escape pauses: the voice stops, the background sounds play on muffled, and a small menu offers Resume and Return to menu.
+Escape pauses: the voice stops, the background sounds play on muffled, and the pause menu opens.
 Tab says where you are: whether the story is playing, waiting at the end of a scene, or in the actions menu.
 Switching to another window pauses the story, and coming back to the game carries it on by itself; a pause you made with Escape stays until you resume.
-When the story ends, the game says so and returns to the main menu.
+
+The pause menu:
+Resume carries the story on, as Escape does.
+Restart story asks first, with No first; Yes plays the story again from its beginning, and your progress in it is lost.
+Settings opens the settings.
+Return to menu goes back to the main menu, leaving the story paused, so nothing is lost; the title music comes back, and Continue story picks the story up again.
+
+The end:
+When the story ends, the credits open while its last moments play on, with the ending music.
+Back or Escape leaves them, and the main menu offers a fresh story.
 
 Settings
 
-Settings has Back and Key bindings.
+Settings has Back and Key bindings, from the main menu or the pause menu.
 Your settings are saved as you change them.
 
 Volumes
@@ -67,12 +80,12 @@ The game has four volumes.
 Each press of a volume key moves a volume by 10 percent and says where it is now, and holding the key keeps moving it.
 Shift with Home and Shift with End turn the master volume up and down, from anywhere in the game.
 The master volume sets how loud everything is together.
-Page Up and Page Down turn the title volume up and down, wherever the title music plays, such as the main menu.
-During the story, Page Up and Page Down turn the background volume up and down instead: the music, the ambience and the sounds that loop while you choose.
+Page Up and Page Down turn the title volume up and down, wherever the title music plays: the main menu, and Settings and Credits opened from it.
+During the story, and in the end credits, Page Up and Page Down turn the background volume up and down instead: the music, the ambience and the sounds that loop while you choose.
 During the story, Shift with Page Up and Shift with Page Down turn the interface volume up and down: the game's own sounds. The recorded choices follow only the master volume, as the story's voices do.
 The game remembers every volume.
 Every step sounds like the same change, and 0 percent is silent.
-The main menu has no title music yet, so the title volume only says its level for now.
+In the pause menu, only the master volume works.
 
 Key bindings
 
@@ -99,6 +112,7 @@ If an error stops the game, it says so aloud and writes what happened to crash.t
 Credits
 
 Heathcote is Fabulae Obscurae's game, and its writers, voice actors, composer and team made everything you hear.
+The original showed its credits as pictures; the game's Credits, in the main menu, read them aloud one at a time.
 Story: Christian Francis and Ben Meares.
 David Scott, Fausto Kaufer and Joe Banks: Hunter Davis.
 Martin Fellows: Robert Dunne.

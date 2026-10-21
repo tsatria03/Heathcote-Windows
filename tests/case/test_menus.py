@@ -1,5 +1,6 @@
-"""The main loop's keys (heathcote/app.py), the spoken menu, the F1 screen, the stand-in
-Settings and main menu, and where each volume key works, driven by key name."""
+"""The main loop's keys (heathcote/app.py), the spoken menu, the F1 screen, Settings, the
+main menu, the opening and the credits, and where each volume key works, driven by key
+name."""
 import _quiet  # noqa: F401  (first, before the game)
 
 import os

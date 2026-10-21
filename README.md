@@ -13,9 +13,10 @@ story told through sound. Headphones are strongly recommended."
 
 ## Status
 
-**The port is being built. The whole story can now be played from start to end,** by the
-original's rules, from a stand-in main menu. The real menus, saving and the built game are
-still to come. The work is split into seven plans, in `aidocks/plans/`:
+**The port is being built. The whole game can now be played,** from its opening and main
+menu, through the story by the original's rules, to its end credits. Saving across runs
+and the built game are still to come. The work is split into seven plans, in
+`aidocks/plans/`:
 
 1. **Reading the original: finished.** Tools that read the original's binary and story
    data, a readable script of the whole story, and a note of how the original behaves,
@@ -25,7 +26,7 @@ still to come. The work is split into seven plans, in `aidocks/plans/`:
    - speech through your screen reader, and a timer loop that can pause
    - the settings and key bindings, every key rebindable with F1
    - the four volumes
-   - the spoken menus, opening for now on a stand-in main menu with Settings and Quit
+   - the spoken menus, with a stand-in main menu until plan 5's
    - 65 silent tests
 3. **The audio: finished.** Every sound plays through FMOD, the engine the original used:
    - the original's channels, and four volumes in even steps of 6 decibels
@@ -41,12 +42,18 @@ still to come. The work is split into seven plans, in `aidocks/plans/`:
      heard, and timed sets firing again after a rewind, as in the original
    - lockout, and the actions menu with each choice's recording, Space speaking its text
    - the keys during play: rewind, fast-forward, the original's pause, Tab, and pausing
-     when the window loses the keyboard, with a stand-in pause menu
+     when the window loses the keyboard, with a stand-in pause menu until plan 5's
    - debug mode's F2 to F4, and `--spiel`
    - `tests\interact\story_check.py` to play it by ear, and 154 silent tests in all
-5. **The menus:** next. The opening, the main menu, Settings, the pause menu, the end and
-   the credits, with the title music.
-6. **Saving:** progress, Continue story and Restart story.
+5. **The menus: finished.** The screens around the story:
+   - the opening, with the original's police radio, and the first-run notice
+   - the main menu, with Start story or Continue story, Settings, Credits and Quit, and the
+     title music under it, played and faded as the original did
+   - the pause menu, with Resume, Restart story, Settings and Return to menu, which leaves
+     the story paused for Continue story
+   - the end credits over the story's last moments, the original's credit cards as text
+   - `tests\interact\menus_check.py` to hear it all, and 166 silent tests in all
+6. **Saving:** next. Progress kept across runs, so Continue story survives quitting.
 7. **Building and releasing.**
 
 What was found in the original:
@@ -86,11 +93,17 @@ From the repository's folder:
 
     python Heathcote.py
 
-For now it opens on a stand-in main menu, spoken through your screen reader:
+It opens with the original's police radio, which Enter skips, then, the first time only,
+the original's advice to wear headphones, which Enter passes. Then the main menu, spoken
+through your screen reader, with the title music under it:
 
-- **Start story** plays the story from its start, each time, until saving arrives.
+- **Start story** plays the story from its start. While a story is paused under the menu,
+  it is **Continue story** instead, said with the story's chapter, such as "Continue story:
+  approaching Heathcote.", and carries on exactly there.
 - **Settings** has Back, Debug mode (from source only) and Key bindings.
-- **Quit** closes the game.
+- **Credits** reads the original's credits a row each, Back first, with the port's row and
+  FMOD's credit line.
+- **Quit**, or Escape, closes the game.
 
 During the story, each key rebindable with F1:
 
@@ -98,16 +111,18 @@ During the story, each key rebindable with F1:
   choices, each playing its recording; Enter accepts, Escape closes, and Space speaks the
   choice's text. While a spiel is locked out, the menu is refused.
 - **Left and Right** rewind and fast-forward.
-- **Escape** pauses, the backgrounds and the idle loop playing on muffled, with a stand-in
-  pause menu: Resume, or Return to menu.
+- **Escape** pauses, the backgrounds and the idle loop playing on muffled, with the pause
+  menu: Resume; Restart story, which asks first; Settings; and Return to menu, which leaves
+  the story paused, its sound fading out under the title music.
 - **Tab** says where you are: playing, at the end of a scene, or in the actions menu.
 - Switching to another window pauses, and coming back resumes by itself, unlike the
   original; a pause made with Escape stays.
 - In debug mode, **F2** skips to the end of the spiel, **F3** jumps to any spiel by part
   of its label, and **F4** says the variables that are not 0.
 
-When the story ends, the game says so and returns to the main menu, until the menus plan
-brings the end credits.
+When the story ends, the end credits open while its last moments play on, with the ending
+music. Back or Escape leaves them, resetting the story, and the main menu offers Start
+story again.
 
 Every menu moves with all four arrows, wrapping round at either end, with Home and End
 for the first and last row, Enter to choose, and Escape to go back. Back is the first row
@@ -118,8 +133,9 @@ same, with 0 silent, and each level spoken:
 
 - Shift with Home and End: the master volume, from anywhere.
 - Page Up and Page Down: the title volume wherever the title music plays, and the
-  background volume during the story.
-- Shift with Page Up and Page Down: the interface volume, during the story.
+  background volume during the story and its end credits.
+- Shift with Page Up and Page Down: the interface volume, during the story: the game's own
+  sounds. The recorded choices follow only the master, as the story's voices do.
 
 Everything the game keeps is in `%APPDATA%\Heathcote`:
 
@@ -133,7 +149,7 @@ The options:
 - `--debug`: debug mode for this run. From source, the Settings screen's Debug mode row
   turns it on for good, and the window's title says "Heathcote (debug)". It gives F2 to
   F4 during the story.
-- `--spiel LABEL`: in debug mode, Start story begins at any spiel by its label, such as
+- `--spiel LABEL`: in debug mode, the first Start story begins at any spiel by its label, such as
   `--spiel cells`. The labels are the "Spiel:" headings of
   `analysis/script/Heathcote.txt`.
 - `-v`: a more detailed log.
@@ -171,6 +187,15 @@ none changes your settings or keys.
   - Q to quit
   
   If it stops on an error, it writes `crash.txt` in its logs folder and says so.
+- `python tests\interact\menus_check.py` runs the game itself from its opening, with keys of
+  its own, each with Control:
+  - Control+N forgets the first-run notice and starts again from the police radio
+  - Control+T says whether the title music is playing, and whether the story's sound is
+    faded in or out
+  - Control+S says where the story is: playing, paused, paused under the main menu, or
+    over under the end credits
+  - Control+E jumps the story to 7.5 seconds before its end, to hear the end credits
+  - Control+Q quits
 
 ## Layout
 

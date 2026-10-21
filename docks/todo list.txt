@@ -1,12 +1,12 @@
 ##Unfinished.
 
-Add a way to save your progress, with Continue story and Restart story.
-Add the end of the story, with the original's credits.
-Add the opening, the first-run notice and the main menu with Start story, Settings, Credits and Quit, with the title music under it.
-Add the original's pause menu, with Resume, Restart story, Settings and Return to menu.
+Add a way to save your progress when you quit, so Continue story carries on from where you left off.
 
 ##Finished.
 
+The game opens with the original's police radio and first-run advice, then the main menu with Start story or Continue story, Settings, Credits and Quit, with the title music under it.
+The pause menu has Resume, Restart story, Settings and Return to menu.
+The story ends with the original's credits, read one at a time.
 The original's sounds play: the story's voices, its music and ambiences, and its own interface sounds.
 The story can be played from start to end, with its actions menu, rewind, fast-forward and pause, and the recorded choices.
 Every volume can be turned up and down with its keys, and the game remembers it.

@@ -1,5 +1,5 @@
 """The keys during play (heathcote/game/player.py, story_screen.py): rewind, fast-forward,
-pause with the stand-in pause menu, Tab, and losing the window, on FMOD's no-sound output."""
+pause with the pause menu, Tab, and losing the window, on FMOD's no-sound output."""
 import _quiet  # noqa: F401  (first, before the game)
 
 import os
