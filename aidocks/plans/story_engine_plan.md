@@ -6,11 +6,11 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"); section 2 is built and waits for the dev's word.
+**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is next.
 
 ## Progress
 
-- **Section 2, built 2026-10-20, waiting for the dev's word:**
+- **Section 2, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 3 hering tests past."): a chain playing by itself, backgrounds in context, and a scene's end.
   - **`heathcote/game/player.py`, `StoryPlayer(audio, story, state, play_sound)`,** the one place the story's rules are played. The game's story screen and `story_check.py` both drive it.
     - **Starting:** `start()` plays `start`, and `play(soft)` plays any spiel.
     - **Each frame, `update()`:**
