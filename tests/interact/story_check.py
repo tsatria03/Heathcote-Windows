@@ -164,6 +164,17 @@ def main():
             print(stop.code)
             pygame.time.wait(4000)
         raise
+    except Exception:
+        # Never close without a word: the error goes to the tool's crash.txt and is spoken,
+        # as the game does.
+        import traceback
+        text = traceback.format_exc()
+        logging.getLogger('heathcote').error('the story check stopped because of an error:\n%s', text)
+        path = Heathcote.write_crash(text)
+        print(text)
+        app.speech.speak('The story check stopped because of an error. The details are in %s.' % path)
+        pygame.time.wait(6000)
+        raise
 
 
 if __name__ == '__main__':

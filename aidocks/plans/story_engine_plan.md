@@ -31,6 +31,10 @@ metadata:
     - Escape and the pause menu, the keys and Tab through the screen, and losing the window
     
     The main menu test now leaves the story through the pause menu. The suite passes, 144 tests.
+  - **A bug the dev found:** `story_check.py` quit as it opened ("it quits as soon as I open it").
+    - **The cause:** `StoryScreen` set the rewind sound on `audio.spiel` as the screen was made, but the tool makes its screen before `App.run()` starts FMOD, when `audio.spiel` is still None. The game itself makes the screen only after FMOD has started, so it never met it.
+    - **The fix:** the rewind sound is set when the screen opens. A test makes a screen before FMOD starts, and the tool now writes `crash.txt` and speaks on any error.
+    - **Checked:** the tool, started silently through its own entry point, played `start` with its ambience. The suite passes, 145 tests.
   - **To test by ear:**
     - **Mandatory:**
       - Left and Right in the story

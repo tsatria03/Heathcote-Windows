@@ -77,7 +77,6 @@ class StoryScreen(Screen):
         self.state = state or StoryState(self.story)
         self.player = StoryPlayer(app.audio, self.story, self.state, app.play_sound,
                                   after=app.loop.after)
-        self.player.audio.spiel.rewind_sound = self.story.sound_path('systemSounds', 'rewind')
         self.player.on_story_end = self.story_ended
         self.started = False
         self.covered_now = False
@@ -91,6 +90,9 @@ class StoryScreen(Screen):
         self.app.title_music = False
         if not self.started:
             self.started = True
+            # Only now: a screen can be made before the main loop starts FMOD, as
+            # story_check.py makes its own.
+            self.app.audio.spiel.rewind_sound = self.story.sound_path('systemSounds', 'rewind')
             self.player.start()
         elif self.covered_now:
             self.covered_now = False

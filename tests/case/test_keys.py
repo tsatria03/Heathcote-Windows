@@ -159,6 +159,23 @@ def make_app():
     return app
 
 
+def test_a_story_screen_can_be_made_before_fmod_starts():
+    """As story_check.py makes its screen before the main loop starts FMOD; this once
+    stopped the tool as it opened."""
+    from heathcote.game.story_screen import StoryScreen
+    app = make_app()
+    app.audio.close()                                   # as before App.run() opens it
+    try:
+        story = StoryScreen(app)
+        app.audio.open()
+        app.stack.push(story)
+        assert app.audio.spiel.rewind_sound.endswith('rewind-try2.mp3')
+        assert app.audio.spiel.playing
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
 def test_escape_pauses_with_the_pause_menu_and_resume_plays_on():
     from heathcote.game.story_screen import PauseMenu, StoryScreen
     app = make_app()
