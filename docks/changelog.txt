@@ -1,4 +1,18 @@
 unrelease:
+When the story ends, the game says so and returns to the main menu.
+Switching to another window plays the original's lost focus sound and pauses the story.
+Tab says where you are: playing, at the end of a scene, or in the actions menu.
+Escape pauses the story as the original did, the background sounds playing on muffled, with a pause menu offering Resume and Return to menu.
+Left rewinds and Right fast-forwards, as in the original, with the voices kept at their normal pitch.
+While a part of the story must be heard first, opening the actions menu is refused with the original's sounds.
+Space in the actions menu speaks the choice's words through your screen reader.
+The actions menu plays each choice in the original's recorded voice, and plays it again after 7 seconds without a move.
+Up or Enter opens the actions menu, to choose what happens next.
+After a scene ends, a reminder sound plays every 7 seconds until you choose.
+The story plays by itself from part to part, with the original's music and ambience changing as it goes.
+Start story in the main menu plays the whole story, from its beginning to any of its endings.
+Every volume step now sounds like the same change, and 0 percent is silent.
+The game plays its sound through FMOD, the sound engine the original used.
 Shift with Home and Shift with End turn the master volume up and down from anywhere in the game.
 Page Up and Page Down turn the title volume up and down wherever the title music plays.
 Each volume key moves its volume by 10 percent, says the new level, and keeps moving while held.

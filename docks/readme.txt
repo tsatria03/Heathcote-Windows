@@ -7,9 +7,9 @@ This is a port of it for Windows, played with the keyboard and your screen reade
 
 What works so far
 
-The port is still being built, and the story cannot be played yet.
-This version has the game's window, its speech through your screen reader, its menus, the key bindings and the volumes.
-The original's sounds, its story and its own menus come in later versions.
+The port is still being built, but the whole story can now be played from start to end, with the original's voices, music and ambience.
+The original's own menus, its opening and its end credits come in a later version.
+Your progress is not saved yet, so each time you start the story, it starts from the beginning.
 Every recording ships with the game, so nothing needs downloading.
 
 Headphones
@@ -27,13 +27,34 @@ The window also shows what is said, for anyone helping you who can see the scree
 
 Starting the game
 
-For now the game opens on a small main menu, with Settings and Quit.
+For now the game opens on a small main menu, with Start story, Settings and Quit.
+Start story plays the story from its beginning.
 Quit closes the game, as does closing its window.
 
 In every menu, Up and Down move, as do Left and Right, Home and End go to the first and last row, Enter chooses, and Escape goes back.
 Moving past either end of a menu wraps round to the other.
 Back is always the first row of a menu that has one, and the menu opens on it.
 Rows are read without their place in the menu.
+
+Playing the story
+
+The story plays by itself, one part after another.
+When a part ends and the story waits for you, you hear a short sound, and the same reminder every 7 seconds until you choose.
+Up or Enter opens the actions menu, where you choose what the presenter does next.
+In the actions menu, Up and Down move through the choices, as do Left and Right, and Home and End go to the first and last.
+Each choice is played in the original's own recorded voice, and the choice plays again after 7 seconds if you have not moved.
+Space speaks the choice's words through your screen reader.
+Enter chooses, and the story carries on with your choice.
+Escape closes the menu without choosing, and the story carries on where it was.
+Some parts of the story must be heard before you can choose; while one plays, opening the menu is refused with a sound, until the story lets you.
+A part you have heard to its end before can always be interrupted.
+
+While the story plays:
+Left rewinds a few seconds, and Right fast-forwards for a moment, with the voices kept at their normal pitch.
+Escape pauses: the voice stops, the background sounds play on muffled, and a small menu offers Resume and Return to menu.
+Tab says where you are: whether the story is playing, waiting at the end of a scene, or in the actions menu.
+Switching to another window pauses the story, and you come back to the pause menu.
+When the story ends, the game says so and returns to the main menu.
 
 Settings
 
@@ -50,7 +71,8 @@ Page Up and Page Down turn the title volume up and down, wherever the title musi
 During the story, Page Up and Page Down turn the background volume up and down instead: the music, the ambience and the sounds that loop while you choose.
 During the story, Shift with Page Up and Shift with Page Down turn the interface volume up and down: the game's own sounds and its recorded choices.
 The game remembers every volume.
-This version plays no sound yet, so the volumes only say their levels for now.
+Every step sounds like the same change, and 0 percent is silent.
+The main menu has no title music yet, so the title volume only says its level for now.
 
 Key bindings
 

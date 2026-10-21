@@ -3,11 +3,12 @@
 Add a way to save your progress, with Continue story and Restart story.
 Add the end of the story, with the original's credits.
 Add the opening, the first-run notice and the main menu with Start story, Settings, Credits and Quit, with the title music under it.
-Add the story, with its actions menu, rewind, fast-forward and pause, and the recorded choices.
-Add the original's sounds: the story's voices, its music and ambiences, and its own interface sounds.
+Add the original's pause menu, with Resume, Restart story, Settings and Return to menu.
 
 ##Finished.
 
+The original's sounds play: the story's voices, its music and ambiences, and its own interface sounds.
+The story can be played from start to end, with its actions menu, rewind, fast-forward and pause, and the recorded choices.
 Every volume can be turned up and down with its keys, and the game remembers it.
 Every key can be rebound with F1.
 The menus are spoken, and move with the arrows, Home and End.
