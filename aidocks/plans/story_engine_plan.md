@@ -6,11 +6,42 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is built and waits for the dev's word.
+**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"); section 2 is built and waits for the dev's word.
 
 ## Progress
 
-- **Section 1, built 2026-10-20, waiting for the dev's word:**
+- **Section 2, built 2026-10-20, waiting for the dev's word:**
+  - **`heathcote/game/player.py`, `StoryPlayer(audio, story, state, play_sound)`,** the one place the story's rules are played. The game's story screen and `story_check.py` both drive it.
+    - **Starting:** `start()` plays `start`, and `play(soft)` plays any spiel.
+    - **Each frame, `update()`:**
+      - applies the timed sets as playback passes them, firing again after a jump back, as the original
+      - moves the lanes on
+      - and, at a spiel's end, plays the first `next` that holds in the same frame, or ends the scene
+    - **The end of a scene:** the idle loop starts, `lockout` is set to "0", the spiel is marked heard, and `menu-available` plays.
+    - **A spiel with no recording,** or one missing on disk, passes straight on.
+    - **The end of the story:** `end` set to anything but "0" ends it, once.
+    - **Hooks:** `on_spiel`, `on_scene_end`, `on_story_end` and `on_changed`.
+  - **`heathcote/game/story_screen.py`, `StoryScreen`:**
+    - It plays the story from `start`, with the story's volume keys.
+    - The window shows the spiel's label and up to 16 lines of its transcript.
+    - Another screen on top, such as F1, pauses the spiel until it is back on top.
+    - Escape leaves for the main menu until section 4's pause.
+    - The end of the story says "The story has ended." and returns to the main menu 2 seconds later, until plan 5.
+  - **The stand-in main menu gains "Start story"** as its first row, so the menu tests now expect it.
+  - **`tests/interact/story_check.py` starts here, with its own save:**
+    - Enter starts the story from its beginning.
+    - Comma and Full stop choose any spiel, saying "leads on" when it has `next` spiels, 10 at a time with Shift, and 3 plays it with the state as it is.
+    - Tab says where the story is, and V turns the spiel labels said as each begins on or off.
+    - It has the story's three volumes.
+    - Choosing a spiel was added because `start` has no `next`: its scene ends by itself after 12 seconds, so a chain can only be heard from a spiel that leads on, such as "check email", 15 of 104, which goes on to "commercial" and "commercial reflection".
+  - **`tests/case/test_player.py`, 9 tests:** reading timed sets, `start` and its set, the lanes following, a scene's end, a chain not marking heard, a silent spiel, sets firing again after a jump back, the end, and the main menu's Start story with Escape. The suite passes, 124 tests. The tool was driven silently.
+  - **To test by ear:**
+    - **Mandatory:**
+      - "check email" chains through "commercial" to "commercial reflection" by itself
+      - the backgrounds change in context
+      - at a scene's end, the idle loop and `menu-available` play
+    - **Optional:** Start story in the game's stand-in main menu plays `start`.
+- **Section 1, confirmed by the dev 2026-10-20 ("Section 1 looks good."):**
   - **`heathcote/game/state.py`, `StoryState(story)`:**
     - **The variables,** by softRef, each starting as "0". `apply()` takes a set and reports what changed. `holds()` matches a condition exactly, as text.
     - **By label:** `ended`, `locked_out` and `set_by_label()` go through the variables' labels.
