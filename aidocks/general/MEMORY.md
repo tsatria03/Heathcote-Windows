@@ -13,7 +13,7 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- None open: all seven are finished.
+- [Settings](../plans/settings_plan.md): plan 8, planned, waiting for the dev's word. A row for each of the four volumes opening a list of levels, and Volume speed for the held volume keys.
 
 ## Completed projects
 - [Build and release](../plans/build_release_plan.md): plan 7, FINISHED 2026-10-21. compiler.py, a folder build or a single exe with a silent --test; releaser.py, the release from this machine with gh; the story's recordings in an encrypted data\story.dat beside the exe (platform/pack.py, AES-256-GCM, played from memory, its bytes kept while FMOD streams them); tools/build_pack.py; 212 silent tests.
