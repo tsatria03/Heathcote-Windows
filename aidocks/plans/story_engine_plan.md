@@ -6,11 +6,11 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is built and waits for the dev's word (the dev: "yes").
+**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is next.
 
 ## Progress
 
-- **Section 3, built 2026-10-20, waiting for the dev's word:**
+- **Section 3, confirmed by the dev 2026-10-20, whose ear tests passed** ("all 4 tests past perfectly!"): the choices' recordings, lockout refusing, accepting, and Space.
   - **`heathcote/game/player.py` gains lockout and the menu:**
     - **`open_menu()`** opens when `lockout` is "0" or the spiel was heard before: `click-good`, the hush, the spiel paused, and `menu-open`. Otherwise it is refused, with `click-bad`, `menu-unavailable` and a 1.5-second grace (`in_grace`).
     - **`close_menu()`** plays `menu-close`, unhushes, and the spiel plays on.
