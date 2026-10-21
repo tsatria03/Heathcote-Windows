@@ -4,7 +4,7 @@
     Start story     first, so one Enter gets into the story
     Settings        the Settings screen
     Credits         the credits (game/credits.py)
-    Quit            its way out, so it has no Back row
+    Quit            its way out, so it has no Back row; Escape quits too
 
 Every menu moves with all four arrows, wrapping, and Home and End. While a story is paused
 under the menu (section 3), the first row is Continue story instead, said with its chapter.
@@ -48,18 +48,20 @@ class MainMenu(Menu):
         self.stack.push(StoryScreen(self.app, start_at=start_at))
 
     def continue_text(self):
-        """Said with its chapter, as the original's CONTINUE was: the story variable
-        ``location``."""
+        """Said with its chapter, the story variable ``location``, as the original's
+        CONTINUE was, in the dev's words (2026-10-20: "Continue story: approaching
+        Heathcote.")."""
         from .state import LOCATION, VARIABLE_DEFAULT
         location = self.app.paused_story.state.get_by_label(LOCATION)
         if location == VARIABLE_DEFAULT:
             return 'Continue story'
-        return 'Continue story, from chapter: %s.' % location
+        return 'Continue story: %s.' % location
 
     def continue_story(self):
         """The paused story, picked up exactly where Return to menu left it."""
         self.app.paused_story.continue_story()
 
     def back(self):
-        """Nothing is under the main menu: Escape says the row again."""
-        self.say(self.row_text())
+        """Escape quits, as the Quit row does (the dev, 2026-10-20: "Pressing escape in the
+        main menu should also quit the game, like the quit option already does.")."""
+        self.app.quit()

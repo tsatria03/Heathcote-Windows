@@ -86,7 +86,12 @@ def test_home_and_end():
 def test_a_key_with_no_use_says_the_row_again():
     app = with_main_menu()
     assert press(app, 'x') == ['Start story']
-    assert press(app, 'escape') == ['Start story']     # nothing under the main menu
+
+
+def test_escape_in_the_main_menu_quits():
+    app = with_main_menu()
+    press(app, 'escape')
+    assert not app.running
 
 
 def test_quit():

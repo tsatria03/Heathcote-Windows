@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Sections 1 and 2 are finished; section 3 is built and waiting for the dev's tests.
+**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Sections 1 to 3 are finished; section 4 is being built.
 
 Plan 5 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]], [[audio_plan]] and [[story_engine_plan]]. What the original did comes from [[project_original_behaviour]].
 
@@ -113,16 +113,19 @@ Built 2026-10-20, straight after section 2 passed, waiting for the dev's ear tes
 - **Restart story** opens `RestartMenu`, "Restart the story? Your progress will be lost.", with No first and opened on, and Escape as No. Yes says "The story starts again.", stops the story, resets its state and plays `start` (`StoryScreen.restart()`).
 - **Settings** from the pause menu is the same screen. The title music is silent there, so only the master volume's keys work, as in the pause menu.
 - **Return to menu** (`StoryScreen.return_to_menu()`) takes the story screen off the stack without stopping it, still paused, and keeps it as `app.paused_story`. The main menu's title music starts, and the story group fades out under it over 2 seconds, so the muffled backgrounds go quiet.
-- **Continue story** takes Start story's place in the main menu while a story is paused: "Continue story, from chapter: <location>.", or "Continue story" before `location` is set. It puts the same screen back (`continue_story()`): the title music fades out, the story fades in, and it unpauses with `pause-unpause`, exactly where it stopped.
+- **Continue story** takes Start story's place in the main menu while a story is paused: "Continue story: <location>.", such as "Continue story: approaching Heathcote.", or "Continue story" before `location` is set. It first said "Continue story, from chapter: <location>."; the dev asked for the shorter form. It puts the same screen back (`continue_story()`): the title music fades out, the story fades in, and it unpauses with `pause-unpause`, exactly where it stopped.
 - **`story_check.py`'s** Return to menu still quits the tool, now through `return_to_menu()`.
 - **`menus_check.py`** gains Control+S, which says whether a story is playing, paused, or paused under the main menu, with its spiel and chapter. Control+N ends a story paused under the menu.
 - **Tests:** three new ones, and the main menu's story test now goes through Continue story. 163 in all.
-- **The dev's ear tests,** to come:
+- **Also at the dev's word, with section 3's report:** Escape in the main menu quits, as its Quit row does.
+- **The dev's ear tests passed,** all five, 2026-10-20 ("Also all 5 tests past."):
   1. Mandatory: Escape in the story opens the pause menu, with Resume, Restart story, Settings and Return to menu; Resume and Escape both play on.
   2. Mandatory: Restart story asks first, No and Escape keep the story, and Yes plays it again from its start.
   3. Mandatory: Return to menu brings the title music back, the story's muffled backgrounds fading away under it.
   4. Mandatory: the main menu then offers Continue story, with its chapter, and it carries on exactly where the story stopped, the title music fading out.
   5. Optional: Settings from the pause menu, and back.
+
+**Section 3 is finished,** on the dev's word.
 
 ## Built in sections
 
@@ -140,10 +143,10 @@ Each section is confirmed by the dev before the next starts.
 - **Restart story asks first,** as the original did, with No as the first row.
 - **The rows are named "Start story", "Continue story" and "Restart story"** (the dev, 2026-10-19: "Also rename continue to continue story. Same for restart."), never "Continue" or "Restart" alone.
 - **The main menu** (the dev, 2026-10-19: "I like that."), with the same navigation as every menu, all four arrows, wrapping, and Home and End, which the dev checked ("This will have the same menu functions right? I mean the arrow/home nav, plus menu wrapping"):
-  1. **Start story,** or once started, **Continue story**, said with its chapter as the original did: "Continue story, from chapter: <location>.", where <location> is the story variable `location`. It is one row whose name changes, so the two are never offered together. It comes first, so one Enter gets back into the story.
+  1. **Start story,** or once started, **Continue story**, said with its chapter as the original did: "Continue story: <location>.", where <location> is the story variable `location` (the dev, 2026-10-20: "it should say something like: Continue story: approaching Heathcote.", replacing "Continue story, from chapter: <location>."). It is one row whose name changes, so the two are never offered together. It comes first, so one Enter gets back into the story.
   2. **Settings.**
   3. **Credits.**
-  4. **Quit,** its way out, so it has no Back row ([[feedback_back_first]]).
+  4. **Quit,** its way out, so it has no Back row ([[feedback_back_first]]). Escape quits too (the dev, 2026-10-20: "Pressing escape in the main menu should also quit the game, like the quit option already does."); it had said the row again.
   - **No Restart story here** (the dev, 2026-10-19: "Also get rid of it from the main menu."). The original's title menu had one, but the port's is in the pause menu instead: Continue story, then Escape, then Restart story.
 
 - **The opening** (the dev, 2026-10-19: "Agreed."):

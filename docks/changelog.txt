@@ -1,4 +1,5 @@
 unrelease:
+Escape in the main menu quits the game, as Quit does.
 Continue story in the main menu, with the story's chapter, picks a paused story up exactly where it stopped.
 Return to menu in the pause menu leaves the story paused, as the original did, so nothing is lost.
 The pause menu has Restart story, which asks first, and Settings.

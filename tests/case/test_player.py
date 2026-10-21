@@ -298,7 +298,7 @@ def test_continue_story_says_its_chapter():
         app.key_down('return', [])                      # Return to menu
         menu = app.stack.top
         assert isinstance(menu, MainMenu)
-        assert menu.row_text() == 'Continue story, from chapter: cell block C.'
+        assert menu.row_text() == 'Continue story: cell block C.'
         assert [r.text for r in menu.rows()][1:] == ['Settings', 'Credits', 'Quit']
     finally:
         app.stack.clear()
