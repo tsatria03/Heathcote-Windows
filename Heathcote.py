@@ -137,6 +137,7 @@ def main(argv=None):
         from heathcote.app import App
         from heathcote.game.opening import OpeningScreen
         app = App(options, speech=speech)
+        app.progress                                # read now, so its state is in the log
         app.start_spiel = spiel_from_options(options, app.debug)
         if app.start_spiel is not None:
             log.info('Start story will begin at "%s"', options.spiel)

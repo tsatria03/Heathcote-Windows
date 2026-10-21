@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). Waiting for the go-ahead to build.
+**Status:** being built, from 2026-10-20, after its review (the dev: "I like your recommendations. Let's start section 1."). Section 1 is built, with nothing to test by ear, and waits for the dev's word.
 
 Plan 6 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]]'s paths and safe JSON files, and keeps what [[story_engine_plan]] and [[menus_plan]] hold in memory. What the original saved comes from [[project_original_behaviour]].
 
@@ -45,6 +45,21 @@ The menus plan, finished 2026-10-20 ([[menus_plan]]), left these for the saves:
 - **The first-run notice** sets `first_run_notice_shown` in `config\settings.json` already, through `Settings`, which writes on every change.
 - **`on_spiel`** is free on the game's story screen (only `story_check.py` sets it), so it can take the snapshot.
 
+## What section 1 built
+
+Built 2026-10-20 and 21:
+- **`heathcote/game/progress.py`:** `Progress`, the file `saves\progress.json`, through the same safe `JsonFile` as the settings. It holds `version` (1), `started`, `spiel`, `chapter`, `lanes` and `state`, in that order.
+  - `begin(spiel, state, lanes)` takes the snapshot as a spiel begins and writes it.
+  - `mark_heard(spiel)` adds a scene's spiel to the snapshot's heard spiels.
+  - `set_chapter(text)` keeps `location` apart, written whenever it changes once a story is under way.
+  - `clear()` leaves no story under way.
+  - `under_way`, `spiel`, `chapter`, `lanes` and `state` read it back.
+- **Reading is forgiving:** another version, a spiel the story does not have, or `started` that is not true leave no story under way. A lane naming an unknown recording starts silent, and counts that are not whole numbers are dropped. A damaged file is set aside as `.damaged`, the backup read and written back.
+- **`app.progress`** reads it when first wanted, and `Heathcote.py` reads it at start, so the log says whether a story is under way. Nothing writes it yet; section 2 does.
+- **The settings file** needed nothing: plan 2 already reads and writes it safely, with the first-run notice in it.
+- **Tests:** `tests/case/test_progress.py`, ten of them; 176 in all.
+- **Nothing to test by ear:** the save is not used until section 2.
+
 ## Built in sections
 
 Each section is confirmed by the dev before the next starts.
@@ -62,6 +77,9 @@ Each section is confirmed by the dev before the next starts.
 - **Restart story and the end reset** the variables, the heard spiels and the actions' counts, and go back to `start`, leaving the settings and the first-run notice alone, as the original did.
 - **Continue story picks up at the start of the spiel the player was in** (the dev, 2026-10-19: "I like the option 2 method."), whether a choice or a next led there, unlike the original, which only ever saved the spiel a choice opened. The save keeps that spiel's softRef and a snapshot taken as it began: the story's variables, the heard spiels, the actions' counts and the four lanes playing. Continue restores the snapshot and plays the spiel from its beginning, so its timed sets apply once, not twice, and its fades line up as they did. Closing the game mid-spiel replays at most that one spiel.
 - **When progress is written** (the dev, 2026-10-19: "agreed"): as each spiel begins, when its snapshot is taken, and when a spiel is marked heard. Timed sets are not written as they fire, as the original's were, since Continue replays the spiel from its snapshot anyway. Settings are written whenever one changes.
+- **The chapter is saved apart from the snapshot** (agreed at the review, 2026-10-20). Each scene sets `location` 0.1 seconds in, after the snapshot is taken as its spiel begins, so the snapshot holds the chapter before. The save keeps the current chapter as `chapter` too, written whenever `location` changes, and Continue story's row names it: "Continue story: <chapter>.".
+- **Debug mode's jumps never write the save** (agreed at the review). After F3 or `--spiel`, that story writes no progress for the rest of the run, until Restart story or a new Start story, so testing never overwrites real progress.
+- **The by-ear tool** for section 2 is `menus_check.py`, which already keeps its own save, grown with a key to clear the progress file ([[feedback_grow_check_tools]]).
 - **No import of a save from the original app.**
 - **Tests use a throwaway save folder** and never touch the real one ([[feedback_dont_run_or_build]]).
 

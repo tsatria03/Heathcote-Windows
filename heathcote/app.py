@@ -52,8 +52,11 @@ VOLUME_ACTIONS = {
 
 
 class App:
-    def __init__(self, options, speech=None, settings=None, keymap=None, loop=None, audio=None):
+    def __init__(self, options, speech=None, settings=None, keymap=None, loop=None, audio=None,
+                 progress=None):
         self.options = options
+        # The story's progress between runs (game/progress.py), read when first wanted.
+        self._progress = progress
         self.speech = speech or Speech.shared()
         self.settings = settings or Settings.shared()
         self.keymap = keymap or KeyMap.shared()
@@ -77,6 +80,14 @@ class App:
         # Settings row turns it on or off for good.
         self.set_debug(bool(getattr(options, 'debug', False) or self.settings.get('debug')),
                        remember=False)
+
+    @property
+    def progress(self):
+        """The story's progress, ``saves/progress.json`` (aidocks/plans/saves_plan.md)."""
+        if self._progress is None:
+            from .game.progress import Progress
+            self._progress = Progress.shared()
+        return self._progress
 
     # ---- debug mode -----------------------------------------------------
     def set_debug(self, on, remember=True):
