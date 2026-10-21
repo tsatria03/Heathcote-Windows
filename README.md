@@ -13,8 +13,9 @@ story told through sound. Headphones are strongly recommended."
 
 ## Status
 
-**The port is being built, and the story cannot be played yet.** The work is split into
-seven plans, in `aidocks/plans/`:
+**The port is being built. The whole story can now be played from start to end,** by the
+original's rules, from a stand-in main menu. The real menus, saving and the built game are
+still to come. The work is split into seven plans, in `aidocks/plans/`:
 
 1. **Reading the original: finished.** Tools that read the original's binary and story
    data, a readable script of the whole story, and a note of how the original behaves,
@@ -34,14 +35,17 @@ seven plans, in `aidocks/plans/`:
      backgrounds play on muffled while the voice stops
    - the four background lanes, crossfading on each spiel's cues and set up again after
      a rewind, the idle loop, and the story's fades
-   - `tests\interact\audio_check.py` to hear all of it, and 101 silent tests in all
-   
-   The game itself is still silent: the story and menus that play these sounds come
-   next.
-4. **The story engine:** next. The original's rules, the actions menu, and the keys
-   during play.
-5. **The menus:** the opening, the main menu, Settings, the pause menu, the end and the
-   credits.
+   - `tests\interact\audio_check.py` to hear all of it
+4. **The story engine: finished.** The story plays by the original's rules:
+   - the variables, timed sets, `next` and the end, with only a scene's last spiel marked
+     heard, and timed sets firing again after a rewind, as in the original
+   - lockout, and the actions menu with each choice's recording, Space speaking its text
+   - the keys during play: rewind, fast-forward, the original's pause, Tab, and pausing
+     when the window loses the keyboard, with a stand-in pause menu
+   - debug mode's F2 to F4, and `--spiel`
+   - `tests\interact\story_check.py` to play it by ear, and 153 silent tests in all
+5. **The menus:** next. The opening, the main menu, Settings, the pause menu, the end and
+   the credits, with the title music.
 6. **Saving:** progress, Continue story and Restart story.
 7. **Building and releasing.**
 
@@ -84,8 +88,25 @@ From the repository's folder:
 
 For now it opens on a stand-in main menu, spoken through your screen reader:
 
+- **Start story** plays the story from its start, each time, until saving arrives.
 - **Settings** has Back, Debug mode (from source only) and Key bindings.
 - **Quit** closes the game.
+
+During the story, each key rebindable with F1:
+
+- **Up or Enter** opens the actions menu: the arrows, Home and End move through the
+  choices, each playing its recording; Enter accepts, Escape closes, and Space speaks the
+  choice's text. While a spiel is locked out, the menu is refused.
+- **Left and Right** rewind and fast-forward.
+- **Escape** pauses, the backgrounds and the idle loop playing on muffled, with a stand-in
+  pause menu: Resume, or Return to menu.
+- **Tab** says where you are: playing, at the end of a scene, or in the actions menu.
+- Switching to another window pauses.
+- In debug mode, **F2** skips to the end of the spiel, **F3** jumps to any spiel by part
+  of its label, and **F4** says the variables that are not 0.
+
+When the story ends, the game says so and returns to the main menu, until the menus plan
+brings the end credits.
 
 Every menu moves with all four arrows, wrapping round at either end, with Home and End
 for the first and last row, Enter to choose, and Escape to go back. Back is the first row
@@ -109,11 +130,11 @@ Everything the game keeps is in `%APPDATA%\Heathcote`:
 The options:
 
 - `--debug`: debug mode for this run. From source, the Settings screen's Debug mode row
-  turns it on for good, and the window's title says "Heathcote (debug)". Its keys, F2 to
-  F4, come with the story engine.
-- `--spiel LABEL`: start the story at any spiel by its label, in debug mode. The labels are
-  the "Spiel:" headings of `analysis/script/Heathcote.txt`. It is checked now, and used once
-  the story engine is built.
+  turns it on for good, and the window's title says "Heathcote (debug)". It gives F2 to
+  F4 during the story.
+- `--spiel LABEL`: in debug mode, Start story begins at any spiel by its label, such as
+  `--spiel cells`. The labels are the "Spiel:" headings of
+  `analysis/script/Heathcote.txt`.
 - `-v`: a more detailed log.
 - `--exit-after SECONDS`: quit by itself.
 
@@ -140,6 +161,15 @@ none changes your settings or keys.
     label, with rewind, fast-forward and the original's pause
   
   It says its keys as it opens, and lists them all at the top of the file.
+- `python tests\interact\story_check.py` plays the story by its rules, on the game's own
+  screens, in debug mode for that run only:
+  - the game's keys, and F2 to F4
+  - R to start again, Comma and Full stop to choose any spiel, and 3 to play it
+  - S for where the story is, V for the spiel labels as they begin, C for each variable
+    as it changes, H for what has been heard, and A for the actions on offer
+  - Q to quit
+  
+  If it stops on an error, it writes `crash.txt` in its logs folder and says so.
 
 ## Layout
 
