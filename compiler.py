@@ -22,12 +22,17 @@ one command line, which still works typed out:
 What a build carries:
 
 * inside the exe, or the folder of Python files beside it: the game's code, pygame, Prism
-  with its native part, pyfmodex, FMOD's fmod.dll and the NVDA client, with the
-  third-party licences as licenses\\;
-* the game's data, beside the exe in game\\, or inside it with --embed: only what the game
-  reads, game\\documents\\Audio, every recording, and game\\documents\\text, the story.
-  Nothing else of the original's app bundle: not its binary, its images or its
-  certificates;
+  with its native part, pyfmodex, cryptography, FMOD's fmod.dll and the NVDA client, with
+  the third-party licences as licenses\\;
+* story.dat beside the exe: every file of game\\documents\\Audio\\story, the story's
+  recordings, packed and encrypted (heathcote/platform/pack.py), made fresh by each build
+  and every recording read back to check it (the dev, 2026-10-21: "I did not want the exe
+  file to be too big if embedded.");
+* the rest of the game's data, beside the exe in game\\, or inside it with --embed: only
+  what the game reads, the interface sounds in game\\documents\\Audio\\System and the story
+  in game\\documents\\text, with story_pack.json, story.dat's size and SHA-256, so the game
+  knows its own pack. Nothing else of the original's app bundle: not its binary, its
+  images or its certificates;
 * beside the exe, always: docks\\ (the readme, the changelog and the todo list), VERSION,
   and the port's licence as license.txt.
 
@@ -36,7 +41,7 @@ vendor\\fmod\\ from the FMOD Engine install before building, or the build stops 
 
 --test starts the finished build for a few seconds with --exit-after, silently, with no
 window or sound device and on a throwaway save, and reads the log it wrote: it must find
-its game data, close by itself and leave no crash.txt.
+its game data, open story.dat, start FMOD, close by itself and leave no crash.txt.
 """
 from __future__ import annotations
 
@@ -60,13 +65,20 @@ EXE = NAME + '.exe'
 FOLDER = NAME + '-Windows'
 
 #: What the game cannot run without: the module, and what pip calls it.
-PLAY_PACKAGES = (('pygame', 'pygame'), ('prism', 'prismatoid'), ('pyfmodex', 'pyfmodex'))
+PLAY_PACKAGES = (('pygame', 'pygame'), ('prism', 'prismatoid'), ('pyfmodex', 'pyfmodex'),
+                 ('cryptography', 'cryptography'))
 #: The vendored DLLs, and the folder each goes to inside the build (heathcote/paths.py).
 BINARIES = (('vendor/nvda/nvdaControllerClient64.dll', 'vendor/nvda'),
             ('vendor/fmod/fmod.dll', 'vendor/fmod'))
 FMOD_DLL = 'vendor/fmod/fmod.dll'
-#: The game's data a build carries, inside game\: the folders the game reads, whole.
+#: The game's data a build carries, inside game\: the folders the game reads, whole, less
+#: the story's recordings, which go into story.dat instead.
 GAME_DATA = ('documents/Audio', 'documents/text')
+#: The folder story.dat packs (heathcote/platform/pack.py), left out of game\.
+PACKED = 'documents/Audio/story'
+PACK = 'story.dat'
+#: The pack's fingerprint, inside the build's game\ (heathcote/paths.py).
+FINGERPRINT = 'story_pack.json'
 #: The file that tells the game its data is there (heathcote/paths.py).
 BUNDLE = 'documents/text/system/Heathcote v1.01.bundle.json'
 
@@ -80,12 +92,14 @@ SIDE_FILES = ((os.path.join(DOCKS, 'readme.txt'), os.path.join(DOCKS, 'readme.tx
               ('VERSION', 'VERSION'),
               ('LICENSE', 'license.txt'))
 #: The packages whose own licences, from their installed copy, go inside the build.
-LICENSED_PACKAGES = (('prismatoid', 'prism'), ('cffi', 'cffi'), ('pyfmodex', 'pyfmodex'))
+LICENSED_PACKAGES = (('prismatoid', 'prism'), ('cffi', 'cffi'), ('pyfmodex', 'pyfmodex'),
+                     ('cryptography', 'cryptography'))
 
 #: Where a build gathers what PyInstaller takes as whole folders.
 STAGE = os.path.join(HERE, 'build', 'stage')
 GAME_STAGE = os.path.join(STAGE, 'game')
 LICENSES_STAGE = os.path.join(STAGE, 'licenses')
+PACK_STAGE = os.path.join(STAGE, PACK)
 
 
 def say(text: str = '') -> None:
@@ -228,28 +242,77 @@ def game_source():
 
 
 def game_files(src: str) -> list:
-    """Every file of the game's data a build carries, as a path inside game\\."""
+    """Every file of the game's data a build carries, as a path inside game\\: all of
+    GAME_DATA but the story's recordings, which go into story.dat."""
+    packed = os.path.join(src, PACKED.replace('/', os.sep))
     found = []
     for folder in GAME_DATA:
         top = os.path.join(src, folder.replace('/', os.sep))
-        for root, _dirs, names in os.walk(top):
+        for root, dirs, names in os.walk(top):
+            dirs[:] = [d for d in dirs if os.path.join(root, d) != packed]
             for name in names:
                 found.append(os.path.relpath(os.path.join(root, name), src))
     return sorted(found)
 
 
+def packed_folder(src: str) -> str:
+    return os.path.join(src, PACKED.replace('/', os.sep))
+
+
 def missing_game_files(src: str) -> list:
     """The game's data a build needs and the repository lacks."""
-    return [folder + '/' for folder in GAME_DATA
+    return [folder + '/' for folder in GAME_DATA + (PACKED,)
             if not os.path.isdir(os.path.join(src, folder.replace('/', os.sep)))]
 
 
 def data_summary(src: str, names: list) -> str:
-    """'1,051 files, 152 MB: 234 recordings and 817 story files'."""
+    """'624 files, 2 MB: 16 interface sounds and 608 story files'."""
     sounds = sum(1 for n in names if n.lower().endswith('.mp3'))
     size = sum(os.path.getsize(os.path.join(src, n)) for n in names)
-    return '{:,} files, {:.0f} MB: {:,} recordings and {:,} story files'.format(
+    return '{:,} files, {:.0f} MB: {:,} interface sounds and {:,} story files'.format(
         len(names), size / 1e6, sounds, len(names) - sounds)
+
+
+def pack_summary(src: str) -> str:
+    """'206 story recordings, 157 MB'."""
+    from heathcote.platform import pack
+    files = pack.recordings(packed_folder(src))
+    return '{:,} story recordings, {:.0f} MB'.format(len(files), sum(os.path.getsize(f) for f in files) / 1e6)
+
+
+def make_pack(src: str, dest: str) -> dict:
+    """story.dat from the story's recordings, every one read back and compared with its
+    file; its fingerprint. Raises RuntimeError when one does not read back."""
+    from heathcote.platform import pack
+    root = packed_folder(src)
+    started = time.perf_counter()
+    marks = set()
+
+    def progress(count, total):
+        quarter = count * 4 // total
+        if quarter not in marks and count < total:
+            marks.add(quarter)
+            if quarter:
+                say('  %d of %d recordings packed ...' % (count, total))
+    info = pack.write_pack(root, dest, progress)
+    opened = pack.Pack(dest)
+    for path in pack.recordings(root):
+        name = pack.recording_name(path, root)
+        with open(path, 'rb') as fh:
+            if opened.read(name) != fh.read():
+                raise RuntimeError('%s did not read back from %s as it was packed' % (name, PACK))
+    say('%s is made and checked: %d recordings, %.0f MB, in %.0f seconds.'
+        % (PACK, info['files'], info['size'] / 1e6, time.perf_counter() - started))
+    return info
+
+
+def write_fingerprint(game_dest: str, info: dict) -> None:
+    """The pack's size and SHA-256, in the build's game\\, so the game knows its own pack."""
+    import json
+    os.makedirs(game_dest, exist_ok=True)
+    with open(os.path.join(game_dest, FINGERPRINT), 'w', encoding='utf-8', newline='\n') as fh:
+        json.dump({'size': info['size'], 'sha256': info['sha256']}, fh, indent=1)
+        fh.write('\n')
 
 
 def copy_game(src: str, dest_game: str) -> list:
@@ -300,7 +363,7 @@ def license_files() -> list:
     return found
 
 
-LICENSED = 'FMOD, the NVDA client, Prism, cffi, pyfmodex and pygame'
+LICENSED = 'FMOD, the NVDA client, Prism, cffi, pyfmodex, cryptography and pygame'
 
 
 def stage_licenses() -> int:
@@ -350,6 +413,8 @@ def command(args, embed_game=False) -> list:
     # pyfmodex is imported only once fmod.dll is found (platform/audio.py), and loads its
     # own modules by name, so every one of them is named outright.
     cmd += ['--hidden-import', 'pyfmodex', '--collect-submodules', 'pyfmodex']
+    # story.dat's cipher is imported only when the pack is first opened (platform/pack.py).
+    cmd += ['--hidden-import', 'cryptography.hazmat.primitives.ciphers.aead']
     if not args.console:
         cmd += ['--windowed']
     if one_file(args):
@@ -424,6 +489,8 @@ def judge_test(code, log_text: str, crash: str) -> list:
                         if log_text else 'the game wrote no log at all')
     if log_text and 'FMOD ' not in log_text and not crash:
         problems.append('the log never says FMOD started, so the sound engine did not load')
+    if log_text and not crash and not re.search(r'story recordings: .*%s' % re.escape(PACK), log_text):
+        problems.append('the log never says the story recordings came from %s' % PACK)
     if 'Heathcote closed' not in log_text and not crash:
         problems.append('the game did not close by itself when --exit-after said to')
     if code is None:
@@ -459,8 +526,8 @@ def test_build(exe: str) -> bool:
             say('  ' + problem)
         return False
     line = next(l for l in log_text.splitlines() if 'game data: ' in l)
-    say('the test build worked: it started, found its %s, started FMOD, and closed by itself.'
-        % line[line.index('game data: '):])
+    say('the test build worked: it started, found its %s, opened %s, started FMOD, and closed '
+        'by itself.' % (line[line.index('game data: '):], PACK))
     return True
 
 
@@ -517,6 +584,8 @@ def main(argv=None) -> int:
             say("the game's data would go %s: %s."
                 % ('inside the exe' if embed_game else 'into %s' % os.path.join(dest_root, 'game'),
                    data_summary(src, game_files(src))))
+            say('%s would be made beside the exe, encrypted, from %s, each read back to check it.'
+                % (PACK, pack_summary(src)))
         for name, shipped_as in SIDE_FILES:
             say('%s would be copied beside the exe%s%s'
                 % (name, '' if shipped_as == name else ', as %s' % shipped_as,
@@ -536,8 +605,17 @@ def main(argv=None) -> int:
 
     if os.path.isdir(GAME_STAGE):
         shutil.rmtree(GAME_STAGE)
+    info = None
+    if src is not None:
+        say('making %s from %s ...' % (PACK, pack_summary(src)))
+        try:
+            info = make_pack(src, PACK_STAGE)
+        except Exception as error:              # a pack that fails its check stops the build
+            say('%s could not be made: %s' % (PACK, error))
+            return 1
     if embed_game:
         names = copy_game(src, GAME_STAGE)
+        write_fingerprint(GAME_STAGE, info)
         say("the game's data goes inside the exe: %s." % data_summary(src, names))
     stage_licenses()
     clear_output(dest_root)
@@ -552,6 +630,11 @@ def main(argv=None) -> int:
         dest_game = os.path.join(dest_root, 'game')
         say("copying the game's data into %s ..." % dest_game)
         say('  %s.' % data_summary(src, copy_game(src, dest_game)))
+        write_fingerprint(dest_game, info)
+    if info is not None:
+        os.makedirs(dest_root, exist_ok=True)
+        os.replace(PACK_STAGE, os.path.join(dest_root, PACK))
+        say('%s is beside the exe.' % PACK)
     copy_side_files(dest_root)
     strip_shipped_changelog(dest_root)
     for warning in release_warnings(os.path.join(dest_root, CHANGELOG)):

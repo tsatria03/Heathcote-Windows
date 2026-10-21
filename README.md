@@ -78,7 +78,7 @@ What was found in the original:
 ## Requirements
 
 To run it from source, the port needs 64-bit Python 3.12 or newer on Windows 10 or later,
-and three packages:
+and four packages:
 
     pip install -r requirements.txt
 
@@ -86,6 +86,7 @@ and three packages:
 - `prismatoid`: Prism, which speaks through any screen reader other than NVDA, or through
   a Windows voice when none is running.
 - `pyfmodex` 0.7.2: the connection to FMOD, which plays every sound.
+- `cryptography`: reads `story.dat`, the story's recordings packed and encrypted in a build.
 
 FMOD itself is not in the repository, since its licence lets it be passed on only inside
 the game. Install the FMOD Engine 2.02.35 for Windows from fmod.com (a free account is
@@ -226,9 +227,20 @@ give the choice on the command line:
 - `--clean`, `--console`, `--onefile`, `--no-game` and `--dry-run`, which says what a
   build would do and builds nothing
 
-A build carries `game\documents\Audio` and `game\documents\text` and nothing else of
-`game\`, both DLLs, Prism and pyfmodex, the third-party licences in `licenses\`, and
-beside the exe `docks\`, `VERSION` and the port's licence as `license.txt`.
+A build carries:
+
+- `story.dat` beside the exe: every file of `game\documents\Audio\story`, the story's
+  recordings, packed and encrypted, each sealed on its own with AES-256-GCM and read into
+  FMOD from memory. The compiler makes it fresh each build and reads every recording back.
+  The key ships with the game, so it keeps out casual copying, not a determined person.
+- the rest of what the game reads, the interface sounds and `game\documents\text`, in
+  `game\` or inside the exe with `--embed`, with `story_pack.json`, `story.dat`'s size, so
+  the game knows its own pack
+- both DLLs, Prism, pyfmodex and cryptography, the third-party licences in `licenses\`,
+  and beside the exe `docks\`, `VERSION` and the port's licence as `license.txt`
+
+From source, the loose `game\documents\Audio\story` folder is played. Without it, the game
+plays `dist\story.dat`, which `python tools\build_pack.py` makes on its own.
 
 `releaser.py` makes a release from this machine, through `git` and the GitHub CLI, `gh`,
 signed in. Run it for a numbered menu: the whole release, or any one step, each asking Y or
@@ -266,7 +278,7 @@ tools/                   the tools that read the original (see tools/README.md)
 tests/case/              the tests, one plain script each
 tests/suite.py           runs them all
 tests/interact/          tools to try the game by ear
-requirements.txt         the three packages it needs
+requirements.txt         the four packages it needs
 VERSION                  the version, as year, month, day and that day's number
 ```
 

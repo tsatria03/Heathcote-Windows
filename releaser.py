@@ -195,8 +195,8 @@ def package(build_dir: str, version: str, archive: str = None) -> str:
     """Zip the built folder, everything under one Heathcote-Windows folder, so extracting it
     gives a player a folder rather than a heap of files. It is written under a .part name
     and renamed once whole, so a window closed halfway leaves no zip that looks finished but
-    will not open. The recordings are MP3s, which barely shrink, so they are stored as they
-    are and only the rest is compressed."""
+    will not open. The interface sounds are MP3s and story.dat is encrypted, and neither
+    shrinks, so they are stored as they are and only the rest is compressed."""
     archive = archive or zip_path(version)
     partial = archive + '.part'
     for old in (archive, partial):
@@ -213,7 +213,7 @@ def package(build_dir: str, version: str, archive: str = None) -> str:
     with zipfile.ZipFile(partial, 'w', zipfile.ZIP_DEFLATED, compresslevel=6) as box:
         for count, full in enumerate(files, 1):
             inside = os.path.join(compiler.FOLDER, os.path.relpath(full, build_dir))
-            stored = full.lower().endswith('.mp3')
+            stored = full.lower().endswith(('.mp3', '.dat'))
             box.write(full, inside.replace(os.sep, '/'),
                       compress_type=zipfile.ZIP_STORED if stored else zipfile.ZIP_DEFLATED)
             if count in marks:

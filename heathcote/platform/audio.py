@@ -137,10 +137,15 @@ class Slot:
         mode = fmod.flags.MODE.TWOD | fmod.flags.MODE.ACCURATETIME
         mode |= fmod.flags.MODE.LOOP_NORMAL if loop else fmod.flags.MODE.LOOP_OFF
         try:
+            source, exinfo = self.audio.source(path)
+            if exinfo is not None:
+                mode |= fmod.flags.MODE.OPENMEMORY
             if self.name in LOOPING:
-                sound = self.audio.system.create_stream(path, mode=mode)
+                sound = self.audio.system.create_sound(source, mode=mode | fmod.flags.MODE.CREATESTREAM,
+                                                       exinfo=exinfo)
             else:
-                sound = self.audio.system.create_sound(path, mode=mode | fmod.flags.MODE.CREATESAMPLE)
+                sound = self.audio.system.create_sound(source, mode=mode | fmod.flags.MODE.CREATESAMPLE,
+                                                       exinfo=exinfo)
             channel = self.audio.system.play_sound(sound, channel_group=self.audio.groups[self.group],
                                                    paused=True)
         except Exception:
@@ -375,6 +380,20 @@ class Audio:
 
     def slot(self, name):
         return self.slots[name]
+
+    def source(self, path):
+        """What FMOD opens for ``path``: (the path, None) for a file on disk, or, for a
+        recording in story.dat (platform/pack.py), (its bytes, decrypted in memory, and the
+        extra information FMOD's OPENMEMORY needs). FMOD copies the bytes, so nothing
+        decrypted is kept here or written to disk."""
+        from . import pack
+        if not path.startswith(pack.PREFIX):
+            return path, None
+        from pyfmodex.structures import CREATESOUNDEXINFO     # loaded with FMOD already
+        data = pack.read(path)
+        exinfo = CREATESOUNDEXINFO()
+        exinfo.length = len(data)
+        return data, exinfo
 
     def play_oneshot(self, path):
         """An interface sound on a channel of its own, at the interface volume, so two can

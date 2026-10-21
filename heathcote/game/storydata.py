@@ -19,10 +19,14 @@ meets (aidocks/plans/audio_plan.md).
 from __future__ import annotations
 
 import json
+import logging
 import os
 import re
 
 from .. import paths
+from ..platform import pack
+
+log = logging.getLogger('story')
 
 #: The folders under game/documents/Audio/ that hold each category's recordings, as the dev
 #: laid them out. A recording is looked for in each, in order.
@@ -47,6 +51,41 @@ LANES = ('bgm', 'ambience', 'ambience1', 'ambience2', 'ambience3')
 #: The plain "ambience" lane is in the data but the original never reads it
 #: (+[Sound tick], 0x100020dd4 to 0x100020e30), so its fades never played.
 UNPLAYED_LANES = ('ambience',)
+
+
+#: The folder under Audio/ that story.dat packs whole (aidocks/plans/build_release_plan.md).
+PACKED_FOLDER = 'story'
+
+MISSING_PACK = ("Heathcote's story recordings were not found. They are in story.dat, which "
+                "belongs beside Heathcote.exe; extract the whole Heathcote-Windows folder "
+                "from the download again. Looked for %s.")
+WRONG_PACK = ("Heathcote's story.dat does not belong to this copy of the game: %s. Extract "
+              "the whole Heathcote-Windows folder from the download again.")
+
+
+def open_pack(game_folder):
+    """story.dat, opened and checked against the fingerprint a build carries in its game
+    folder; SystemExit with a message for the player when it is missing, damaged or from
+    another build."""
+    where = paths.story_pack()
+    if not os.path.isfile(where):
+        raise SystemExit(MISSING_PACK % where)
+    expected = os.path.join(game_folder, paths.PACK_FINGERPRINT)
+    if os.path.isfile(expected):
+        try:
+            with open(expected, encoding='utf-8') as f:
+                size = json.load(f)['size']
+        except (OSError, ValueError, KeyError):
+            size = None
+        if size is not None and os.path.getsize(where) != size:
+            raise SystemExit(WRONG_PACK % ('it is %d bytes, not %d' % (os.path.getsize(where), size)))
+    try:
+        opened = pack.Pack(where)
+    except pack.PackError as error:
+        raise SystemExit(WRONG_PACK % error)
+    pack.use(opened)
+    log.info('story recordings: %s', where)
+    return opened
 
 
 def disk_name(original):
@@ -88,6 +127,11 @@ class StoryData:
             except (ValueError, KeyError) as e:
                 self.unreadable.append((name, str(e).split(':')[0]))
         self.category = {soft: cat for cat, refs in self.assets.items() for soft in refs}
+        # The story's recordings: the loose folder when it is there, as from source, or else
+        # story.dat (platform/pack.py), as in a build.
+        self.pack = None
+        if not os.path.isdir(os.path.join(self.audio_root, PACKED_FOLDER)):
+            self.pack = open_pack(os.path.dirname(os.path.dirname(text)))
 
     def record(self, soft):
         """The record a softRef stands for, or None."""
@@ -123,6 +167,9 @@ class StoryData:
         if not frec or 'original' not in frec:
             return None
         name = disk_name(frec['original']['name'])
+        if self.pack is not None and FOLDERS[cat][0].startswith(PACKED_FOLDER + '/'):
+            names = ['%s/%s' % (folder[len(PACKED_FOLDER) + 1:], name) for folder in FOLDERS[cat]]
+            return pack.PREFIX + next((n for n in names if n in self.pack), names[0])
         found = [os.path.join(self.audio_root, *folder.split('/'), name) for folder in FOLDERS[cat]]
         return next((p for p in found if os.path.exists(p)), found[0])
 

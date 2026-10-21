@@ -82,6 +82,18 @@ def audio() -> str:
     return os.path.join(game(), DATA_FOLDER, 'Audio')
 
 
+#: The story's recordings, packed (platform/pack.py, aidocks/plans/build_release_plan.md).
+STORY_PACK = 'story.dat'
+#: The pack's size and SHA-256, which compiler.py puts in a build's game folder.
+PACK_FINGERPRINT = 'story_pack.json'
+
+
+def story_pack() -> str:
+    """Where story.dat is: beside the executable in a build, or dist\\story.dat from source,
+    used there only when game/documents/Audio/story/ is not."""
+    return os.path.join(EXE_DIR if FROZEN else os.path.join(ROOT, 'dist'), STORY_PACK)
+
+
 def version() -> str:
     """The port's version from ``VERSION``, beside the executable or at the repository's
     root; 'unknown' when it is missing."""

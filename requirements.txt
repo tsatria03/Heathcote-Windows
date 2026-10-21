@@ -1,3 +1,4 @@
 pygame
 prismatoid
 pyfmodex==0.7.2
+cryptography

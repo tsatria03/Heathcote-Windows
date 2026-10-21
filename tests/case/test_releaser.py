@@ -56,7 +56,8 @@ def test_the_zip_holds_one_heathcote_windows_folder_and_stores_the_recordings():
     os.makedirs(os.path.join(build, 'docks'), exist_ok=True)
     for name, data in (('Heathcote.exe', b'MZ'), ('VERSION', b'26.10.21-1\n'),
                        (os.path.join('docks', 'readme.txt'), b'Read me.'),
-                       (os.path.join('game', 'a.mp3'), b'ID3' * 100)):
+                       (os.path.join('game', 'a.mp3'), b'ID3' * 100),
+                       ('story.dat', b'HEATHPK1' + b'\x00' * 100)):
         with open(os.path.join(build, name), 'wb') as fh:
             fh.write(data)
     assert releaser.built_version(build) == '26.10.21-1'
@@ -69,6 +70,7 @@ def test_the_zip_holds_one_heathcote_windows_folder_and_stores_the_recordings():
         assert all(n.startswith('Heathcote-Windows/') for n in names)
         assert 'Heathcote-Windows/docks/readme.txt' in names
         assert box.getinfo('Heathcote-Windows/game/a.mp3').compress_type == zipfile.ZIP_STORED
+        assert box.getinfo('Heathcote-Windows/story.dat').compress_type == zipfile.ZIP_STORED
         assert box.getinfo('Heathcote-Windows/VERSION').compress_type == zipfile.ZIP_DEFLATED
 
 

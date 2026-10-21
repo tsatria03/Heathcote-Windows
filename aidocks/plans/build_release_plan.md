@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is finished, and section 2, `releaser.py`, is built and waiting for the dev's word.
+**Status:** planned, with every question answered (2026-10-19). It needs no section review, having nothing to test by ear (the dev, 2026-10-21: "for plan 7, no section review is required, as there are no actual hering tests for it."). Being built from 2026-10-21, on the dev's word ("For plan 7, make the compiler script first."); section 1, `compiler.py`, is finished; section 2, `releaser.py`, is built; and section 3, the story pack, asked for after it, is built and waiting for the dev's builds.
 
 Plan 7, the last ([[reading_original_plan]] lists the order). It packages what plans 2 to 6 build.
 
@@ -47,7 +47,24 @@ Built 2026-10-21, adapted from the reference material's releaser without naming 
 - **Enter with nothing typed** says its menu again, and the build choice's too, as the compiler's does.
 - **Checked without releasing:** `tests/case/test_releaser.py` has nine tests, one of them checking the changelog as it is now. Step 2 alone was run against the real repository on 2026-10-21: it found the GitHub CLI signed in and 34 changes waiting, all with full stops. 201 tests in all. Claude never releases; the dev runs it.
 
-## Proposed: section 3, the story pack
+## Section 3, the story pack
+
+**Built 2026-10-21, waiting for the dev's builds:**
+- **`heathcote/platform/pack.py`** holds the format as below, with a random 256-bit key, `write_pack()`, `Pack` and `fingerprint()`. `PREFIX`, `story.dat:`, names a packed recording where a path would be, such as `story.dat:scene/start.mp3`.
+- **`StoryData`** opens `paths.story_pack()` when `game/documents/Audio/story/` is not there (`open_pack()`), checks its size against `game\story_pack.json` when a build carries one, and gives packed paths for the story's categories; the interface sounds stay files. It logs "story recordings: <path>". A missing pack, a damaged one or one of the wrong size stops the game with a message saying to extract the whole folder again.
+- **`Audio.source()`** turns a packed path into its decrypted bytes and a `CREATESOUNDEXINFO` with their length, and `Slot.play()` opens them with `OPENMEMORY`, as a sample or a looping stream, so the spiel, the lanes and the title music all play from memory.
+- **`compiler.py`** makes `story.dat` into `build\stage\` before PyInstaller runs, reads every recording back, writes `story_pack.json` into the build's `game\` (staged for `--embed`), leaves `Audio/story` out of `game\`, and moves `story.dat` beside the exe. `--test` also needs "story recordings: …story.dat" in the log. A dry run of the single exe on 2026-10-21: 624 files and 1 MB inside the exe, and 206 recordings, 158 MB, into `story.dat`.
+- **`tools/build_pack.py`** makes `dist\story.dat` on its own, in about 3 seconds, every recording read back.
+- **`releaser.py`** stores `.dat` files in the zip, as it stores MP3s.
+- **`cryptography`** is in `requirements.txt`, named outright to PyInstaller, its three licence files in `licenses\`, 21 in all.
+- **Tests:** `tests/case/test_pack.py`, eight, including FMOD playing a packed recording as a sample, as a stream and as the spiel, and StoryData playing from a pack with the story folder absent; two more in the compiler's and the releaser's. 210 in all.
+- **The dev's tests,** to come:
+  1. Mandatory: build the single exe with `--test`, choice 4; it passes, and `story.dat` sits beside a much smaller `Heathcote.exe`.
+  2. Mandatory: play a little of the built game: the opening, the title music, the start of the story and a choice, sounding as from source.
+  3. Optional: the folder build with `--test`, choice 2.
+  4. Optional: move `story.dat` away from a build and start it: the game says the recordings were not found.
+
+**The plan as agreed:**
 
 Asked for by the dev, 2026-10-21: "Can you please bring the pack encription feature from the other port into this game? ... I wanted the sounds found in the audio/story folder to be packed into story.dat. The entire story folder. Everything else can be embedded as normal. The story.dat file will be located outside the game folder when compiled. I chose this option because I did not want the exe file to be too big if embedded." Adapted from the reference material's pack, never naming it ([[feedback_no_other_games]]).
 
@@ -70,7 +87,7 @@ Asked for by the dev, 2026-10-21: "Can you please bring the pack encription feat
 - **`requirements.txt`** gains `cryptography`; its licence goes into `licenses\`, and the compiler names its cipher module outright.
 - **Tests** for the format, damaged and foreign packs, reading from memory, the fallback order, the compiler leaving the folder out, and the zip.
 - **Nothing to test by ear beyond a build:** the dev builds with `--test` and plays a little of the built game, the story sounding as it does from source.
-- **Open question:** where exactly `story.dat` sits in a build. The proposal is beside `Heathcote.exe`, inside the release zip.
+- **Where `story.dat` sits in a build:** beside `Heathcote.exe`, inside the release zip (the dev, 2026-10-21: "That's exactly what I mean.").
 
 ## Built in sections
 

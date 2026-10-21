@@ -7,6 +7,7 @@ Scripts for reading the original app. None of them is part of the game, none is 
 
 - `story.py`: reads the story data in `game/documents/text/` as it is, through the game's own rules in `heathcote/game/storydata.py`, so it reads exactly as the game does, and checks it: every reference leads to a real record, every recording is on disk, every value a condition asks for can happen, every spiel can be reached from `start`, and which `next` entries can both be true. It sorts what it finds into problems, which would break the game, and notes, which play as the original did. `--labels` lists every softRef's label by category. Standard library only, besides the game's own package.
 - `script_text.py`: writes the whole story as plain text into `analysis/script/Heathcote.txt`, in the order it opens up from the start, then every action. Each spiel begins with "Spiel: <label>", so a screen reader's find can jump to it, and that label is what `--spiel` takes. Standard library only.
+- `build_pack.py`: packs every file of `game/documents/Audio/story/` into `dist\story.dat`, encrypted, and reads each back to check it. `compiler.py` makes the pack for every build itself; this is for a run from source without the loose folder, which then plays `dist\story.dat`. It needs `cryptography`.
 
 Examples, from the repo root:
 
@@ -24,6 +25,7 @@ Examples, from the repo root:
     python tools/story.py
     python tools/story.py --labels
     python tools/script_text.py
+    python tools/build_pack.py
 
 Notes:
 - Addresses are the binary's own virtual addresses, as the plans and notes cite them.

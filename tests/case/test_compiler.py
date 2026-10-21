@@ -27,17 +27,37 @@ def test_a_sentence_ending_in_a_colon_is_never_a_heading():
     assert blocks == [['unrelease:', ['The pause menu has: Resume.', 'Tab says:']]]
 
 
-def test_the_build_carries_every_recording_and_the_story_and_nothing_else_of_game():
+def test_the_build_carries_the_interface_sounds_and_the_story_but_not_its_recordings():
     src = compiler.game_source()
     assert src is not None
     names = compiler.game_files(src)
-    assert names and all(n.startswith(os.path.join('documents', 'Audio')) or
+    assert names and all(n.startswith(os.path.join('documents', 'Audio', 'System')) or
                          n.startswith(os.path.join('documents', 'text')) for n in names)
-    audio = os.path.join(src, 'documents', 'Audio')
-    on_disk = sum(len(files) for _root, _dirs, files in os.walk(audio))
+    system = os.path.join(src, 'documents', 'Audio', 'System')
+    on_disk = sum(len(files) for _root, _dirs, files in os.walk(system))
     assert sum(1 for n in names if n.startswith(os.path.join('documents', 'Audio'))) == on_disk
+    assert not any(n.startswith(os.path.join('documents', 'Audio', 'story')) for n in names)
     assert compiler.BUNDLE.replace('/', os.sep) in names
     assert compiler.missing_game_files(src) == []
+
+
+def test_the_compiler_makes_a_pack_that_reads_back_and_its_fingerprint():
+    import json
+    import shutil
+    from heathcote.platform import pack
+    src = os.path.join(_quiet.FOLDER, 'compiler game')
+    scene = os.path.join(src, 'documents', 'Audio', 'story', 'scene')
+    os.makedirs(scene, exist_ok=True)
+    real = os.path.join(compiler.game_source(), 'documents', 'Audio', 'System', 'misc')
+    for name in sorted(os.listdir(real))[:2]:
+        shutil.copy2(os.path.join(real, name), os.path.join(scene, name))
+    dest = os.path.join(_quiet.FOLDER, 'compiler stage', compiler.PACK)
+    info = compiler.make_pack(src, dest)
+    assert info['files'] == 2 and len(pack.Pack(dest).files) == 2
+    game = os.path.join(_quiet.FOLDER, 'compiler build', 'game')
+    compiler.write_fingerprint(game, info)
+    with open(os.path.join(game, compiler.FINGERPRINT), encoding='utf-8') as fh:
+        assert json.load(fh) == {'size': info['size'], 'sha256': info['sha256']}
 
 
 def test_the_command_carries_both_dlls_prism_and_pyfmodex():
@@ -46,6 +66,7 @@ def test_the_command_carries_both_dlls_prism_and_pyfmodex():
     assert 'vendor/fmod/fmod.dll' + os.pathsep + 'vendor/fmod' in joined
     assert 'vendor/nvda/nvdaControllerClient64.dll' + os.pathsep + 'vendor/nvda' in joined
     assert '--collect-all prism' in joined and '--collect-submodules pyfmodex' in joined
+    assert '--hidden-import cryptography.hazmat.primitives.ciphers.aead' in joined
     assert '--windowed' in cmd and '--onefile' not in cmd and cmd[-1] == 'Heathcote.py'
     embedded = compiler.command(args(embed=True), embed_game=True)
     assert '--onefile' in embedded and compiler.GAME_STAGE + os.pathsep + 'game' in embedded
@@ -57,6 +78,7 @@ def test_the_licences_include_fmods_and_pyfmodexs():
     assert os.path.join('fmod', 'license.txt') in rels
     assert any(r.startswith('pyfmodex' + os.sep) for r in rels)
     assert any(r.startswith('prism' + os.sep) for r in rels)
+    assert any(r.startswith('cryptography' + os.sep) for r in rels)
 
 
 def test_a_missing_fmod_dll_says_where_to_get_it():
@@ -70,8 +92,11 @@ def test_a_missing_fmod_dll_says_where_to_get_it():
 
 
 def test_a_good_run_passes_and_each_bad_one_says_why():
-    good = '00:00:01 INFO game data: x\n00:00:01 INFO audio FMOD 2.02.35 started\nHeathcote closed\n'
+    good = ('00:00:01 INFO game data: x\n00:00:01 INFO story story recordings: C:\\x\\story.dat\n'
+            '00:00:01 INFO audio FMOD 2.02.35 started\nHeathcote closed\n')
     assert compiler.judge_test(0, good, '') == []
+    loose = good.replace('story recordings: C:\\x\\story.dat\n', '')
+    assert any('story.dat' in p for p in compiler.judge_test(0, loose, ''))
     assert any('crash report' in p for p in compiler.judge_test(1, good, 'Traceback'))
     assert any('no "game data:"' in p for p in compiler.judge_test(0, 'FMOD x\nHeathcote closed', ''))
     assert any('FMOD started' in p for p in compiler.judge_test(0, 'game data: x\nHeathcote closed', ''))
