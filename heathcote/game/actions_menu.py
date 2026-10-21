@@ -10,8 +10,12 @@ said by the screen reader instead, since the original's synthesizer was a stub a
 nothing. After 7 seconds with no move, the choice plays again (-[ActionsDialState tick],
 0x100037de0); the original's swipe hint is left out, as it does not fit a keyboard.
 
-Space, the ``choice_text`` action, speaks the choice's text through the screen reader,
-without moving or accepting (the dev, 2026-10-19: "Space is fine.").
+Once a choice's clip has finished, the screen reader speaks the choice's text, without
+cutting anything off, the first time only: the 7-second repeat replays the clip alone
+(aidocks/plans/choice_text_plan.md; the dev, 2026-10-21: "if you hover over a choice in the
+menu, the text appears for that choice, but after the recording plays", and "I do not want
+it to respeak the text every 7 seconds after the audio recording."). Moving on before the
+clip ends cancels the text. This replaced Space's choice_text action.
 
 The story's volume keys work here too, as the story is still playing underneath.
 """
@@ -36,6 +40,7 @@ class ActionsMenu(Menu):
         self.clock = clock
         self.moved_at = clock()
         self.done = False
+        self.text_due = False           # the choice's text waits for its clip to finish
 
     def volume_group(self):
         return STORY_VOLUMES
@@ -48,9 +53,12 @@ class ActionsMenu(Menu):
         return self.choices[self.index] if self.choices else None
 
     # ---- saying the choice -------------------------------------------------------
-    def announce(self):
-        """The choice's recorded clip, or the screen reader when it has none."""
+    def announce(self, with_text=True):
+        """The choice's recorded clip, its text to follow once the clip ends when
+        ``with_text``; or the screen reader at once when it has no clip. The 7-second repeat
+        leaves the text out."""
         self.moved_at = self.clock()
+        self.text_due = False               # a choice left before its clip ended says nothing
         if self.action is None:
             self.say('Nothing to choose.')
             return
@@ -58,6 +66,7 @@ class ActionsMenu(Menu):
         if clip:
             self.app.speech.stop()
             self.app.audio.slot('systemVoice').play(clip)
+            self.text_due = with_text
         else:
             self.app.audio.slot('systemVoice').stop()
             self.say(self.player.choice_text(self.action))
@@ -72,10 +81,7 @@ class ActionsMenu(Menu):
         self.announce()
 
     def other_key(self, action, key, mods):
-        if action == 'choice_text' and self.action is not None:
-            self.moved_at = self.clock()
-            self.say(self.player.choice_text(self.action))
-        elif self.app.keymap.action_for(key, mods, STORY) == 'where':
+        if self.app.keymap.action_for(key, mods, STORY) == 'where':
             self.say(self.player.where())   # "Actions menu is open.", and the chapter
         else:
             self.announce()
@@ -106,8 +112,13 @@ class ActionsMenu(Menu):
         self.player.close_menu()
 
     def update(self):
-        if not self.done and self.clock() - self.moved_at >= REPEAT_AFTER:
-            self.announce()
+        if self.done:
+            return
+        if self.text_due and not self.app.audio.slot('systemVoice').playing:
+            self.text_due = False           # the clip has finished: its text, once
+            self.say(self.player.choice_text(self.action), interrupt=False)
+        if self.clock() - self.moved_at >= REPEAT_AFTER:
+            self.announce(with_text=False)
 
     def lines(self):
         return ['Actions', ''] + super().lines()

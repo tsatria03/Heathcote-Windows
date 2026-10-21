@@ -14,7 +14,7 @@ The game's keys:
 
     Up or Enter          open the actions menu, or hear it refused while the spiel is locked out
     In the actions menu: the arrows move, Home and End jump, Enter accepts, Escape closes,
-                         Space speaks the choice's text, and Tab says the menu is open
+                         each choice's text follows its clip, and Tab says the menu is open
     Left and Right       rewind and fast-forward
     Escape               pause, with the pause menu: Resume, Restart story, Settings, or
                          Return to menu, which quits the tool

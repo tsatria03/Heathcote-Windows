@@ -85,8 +85,8 @@ class Menu(Screen):
             rows[self.index].action()
 
     def other_key(self, action, key, mods):
-        """A key this menu has no use for, or a menu action it leaves to a subclass, such as
-        the actions menu's Space: say the row again."""
+        """A key this menu has no use for, or a menu action it leaves to a subclass: say the
+        row again."""
         self.say(self.row_text())
 
     def handle_key(self, key, mods):

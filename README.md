@@ -41,6 +41,7 @@ was split into seven plans, in `aidocks/plans/`:
    - the variables, timed sets, `next` and the end, with only a scene's last spiel marked
      heard, and timed sets firing again after a rewind, as in the original
    - lockout, and the actions menu with each choice's recording, Space speaking its text
+     (since plan 9, the text follows the recording by itself)
    - the keys during play: rewind, fast-forward, the original's pause, Tab, and pausing
      when the window loses the keyboard, with a stand-in pause menu until plan 5's
    - debug mode's F2 to F4, and `--spiel`
@@ -130,8 +131,9 @@ through your screen reader, with the title music under it:
 During the story, each key rebindable with F1:
 
 - **Up or Enter** opens the actions menu: the arrows, Home and End move through the
-  choices, each playing its recording; Enter accepts, Escape closes, and Space speaks the
-  choice's text. While a spiel is locked out, the menu is refused.
+  choices, each playing its recording, then the screen reader speaking its text once the
+  recording ends, the first time only; Enter accepts and Escape closes. While a spiel is
+  locked out, the menu is refused.
 - **Left and Right** rewind and fast-forward.
 - **Escape** pauses, the backgrounds and the idle loop playing on muffled, with the pause
   menu: Resume; Restart story, which asks first; Settings; and Return to menu, which ends

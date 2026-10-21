@@ -6,7 +6,13 @@ metadata:
   type: project
 ---
 
-**Status:** planned, 2026-10-21, waiting for the dev's word to build.
+**Status:** built 2026-10-21 on the dev's word ("yes"), waiting for the dev's ear tests.
+
+## What was built
+
+- **`heathcote/game/actions_menu.py`:** `announce(with_text=True)` plays the clip and sets `text_due`; `update()` speaks the text once `systemVoice` falls silent, without interrupting, and the 7-second repeat calls `announce(with_text=False)`. Every announce clears `text_due` first, so a choice left early says nothing.
+- **`heathcote/platform/keymap.py`:** `choice_text` is gone, and a saved action the game no longer has makes the key map rewrite `keys.json` without it.
+- **Tests:** the actions test now checks the text after the clip, once, never on the repeat, and never for a choice left early; a key map test checks the old binding is dropped. 220 in all, the whole suite passing.
 
 Plan 9, after the first release. Asked for by the dev, 2026-10-21: "There's one more thing I want changed, and it's space to read the text version of the prerecorded actions. I was thinking that if you hover over a choice in the menu, the text appears for that choice, but after the recording plays. ... That way you can take space off the list." It changes [[story_engine_plan]]'s actions menu.
 

@@ -60,7 +60,6 @@ ACTIONS = (
     ('menu_last', MENU, 'Menus: last', ('end',)),
     ('menu_choose', MENU, 'Menus: choose', ('return', 'enter')),
     ('menu_back', MENU, 'Menus: back, or close the actions menu', ('escape',)),
-    ('choice_text', MENU, "Actions menu: say the choice's text", ('space',)),
     ('actions_menu', STORY, 'Story: open the actions menu', ('up', 'return', 'enter')),
     ('rewind', STORY, 'Story: rewind', ('left',)),
     ('fast_forward', STORY, 'Story: fast-forward', ('right',)),
@@ -170,7 +169,9 @@ class KeyMap:
         self.file = JsonFile(path or paths.user_path('config', 'keys.json'), order=ACTION_IDS)
         self.bindings = {a: list(DEFAULTS[a]) for a in ACTION_IDS}
         self.debug = False          # debug mode: the debug_ actions are live
-        changed = self.file.recovered
+        # An action the game no longer has, such as the actions menu's old choice_text
+        # (aidocks/plans/choice_text_plan.md), is dropped from the file.
+        changed = self.file.recovered or any(a not in ACTION_IDS for a in self.file.data)
         for action in ACTION_IDS:
             saved = _clean(self.file.data.get(action))
             if saved is None:

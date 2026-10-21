@@ -53,7 +53,7 @@ When a part ends and the story waits for you, you hear a short sound, and the sa
 Up or Enter opens the actions menu, where you choose what the presenter does next.
 In the actions menu, Up and Down move through the choices, as do Left and Right, and Home and End go to the first and last.
 Each choice is played in the original's own recorded voice, and the choice plays again after 7 seconds if you have not moved.
-Space speaks the choice's words through your screen reader.
+Once a choice's recording has played, your screen reader speaks its words, the first time you land on it; moving on before the recording ends skips them.
 Enter chooses, and the story carries on with your choice.
 Escape closes the menu without choosing, and the story carries on where it was.
 Some parts of the story must be heard before you can choose; while one plays, opening the menu is refused with a sound, until the story lets you.

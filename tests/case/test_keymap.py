@@ -24,7 +24,7 @@ def test_the_agreed_default_keys():
         (MENU, 'down'): 'menu_next', (MENU, 'right'): 'menu_next',
         (MENU, 'home'): 'menu_first', (MENU, 'end'): 'menu_last',
         (MENU, 'return'): 'menu_choose', (MENU, 'escape'): 'menu_back',
-        (MENU, 'space'): 'choice_text',
+        (MENU, 'space'): None,                      # no longer the choice's text
         (STORY, 'up'): 'actions_menu', (STORY, 'return'): 'actions_menu',
         (STORY, 'left'): 'rewind', (STORY, 'right'): 'fast_forward',
         (STORY, 'escape'): 'pause', (STORY, 'tab'): 'where',
@@ -38,6 +38,17 @@ def test_the_agreed_default_keys():
         key = b.split('+')[-1]
         mods = b.split('+')[:-1]
         assert km.action_for(key, mods, group) == action, (group, b)
+
+
+def test_a_saved_action_the_game_no_longer_has_is_dropped():
+    import json
+    km = fresh()
+    km.file.data['choice_text'] = ['space']             # as an older keys.json held it
+    km.file.write()
+    again = KeyMap(km.file.path)
+    with open(km.file.path, encoding='utf-8') as f:
+        assert 'choice_text' not in json.load(f)
+    assert again.action_for('space', [], MENU) is None
 
 
 def test_modifiers_must_match_exactly():

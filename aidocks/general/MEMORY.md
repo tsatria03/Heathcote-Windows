@@ -13,7 +13,7 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Choice text](../plans/choice_text_plan.md): plan 9, planned, waiting for the dev's word. In the actions menu, a choice's text is spoken after its clip, the first time only, and Space's choice_text action goes.
+- [Choice text](../plans/choice_text_plan.md): plan 9, built, waiting for the dev's ear tests. In the actions menu, a choice's text is spoken after its clip, the first time only, and Space's choice_text action goes.
 
 ## Completed projects
 - [Settings](../plans/settings_plan.md): plan 8, FINISHED 2026-10-21. A row for each of the four volumes, opening a list of levels, and Volume speed for the held volume keys; 218 silent tests.

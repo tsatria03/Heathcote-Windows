@@ -207,14 +207,56 @@ def test_the_actions_menu_screen_plays_clips_speaks_and_accepts():
         app.key_down('end', [])
         app.key_down('right', [])
         assert menu.index == 0                              # wrapped
-        app.speech.lines.clear()
-        app.key_down('space', [])
-        assert app.speech.lines == [story.player.choice_text(menu.action)]
         action = menu.action
         app.key_down('return', [])                          # accept
         assert app.stack.top is story and not story.player.menu_open
         app.loop.pump(now=app.loop._calls[0].due)           # the 0.25 seconds pass
         assert story.player.current == STORY.record(action)['actionSpiels'][0]
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
+def until_text_or(app, menu, seconds):
+    """Run the audio and the menu for up to ``seconds``, stopping once something is said."""
+    import time
+    end = time.perf_counter() + seconds
+    while time.perf_counter() < end and not app.speech.lines:
+        app.audio.update()
+        menu.update()
+        time.sleep(0.01)
+
+
+def test_the_text_follows_the_clip_once_and_never_for_a_choice_left():
+    from heathcote.game.story_screen import StoryScreen
+    app = make_app()
+    try:
+        story = StoryScreen(app)
+        app.stack.push(story)
+        app.key_down('up', [])
+        menu = app.stack.top
+        menu.choices = STORY.refs('actions')[:3]
+        voice = app.audio.slot('systemVoice')
+        app.speech.lines.clear()
+        menu.announce()
+        assert voice.playing and app.speech.lines == []          # not while the clip plays
+        until_text_or(app, menu, 3.0)
+        assert app.speech.lines == [story.player.choice_text(menu.action)]
+        assert not voice.playing                                # only once it had finished
+        app.speech.lines.clear()
+        menu.moved_at -= 7.0                                    # 7 seconds without a move
+        menu.update()
+        assert voice.playing                                    # the clip again...
+        until_text_or(app, menu, 3.0)
+        assert app.speech.lines == []                           # ...with no text this time
+        app.key_down('down', [])                                # move, then move on at once
+        app.key_down('down', [])
+        app.speech.lines.clear()
+        until_text_or(app, menu, 3.0)
+        assert app.speech.lines == [story.player.choice_text(menu.choices[2])]   # only the last
+        app.speech.lines.clear()
+        app.key_down('space', [])                               # Space says the choice again
+        assert voice.playing and menu.text_due
     finally:
         app.stack.clear()
         app.audio.close()
