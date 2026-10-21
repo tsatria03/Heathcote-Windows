@@ -43,7 +43,7 @@ still to come. The work is split into seven plans, in `aidocks/plans/`:
    - the keys during play: rewind, fast-forward, the original's pause, Tab, and pausing
      when the window loses the keyboard, with a stand-in pause menu
    - debug mode's F2 to F4, and `--spiel`
-   - `tests\interact\story_check.py` to play it by ear, and 153 silent tests in all
+   - `tests\interact\story_check.py` to play it by ear, and 154 silent tests in all
 5. **The menus:** next. The opening, the main menu, Settings, the pause menu, the end and
    the credits, with the title music.
 6. **Saving:** progress, Continue story and Restart story.

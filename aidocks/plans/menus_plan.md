@@ -55,7 +55,7 @@ The story engine, finished 2026-10-20 ([[story_engine_plan]]), left these for th
   - the stand-in `PauseMenu` (Resume, Return to menu) in `heathcote/game/story_screen.py`
   - the end, which says "The story has ended." and returns to the main menu, in `StoryScreen.story_ended()`
 - **The story screen:**
-  - `StoryScreen(app, state=None, start_at=None)` plays the story; `start_at` begins at a spiel.
+  - `StoryScreen(app, state=None, story=None, start_at=None)` plays the story; `start_at` begins at a spiel.
   - Its player's `on_story_end` is the place for the end credits.
   - `player.pause()` and `resume()` pause as the original, the idle loop muffled too, and play `pause-pause` and `pause-unpause`. Pausing is refused in the grace after a refused menu.
   - `player.stop()` leaves the story.
