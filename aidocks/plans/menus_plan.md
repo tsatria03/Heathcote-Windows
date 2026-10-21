@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Section 1 is finished; section 2 is built and waiting for the dev's tests.
+**Status:** being built, from 2026-10-20, on the dev's word ("you can jump to starting section 1."). Sections 1 and 2 are finished; section 3 is being built.
 
 Plan 5 ([[reading_original_plan]] lists the order). It stands on [[foundation_plan]], [[audio_plan]] and [[story_engine_plan]]. What the original did comes from [[project_original_behaviour]].
 
@@ -98,11 +98,13 @@ Built 2026-10-20, straight after section 1 passed ([[feedback_next_section_on_pa
 - **The title music plays on** through Settings and Credits, with Page Up and Page Down, since both cover the main menu without stopping it.
 - **`menus_check.py`** needs no new keys for this section; its description now lists it.
 - **Tests:** two new ones for the credits, and the main menu's tests now have four rows. 160 in all.
-- **The dev's ear tests,** to come:
+- **The dev's ear tests passed,** all four, 2026-10-20 ("All 4 menu tests past."):
   1. Mandatory: the main menu's four rows, all four arrows moving and wrapping, Home and End.
   2. Mandatory: Credits opening on Back, each credit its own row, and Back or Escape returning.
   3. Mandatory: the title music playing on through Credits, with Page Up and Page Down.
   4. Optional: the title music playing on through Settings.
+
+**Section 2 is finished,** on the dev's word.
 
 ## Built in sections
 
