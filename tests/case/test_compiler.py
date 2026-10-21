@@ -92,5 +92,23 @@ def test_every_menu_choice_is_a_command_line_the_parser_takes():
                               '--no-game', '--dry-run'}
 
 
+def test_enter_with_nothing_typed_says_the_menu_again():
+    answers = iter(['', 'x', '2'])
+    said = []
+    saved_input, saved_say = compiler.input if hasattr(compiler, 'input') else None, compiler.say
+    compiler.input = lambda prompt='': next(answers)
+    compiler.say = lambda text='': said.append(text)
+    try:
+        assert compiler.menu() == ['--test']
+    finally:
+        compiler.say = saved_say
+        if saved_input is None:
+            del compiler.input
+        else:
+            compiler.input = saved_input
+    assert sum(1 for line in said if line.startswith('Heathcote compiler.')) == 2
+    assert any(line.startswith('There is no choice "x"') for line in said)
+
+
 if __name__ == '__main__':
     _quiet.run_tests(globals())

@@ -585,8 +585,7 @@ MENU = (
 )
 
 
-def menu():
-    """Ask which build: the flags for it, or None to quit."""
+def show_menu() -> None:
     say('Heathcote compiler. VERSION is %s.'
         % (build_version() or 'missing; releaser.py sets it as it releases'))
     say()
@@ -594,11 +593,21 @@ def menu():
         say('  %d. %s' % (number, text))
     say('  0. Quit')
     say()
+
+
+def menu():
+    """Ask which build: the flags for it, or None to quit. Enter with nothing typed says
+    the menu again (the dev, 2026-10-21: "Please make it so pressing enter repeats the menu
+    if you do not type a number")."""
+    show_menu()
     while True:
         try:
             choice = input('Type a number and press Enter: ').strip()
         except EOFError:
             return None
+        if not choice:
+            show_menu()
+            continue
         if choice == '0':
             return None
         if choice.isdigit() and 1 <= int(choice) <= len(MENU):
