@@ -63,6 +63,7 @@ Built 2026-10-21, adapted from the reference material's releaser without naming 
   2. Mandatory: play a little of the built game: the opening, the title music, the start of the story and a choice, sounding as from source.
      - **First try, 2026-10-21: it failed.** The dev: "when it goes to the main menu, it quits after a few seconds. No title music plays." The log stopped at "opened main menu", with no crash file. Reproduced silently from source with the build's `story.dat`: a Windows access violation on FMOD's stream thread. FMOD streams a sound opened with `OPENMEMORY` straight from the bytes it is given, but `Slot.play()` let Python free them once the sound was made. Short sounds survived, being decoded at once, so the title music, the first long stream, was the first to crash. The pack's test had passed by luck, ending before the memory was reused.
      - **The fix:** `Slot.memory` keeps a packed recording's bytes while its sound lives; a fading-out sound carries them in `fading_out` until `_free()` releases it; `_release()` drops them only after the sound is released. A new test plays a packed stream for 2 seconds after a garbage collection. The silent reproduction then ran the title music and 30 seconds of the story cleanly.
+     - **Second try, a fresh build:** no crash (the dev, 2026-10-21: "That's a lot better. It no longer crashes.").
   3. Optional: the folder build with `--test`, choice 2.
   4. Optional: move `story.dat` away from a build and start it: the game says the recordings were not found.
 
