@@ -122,12 +122,16 @@ def test_each_slot_follows_its_own_volume_and_the_master_is_on_the_master_group(
         a.slot('ambience1').play(STORY.audio_path(STORY.refs('ambience')[0]))
         a.slot('titleBgm').play(STORY.sound_path('bgm', 'title'))
         a.slot('sfx').play(STORY.sound_path('systemSounds', 'click-good'))
+        clip = next(v for v in STORY.refs('systemVoice') if (STORY.record(v) or {}).get('file'))
+        assert a.slot('systemVoice').play(STORY.audio_path(clip))
         a.apply_volumes()
         close = lambda x, y: abs(x - y) < 1e-4
         assert close(a.groups['master'].volume, gain(80))
         assert close(a.slot('ambience1').channel.volume, gain(50))
         assert close(a.slot('titleBgm').channel.volume, gain(90))
         assert close(a.slot('sfx').channel.volume, gain(70))
+        # The recorded choices follow the master alone, never the interface volume.
+        assert close(a.slot('systemVoice').channel.volume, 1.0)
         s.set('master_volume', 0)
         a.apply_volumes()
         assert a.groups['master'].volume == 0.0

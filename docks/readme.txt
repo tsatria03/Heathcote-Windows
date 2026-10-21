@@ -69,7 +69,7 @@ Shift with Home and Shift with End turn the master volume up and down, from anyw
 The master volume sets how loud everything is together.
 Page Up and Page Down turn the title volume up and down, wherever the title music plays, such as the main menu.
 During the story, Page Up and Page Down turn the background volume up and down instead: the music, the ambience and the sounds that loop while you choose.
-During the story, Shift with Page Up and Shift with Page Down turn the interface volume up and down: the game's own sounds and its recorded choices.
+During the story, Shift with Page Up and Shift with Page Down turn the interface volume up and down: the game's own sounds. The recorded choices follow only the master volume, as the story's voices do.
 The game remembers every volume.
 Every step sounds like the same change, and 0 percent is silent.
 The main menu has no title music yet, so the title volume only says its level for now.

@@ -208,7 +208,7 @@ Reviewed section by section with the dev on 2026-10-19 ([[feedback_review_plan_s
 - **Four volumes** (the dev, 2026-10-19: "I like that.", then the title volume: "Since the title music plays in a lot of places, there should be a volume for it, called title volume. Page up/down can adjust this, but only when the music plays there. Also, the other volume keys should only work when you are in the actual game."):
   - **Master,** Shift+Home louder and Shift+End quieter: everything together ([[foundation_plan]]). The spiel follows only this one, so the story's voices are never quieter than its backgrounds.
   - **Backgrounds,** Page Up louder and Page Down quieter: the music, the three ambiences and the idle loop.
-  - **Interface,** Shift+Page Up louder and Shift+Page Down quieter: the system sounds and the recorded choices.
+  - **Interface,** Shift+Page Up louder and Shift+Page Down quieter: the system sounds. The recorded choices in `speech/`, on `systemVoice`, followed it at first; since 2026-10-20 they follow only the master, as the spiel does (the dev: "the sounds found in the speech folder should not be effected by the interface volume setting.").
   - **Title,** Page Up louder and Page Down quieter: the title music alone.
   - **Where the keys work:**
     - The master keys work everywhere, in every menu and in the story, since the master scales everything, the title music included (the dev, 2026-10-19: "you should be able to adjust the master volume from anywhere in the game, not just the story.").

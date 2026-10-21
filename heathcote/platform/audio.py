@@ -15,9 +15,11 @@ The four volumes (platform/settings.py) move in even-sounding steps: each 10 per
 6 decibels, and 0 percent is silence (the dev, 2026-10-19: "I want even steps if
 possible."). The master sets FMOD's master group, so it scales everything. Each slot also
 follows one other volume: the backgrounds for the music lane, the ambiences and the idle
-loop; the interface for the system sounds and the recorded choices; the title for the
-title music. The spiel follows the master alone, so the voices are never quieter than
-the backgrounds.
+loop; the interface for the system sounds; the title for the title music. The spiel and
+the recorded choices from ``speech/``, on ``systemVoice``, follow the master alone, so the
+voices are never quieter than the backgrounds, and the interface volume never turns the
+choices down (the dev, 2026-10-20: "the sounds found in the speech folder should not be
+effected by the interface volume setting.").
 
 Fades are FMOD fade points, timed on the mixer's own clock, so they are exact to the
 sample and run between frames. They multiply with the volumes, so a volume change never
@@ -52,7 +54,7 @@ SLOTS = {
     'idleLoop': ('story', 'backgrounds_volume'),
     'titleBgm': ('system', 'title_volume'),
     'sfx': ('system', 'interface_volume'),
-    'systemVoice': ('system', 'interface_volume'),
+    'systemVoice': ('system', None),
 }
 #: The slots that loop what they play, and so open it as a stream, read from disk as it
 #: plays rather than all at once.

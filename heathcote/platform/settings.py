@@ -15,9 +15,9 @@ log = logging.getLogger('settings')
 
 #: Each setting's default, in the order the file lists them.
 DEFAULTS = {
-    # aidocks/plans/audio_plan.md: 0 to 100 percent. The spiel follows only the master;
-    # the backgrounds are the music, the ambiences and the idle loop; the interface is the
-    # system sounds and the recorded choices; the title is the title music alone.
+    # aidocks/plans/audio_plan.md: 0 to 100 percent. The spiel and the recorded choices
+    # follow only the master; the backgrounds are the music, the ambiences and the idle
+    # loop; the interface is the system sounds; the title is the title music alone.
     'master_volume': 100,
     'backgrounds_volume': 100,
     'interface_volume': 100,
