@@ -6,7 +6,7 @@ Written by tools/script_text.py from the original's data. Do not edit it by hand
 Part 1: from the start
 
 Spiel: start
-Recording: game/data/Audio/story/scene/start.mp3
+Recording: game/documents/Audio/story/scene/start.mp3
 Transcript:
   [SFX: We hear a landline phone ringing.]
   [NOTE: Graphics laid on screen telling people how to use the menu system.]
@@ -18,7 +18,7 @@ At 0.1 seconds, ambience1 fades to "Martin office" over 2 seconds.
 When it ends, the idle loop "idle loop (start)" plays.
 
 Spiel: call opening
-Recording: game/data/Audio/story/scene/call opening.mp3
+Recording: game/documents/Audio/story/scene/call opening.mp3
 Reached from: the action "call opening".
 Transcript:
   MARTIN:  Hello?
@@ -54,7 +54,7 @@ Opens the action "email".
 Opens the action "where you at? (path)".
 
 Spiel: check email
-Recording: game/data/Audio/story/scene/check email.mp3
+Recording: game/documents/Audio/story/scene/check email.mp3
 Reached from: the action "email".
 Transcript:
   [SFX THE CLACKING OF COMPUTER MOUSE AS MARTIN OPENS AN EMAIL]
@@ -67,14 +67,14 @@ At 6 seconds, ambience2 fades out over 1.5 seconds.
 Next: "commercial", when always.
 
 Spiel: where you at? (path)
-Recording: game/data/Audio/story/scene/where you at (path).mp3
+Recording: game/documents/Audio/story/scene/where you at (path).mp3
 Reached from: the action "where you at? (path)".
 Transcript:
   DAVID: Yeah, nearly at the front gate. Hold on...
 When it ends, the idle loop "idle loop (path)" plays.
 
 Spiel: commercial
-Recording: game/data/Audio/story/scene/commercial.mp3
+Recording: game/documents/Audio/story/scene/commercial.mp3
 Reached from: the end of "check email".
 Transcript:
   [SFX - GHOSTS GOING OOOOOOH/ CLANKS OF CHAINS / SCREAMS OF TEENAGE GIRLS / A MONSTROUS LAUGH etc - Cheap and tacky as possible]
@@ -90,7 +90,7 @@ Next: "commercial reflection", when always.
 Opens the action "commercial skip".
 
 Spiel: commercial reflection
-Recording: game/data/Audio/story/scene/commercial reflection.mp3
+Recording: game/documents/Audio/story/scene/commercial reflection.mp3
 Reached from: the action "commercial skip"; the end of "commercial".
 Transcript:
   MARTIN:   It's really not that bad.
@@ -117,7 +117,7 @@ Opens the action "I fear darkness".
 Opens the action "repeat question (fear)".
 
 Spiel: I fear clowns
-Recording: game/data/Audio/story/scene/I fear clowns.mp3
+Recording: game/documents/Audio/story/scene/I fear clowns.mp3
 Reached from: the action "I fear clowns".
 Transcript:
   MARTIN:  Me? We've talked about it before... Clowns, man..
@@ -129,7 +129,7 @@ At 0.1 seconds, lockout becomes "1".
 Next: "David's fear", when always.
 
 Spiel: I fear spiders
-Recording: game/data/Audio/story/scene/I fear spiders.mp3
+Recording: game/documents/Audio/story/scene/I fear spiders.mp3
 Reached from: the action "I fear spiders".
 Transcript:
   MARTIN:  Me? You know that already... Spiders, man..
@@ -142,7 +142,7 @@ At 0.1 seconds, lockout becomes "1".
 Next: "David's fear", when always.
 
 Spiel: I fear darkness
-Recording: game/data/Audio/story/scene/I fear darkness.mp3
+Recording: game/documents/Audio/story/scene/I fear darkness.mp3
 Reached from: the action "I fear darkness".
 Transcript:
   MARTIN:  Me? We've talked about it before... The dark...
@@ -154,14 +154,14 @@ At 0.1 seconds, lockout becomes "1".
 Next: "David's fear", when always.
 
 Spiel: repeat question (fear)
-Recording: game/data/Audio/story/scene/repeat question (fear).mp3
+Recording: game/documents/Audio/story/scene/repeat question (fear).mp3
 Reached from: the action "repeat question (fear)".
 Transcript:
   MARTIN: Sorry, what were you asking?
   DAVID: Your fears, Martin. If the trailer played to your deepest fear, what would it be?
 
 Spiel: David's fear
-Recording: game/data/Audio/story/scene/David's fear.mp3
+Recording: game/documents/Audio/story/scene/David's fear.mp3
 Reached from: the end of "I fear clowns"; the end of "I fear spiders"; the end of "I fear darkness".
 Transcript:
   MARTIN: You almost there?
@@ -199,14 +199,14 @@ Opens the action "fear of the dark".
 Opens the action "where you at? (outside entrance)".
 
 Spiel: Crazy Ralph (warm)
-Recording: game/data/Audio/story/scene/Crazy Ralph (warm).mp3
+Recording: game/documents/Audio/story/scene/Crazy Ralph (warm).mp3
 Reached from: the action "Crazy Ralph (warm)".
 Transcript:
   MARTIN:  Who the hell is Crazy Ralph?
 Next: "Crazy Ralph", when always.
 
 Spiel: enter from outside
-Recording: game/data/Audio/story/scene/enter from outside.mp3
+Recording: game/documents/Audio/story/scene/enter from outside.mp3
 Reached from: the action "enter from outside".
 Transcript:
   SFX: THE SOUND OF CLANKING KEYS BEING REMOVED FROM DAVID'S POCKET, JANGLING AROUND, AND UNLOCKING THE LARGE FRONT DOOR.
@@ -245,7 +245,7 @@ Opens the action "rats".
 Opens the action "where you at? (inside entrance)".
 
 Spiel: fear of the dark
-Recording: game/data/Audio/story/scene/fear of the dark.mp3
+Recording: game/documents/Audio/story/scene/fear of the dark.mp3
 Reached from: the action "fear of the dark".
 Transcript:
   MARTIN: Did I hear you right earlier? You're afraid of the dark?
@@ -259,7 +259,7 @@ At 0.1 seconds, Crazy Ralph recency becomes "cold".
 Opens the action "Crazy Ralph (cold)".
 
 Spiel: where you at? (outside entrance)
-Recording: game/data/Audio/story/scene/where you at (outside entrance).mp3
+Recording: game/documents/Audio/story/scene/where you at (outside entrance).mp3
 Reached from: the action "where you at? (outside entrance)".
 Transcript:
   MARTIN: What's happening, David?
@@ -268,7 +268,7 @@ At 0.1 seconds, Crazy Ralph recency becomes "cold".
 Opens the action "Crazy Ralph (cold)".
 
 Spiel: Crazy Ralph
-Recording: game/data/Audio/story/scene/Crazy Ralph.mp3
+Recording: game/documents/Audio/story/scene/Crazy Ralph.mp3
 Reached from: the end of "Crazy Ralph (warm)"; the end of "Crazy Ralph (cold)".
 Transcript:
   DAVID:  Oh c'mon - you know (doing an impression of an old man): " You're doomed. You're all doomed. Don't let it know you're afraid. If it senses your fear, it'll feed on it. You're DOOOOOOMED"
@@ -278,7 +278,7 @@ Transcript:
 At 0.1 seconds, Crazy Ralph becomes "0".
 
 Spiel: basements and kitchens
-Recording: game/data/Audio/story/scene/basement and kitchens.mp3
+Recording: game/documents/Audio/story/scene/basement and kitchens.mp3
 Reached from: the action "basements and kitchens".
 Transcript:
   MARTIN: Check out the basement and kitchen first. Leave the best for last.
@@ -307,7 +307,7 @@ Next: "shut door (spiders)", when fear is "spiders".
 Next: "shut door (darkness)", when fear is "darkness".
 
 Spiel: spiel 1
-Recording: game/data/Audio/story/scene/spiel 1.mp3
+Recording: game/documents/Audio/story/scene/spiel 1.mp3
 Reached from: the action "offices and cells".
 Transcript:
   MARTIN: Why don't you start your shpiel? Let's get as much audio as we can of you first entering.
@@ -343,14 +343,14 @@ Opens the action "cellphone (rotation 1)".
 Opens the action "where you at? (during spiel)".
 
 Spiel: Crazy Ralph (cold)
-Recording: game/data/Audio/story/scene/Crazy Ralph (cold).mp3
+Recording: game/documents/Audio/story/scene/Crazy Ralph (cold).mp3
 Reached from: the action "Crazy Ralph (cold)".
 Transcript:
   MARTIN: Did you say the owner went all... Crazy Ralph? on you?
 Next: "Crazy Ralph", when always.
 
 Spiel: rats
-Recording: game/data/Audio/story/scene/rats.mp3
+Recording: game/documents/Audio/story/scene/rats.mp3
 Reached from: the action "rats".
 Transcript:
   MARTIN:  Before you go on, get some sounds of those rats for me will ya?
@@ -360,34 +360,34 @@ Transcript:
 At 0.1 seconds, rats becomes "0".
 
 Spiel: where you at? (inside entrance)
-Recording: game/data/Audio/story/scene/where you at (inside entrance).mp3
+Recording: game/documents/Audio/story/scene/where you at (inside entrance).mp3
 Reached from: the action "where you at? (inside entrance)".
 Transcript:
   DAVID: I’m just inside the front door. Happy to be out of the rain, but man, this place…  Anyway, there are two doors ahead of me off the foyer.
 
 Spiel: shut door (clowns)
-Recording: game/data/Audio/story/scene/shut door (clowns).mp3
+Recording: game/documents/Audio/story/scene/shut door (clowns).mp3
 Reached from: the end of "basements and kitchens".
 Transcript:
   DAVID:  Wait! If I put my ear riiiight up to it, is that...is that circus music?
 Next: "shut door (end)", when always.
 
 Spiel: shut door (spiders)
-Recording: game/data/Audio/story/scene/shut door (spiders).mp3
+Recording: game/documents/Audio/story/scene/shut door (spiders).mp3
 Reached from: the end of "basements and kitchens".
 Transcript:
   DAVID:  I'll bet it's full of spiders.
 Next: "shut door (end)", when always.
 
 Spiel: shut door (darkness)
-Recording: game/data/Audio/story/scene/shut door (darkness).mp3
+Recording: game/documents/Audio/story/scene/shut door (darkness).mp3
 Reached from: the end of "basements and kitchens".
 Transcript:
   DAVID:  It's probably just an endless, empty void of despair and darkness...
 Next: "shut door (end)", when always.
 
 Spiel: spiel 2
-Recording: game/data/Audio/story/scene/spiel 2.mp3
+Recording: game/documents/Audio/story/scene/spiel 2.mp3
 Reached from: the action "spiel 2".
 Transcript:
   MARTIN: Your levels are fine. Keep going...
@@ -417,7 +417,7 @@ Opens the action "offices (from typewriter room)".
 Opens the action "where you at? (typewriter room)".
 
 Spiel: cellphone (rotation 1)
-Recording: game/data/Audio/story/scene/cellphone (rotation 1).mp3
+Recording: game/documents/Audio/story/scene/cellphone (rotation 1).mp3
 Reached from: the action "cellphone (rotation 1)".
 Transcript:
   how's your phone? battery still good?
@@ -426,13 +426,13 @@ At 0.1 seconds, cellphone becomes "rotation 2".
 Opens the action "cellphone (rotation 2)".
 
 Spiel: where you at? (during spiel)
-Recording: game/data/Audio/story/scene/where you at (during spiel).mp3
+Recording: game/documents/Audio/story/scene/where you at (during spiel).mp3
 Reached from: the action "where you at? (during spiel)".
 Transcript:
   DAVID: Still in the main foyer. Still recording?
 
 Spiel: shut door (end)
-Recording: game/data/Audio/story/scene/shut door (end).mp3
+Recording: game/documents/Audio/story/scene/shut door (end).mp3
 Reached from: the end of "shut door (clowns)"; the end of "shut door (darkness)"; the end of "shut door (spiders)".
 Transcript:
   MARTIN: Haha. Just try and open it.
@@ -441,7 +441,7 @@ Transcript:
   MARTIN: Smart ass.
 
 Spiel: typewriters
-Recording: game/data/Audio/story/scene/typewriters.mp3
+Recording: game/documents/Audio/story/scene/typewriters.mp3
 Reached from: the action "typewriters".
 Transcript:
   MARTIN: Anything interesting with the typewriters?
@@ -455,7 +455,7 @@ Transcript:
   MARTIN: No... It's just a bunch of random letters... That's weird...
 
 Spiel: graffiti
-Recording: game/data/Audio/story/scene/graffiti.mp3
+Recording: game/documents/Audio/story/scene/graffiti.mp3
 Reached from: the action "graffiti".
 Transcript:
   MARTIN: Can you make out the graffiti?
@@ -480,7 +480,7 @@ Next: "east wing (blocked 1)", when east wing excuse is "0".
 Next: "east wing (blocked 2)", when east wing excuse is "1".
 
 Spiel: cells
-Recording: game/data/Audio/story/scene/cells.mp3
+Recording: game/documents/Audio/story/scene/cells.mp3
 Reached from: the action "cells (from typewriter room)"; the action "cells (from foyer)".
 Transcript:
   DAVID: Checking out the cells now.
@@ -510,7 +510,7 @@ Opens the action "landline (dropped call)".
 Opens the action "cellphone (dropped call)".
 
 Spiel: offices
-Recording: game/data/Audio/story/scene/offices.mp3
+Recording: game/documents/Audio/story/scene/offices.mp3
 Reached from: the action "offices (from typewriter room)"; the action "offices (from foyer, 1st visit)".
 Transcript:
   DAVID: Okay... I'm gonna go to the offices... It leads to... Well... Nothing... An empty room... but for a painting on the wall.
@@ -533,13 +533,13 @@ Opens the action "foyer from painting room".
 Opens the action "where you at? (offices 1)".
 
 Spiel: where you at? (typewriter room)
-Recording: game/data/Audio/story/scene/where you at (typewriter room).mp3
+Recording: game/documents/Audio/story/scene/where you at (typewriter room).mp3
 Reached from: the action "where you at? (typewriter room)".
 Transcript:
   DAVID (CONT’D): It's a small office just off the foyer. There's a couple of old typewriters covered in dust... lots of graffiti... not much else. I think I can still get to the cells or offices from here.
 
 Spiel: cellphone (rotation 2)
-Recording: game/data/Audio/story/scene/cellphone (rotation 2).mp3
+Recording: game/documents/Audio/story/scene/cellphone (rotation 2).mp3
 Reached from: the action "cellphone (rotation 2)".
 Transcript:
   how's your signal?
@@ -548,7 +548,7 @@ At 0.1 seconds, cellphone becomes "rotation 1".
 Opens the action "cellphone (rotation 1)".
 
 Spiel: east wing (blocked 3)
-Recording: game/data/Audio/story/scene/east wing (blocked 3).mp3
+Recording: game/documents/Audio/story/scene/east wing (blocked 3).mp3
 Reached from: the end of "east wing dispatch".
 Transcript:
   MARTIN: OK, you sure you don't feel like playing Tarzan?
@@ -581,7 +581,7 @@ Opens the action "start recording (passage to east wing)".
 Opens the action "where you at? (passage to east wing)".
 
 Spiel: east wing (blocked 1)
-Recording: game/data/Audio/story/scene/east wing (blocked 1).mp3
+Recording: game/documents/Audio/story/scene/east wing (blocked 1).mp3
 Reached from: the end of "east wing dispatch".
 Transcript:
   MARTIN: OK, can you get to the east wing?
@@ -594,7 +594,7 @@ Transcript:
 At 0.1 seconds, east wing excuse becomes "1".
 
 Spiel: east wing (blocked 2)
-Recording: game/data/Audio/story/scene/east wing (blocked 2).mp3
+Recording: game/documents/Audio/story/scene/east wing (blocked 2).mp3
 Reached from: the end of "east wing dispatch".
 Transcript:
   MARTIN: You really can't get to the east wing?
@@ -604,7 +604,7 @@ Transcript:
 At 0.1 seconds, east wing excuse becomes "0".
 
 Spiel: landline (dropped call)
-Recording: game/data/Audio/story/scene/landline (dropped call).mp3
+Recording: game/documents/Audio/story/scene/landline (dropped call).mp3
 Reached from: the action "landline (dropped call)".
 Transcript:
   MARTIN: Damnit, damnit, damnit!
@@ -616,7 +616,7 @@ Transcript:
 At 0.1 seconds, ambience2 fades out over 0.25 seconds.
 
 Spiel: cellphone (dropped call)
-Recording: game/data/Audio/story/scene/cellphone (dropped call).mp3
+Recording: game/documents/Audio/story/scene/cellphone (dropped call).mp3
 Reached from: the action "cellphone (dropped call)".
 Transcript:
   MARTIN (anxious): Come on David...
@@ -647,7 +647,7 @@ Opens the action "cellphone (rotation 1)".
 Opens the action "where you at? (cell block C, windy)".
 
 Spiel: painting
-Recording: game/data/Audio/story/scene/painting.mp3
+Recording: game/documents/Audio/story/scene/painting.mp3
 Reached from: the action "painting".
 Transcript:
   MARTIN: They took the furniture but left the painting. What's it of?
@@ -669,7 +669,7 @@ At 43.8 seconds, examined painting becomes "1".
 Opens the action "offices (from foyer, denied)".
 
 Spiel: doctor's office
-Recording: game/data/Audio/story/scene/doctor's office.mp3
+Recording: game/documents/Audio/story/scene/doctor's office.mp3
 Reached from: the action "doctor's office".
 Transcript:
   [SFX:We hear a door open...]
@@ -703,13 +703,13 @@ Opens the action "examination room".
 Opens the action "where you at? (doctor's office)".
 
 Spiel: where you at? (offices 1)
-Recording: game/data/Audio/story/scene/where you at (offices 1).mp3
+Recording: game/documents/Audio/story/scene/where you at (offices 1).mp3
 Reached from: the action "where you at? (offices 1)".
 Transcript:
   DAVID: It's the first of the offices... An empty room, with a distressed painting and marks on the floor where the furniture was. Looks like things were moved about recently.
 
 Spiel: start recording (passage to east wing)
-Recording: game/data/Audio/story/scene/start recording (passage to east wing).mp3
+Recording: game/documents/Audio/story/scene/start recording (passage to east wing).mp3
 Reached from: the action "start recording (passage to east wing)"; the action "where you at? (entering east wing)".
 Transcript:
   DAVID: Huh? (Remembering) Oh yeah. (Clears throat).
@@ -734,13 +734,13 @@ Opens the action "flashlight (just broke)".
 Opens the action "where you at? (passage to east wing)".
 
 Spiel: where you at? (passage to east wing)
-Recording: game/data/Audio/story/scene/where you at (passage to east wing).mp3
+Recording: game/documents/Audio/story/scene/where you at (passage to east wing).mp3
 Reached from: the action "where you at? (passage to east wing)".
 Transcript:
   DAVID: It's the passageway leading to the east wing. The roof's collapsed: all the rain from outside is streaming in. The fire burnt the crap outta this place. In fact... I'm still smelling smoke.
 
 Spiel: spiel 3 (start)
-Recording: game/data/Audio/story/scene/spiel 3 (start).mp3
+Recording: game/documents/Audio/story/scene/spiel 3 (start).mp3
 Reached from: the action "spiel 3".
 Transcript:
   DAVID: Let's pick up... In three.. Two... [AS PRESENTER] So I am here in cell block C. I think this is where the mid-level patients were held - those with severe mental issues, but not criminal... The wall at the end of the hallway is open to the elements. I can see the remains of the east wing past it; The place where 89 people lost their lives. From outside the vines are growing inwards, coating this hallway in its wooden tendrils...
@@ -753,17 +753,17 @@ Next: "spiel 3 (clowns)", when fear is "clowns".
 Next: "spiel 3 (darkness)", when fear is "darkness".
 
 Spiel: where you at? (cell block C - windy)
-Recording: game/data/Audio/story/scene/where you at (cell block c - windy).mp3
+Recording: game/documents/Audio/story/scene/where you at (cell block c - windy).mp3
 Reached from: the action "where you at? (cell block C, windy)".
 Transcript:
   DAVID: (we can still hear the wind)  Cell block C, according to the last sign I saw. It’s wrecked like the rest of this place. Small cells line the hall. This is where the patients used to live.  Cozy.  The wind is really strong here, hope you’re getting everything.
 
 Spiel: doctor's notebook
-Recording: game/data/Audio/story/scene/doctors notebook.mp3
+Recording: game/documents/Audio/story/scene/doctors notebook.mp3
 Reached from: the action "doctor's notebook".
 
 Spiel: examination room
-Recording: game/data/Audio/story/scene/examination room.mp3
+Recording: game/documents/Audio/story/scene/examination room.mp3
 Reached from: the action "examination room".
 Transcript:
   DAVID: Okay.. Onto the next room...
@@ -783,13 +783,13 @@ Opens the action "hallway".
 Opens the action "where you at? (examination room)".
 
 Spiel: where you at? (doctor's office)
-Recording: game/data/Audio/story/scene/where you at (doctors office).mp3
+Recording: game/documents/Audio/story/scene/where you at (doctors office).mp3
 Reached from: the action "where you at? (doctor's office)".
 Transcript:
   DAVID: Seems like a doctor's office... A desk... with a notebook on it... a chair... Some degrees on the wall with the names scratched out. Yeah.
 
 Spiel: smoke
-Recording: game/data/Audio/story/scene/smoke.mp3
+Recording: game/documents/Audio/story/scene/smoke.mp3
 Reached from: the action "smoke".
 Transcript:
   MARTIN: Smoke? Isn't it soaking wet in there?
@@ -799,7 +799,7 @@ Transcript:
 At 0.1 seconds, smoke becomes "0".
 
 Spiel: flashlight (just broke)
-Recording: game/data/Audio/story/scene/flashlight (just broke).mp3
+Recording: game/documents/Audio/story/scene/flashlight (just broke).mp3
 Reached from: the action "flashlight (just broke)".
 Transcript:
   MARTIN: Haunted house 101, man. Always make sure the flashlight has batteries.
@@ -810,7 +810,7 @@ At 0.1 seconds, lockout becomes "1".
 Next: "clearing", when always.
 
 Spiel: spiel 3 (spiders)
-Recording: game/data/Audio/story/scene/spiel 3 (spiders).mp3
+Recording: game/documents/Audio/story/scene/spiel 3 (spiders).mp3
 Reached from: the end of "spiel 3 (start)".
 Transcript:
   DAVID:  (regular voice) Jesus! You would HATE it here.
@@ -823,7 +823,7 @@ Transcript:
 Next: "spiel 3 (end)", when always.
 
 Spiel: spiel 3 (clowns)
-Recording: game/data/Audio/story/scene/spiel 3 (clowns).mp3
+Recording: game/documents/Audio/story/scene/spiel 3 (clowns).mp3
 Reached from: the end of "spiel 3 (start)".
 Transcript:
   SFX, in the distance - on the wind - a high pitched clown's laugh. Very very low.
@@ -836,7 +836,7 @@ Transcript:
 Next: "spiel 3 (end)", when always.
 
 Spiel: spiel 3 (darkness)
-Recording: game/data/Audio/story/scene/spiel 3 (darkness).mp3
+Recording: game/documents/Audio/story/scene/spiel 3 (darkness).mp3
 Reached from: the end of "spiel 3 (start)".
 Transcript:
   [Short, silent pause]
@@ -845,7 +845,7 @@ Transcript:
 Next: "spiel 3 (end)", when always.
 
 Spiel: shrine
-Recording: game/data/Audio/story/scene/shrine.mp3
+Recording: game/documents/Audio/story/scene/shrine.mp3
 Reached from: the action "shrine".
 Transcript:
   MARTIN: Hang on. Take a closer look at that shrine, will ya?
@@ -860,7 +860,7 @@ Transcript:
   DAVID: Yeah...
 
 Spiel: hallway
-Recording: game/data/Audio/story/scene/hallway.mp3
+Recording: game/documents/Audio/story/scene/hallway.mp3
 Reached from: the action "hallway".
 Transcript:
   MARTIN: Well, onward and upwards. What's next? Any other doors?
@@ -884,13 +884,13 @@ Next: "hallway graffiti (spiders)", when fear is "spiders".
 Next: "hallway graffiti (darkness)", when fear is "darkness".
 
 Spiel: where you at? (examination room)
-Recording: game/data/Audio/story/scene/where you at (examination room).mp3
+Recording: game/documents/Audio/story/scene/where you at (examination room).mp3
 Reached from: the action "where you at? (examination room)".
 Transcript:
   DAVID: Some kind of examination room. There's a big metal table in the center with leather arm and leg straps on it. Stirrups as well. Caked with rust. Chewed-up by rats. There's a small shelving unit on the wall with some kind of shrine on it. Old candles all around it, half melted. A stone statue of Christ in the middle.
 
 Spiel: clearing
-Recording: game/data/Audio/story/scene/clearing.mp3
+Recording: game/documents/Audio/story/scene/clearing.mp3
 Reached from: the end of "flashlight (just broke)".
 Transcript:
   MARTIN: This might be one of those things we wait on until you can go back with someone else. It's dangerous for you to mess around in the dark.
@@ -910,7 +910,7 @@ Opens the action "go back (clearing)".
 Opens the action "keep going (clearing)".
 
 Spiel: spiel 3 (end)
-Recording: game/data/Audio/story/scene/spiel 3 (end).mp3
+Recording: game/documents/Audio/story/scene/spiel 3 (end).mp3
 Reached from: the end of "spiel 3 (clowns)"; the end of "spiel 3 (darkness)"; the end of "spiel 3 (spiders)".
 Transcript:
   SFX the wind slams the door again. The wind picks up; soon lots of doors are banging.
@@ -933,7 +933,7 @@ Opens the action "self-opened door".
 Opens the action "where you at? (cell block C, not windy)".
 
 Spiel: hallway graffiti (clowns)
-Recording: game/data/Audio/story/scene/hallway graffiti (clowns).mp3
+Recording: game/documents/Audio/story/scene/hallway graffiti (clowns).mp3
 Reached from: the end of "hallway".
 Transcript:
   DAVID: "The fire ate their lips. Now they smile all the time."
@@ -943,7 +943,7 @@ Transcript:
 Next: "offices end", when always.
 
 Spiel: hallway graffiti (spiders)
-Recording: game/data/Audio/story/scene/hallway graffiti (spiders).mp3
+Recording: game/documents/Audio/story/scene/hallway graffiti (spiders).mp3
 Reached from: the end of "hallway".
 Transcript:
   DAVID: "Can you see in the dark without your eyes?"
@@ -952,12 +952,12 @@ Transcript:
 Next: "offices end", when always.
 
 Spiel: hallway graffiti (darkness)
-Recording: game/data/Audio/story/scene/hallway graffiti (darkness).mp3
+Recording: game/documents/Audio/story/scene/hallway graffiti (darkness).mp3
 Reached from: the end of "hallway".
 Next: "offices end", when always.
 
 Spiel: go back (clearing)
-Recording: game/data/Audio/story/scene/go back (clearing).mp3
+Recording: game/documents/Audio/story/scene/go back (clearing).mp3
 Reached from: the action "go back (clearing)".
 Transcript:
   MARTIN: I think you better leave. You can go back tomorrow - Get Phil, he’s on the east coast. We can wire him the money-
@@ -966,7 +966,7 @@ At 0.1 seconds, lockout becomes "1".
 Next: "records room", when always.
 
 Spiel: keep going (clearing)
-Recording: game/data/Audio/story/scene/keep going (clearing).mp3
+Recording: game/documents/Audio/story/scene/keep going (clearing).mp3
 Reached from: the action "keep going (clearing)".
 Transcript:
   MARTIN: Anything else around there?
@@ -974,7 +974,7 @@ At 0.1 seconds, lockout becomes "1".
 Next: "records room", when always.
 
 Spiel: self-opened door
-Recording: game/data/Audio/story/scene/self-opened door.mp3
+Recording: game/documents/Audio/story/scene/self-opened door.mp3
 Reached from: the action "self-opened door".
 Transcript:
   MARTIN: Have a look in there.
@@ -994,13 +994,13 @@ Opens the action "closed cells".
 Opens the action "open cell".
 
 Spiel: where you at? (cell block C - not windy)
-Recording: game/data/Audio/story/scene/where you at (cell block c - not windy).mp3
+Recording: game/documents/Audio/story/scene/where you at (cell block c - not windy).mp3
 Reached from: the action "where you at? (cell block C, not windy)".
 Transcript:
   DAVID: (disturbed)  Cell block C.  It’s wrecked like the rest of this place. Small cells line the hall.  All the doors are shut except for the one that just opened. It’s dead quiet.
 
 Spiel: offices end
-Recording: game/data/Audio/story/scene/offices (end).mp3
+Recording: game/documents/Audio/story/scene/offices (end).mp3
 Reached from: the end of "hallway graffiti (clowns)"; the end of "hallway graffiti (spiders)"; the end of "hallway graffiti (darkness)".
 Transcript:
   MARTIN: C'mon you're kidding, right? It doesn't really say that?
@@ -1028,7 +1028,7 @@ Opens the action "cellphone (50% battery)".
 Opens the action "where you at? (foyer)".
 
 Spiel: records room
-Recording: game/data/Audio/story/scene/records room.mp3
+Recording: game/documents/Audio/story/scene/records room.mp3
 Reached from: the end of "keep going (clearing)"; the end of "go back (clearing)".
 Transcript:
   DAVID (CONT'D from previous): There’s a room on the other side of the wing. I’m gonna check in there.
@@ -1060,7 +1060,7 @@ Opens the action "cellphone (records room)".
 Opens the action "where you at? (records room, no light)".
 
 Spiel: closed cells
-Recording: game/data/Audio/story/scene/closed cells.mp3
+Recording: game/documents/Audio/story/scene/closed cells.mp3
 Reached from: the action "closed cells".
 Transcript:
   MARTIN: See if you can see anything in through the cell windows.
@@ -1079,7 +1079,7 @@ Transcript:
 At 1 second, ambience3 fades to "heartbeat (43bpm, pp)" over 1 second.
 
 Spiel: open cell
-Recording: game/data/Audio/story/scene/open cell.mp3
+Recording: game/documents/Audio/story/scene/open cell.mp3
 Reached from: the action "open cell".
 Transcript:
   [SFX: He gets there. We hear the creak of the door.]
@@ -1109,7 +1109,7 @@ Opens the action "foyer revisited".
 Opens the action "cells (from foyer, denied)".
 
 Spiel: foyer revisited
-Recording: game/data/Audio/story/scene/foyer revisited.mp3
+Recording: game/documents/Audio/story/scene/foyer revisited.mp3
 Reached from: the action "foyer revisited"; the action "foyer from painting room".
 Transcript:
   DAVID: OK, I'm heading back...
@@ -1136,13 +1136,13 @@ Opens the action "cellphone (50% battery)".
 Opens the action "where you at? (foyer)".
 
 Spiel: can't revisit 2
-Recording: game/data/Audio/story/scene/cant revisit 2.mp3
+Recording: game/documents/Audio/story/scene/cant revisit 2.mp3
 Reached from: the action "offices (from foyer, denied)".
 Transcript:
   DAVID: I think we did that already
 
 Spiel: offices revisit
-Recording: game/data/Audio/story/scene/offices revisit.mp3
+Recording: game/documents/Audio/story/scene/offices revisit.mp3
 Reached from: the action "offices (from foyer, 2nd visit)".
 Transcript:
   MARTIN: Hey, you mind going back to the offices again?
@@ -1163,7 +1163,7 @@ Opens the action "foyer from painting room".
 Opens the action "where you at? (offices 1)".
 
 Spiel: cellphone (50% battery)
-Recording: game/data/Audio/story/scene/cellphone (50% battery).mp3
+Recording: game/documents/Audio/story/scene/cellphone (50% battery).mp3
 Reached from: the action "cellphone (50% battery)".
 Transcript:
   MARTIN: Hey, how's your phone charge?
@@ -1175,14 +1175,14 @@ At 0.1 seconds, cellphone becomes "3 bars".
 Opens the action "cellphone (3 bars)".
 
 Spiel: where you at? (foyer)
-Recording: game/data/Audio/story/scene/where you at (foyer).mp3
+Recording: game/documents/Audio/story/scene/where you at (foyer).mp3
 Reached from: the action "where you at? (foyer)".
 Transcript:
   MARTIN: David, you're at the foyer, right?
   DAVID: Yeah, in all its rat-infested, grimy glory. The doors from here lead out to the cells, some offices, and the east wing. Where do you want me?
 
 Spiel: flashlight (records room)
-Recording: game/data/Audio/story/scene/flashlight (records room).mp3
+Recording: game/documents/Audio/story/scene/flashlight (records room).mp3
 Reached from: the action "flashlight (records room)".
 Transcript:
   MARTIN: The batteries are, like, completely out?
@@ -1191,7 +1191,7 @@ At 0.1 seconds, flashlight becomes "hint".
 Opens the action "flashlight hint".
 
 Spiel: cellphone (records room)
-Recording: game/data/Audio/story/scene/cellphone (records room).mp3
+Recording: game/documents/Audio/story/scene/cellphone (records room).mp3
 Reached from: the action "cellphone (records room)".
 Transcript:
   MARTIN:  David, does your phone have a light?
@@ -1216,13 +1216,13 @@ Opens the action "David? (records room)".
 Opens the action "David!! (records room)".
 
 Spiel: where you at? (records room, no light)
-Recording: game/data/Audio/story/scene/where you at (records room, no light).mp3
+Recording: game/documents/Audio/story/scene/where you at (records room, no light).mp3
 Reached from: the action "where you at? (records room, no light)".
 Transcript:
   DAVID: I think this is the records room, but it's really too dark to see. There's lots filing cabinets... but with my flashlight out, that's all I can tell ya.
 
 Spiel: journal
-Recording: game/data/Audio/story/scene/journal.mp3
+Recording: game/documents/Audio/story/scene/journal.mp3
 Reached from: the action "journal".
 Transcript:
   [SFX: opening journal cover]
@@ -1244,14 +1244,14 @@ Transcript:
   DAVID: Wow.
 
 Spiel: can't revisit 1
-Recording: game/data/Audio/story/scene/cant revisit 1.mp3
+Recording: game/documents/Audio/story/scene/cant revisit 1.mp3
 Reached from: the action "cells (from foyer, denied)".
 Transcript:
   DAVID: You're sure? I don't think there's much we didn't pick up the first time
   MARTIN: Yeah, OK
 
 Spiel: cellphone (3 bars)
-Recording: game/data/Audio/story/scene/cellphone (3 bars).mp3
+Recording: game/documents/Audio/story/scene/cellphone (3 bars).mp3
 Reached from: the action "cellphone (3 bars)".
 Transcript:
   MARTIN: Hey, your phone signal OK?
@@ -1263,7 +1263,7 @@ At 0.1 seconds, cellphone becomes "50% battery".
 Opens the action "cellphone (50% battery)".
 
 Spiel: flashlight hint
-Recording: game/data/Audio/story/scene/flashlight (hint).mp3
+Recording: game/documents/Audio/story/scene/flashlight (hint).mp3
 Reached from: the action "flashlight hint".
 Transcript:
   DAVID: Nah, it's totally out of juice.
@@ -1271,7 +1271,7 @@ Transcript:
   DAVID: Uh.... not unless you can think of anything?
 
 Spiel: filing cabinet
-Recording: game/data/Audio/story/scene/filing cabinet.mp3
+Recording: game/documents/Audio/story/scene/filing cabinet.mp3
 Reached from: the action "David! (records room)"; the action "David? (records room)"; the action "David!! (records room)".
 Transcript:
   DAVID  (still speaking himself, and sniffing the air…very quiet)  Where is she? Judith… I need to find…
@@ -1300,7 +1300,7 @@ Opens the action "records room (move on)".
 Opens the action "cellphone (25% battery)".
 
 Spiel: research Kaufer
-Recording: game/data/Audio/story/scene/research Kaufer.mp3
+Recording: game/documents/Audio/story/scene/research Kaufer.mp3
 Reached from: the action "research Kaufer".
 Transcript:
   MARTIN: Hold on...
@@ -1322,13 +1322,13 @@ Opens the action "Operation Paperclip".
 Opens the action "records room (move on)".
 
 Spiel: handwritten note
-Recording: game/data/Audio/story/scene/handwritten note.mp3
+Recording: game/documents/Audio/story/scene/handwritten note.mp3
 Reached from: the action "handwritten note".
 Transcript:
   DAVID: Doesn't say who wrote it... It just says "You don't answer me... Maybe you can't hear me. Maybe you can't hear at all. But maybe you can read these words. I've been trying to set you free. Don't you understand that? We thought the ritual would win the war. But we were wrong. You didn't bring victory with you. You only brought your hunger. I'm sorry we woke you. I have been doing all I can to appease you... We have given you tribute after tribute to feed on... Isn't that what you wanted?"
 
 Spiel: cellphone (25% battery)
-Recording: game/data/Audio/story/scene/cellphone (25% battery).mp3
+Recording: game/documents/Audio/story/scene/cellphone (25% battery).mp3
 Reached from: the action "cellphone (25% battery)".
 Transcript:
   MARTIN: Hey, how's your phone battery holding out?
@@ -1340,7 +1340,7 @@ At 0.1 seconds, cellphone becomes "2 bars".
 Opens the action "cellphone (2 bars)".
 
 Spiel: Operation Paperclip
-Recording: game/data/Audio/story/scene/Operation Paperclip.mp3
+Recording: game/documents/Audio/story/scene/Operation Paperclip.mp3
 Reached from: the action "Operation Paperclip".
 Transcript:
   DAVID: Operation Paperclip?
@@ -1350,7 +1350,7 @@ Transcript:
   DAVID: Hell, man, if he was a Nazi, that'd certainly make for some interesting cutaways during the show.
 
 Spiel: records room (move on)
-Recording: game/data/Audio/story/scene/records room (move on).mp3
+Recording: game/documents/Audio/story/scene/records room (move on).mp3
 Reached from: the action "records room (move on)".
 Transcript:
   DAVID: OK, I'll head back to the clearing...
@@ -1388,7 +1388,7 @@ Opens the action "hear what? (Judith 1)".
 Opens the action "what's going on? (Judith 1)".
 
 Spiel: cellphone (2 bars)
-Recording: game/data/Audio/story/scene/cellphone (2 bars).mp3
+Recording: game/documents/Audio/story/scene/cellphone (2 bars).mp3
 Reached from: the action "cellphone (2 bars)".
 Transcript:
   MARTIN: David, you're still hearing me OK?
@@ -1400,7 +1400,7 @@ At 0.1 seconds, cellphone becomes "25% battery".
 Opens the action "cellphone (25% battery)".
 
 Spiel: Judith 1
-Recording: game/data/Audio/story/scene/Judith 1.mp3
+Recording: game/documents/Audio/story/scene/Judith 1.mp3
 Reached from: the action "hear what? (Judith 1)"; the action "what's going on? (Judith 1)".
 Transcript:
   DAVID:  Why can I smell burning hair? (Pause, shift in tone) I smell burning hair.
@@ -1424,7 +1424,7 @@ Opens the action "burning hair? (Judith 2)".
 Opens the action "you kidding? (Judith 2)".
 
 Spiel: Judith 2
-Recording: game/data/Audio/story/scene/Judith 2.mp3
+Recording: game/documents/Audio/story/scene/Judith 2.mp3
 Reached from: the action "you kidding? (Judith 2)"; the action "burning hair? (Judith 2)".
 Transcript:
   MARTIN: David... You HAVE to listen-
@@ -1439,7 +1439,7 @@ Opens the action "hurt you? (Judith 3)".
 Opens the action "listen to me (Judith 3)".
 
 Spiel: Judith 3
-Recording: game/data/Audio/story/scene/Judith 3.mp3
+Recording: game/documents/Audio/story/scene/Judith 3.mp3
 Reached from: the action "listen to me (Judith 3)"; the action "hurt you? (Judith 3)".
 Transcript:
   DAVID (CONT’D): What? What did you say?
@@ -1466,7 +1466,7 @@ When it ends, the idle loop "idle loop (Judith 3)" plays.
 Opens the action "dual calls (answer landline)".
 
 Spiel: dual calls (answer landline)
-Recording: game/data/Audio/story/scene/dual calls (answer landline).mp3
+Recording: game/documents/Audio/story/scene/dual calls (answer landline).mp3
 Reached from: the action "dual calls (answer landline)".
 Transcript:
   [He picks up the phone.]
@@ -1486,7 +1486,7 @@ Opens the action "dual calls (switch to cell)".
 Opens the action "dual calls (landline)".
 
 Spiel: dual calls (switch to cell)
-Recording: game/data/Audio/story/scene/dual calls (switch to cell).mp3
+Recording: game/documents/Audio/story/scene/dual calls (switch to cell).mp3
 Reached from: the action "dual calls (switch to cell)".
 Transcript:
   [SFX:He switches phones to the mobile one we heard Judith and David on.]
@@ -1502,7 +1502,7 @@ At 0.1 seconds, ambience2 fades out over 0.25 seconds.
 When it ends, the idle loop "idle loop (dual calls (switch to cell))" plays.
 
 Spiel: dual calls (landline)
-Recording: game/data/Audio/story/scene/dual calls (landline).mp3
+Recording: game/documents/Audio/story/scene/dual calls (landline).mp3
 Reached from: the action "dual calls (landline)".
 Transcript:
   MARTIN: I-I’m sorry... Look, be honest with me right now, are you messing with me?
@@ -1536,7 +1536,7 @@ Opens the action "who's there? (escape 1)".
 Opens the action "what's happening? (escape 1)".
 
 Spiel: escape 1
-Recording: game/data/Audio/story/scene/escape 1.mp3
+Recording: game/documents/Audio/story/scene/escape 1.mp3
 Reached from: the action "what's happening? (escape 1)"; the action "who's there? (escape 1)".
 Transcript:
   MARTIN: DAVID! Talk to me! What is it?
@@ -1555,7 +1555,7 @@ When it ends, the idle loop "idle loop (terror)" plays.
 Opens the action "building plans".
 
 Spiel: escape 2
-Recording: game/data/Audio/story/scene/escape 2.mp3
+Recording: game/documents/Audio/story/scene/escape 2.mp3
 Reached from: the action "building plans".
 Transcript:
   MARTIN: I got the building plans here. Hold on...
@@ -1589,7 +1589,7 @@ Opens the action "call for help (fallen)".
 Opens the action "what's happening? (fallen)".
 
 Spiel: fallen
-Recording: game/data/Audio/story/scene/fallen.mp3
+Recording: game/documents/Audio/story/scene/fallen.mp3
 Reached from: the action "call for help (fallen)"; the action "what's happening? (fallen)".
 Transcript:
   [Switch to Martin POV]
@@ -1611,7 +1611,7 @@ Next: "ending (clowns)", when fear is "clowns".
 Next: "ending (darkness)", when fear is "darkness".
 
 Spiel: ending (spiders)
-Recording: game/data/Audio/story/scene/ending (spiders).mp3
+Recording: game/documents/Audio/story/scene/ending (spiders).mp3
 Reached from: the end of "fallen".
 Transcript:
   DAVID:Now don't be afraid of them... They just want somewhere warm to live...
@@ -1623,7 +1623,7 @@ At 0.1 seconds, ambience2 fades out over 3 seconds.
 Next: "ending (commercial)", when always.
 
 Spiel: ending (clowns)
-Recording: game/data/Audio/story/scene/ending (clowns).mp3
+Recording: game/documents/Audio/story/scene/ending (clowns).mp3
 Reached from: the end of "fallen".
 Transcript:
   DAVID: Now look behind you...
@@ -1634,7 +1634,7 @@ At 0.1 seconds, ambience2 fades out over 3 seconds.
 Next: "ending (commercial)", when always.
 
 Spiel: ending (darkness)
-Recording: game/data/Audio/story/scene/ending (darkness).mp3
+Recording: game/documents/Audio/story/scene/ending (darkness).mp3
 Reached from: the end of "fallen".
 Transcript:
   DAVID:Now you must accept the darkness... embrace it...
@@ -1647,7 +1647,7 @@ At 0.1 seconds, ambience2 fades out over 3 seconds.
 Next: "ending (commercial)", when always.
 
 Spiel: ending (commercial)
-Recording: game/data/Audio/story/scene/ending (commercial).mp3
+Recording: game/documents/Audio/story/scene/ending (commercial).mp3
 Reached from: the end of "ending (clowns)"; the end of "ending (darkness)"; the end of "ending (spiders)".
 Transcript:
   As the credits roll, we hear a commercial - With the same announcer as the first commercial.
@@ -1671,7 +1671,7 @@ At 0.1 seconds, ambience3 fades out over 3 seconds.
 Part 2: spiels not reached by that walk
 
 Spiel: where you at? (records room - light)
-Recording: game/data/Audio/story/scene/where you at_ (records room - light).mp3
+Recording: game/documents/Audio/story/scene/where you at_ (records room - light).mp3
 Reached from: the action "where you at? (records room, light)".
 Transcript:
   DAVID: This is the records room. There are a lot of old filing cabinets, some rusted shut. A lot of water damaged files lying around too.  I guess when you’re worried about being burned alive, proper re-filing is low on your list of priorities.
