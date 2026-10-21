@@ -6,9 +6,35 @@ metadata:
   type: project
 ---
 
-**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is confirmed too, after the dev's ear tests ("Also all 4 tests past"). Section 5 is next.
+**Status:** being built (the dev, 2026-10-20: "Perfect! Now you can start."). Section 1 is confirmed ("Section 1 looks good. Please continue"), and so is section 2, after the dev's ear tests ("all 3 hering tests past."). Section 3 is confirmed too, after the dev's ear tests ("all 4 tests past perfectly!"). Section 4 is confirmed too, after the dev's ear tests ("Also all 4 tests past"). Section 5 is built and waits for the dev's word (the dev: "ready for section5.").
 
 ## Progress
+
+- **Section 5, built 2026-10-20, waiting for the dev's word:**
+  - **The player gains debug mode's actions:**
+    - **`skip()`, F2:** it fires the spiel's waiting timed sets and lane events up to its end, then seeks to the end, so the spiel ends as any spiel does. Never under the menu, while paused, or on a silent spiel.
+    - **`jump(soft)`, F3 and `--spiel`:** it plays any spiel, the state kept, closing the menu or pause first.
+    - **`variables_text()`, F4:** for example "fear is clowns.", or "Every variable is 0.".
+  - **`heathcote/ui/search.py`, `SearchScreen`:** the spoken search from `audio_check.py`, as a screen. Each letter is spoken, Backspace takes one off, and Enter finds by part of a name, in any case. The same text again moves to the next match, a miss says so, and Escape gives up. Its keys are fixed, since they type.
+  - **The App passes each key's typed character** as `last_char`, for text entry.
+  - **`StoryScreen`:** F2 to F4 work in debug mode only, through the key map's debug actions. F3 says the spiel found and the match count, such as "cells, 1 of 3 matches.". `start_at` starts at a spiel.
+  - **`--spiel LABEL`** now accepts only a spiel's label, never another kind's, and gives its softRef. Start story begins there the first time, through `app.start_spiel`.
+  - **`story_check.py`** turns debug mode on for itself without remembering it, and lists F2 to F4.
+  - **`tests/case/test_debug.py`, 7 tests:**
+    - F4's words
+    - F2 on "call opening", lifting its lockout with `menu-lockout-ended`, and F2 doing nothing while paused
+    - F3's spoken letters, Backspace, the match count, the variables kept and the next match; a miss, and Escape
+    - the debug keys doing nothing out of debug mode
+    - Start story at `--spiel`'s spiel only once
+    
+    The `--spiel` test now checks a variable's label is refused. The suite passes, 152 tests.
+  - **Checked through the real entry points:** the tool, silently for 4 seconds, in debug mode playing `start`; and `Heathcote.py --debug --spiel cells`, logging that Start story will begin at "cells".
+  - **To test by ear:**
+    - **Mandatory:**
+      - F3 jumps to "cells"
+      - F4 speaks the variables
+      - F2 in "call opening" before 44.7 seconds
+    - **Optional:** `--spiel cells` in the game.
 
 - **Section 4, confirmed by the dev 2026-10-20, whose ear tests passed** ("Also all 4 tests past"): Left and Right, Escape's pause and Resume, Tab, and losing the window.
   - **The player gains the keys during play:**

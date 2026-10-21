@@ -4,10 +4,11 @@
 
 It runs the game's own main loop and story screen, with the tool's keys added, so what is
 heard here is what the game does, F1 and the volume keys included. It grows with each
-section of the story engine plan. For now, sections 2 to 4: the story plays from its start,
+section of the story engine plan. For now, sections 2 to 5: the story plays from its start,
 moving on by itself wherever a spiel leads straight into the next, with its music and
-ambience in context; the actions menu chooses what happens next; and the game's own keys
-work during play.
+ambience in context; the actions menu chooses what happens next; the game's own keys work
+during play; and debug mode, which the tool turns on for itself without remembering it,
+gives F2 to F4.
 
 The game's keys:
 
@@ -21,6 +22,11 @@ The game's keys:
     Page Up, Page Down           the background volume
     Shift+Page Up, Shift+Page Down   the interface volume
     F1                   the key bindings
+    F2                   debug: skip to the end of the spiel, its waiting sets and cues firing
+    F3                   debug: find a spiel by part of its label and jump there, the variables
+                         kept; each letter is spoken, Backspace takes one off, Enter jumps, the
+                         same text again moves to the next match, and Escape gives up
+    F4                   debug: say every variable that is not 0
 
 The tool's own keys:
 
@@ -50,9 +56,9 @@ import Heathcote  # noqa: E402  (the game's own log and crash file)
 from heathcote.game.player import PLAYING, SCENE_END, STORY_END  # noqa: E402
 from heathcote.game.story_screen import StoryScreen  # noqa: E402
 
-INTRO = ('Story check. The story starts now, with the game\'s own keys. R starts again, Comma '
-         'and Full stop choose a spiel and 3 plays it, S says where the story is, and V turns '
-         'the spiel labels on or off. Q quits.')
+INTRO = ('Story check, in debug mode. The story starts now, with the game\'s own keys, and F2 '
+         'to F4. R starts again, Comma and Full stop choose a spiel and 3 plays it, S says where '
+         'the story is, and V turns the spiel labels on or off. Q quits.')
 
 
 class CheckScreen(StoryScreen):
@@ -156,6 +162,7 @@ def main():
     Heathcote.start_log(True)
     logging.getLogger('heathcote').info('story check starting')
     app = App(options)
+    app.set_debug(True, remember=False)     # F2 to F4, for this run only
     try:
         app.run(CheckScreen(app), pygame)
     except SystemExit as stop:

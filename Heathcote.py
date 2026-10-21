@@ -5,7 +5,7 @@
 Options (aidocks/plans/foundation_plan.md):
 
     --debug               debug mode for this run (source runs only)
-    --spiel LABEL         start the story at any spiel by its label, in debug mode only
+    --spiel LABEL         Start story begins at any spiel by its label, in debug mode only
     -v                    a more detailed log
     --exit-after SECONDS  quit by itself after that many seconds
 
@@ -17,7 +17,6 @@ from __future__ import annotations
 
 import argparse
 import datetime
-import json
 import logging
 import os
 import platform
@@ -108,18 +107,20 @@ def say_why(speech, text):
 
 
 def spiel_from_options(options, debug):
-    """The spiel label ``--spiel`` names, when it is allowed and the story has it; or None."""
+    """The softRef of the spiel ``--spiel`` names by its label, when it is allowed and the
+    story has a spiel with that label; or None. Labels are the "Spiel:" headings of
+    analysis/script/Heathcote.txt; when two spiels share one, the first is taken."""
     if not options.spiel:
         return None
     if not debug:
         log.warning('--spiel works only in debug mode, so it is ignored')
         return None
-    with open(paths.bundle(), 'r', encoding='utf-8-sig') as f:
-        labels = set(json.load(f).get('labels', {}).values())
-    if options.spiel not in labels:
+    from heathcote.game.storydata import StoryData
+    found = StoryData.shared().find('actionSpiels', options.spiel)
+    if not found:
         log.warning('there is no spiel labelled "%s", so it is ignored', options.spiel)
         return None
-    return options.spiel
+    return found[0]
 
 
 def main(argv=None):
@@ -136,9 +137,9 @@ def main(argv=None):
         from heathcote.app import App
         from heathcote.game.menus import MainMenu
         app = App(options, speech=speech)
-        spiel = spiel_from_options(options, app.debug)
-        if spiel is not None:
-            log.info('the story will start at "%s" once the story engine is built', spiel)
+        app.start_spiel = spiel_from_options(options, app.debug)
+        if app.start_spiel is not None:
+            log.info('Start story will begin at "%s"', options.spiel)
         app.run(MainMenu(app), pygame)
         log.info('Heathcote closed')
         return 0

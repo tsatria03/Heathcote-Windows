@@ -29,9 +29,11 @@ class MainMenu(Menu):
                 Row('Quit', self.app.quit)]
 
     def start_story(self):
-        """The story from its start, each time, until the saves plan gives Continue story."""
+        """The story from its start, each time, until the saves plan gives Continue story;
+        the first time, at the spiel --spiel named, in debug mode."""
         from .story_screen import StoryScreen
-        self.stack.push(StoryScreen(self.app))
+        start_at, self.app.start_spiel = self.app.start_spiel, None
+        self.stack.push(StoryScreen(self.app, start_at=start_at))
 
     def back(self):
         """Nothing is under the main menu: Escape says the row again."""

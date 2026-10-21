@@ -56,11 +56,15 @@ def test_an_error_writes_the_crash_file_and_returns_1():
     assert 'ZeroDivisionError' in _crash_text()
 
 
-def test_spiel_needs_debug_mode_and_a_real_label():
-    o = types.SimpleNamespace(spiel='start')
+def test_spiel_needs_debug_mode_and_a_spiels_label():
+    from heathcote.game.storydata import StoryData
+    story = StoryData.shared()
+    o = types.SimpleNamespace(spiel='cells')
     assert Heathcote.spiel_from_options(o, debug=False) is None
-    assert Heathcote.spiel_from_options(o, debug=True) == 'start'
+    assert Heathcote.spiel_from_options(o, debug=True) == story.find('actionSpiels', 'cells')[0]
     o.spiel = 'no such spiel'
+    assert Heathcote.spiel_from_options(o, debug=True) is None
+    o.spiel = 'fear'                                    # a variable's label, not a spiel's
     assert Heathcote.spiel_from_options(o, debug=True) is None
 
 
