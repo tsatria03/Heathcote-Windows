@@ -229,7 +229,8 @@ give the choice on the command line:
 
 A build carries:
 
-- `story.dat` beside the exe: every file of `game\documents\Audio\story`, the story's
+- `data\story.dat`, in a `data` folder beside the exe: every file of
+  `game\documents\Audio\story`, the story's
   recordings, packed and encrypted, each sealed on its own with AES-256-GCM and read into
   FMOD from memory. The compiler makes it fresh each build and reads every recording back.
   The key ships with the game, so it keeps out casual copying, not a determined person.

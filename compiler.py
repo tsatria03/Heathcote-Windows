@@ -24,7 +24,8 @@ What a build carries:
 * inside the exe, or the folder of Python files beside it: the game's code, pygame, Prism
   with its native part, pyfmodex, cryptography, FMOD's fmod.dll and the NVDA client, with
   the third-party licences as licenses\\;
-* story.dat beside the exe: every file of game\\documents\\Audio\\story, the story's
+* story.dat in a data\\ folder beside the exe, in every kind of build: every file of
+  game\\documents\\Audio\\story, the story's
   recordings, packed and encrypted (heathcote/platform/pack.py), made fresh by each build
   and every recording read back to check it (the dev, 2026-10-21: "I did not want the exe
   file to be too big if embedded.");
@@ -77,6 +78,9 @@ GAME_DATA = ('documents/Audio', 'documents/text')
 #: The folder story.dat packs (heathcote/platform/pack.py), left out of game\.
 PACKED = 'documents/Audio/story'
 PACK = 'story.dat'
+#: The folder beside the exe that story.dat goes into, in every kind of build
+#: (heathcote/paths.py; the dev, 2026-10-21: "I put the story.dat file in a data folder.").
+PACK_FOLDER = 'data'
 #: The pack's fingerprint, inside the build's game\documents\text\system\, beside the story's
 #: index (heathcote/paths.py).
 FINGERPRINT = 'story_pack.json'
@@ -588,8 +592,8 @@ def main(argv=None) -> int:
             say("the game's data would go %s: %s."
                 % ('inside the exe' if embed_game else 'into %s' % os.path.join(dest_root, 'game'),
                    data_summary(src, game_files(src))))
-            say('%s would be made beside the exe, encrypted, from %s, each read back to check it.'
-                % (PACK, pack_summary(src)))
+            say('%s would be made in %s beside the exe, encrypted, from %s, each read back to '
+                'check it.' % (PACK, PACK_FOLDER + os.sep, pack_summary(src)))
         for name, shipped_as in SIDE_FILES:
             say('%s would be copied beside the exe%s%s'
                 % (name, '' if shipped_as == name else ', as %s' % shipped_as,
@@ -636,9 +640,9 @@ def main(argv=None) -> int:
         say('  %s.' % data_summary(src, copy_game(src, dest_game)))
         write_fingerprint(dest_game, info)
     if info is not None:
-        os.makedirs(dest_root, exist_ok=True)
-        os.replace(PACK_STAGE, os.path.join(dest_root, PACK))
-        say('%s is beside the exe.' % PACK)
+        os.makedirs(os.path.join(dest_root, PACK_FOLDER), exist_ok=True)
+        os.replace(PACK_STAGE, os.path.join(dest_root, PACK_FOLDER, PACK))
+        say('%s is in %s, beside the exe.' % (PACK, PACK_FOLDER + os.sep))
     copy_side_files(dest_root)
     strip_shipped_changelog(dest_root)
     for warning in release_warnings(os.path.join(dest_root, CHANGELOG)):

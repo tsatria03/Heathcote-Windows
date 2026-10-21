@@ -90,7 +90,7 @@ Asked for by the dev, 2026-10-21: "Can you please bring the pack encription feat
 - **`requirements.txt`** gains `cryptography`; its licence goes into `licenses\`, and the compiler names its cipher module outright.
 - **Tests** for the format, damaged and foreign packs, reading from memory, the fallback order, the compiler leaving the folder out, and the zip.
 - **Nothing to test by ear beyond a build:** the dev builds with `--test` and plays a little of the built game, the story sounding as it does from source.
-- **Where `story.dat` sits in a build:** beside `Heathcote.exe`, inside the release zip (the dev, 2026-10-21: "That's exactly what I mean.").
+- **Where `story.dat` sits in a build:** beside `Heathcote.exe`, inside the release zip (the dev, 2026-10-21: "That's exactly what I mean."). **Then moved into a `data` folder beside the exe** (the dev, 2026-10-21: "I decided on a new approach. I put the story.dat file in a data folder. Please edit the code to move the dat there upon compelation for options 1 through 4."): `paths.story_pack()` gives `data\story.dat` beside the executable in a build, and the compiler puts it there in every kind of build, not only menu choices 1 to 4, since the game looks nowhere else. From source the fallback stays `dist\story.dat`.
 
 ## Built in sections
 

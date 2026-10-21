@@ -57,8 +57,8 @@ UNPLAYED_LANES = ('ambience',)
 PACKED_FOLDER = 'story'
 
 MISSING_PACK = ("Heathcote's story recordings were not found. They are in story.dat, which "
-                "belongs beside Heathcote.exe; extract the whole Heathcote-Windows folder "
-                "from the download again. Looked for %s.")
+                "belongs in the data folder beside Heathcote.exe; extract the whole "
+                "Heathcote-Windows folder from the download again. Looked for %s.")
 WRONG_PACK = ("Heathcote's story.dat does not belong to this copy of the game: %s. Extract "
               "the whole Heathcote-Windows folder from the download again.")
 

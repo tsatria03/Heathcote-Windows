@@ -84,6 +84,9 @@ def audio() -> str:
 
 #: The story's recordings, packed (platform/pack.py, aidocks/plans/build_release_plan.md).
 STORY_PACK = 'story.dat'
+#: The folder beside the executable that holds it in a build (the dev, 2026-10-21: "I put
+#: the story.dat file in a data folder.").
+PACK_FOLDER = 'data'
 #: The pack's size and SHA-256, which compiler.py puts in a build's
 #: game/documents/text/system/, beside the story's index (the dev, 2026-10-21: "Can you please
 #: put the story_pack.json file in documents/text/system?").
@@ -92,9 +95,11 @@ PACK_FINGERPRINT_FOLDER = (DATA_FOLDER, 'text', 'system')
 
 
 def story_pack() -> str:
-    """Where story.dat is: beside the executable in a build, or dist\\story.dat from source,
-    used there only when game/documents/Audio/story/ is not."""
-    return os.path.join(EXE_DIR if FROZEN else os.path.join(ROOT, 'dist'), STORY_PACK)
+    """Where story.dat is: data\\story.dat beside the executable in a build, or
+    dist\\story.dat from source, used there only when game/documents/Audio/story/ is not."""
+    if FROZEN:
+        return os.path.join(EXE_DIR, PACK_FOLDER, STORY_PACK)
+    return os.path.join(ROOT, 'dist', STORY_PACK)
 
 
 def version() -> str:

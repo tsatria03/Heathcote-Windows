@@ -205,6 +205,15 @@ def test_from_source_the_loose_folder_wins():
     assert STORY.pack is None
     assert os.path.isfile(STORY.audio_path(STORY.start()))
     assert paths.story_pack().endswith(os.path.join('dist', 'story.dat'))
+
+
+def test_a_build_looks_in_the_data_folder_beside_its_exe():
+    saved = paths.FROZEN, paths.EXE_DIR
+    paths.FROZEN, paths.EXE_DIR = True, os.path.join('C:\\', 'Games', 'Heathcote-Windows')
+    try:
+        assert paths.story_pack() == os.path.join('C:\\', 'Games', 'Heathcote-Windows', 'data', 'story.dat')
+    finally:
+        paths.FROZEN, paths.EXE_DIR = saved
     assert storydata.PACKED_FOLDER == 'story'
 
 
