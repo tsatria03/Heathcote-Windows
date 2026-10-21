@@ -13,7 +13,7 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- None open.
+- [Menu sounds](../plans/menu_sounds_plan.md): plan 11, planned, waiting for the dev's word. click-good on moving, choosing and going back in every menu, with a Menu sounds setting.
 
 ## Completed projects
 - [Skip opening](../plans/skip_opening_plan.md): plan 10, FINISHED 2026-10-21. A Skip opening screens setting after Debug mode; when on, the game starts at the main menu, the notice counted as shown; 221 silent tests.
