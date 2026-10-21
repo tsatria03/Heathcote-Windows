@@ -1,5 +1,5 @@
-"""story.dat (heathcote/platform/pack.py): the format, damaged and foreign packs, playing
-from it through FMOD's no-sound output, and StoryData finding the story there."""
+"""story.dat (heathcote/platform/pack.py): the format, damaged and foreign packs, FMOD's
+no-sound output playing what it holds, and StoryData finding the story there."""
 import _quiet  # noqa: F401  (first, before the game)
 
 import json
