@@ -23,9 +23,11 @@ caught part way through a crossfade picks the crossfade up part way
 When the story opens, the lanes held when the resumed spiel began start again, each
 fading in over 0.5 seconds (+[StoryView go], 0x100025ce8).
 
-The idle loop starts, with no fade, when a spiel ends with nothing to follow, and stops
-when the next spiel begins (+[Sound playSpiel:], 0x100021af0) or a rewind replays the
-ended spiel.
+The idle loop starts, with no fade, when a spiel ends with nothing to follow. It fades out
+over 2 seconds when the next spiel begins, where the original stopped it at once
+(+[Sound playSpiel:], 0x100021af0), so the quiet after a choice comes on gently
+(aidocks/plans/player_feedback_plan.md). A rewind replaying the ended spiel still stops it
+at once.
 
 What each lane holds is kept by softRef, as the saves keep it (aidocks/plans/saves_plan.md).
 """
@@ -37,6 +39,8 @@ log = logging.getLogger('lanes')
 
 LANES = ('bgm', 'ambience1', 'ambience2', 'ambience3')
 OPEN_FADE = 0.5
+#: Seconds the idle loop fades out over as the next spiel begins.
+IDLE_FADE = 2.0
 #: How far back the position must move to count as a jump back, not jitter.
 JUMP_BACK = 0.05
 
@@ -78,9 +82,9 @@ class Lanes:
 
     # ---- following a spiel -------------------------------------------------------
     def begin_spiel(self, record):
-        """A spiel begins: remember what the lanes hold, take its events, and stop the idle
-        loop."""
-        self.stop_idle()
+        """A spiel begins: remember what the lanes hold, take its events, and fade the idle
+        loop out."""
+        self.stop_idle(fade_out=IDLE_FADE)
         self.opening = dict(self.holding)
         self.events = lane_events(record)
         self.last = -1.0
@@ -176,7 +180,7 @@ class Lanes:
         self.audio.slot('idleLoop').play(path)
         self.idle = soft
 
-    def stop_idle(self):
+    def stop_idle(self, fade_out=0.0):
         if self.idle is not None or self.audio.slot('idleLoop').playing:
-            self.audio.slot('idleLoop').stop()
+            self.audio.slot('idleLoop').stop(fade_out=fade_out)
         self.idle = None

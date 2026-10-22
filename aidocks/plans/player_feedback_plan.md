@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** section 1 built and passed 2026-10-22 (the dev: "The 3 click sound test past. Ready for section 2."); section 2 planned, not built. No section review, on the dev's word ("Please write this plan, then fix the first 2 things the player requested. No section review is required.").
+**Status:** section 1 built and passed 2026-10-22 (the dev: "The 3 click sound test past. Ready for section 2."); section 2 built 2026-10-22, waiting on its ear test. No section review, on the dev's word ("Please write this plan, then fix the first 2 things the player requested. No section review is required.").
 
 Plan 12. From a player's post on the forum after the second release, which the dev passed on, 2026-10-22: "When selecting something, the click sound should also play over the whistle cue. Also when pausing, it should also play the click over the pause sound." and "when you select something, the ambiance doesn't come back, leaving the game to just play the audio track of whatever choice without the ambiance over it."
 
@@ -41,6 +41,10 @@ Section 1, 2026-10-22:
 - `actions_menu.py`: `click_on_choose` and `click_on_back` are on, as in every other menu.
 - `player.py`: `pause(click=False)`; with `click`, `click-good` plays before `pause-pause`. `story_screen.py`'s `StoryScreen.pause()`, Escape's, passes it; `focus_lost()` does not.
 - Tests: two new, in `test_actions.py` and `test_keys.py`.
+
+Section 2, 2026-10-22:
+- `lanes.py`: `IDLE_FADE = 2.0`; `stop_idle(fade_out=0.0)`, and `begin_spiel()` passes `IDLE_FADE`. The slot is free at once and the loop fades on its own channel, as a lane's crossfade does, so a scene ending soon after can start its own idle loop. A rewind and leaving the story still stop it at once.
+- Tests: the idle loop test in `test_lanes.py` now checks the fade, and that `stop_idle()` alone is still at once.
 
 ## Built in sections
 

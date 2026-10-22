@@ -1,4 +1,5 @@
 unrelease:
+The sound that plays while the story waits for your choice fades out over 2 seconds as the next part begins, rather than stopping at once.
 Pausing the story with Escape plays the click with the pause sound.
 Choosing in the actions menu, or closing it, plays the click with its own sound.
 

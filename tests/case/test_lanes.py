@@ -155,15 +155,22 @@ def test_the_story_opening_fades_each_lane_in_over_half_a_second():
         a.close()
 
 
-def test_the_idle_loop_starts_and_stops_with_the_next_spiel():
+def test_the_idle_loop_starts_and_fades_out_over_2_seconds_with_the_next_spiel():
+    from heathcote.platform.lanes import IDLE_FADE
     a, lanes = fresh()
     try:
         lanes.start_idle(IDLE)
         idle = a.slot('idleLoop')
         assert idle.playing and lanes.idle == IDLE
         assert idle.channel.mode & a.fmod.flags.MODE.LOOP_NORMAL
+        channel = idle.channel
         lanes.begin_spiel({})
-        assert not idle.playing and lanes.idle is None
+        assert IDLE_FADE == 2.0
+        assert not idle.playing and lanes.idle is None          # the slot is free at once...
+        assert any(c is channel for c, *_rest in a.fading_out)  # ...and the loop fades out
+        lanes.start_idle(IDLE)
+        lanes.stop_idle()                                       # as a rewind: at once
+        assert not idle.playing and len(a.fading_out) == 1
     finally:
         a.close()
 
