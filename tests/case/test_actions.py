@@ -217,7 +217,7 @@ def test_the_actions_menu_screen_plays_clips_speaks_and_accepts():
         app.audio.close()
 
 
-def test_accepting_clicks_with_the_whistle_and_closing_does_not():
+def test_accepting_and_closing_click_with_their_own_sounds():
     from heathcote.game.story_screen import StoryScreen
     app = make_app()
     try:
@@ -228,8 +228,8 @@ def test_accepting_clicks_with_the_whistle_and_closing_does_not():
         story.player.play_sound = asked.append
         app.key_down('up', [])
         asked.clear()
-        app.key_down('escape', [])                          # close: menu-close alone
-        assert asked == ['menu-close']
+        app.key_down('escape', [])                          # close: the click, then menu-close
+        assert asked == ['click-good', 'menu-close']
         app.key_down('up', [])
         asked.clear()
         app.key_down('return', [])                          # accept: the click, then the whistle

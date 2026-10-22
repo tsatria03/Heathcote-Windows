@@ -32,10 +32,10 @@ REPEAT_AFTER = 7.0
 
 class ActionsMenu(Menu):
     name = 'actions menu'
-    # Moving clicks, under each choice's clip, as the original's dial did. Accepting clicks
-    # too, with menu-accepted, unlike the original (aidocks/plans/player_feedback_plan.md: "the
-    # click sound should also play over the whistle cue"); closing keeps menu-close alone.
-    click_on_back = False
+    # Moving clicks, under each choice's clip, as the original's dial did. Accepting and
+    # closing click too, with menu-accepted and menu-close, unlike the original
+    # (aidocks/plans/player_feedback_plan.md: "the click sound should also play over the
+    # whistle cue"; the dev: "It should also click when close a menu with choices.").
 
     def __init__(self, app, player, choices, clock=time.perf_counter):
         super().__init__(app)

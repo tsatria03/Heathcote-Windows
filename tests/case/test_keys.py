@@ -212,7 +212,9 @@ def test_escape_clicks_with_the_pause_sound_but_losing_the_window_does_not():
         story.player.play_sound = asked.append
         app.key_down('escape', [])
         assert asked == ['click-good', 'pause-pause']
-        app.key_down('return', [])                          # Resume, which clicks as any menu
+        asked.clear()
+        app.key_down('escape', [])                          # Escape resumes, and clicks too
+        assert asked == ['click-good', 'pause-unpause']
         asked.clear()
         story.focus_lost()
         assert asked == ['lost focus', 'pause-pause']

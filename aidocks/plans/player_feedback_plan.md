@@ -19,18 +19,18 @@ Plan 12. From a player's post on the forum after the second release, which the d
 ## Decided
 
 - **Section 1, the clicks:**
-  - Enter in the actions menu plays `click-good` with `menu-accepted`. Escape, closing it, keeps `menu-close` alone, as the player did not ask for it.
+  - Enter in the actions menu plays `click-good` with `menu-accepted`, and Escape, closing it, plays it with `menu-close` (the dev, 2026-10-22, after the first build left closing silent: "It should also click when close a menu with choices.").
   - Escape pausing the story plays `click-good` with `pause-pause`. A pause made by losing the window plays no click, as no key was pressed; it keeps `lost focus`.
-  - Resume already clicked, as Enter on Resume or Escape in the pause menu clicks like any menu's ([[menu_sounds_plan]]).
+  - Resuming clicks with `pause-unpause`, whether by Enter on Resume or by Escape in the pause menu ("Same for if you resume the game with escape."). It already did, as the pause menu clicks like any menu ([[menu_sounds_plan]]); a test now holds it.
   - Click sounds in Settings turns these clicks off with every other.
 - **Section 2, the idle loop:** it fades out over 2 seconds when the next spiel begins, rather than stopping at once, so the quiet comes on gently. It does not play on under the next spiel, as several would clash with what follows, such as `idle loop (dual calls (answer landline))` and the Judith loops. A rewind of an ended scene still stops it at once.
 
 ## Ear tests
 
 Section 1:
-1. Mandatory: choosing in the actions menu plays the click with the whistle.
-2. Mandatory: Escape pausing the story plays the click with the pause sound.
-3. Optional: with Click sounds off, neither plays a click, and the whistle and the pause sound stay.
+1. Mandatory: choosing in the actions menu plays the click with the whistle, and Escape closing it plays the click with its close sound.
+2. Mandatory: Escape pausing the story plays the click with the pause sound, and Escape resuming plays it with the unpause sound.
+3. Optional: with Click sounds off, none of these clicks plays, and the story's own sounds stay.
 
 Section 2:
 1. Mandatory: after a scene ends and its idle loop plays, choosing fades the loop out over about 2 seconds as the next part begins.
@@ -38,7 +38,7 @@ Section 2:
 ## What was built
 
 Section 1, 2026-10-22:
-- `actions_menu.py`: `click_on_choose` is on; `click_on_back` stays off.
+- `actions_menu.py`: `click_on_choose` and `click_on_back` are on, as in every other menu.
 - `player.py`: `pause(click=False)`; with `click`, `click-good` plays before `pause-pause`. `story_screen.py`'s `StoryScreen.pause()`, Escape's, passes it; `focus_lost()` does not.
 - Tests: two new, in `test_actions.py` and `test_keys.py`.
 

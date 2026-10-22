@@ -93,7 +93,7 @@ class Menu(Screen):
         self.say(self.row_text())
 
     #: The original's click on choosing and on going back (aidocks/plans/menu_sounds_plan.md);
-    #: the actions menu turns going back's off, as menu-close is its own sound for that.
+    #: a menu can turn either off.
     click_on_choose = True
     click_on_back = True
 
