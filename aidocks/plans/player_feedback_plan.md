@@ -6,7 +6,7 @@ metadata:
   type: project
 ---
 
-**Status:** section 1 built 2026-10-22, waiting on its ear tests; section 2 planned, not built. No section review, on the dev's word ("Please write this plan, then fix the first 2 things the player requested. No section review is required.").
+**Status:** section 1 built and passed 2026-10-22 (the dev: "The 3 click sound test past. Ready for section 2."); section 2 planned, not built. No section review, on the dev's word ("Please write this plan, then fix the first 2 things the player requested. No section review is required.").
 
 Plan 12. From a player's post on the forum after the second release, which the dev passed on, 2026-10-22: "When selecting something, the click sound should also play over the whistle cue. Also when pausing, it should also play the click over the pause sound." and "when you select something, the ambiance doesn't come back, leaving the game to just play the audio track of whatever choice without the ambiance over it."
 
