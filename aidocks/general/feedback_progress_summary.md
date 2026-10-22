@@ -38,4 +38,5 @@ metadata:
   - plan 9 finished (2026-10-21): each choice's text after its clip, in place of Space.
   - plan 10 finished (2026-10-21): Skip opening screens.
   - plan 11 finished (2026-10-21): menu clicks and the Click sounds setting.
+  - plan 12 finished (2026-10-22): a forum player's requests after the second release, the actions menu's and the pause's clicks and the idle loop's fade.
 - Playtesting the whole story, once it plays, may add work none of the plans counts; say so when it does.

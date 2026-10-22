@@ -13,9 +13,10 @@
 - [Developer tasks](project_dev_tasks.md): repository, tools, tests, build and docs tasks, kept out of the player todo list.
 
 ## Plans
-- [Player feedback](../plans/player_feedback_plan.md): plan 12, OPEN. A forum player's requests: clicks on choosing and closing in the actions menu and on Escape's pause (section 1, passed), and the idle loop fading out over 2 seconds as the next spiel begins (section 2, built, waiting on its ear test).
+- None open.
 
 ## Completed projects
+- [Player feedback](../plans/player_feedback_plan.md): plan 12, FINISHED 2026-10-22. A forum player's requests: click-good with choosing and closing in the actions menu and with Escape's pause and resume, and the idle loop fading out over 2 seconds as the next spiel begins; 225 silent tests.
 - [Menu sounds](../plans/menu_sounds_plan.md): plan 11, FINISHED 2026-10-21. click-good on moving, choosing and going back in every menu, with a Click sounds setting governing every click in the game; 223 silent tests.
 - [Skip opening](../plans/skip_opening_plan.md): plan 10, FINISHED 2026-10-21. A Skip opening screens setting after Debug mode; when on, the game starts at the main menu, the notice counted as shown; 221 silent tests.
 - [Choice text](../plans/choice_text_plan.md): plan 9, FINISHED 2026-10-21. In the actions menu, a choice's text is spoken after its clip, the first time only, never on the 7-second repeat; Space's choice_text action removed, and stale saved actions dropped from keys.json; 220 silent tests.

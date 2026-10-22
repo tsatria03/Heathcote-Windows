@@ -51,18 +51,20 @@ Playing the story
 
 The story plays by itself, one part after another.
 When a part ends and the story waits for you, you hear a short sound, and the same reminder every 7 seconds until you choose.
+Some parts leave a sound playing while the story waits, such as footsteps; it fades out over 2 seconds as the next part begins.
 Up or Enter opens the actions menu, where you choose what the presenter does next.
 In the actions menu, Up and Down move through the choices, as do Left and Right, and Home and End go to the first and last.
 Each choice is played in the original's own recorded voice, and the choice plays again after 7 seconds if you have not moved.
 Once a choice's recording has played, your screen reader speaks its words, the first time you land on it; moving on before the recording ends skips them.
 Enter chooses, and the story carries on with your choice.
 Escape closes the menu without choosing, and the story carries on where it was.
+Choosing and closing each play the click with their own sound, unless Click sounds is off.
 Some parts of the story must be heard before you can choose; while one plays, opening the menu is refused with a sound, until the story lets you.
 A part you have heard to its end before can always be interrupted.
 
 While the story plays:
 Left rewinds a few seconds, and Right fast-forwards for a moment, with the voices kept at their normal pitch.
-Escape pauses: the voice stops, the background sounds play on muffled, and the pause menu opens.
+Escape pauses: the voice stops, the background sounds play on muffled, and the pause menu opens, with the click and the pause sound.
 Tab says where you are: whether the story is playing, waiting at the end of a scene, or in the actions menu, with the chapter you are in, such as "Story is playing: working late.".
 Switching to another window pauses the story, and coming back to the game carries it on by itself; a pause you made with Escape stays until you resume.
 

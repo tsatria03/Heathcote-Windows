@@ -77,7 +77,10 @@ levels, and Volume speed, for how often a held volume key repeats. Then plan 9: 
 actions menu, each choice's text is spoken after its recording, the first time only, in
 place of Space. Then plan 10: Skip opening screens, in Settings, which starts the game at
 the main menu. Then plan 11: the original's click in every menu, and Click sounds, which
-turns every click in the game on or off. 223 silent tests.
+turns every click in the game on or off. Then plan 12, from a player's requests after the
+second release: the click with choosing and closing in the actions menu and with Escape's
+pause and resume, and the idle loop fading out over 2 seconds as the next spiel begins.
+225 silent tests.
 
 What was found in the original:
 

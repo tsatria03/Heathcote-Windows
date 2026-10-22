@@ -4,6 +4,7 @@ Nothing is waiting here right now. New bugs, planned changes and anything still 
 
 ##Finished.
 
+Choosing or closing in the actions menu, and pausing or resuming with Escape, play the click, and the sound that plays while the story waits fades out as the next part begins.
 Every menu clicks as you move, choose and go back, and Settings can turn every click off.
 Settings can skip the opening screens, so the game starts at the main menu.
 In the actions menu, each choice's words are spoken after its recording, the first time you land on it.
