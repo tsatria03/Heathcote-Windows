@@ -1,0 +1,52 @@
+---
+name: player_feedback_plan
+description: "Plan 12: a forum player's requests after the second release: clicks on choosing in the actions menu and on pausing, and the idle loop fading out when the next spiel begins."
+metadata:
+  node_type: memory
+  type: project
+---
+
+**Status:** section 1 built 2026-10-22, waiting on its ear tests; section 2 planned, not built. No section review, on the dev's word ("Please write this plan, then fix the first 2 things the player requested. No section review is required.").
+
+Plan 12. From a player's post on the forum after the second release, which the dev passed on, 2026-10-22: "When selecting something, the click sound should also play over the whistle cue. Also when pausing, it should also play the click over the pause sound." and "when you select something, the ambiance doesn't come back, leaving the game to just play the audio track of whatever choice without the ambiance over it."
+
+## What the original did
+
+- **Accepting a choice** played `menu-accepted` alone (+[StoryView acceptFromActionsDial], 0x10002477c); [[menu_sounds_plan]] kept the actions menu's Enter and Escape free of the click for that reason.
+- **Pausing** played `pause-pause` alone (+[StoryView pause], 0x1000252cc).
+- **The ambience.** Opening the actions menu hushes the music and the three ambiences, which play on muffled; accepting unhushes them. That works. What goes quiet after a choice is the **idle loop**, which plays only once a scene has ended with nothing to follow, such as `idle loop (footsteps)`, and stops the moment the next spiel begins (+[Sound playSpiel:], 0x100021af0), with no fade. The story data has 15 idle loops but only 36 ambience fades in 605 records, so many scenes have no ambience under the voices at all, by the original's design ([[project_original_behaviour]]).
+
+## Decided
+
+- **Section 1, the clicks:**
+  - Enter in the actions menu plays `click-good` with `menu-accepted`. Escape, closing it, keeps `menu-close` alone, as the player did not ask for it.
+  - Escape pausing the story plays `click-good` with `pause-pause`. A pause made by losing the window plays no click, as no key was pressed; it keeps `lost focus`.
+  - Resume already clicked, as Enter on Resume or Escape in the pause menu clicks like any menu's ([[menu_sounds_plan]]).
+  - Click sounds in Settings turns these clicks off with every other.
+- **Section 2, the idle loop:** it fades out over 2 seconds when the next spiel begins, rather than stopping at once, so the quiet comes on gently. It does not play on under the next spiel, as several would clash with what follows, such as `idle loop (dual calls (answer landline))` and the Judith loops. A rewind of an ended scene still stops it at once.
+
+## Ear tests
+
+Section 1:
+1. Mandatory: choosing in the actions menu plays the click with the whistle.
+2. Mandatory: Escape pausing the story plays the click with the pause sound.
+3. Optional: with Click sounds off, neither plays a click, and the whistle and the pause sound stay.
+
+Section 2:
+1. Mandatory: after a scene ends and its idle loop plays, choosing fades the loop out over about 2 seconds as the next part begins.
+
+## What was built
+
+Section 1, 2026-10-22:
+- `actions_menu.py`: `click_on_choose` is on; `click_on_back` stays off.
+- `player.py`: `pause(click=False)`; with `click`, `click-good` plays before `pause-pause`. `story_screen.py`'s `StoryScreen.pause()`, Escape's, passes it; `focus_lost()` does not.
+- Tests: two new, in `test_actions.py` and `test_keys.py`.
+
+## Built in sections
+
+1. The clicks.
+2. The idle loop's fade.
+
+## Open questions
+
+None.

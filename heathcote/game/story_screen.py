@@ -297,7 +297,7 @@ class StoryScreen(Screen):
             self.stack.push(ActionsMenu(self.app, self.player, choices))
 
     def pause(self):
-        if self.player.pause():
+        if self.player.pause(click=True):
             self.stack.push(PauseMenu(self.app, self))
 
     def focus_lost(self):

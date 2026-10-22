@@ -1,4 +1,6 @@
 unrelease:
+Pausing the story with Escape plays the click with the pause sound.
+Choosing in the actions menu plays the click with its accept sound.
 
 26.10.21-2:
 Every menu plays the original's click as you move, choose and go back, and Click sounds in Settings turns every click in the game on or off.

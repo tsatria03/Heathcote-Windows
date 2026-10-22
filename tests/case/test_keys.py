@@ -201,6 +201,26 @@ def test_escape_pauses_with_the_pause_menu_and_resume_plays_on():
         app.audio.close()
 
 
+def test_escape_clicks_with_the_pause_sound_but_losing_the_window_does_not():
+    from heathcote.game.story_screen import StoryScreen
+    app = make_app()
+    try:
+        story = StoryScreen(app)
+        app.stack.push(story)
+        asked = []
+        app.play_sound = asked.append
+        story.player.play_sound = asked.append
+        app.key_down('escape', [])
+        assert asked == ['click-good', 'pause-pause']
+        app.key_down('return', [])                          # Resume, which clicks as any menu
+        asked.clear()
+        story.focus_lost()
+        assert asked == ['lost focus', 'pause-pause']
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
 def test_the_keys_reach_the_player_and_tab_speaks():
     from heathcote.game.story_screen import StoryScreen
     app = make_app()

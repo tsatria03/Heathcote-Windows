@@ -322,17 +322,20 @@ class StoryPlayer:
     def paused(self):
         return self.audio.story_paused
 
-    def pause(self):
+    def pause(self, click=False):
         """Escape: pause as the original (+[StoryView pause], 0x1000252cc), the backgrounds
         hushed and playing on, the spiel stopped, and pause-pause played. Refused with
         click-bad during the grace after a refused menu (-[PlayState down], 0x100033a40).
-        True when it paused."""
+        ``click`` plays click-good with pause-pause, for a pause made with a key, unlike the
+        original (aidocks/plans/player_feedback_plan.md). True when it paused."""
         if self.paused:
             return False
         if self.in_grace:
             self.play_sound('click-bad')
             return False
         self.audio.pause_story()
+        if click:
+            self.play_sound('click-good')
         self.play_sound('pause-pause')
         return True
 

@@ -217,6 +217,28 @@ def test_the_actions_menu_screen_plays_clips_speaks_and_accepts():
         app.audio.close()
 
 
+def test_accepting_clicks_with_the_whistle_and_closing_does_not():
+    from heathcote.game.story_screen import StoryScreen
+    app = make_app()
+    try:
+        story = StoryScreen(app)
+        app.stack.push(story)
+        asked = []
+        app.play_sound = asked.append
+        story.player.play_sound = asked.append
+        app.key_down('up', [])
+        asked.clear()
+        app.key_down('escape', [])                          # close: menu-close alone
+        assert asked == ['menu-close']
+        app.key_down('up', [])
+        asked.clear()
+        app.key_down('return', [])                          # accept: the click, then the whistle
+        assert asked == ['click-good', 'menu-accepted']
+    finally:
+        app.stack.clear()
+        app.audio.close()
+
+
 def until_text_or(app, menu, seconds):
     """Run the audio and the menu for up to ``seconds``, stopping once something is said."""
     import time
